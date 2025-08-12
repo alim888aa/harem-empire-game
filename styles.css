@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #8B4513, #DAA520);
+    min-height: 100vh;
+    color: #2F1B14;
+}
+
+#game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: rgba(139, 69, 19, 0.9);
+    color: #F5DEB3;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#game-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#game-stats span {
+    background: rgba(218, 165, 32, 0.8);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #2F1B14;
+}
+
+.screen {
+    background: rgba(245, 222, 179, 0.95);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    display: block;
+    width: 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#game-screen {
+    min-height: 500px;
+}
+
+#character-selection {
+    min-height: 400px;
+}
+
+/* Character Selection */
+.character-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.character-btn {
+    background: linear-gradient(145deg, #DAA520, #B8860B);
+    border: none;
+    border-radius: 15px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.character-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    background: linear-gradient(145deg, #FFD700, #DAA520);
+}
+
+.character-btn h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #2F1B14;
+}
+
+.character-btn p {
+    margin: 5px 0;
+    color: #4A4A4A;
+}
+
+/* Game Screen */
+#character-interactions h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #8B4513;
+    font-size: 1.8em;
+}
+
+#character-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.character-interaction {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid #DAA520;
+    transition: transform 0.2s ease;
+}
+
+.character-interaction:hover {
+    transform: scale(1.02);
+}
+
+.character-info h4 {
+    color: #8B4513;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+
+.character-info p {
+    margin: 4px 0;
+    color: #666;
+}
+
+.character-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.gift-btn, .spit-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.2s ease;
+}
+
+.gift-btn {
+    background: #32CD32;
+    color: white;
+}
+
+.gift-btn:hover {
+    background: #228B22;
+}
+
+.spit-btn {
+    background: #DC143C;
+    color: white;
+}
+
+.spit-btn:hover {
+    background: #B22222;
+}
+
+.season-controls {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#next-season {
+    background: linear-gradient(145deg, #8B4513, #A0522D);
+    color: #F5DEB3;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+#next-season:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Modals */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #F5DEB3;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 500px;
+    margin: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.modal-content h3 {
+    color: #8B4513;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    color: #4A4A4A;
+}
+
+.emperor-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.modal button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.2s ease;
+}
+
+#give-emperor-gifts, #accept-promotion, #restart-game {
+    background: #32CD32;
+    color: white;
+}
+
+#give-emperor-gifts:hover, #accept-promotion:hover, #restart-game:hover {
+    background: #228B22;
+}
+
+.danger {
+    background: #DC143C !important;
+    color: white;
+}
+
+.danger:hover {
+    background: #B22222 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #game-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .character-options {
+        grid-template-columns: 1fr;
+    }
+    
+    #character-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .character-actions {
+        flex-direction: column;
+    }
+    
+    .emperor-actions {
+        flex-direction: column;
+    }
+}
