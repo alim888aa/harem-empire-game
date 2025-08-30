@@ -113,17 +113,26 @@ class HaremEmpireGame {
             charDiv.className = 'character-interaction';
 
             const giftCost = character.type === 'side' ? 5 : 1;
-            const supportGain = 10; // Both types give 10 support points when gift requirements are met
+            const supportGain = 10;
+            
+            // NEW: Get personality hints
+            const personalityHints = character.getPersonalityHints();
 
             charDiv.innerHTML = `
                 <div class="character-info">
                     <h4>${character.name}</h4>
                     <p>Type: ${character.type}</p>
                     <p>Support: ${character.supportPoints}</p>
+                    <p class="personality-hint" style="font-style: italic; color: #666;">
+                        Personality: ${personalityHints}
+                    </p>
                 </div>
                 <div class="character-actions">
                     <button class="gift-btn" data-character="${character.name}" data-cost="${giftCost}" data-support="${supportGain}">
-                        Give Gift (${giftCost} gifts, +${supportGain} support)
+                        Give Gift (${giftCost} gifts)
+                    </button>
+                    <button class="message-btn" data-character="${character.name}" data-cost="${giftCost}" data-support="${supportGain}">
+                        Gift with Message (${giftCost} gifts)
                     </button>
                     <button class="spit-btn" data-character="${character.name}">
                         Spit in Face (-20 support)
@@ -147,6 +156,15 @@ class HaremEmpireGame {
             });
         });
 
+        document.querySelectorAll('.message-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const character = e.target.dataset.character;
+                const cost = parseInt(e.target.dataset.cost);
+                const support = parseInt(e.target.dataset.support);
+                this.showMessageModal(character, cost, support);
+            });
+        });
+
         document.querySelectorAll('.spit-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const character = e.target.dataset.character;
@@ -154,16 +172,183 @@ class HaremEmpireGame {
             });
         });
     }
+    
+    showMessageModal(characterName, cost, support) {
+        // Create modal HTML
+        const modalHTML = `
+            <div id="message-modal" class="modal">
+                <div class="modal-content">
+                    <h3>Send Message to ${characterName}</h3>
+                    <p>What would you like to say with your gift?</p>
+                    <textarea id="player-message" placeholder="Enter your message here..." style="width: 100%; height: 100px; margin: 10px 0;"></textarea>
+                    <p style="font-size: 12px; color: #666;">
+                        Tip: Try words like "change", "weak", "honor", "serve", "dangerous", etc. to see different reactions!
+                    </p>
+                    <div class="message-actions">
+                        <button id="send-message">Send Gift with Message</button>
+                        <button id="cancel-message">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Add modal to page
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        
+        // Bind modal events
+        document.getElementById('send-message').addEventListener('click', () => {
+            const message = document.getElementById('player-message').value.trim();
+            if (message) {
+                this.giveGift(characterName, cost, support, message);
+            } else {
+                alert('Please enter a message!');
+                return;
+            }
+            document.getElementById('message-modal').remove();
+        });
+        
+        document.getElementById('cancel-message').addEventListener('click', () => {
+            document.getElementById('message-modal').remove();
+        });
+        
+        // Focus on textarea
+        setTimeout(() => {
+            document.getElementById('player-message').focus();
+        }, 100);
+    }
 
-    giveGift(characterName, cost, supportGain) {
+    giveGift(characterName, cost, supportGain, playerMessage = "") {
         if (this.player.giftsRemaining >= cost) {
+            const character = this.characters.getCharacter(characterName);
+            
+            // NEW: Vector-based response calculation
+            let actualSupportGain = supportGain;
+            let characterResponse = "";
+            
+            if (playerMessage) {
+                const response = this.analyzeMessage(playerMessage, character.vector);
+                
+                // Apply vector changes
+                character.updateVector(response.vectorChanges);
+                
+                // Modify support gain based on message
+                actualSupportGain = Math.round(supportGain * response.supportMultiplier);
+                
+                // Get character response
+                characterResponse = this.getResponseByType(character, response.responseType);
+            }
+            
             this.player.giftsRemaining -= cost;
-            this.characters.giveSupport(characterName, supportGain);
+            this.characters.giveSupport(characterName, actualSupportGain);
+            
+            // Show character response if there was a message
+            if (characterResponse) {
+                setTimeout(() => {
+                    alert(characterResponse);
+                }, 100);
+            }
+            
             this.updateUI();
             this.renderCharacterInteractions();
         } else {
             alert('Not enough gifts remaining!');
         }
+    }
+    
+    analyzeMessage(message, characterVector) {
+        const lowerMessage = message.toLowerCase();
+        let vectorChanges = {};
+        let supportMultiplier = 1;
+        let responseType = 'neutral';
+        
+        // Define keyword categories
+        const rebelliousWords = ['change', 'weak', 'revolution', 'overthrow', 'corrupt', 'failing', 'reform'];
+        const loyalWords = ['honor', 'serve', 'emperor', 'duty', 'faithful', 'empire', 'tradition'];
+        const fearWords = ['dangerous', 'careful', 'secret', 'risk', 'enemies', 'watch'];
+        
+        const hasRebellious = rebelliousWords.some(word => lowerMessage.includes(word));
+        const hasLoyal = loyalWords.some(word => lowerMessage.includes(word));
+        const hasFear = fearWords.some(word => lowerMessage.includes(word));
+        
+        if (hasRebellious) {
+            if (characterVector.ambition > 0.6 && characterVector.loyalty < 0.5) {
+                // Rebel-minded character likes rebellious talk
+                vectorChanges.trust = 0.2;
+                vectorChanges.ambition = 0.1;
+                supportMultiplier = 2;
+                responseType = 'rebel_positive';
+            } else if (characterVector.loyalty > 0.7) {
+                // Loyal character is suspicious of rebellious talk
+                vectorChanges.trust = -0.3;
+                vectorChanges.fear = 0.2;
+                supportMultiplier = 0.3;
+                responseType = 'loyal_suspicious';
+            }
+        }
+        
+        if (hasLoyal) {
+            if (characterVector.loyalty > 0.6) {
+                // Loyal character appreciates loyal talk
+                vectorChanges.trust = 0.2;
+                supportMultiplier = 1.5;
+                responseType = 'loyal_positive';
+            } else if (characterVector.ambition > 0.7 && characterVector.loyalty < 0.4) {
+                // Ambitious, disloyal character sees loyal talk as naive
+                vectorChanges.trust = -0.1;
+                supportMultiplier = 0.7;
+                responseType = 'ambitious_dismissive';
+            }
+        }
+        
+        if (hasFear) {
+            if (characterVector.fear > 0.6) {
+                // Fearful character appreciates caution
+                vectorChanges.trust = 0.1;
+                vectorChanges.fear = -0.1; // Feels safer
+                supportMultiplier = 1.3;
+                responseType = 'fearful_appreciative';
+            }
+        }
+        
+        return { vectorChanges, supportMultiplier, responseType };
+    }
+    
+    getResponseByType(character, responseType) {
+        const responses = {
+            rebel_positive: [
+                `${character.name}: "Finally, someone who sees the truth! These are dangerous words, but necessary ones."`,
+                `${character.name}: "Your courage in speaking such thoughts... perhaps we understand each other."`,
+                `${character.name}: "The current order is indeed fragile. We should discuss this further."`
+            ],
+            loyal_suspicious: [
+                `${character.name}: "Such talk makes me very uncomfortable. I hope you're not serious about this."`,
+                `${character.name}: "I... I think we should speak of other matters. The walls have ears."`,
+                `${character.name}: "Your words border on treason. I cannot support such thinking."`
+            ],
+            loyal_positive: [
+                `${character.name}: "Your loyalty to the empire is admirable. We need more people like you."`,
+                `${character.name}: "It's refreshing to meet someone who understands duty and honor."`,
+                `${character.name}: "The empire is blessed to have servants like you."`
+            ],
+            ambitious_dismissive: [
+                `${character.name}: "Such noble words... though I wonder if you truly understand how power works."`,
+                `${character.name}: "Loyalty is admirable, but perhaps naive in these times."`,
+                `${character.name}: "Your idealism is... charming."`
+            ],
+            fearful_appreciative: [
+                `${character.name}: "Yes, we must be very careful. Thank you for understanding the dangers."`,
+                `${character.name}: "Finally, someone who sees the risks we all face."`,
+                `${character.name}: "Your caution shows wisdom. We must watch our steps."`
+            ],
+            neutral: [
+                `${character.name}: "Thank you for the gift. Your words are... interesting."`,
+                `${character.name}: "I appreciate your generosity and your thoughts."`,
+                `${character.name}: "Your gift is welcome, as are your words."`
+            ]
+        };
+        
+        const responseList = responses[responseType] || responses.neutral;
+        return responseList[Math.floor(Math.random() * responseList.length)];
     }
 
     spitInFace(characterName) {

@@ -148,7 +148,7 @@ header h1 {
     flex-wrap: wrap;
 }
 
-.gift-btn, .spit-btn {
+.gift-btn, .message-btn, .spit-btn {
     padding: 8px 16px;
     border: none;
     border-radius: 8px;
@@ -164,6 +164,15 @@ header h1 {
 
 .gift-btn:hover {
     background: #228B22;
+}
+
+.message-btn {
+    background: #4169E1;
+    color: white;
+}
+
+.message-btn:hover {
+    background: #1E90FF;
 }
 
 .spit-btn {
@@ -247,6 +256,32 @@ header h1 {
     cursor: pointer;
     font-size: 1em;
     transition: all 0.2s ease;
+}
+
+.message-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+#send-message {
+    background: #4169E1;
+    color: white;
+}
+
+#send-message:hover {
+    background: #1E90FF;
+}
+
+#cancel-message {
+    background: #666;
+    color: white;
+}
+
+#cancel-message:hover {
+    background: #555;
 }
 
 #give-emperor-gifts, #accept-promotion, #restart-game {
