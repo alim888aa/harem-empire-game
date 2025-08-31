@@ -3,11 +3,11 @@ class Character {
     constructor(name, type, supportPoints = 0) {
         this.name = name;
         this.type = type;
-        this.supportPoints = supportPoints;
         this.isAlive = true;
 
         // NEW: Vector personality system
         this.vector = this.generateInitialVector(type, name);
+        this.relationshipVector = this.generateInitialRelationshipVector(type);
         this.interactionHistory = [];
     }
 
@@ -19,7 +19,8 @@ class Character {
                 fear: 0.2 + Math.random() * 0.3,
                 ambition: 0.6 + Math.random() * 0.3,
                 loyalty: 0.4 + Math.random() * 0.4,
-                influence: 0.7 + Math.random() * 0.3
+                influence: 0.7 + Math.random() * 0.3,
+                suspicion: 0 // Everyone starts with no suspicion
             },
 
             // Minor characters: Vary by their role
@@ -28,7 +29,8 @@ class Character {
                 fear: 0.3 + Math.random() * 0.4,
                 ambition: 0.3 + Math.random() * 0.6,
                 loyalty: 0.4 + Math.random() * 0.5,
-                influence: 0.1 + Math.random() * 0.3
+                influence: 0.1 + Math.random() * 0.3,
+                suspicion: 0
             },
 
             // Guide characters: Helpful but cautious
@@ -37,7 +39,8 @@ class Character {
                 fear: 0.4 + Math.random() * 0.3,
                 ambition: 0.1 + Math.random() * 0.3,
                 loyalty: 0.5 + Math.random() * 0.3,
-                influence: 0.2 + Math.random() * 0.2
+                influence: 0.2 + Math.random() * 0.2,
+                suspicion: 0
             },
 
             // Emperor: Maximum power and paranoia
@@ -46,7 +49,8 @@ class Character {
                 fear: 0.3 + Math.random() * 0.4,
                 ambition: 0.9 + Math.random() * 0.1,
                 loyalty: 1.0, // Loyal to themselves
-                influence: 1.0
+                influence: 1.0,
+                suspicion: 0
             }
         };
 
@@ -87,11 +91,62 @@ class Character {
         return baseVector;
     }
 
+    // NEW: Generate initial relationship vectors with player
+    generateInitialRelationshipVector(type) {
+        const baseRelationships = {
+            side: {
+                trustInPlayer: 0.15 + Math.random() * 0.25,     // Increased from 0.1-0.3
+                loyaltyToPlayer: 0.05 + Math.random() * 0.15,   // Increased from 0.0-0.1
+                fearOfPlayer: 0.1 + Math.random() * 0.2,        // Same
+                dependenceOnPlayer: 0.05 + Math.random() * 0.15 // Increased from 0.0-0.1
+            },
+            minor: {
+                trustInPlayer: 0.25 + Math.random() * 0.25,     // Increased from 0.2-0.5
+                loyaltyToPlayer: 0.05 + Math.random() * 0.15,   // Increased from 0.0-0.1
+                fearOfPlayer: 0.1 + Math.random() * 0.3,        // Same
+                dependenceOnPlayer: 0.15 + Math.random() * 0.20 // Increased from 0.1-0.3
+            },
+            guide: {
+                trustInPlayer: 0.5 + Math.random() * 0.3,       // Same
+                loyaltyToPlayer: 0.15 + Math.random() * 0.20,   // Increased from 0.1-0.3
+                fearOfPlayer: 0.2 + Math.random() * 0.2,        // Same
+                dependenceOnPlayer: 0.25 + Math.random() * 0.20 // Increased from 0.2-0.4
+            },
+            emperor: {
+                trustInPlayer: 0.0,                             // Emperor trusts no one
+                loyaltyToPlayer: 0.0,                           // Only loyal to self
+                fearOfPlayer: 0.0,                              // Fears no one
+                dependenceOnPlayer: 0.0                         // Completely independent
+            }
+        };
+
+        return baseRelationships[type] || baseRelationships.minor;
+    }
+
+    // NEW: Calculate support level from relationship vectors (trust-weighted)
+    get supportLevel() {
+        return Math.min(100, Math.round(
+            (this.relationshipVector.trustInPlayer * 50) +      // Increased from 40
+            (this.relationshipVector.loyaltyToPlayer * 25) +    // Decreased from 30
+            (this.relationshipVector.dependenceOnPlayer * 15) + // Decreased from 20
+            ((1 - this.relationshipVector.fearOfPlayer) * 10)   // Unchanged
+        ));
+    }
+
     // Update vector based on interactions
     updateVector(changes) {
         Object.keys(changes).forEach(key => {
             if (this.vector[key] !== undefined) {
                 this.vector[key] = Math.max(0, Math.min(1, this.vector[key] + changes[key]));
+            }
+        });
+    }
+
+    // NEW: Update relationship vector with player
+    updateRelationshipVector(changes) {
+        Object.keys(changes).forEach(key => {
+            if (this.relationshipVector[key] !== undefined) {
+                this.relationshipVector[key] = Math.max(0, Math.min(1, this.relationshipVector[key] + changes[key]));
             }
         });
     }
@@ -106,8 +161,27 @@ class Character {
         if (this.vector.fear > 0.7) hints.push("Fearful");
         if (this.vector.trust > 0.7) hints.push("Trusting");
         if (this.vector.influence > 0.7) hints.push("Influential");
+        if (this.vector.suspicion > 0.5) hints.push("Suspicious");
 
         return hints.join(", ") || "Neutral";
+    }
+
+    // NEW: Get detailed stats for display when trust is high enough
+    getDetailedStats() {
+        return {
+            // Personality vectors
+            fear: Math.round(this.vector.fear * 100),
+            ambition: Math.round(this.vector.ambition * 100),
+            loyalty: Math.round(this.vector.loyalty * 100),
+            influence: Math.round(this.vector.influence * 100),
+            suspicion: Math.round(this.vector.suspicion * 100),
+
+            // Relationship vectors
+            trustInPlayer: Math.round(this.relationshipVector.trustInPlayer * 100),
+            loyaltyToPlayer: Math.round(this.relationshipVector.loyaltyToPlayer * 100),
+            fearOfPlayer: Math.round(this.relationshipVector.fearOfPlayer * 100),
+            dependenceOnPlayer: Math.round(this.relationshipVector.dependenceOnPlayer * 100)
+        };
     }
 }
 
@@ -179,21 +253,5 @@ class GameCharacters {
         }
     }
 
-    giveSupport(characterName, points) {
-        const character = this.getCharacter(characterName);
-        if (character) {
-            character.supportPoints += points;
-            return true;
-        }
-        return false;
-    }
-
-    removeSupport(characterName, points) {
-        const character = this.getCharacter(characterName);
-        if (character) {
-            character.supportPoints = Math.max(0, character.supportPoints - points);
-            return true;
-        }
-        return false;
-    }
+    // REMOVED: Old support system - now calculated from relationship vectors
 }

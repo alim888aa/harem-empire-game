@@ -9,7 +9,15 @@ class HaremEmpireGame {
             supportPoints: 0,
             giftsRemaining: 15,
             season: 1,
-            isAlive: true
+            isAlive: true,
+            // Player vector system
+            vector: null,
+            reputation: {
+                perceivedLoyalty: 0.5,
+                perceivedThreat: 0.3,
+                politicalSkill: 0.4,
+                trustworthiness: 0.6
+            }
         };
         this.rankProgression = {
             concubine: ['Concubine', 'Empress Consort', 'Emperor'],
@@ -69,10 +77,81 @@ class HaremEmpireGame {
         console.log('startGame called with:', type);
         this.player.type = type;
         this.player.rank = this.rankProgression[type][0];
+        this.player.vector = this.initializePlayerVector(type); // NEW
         console.log('Player rank set to:', this.player.rank);
         this.updateUI();
         this.showGameScreen();
         this.renderCharacterInteractions();
+    }
+
+    // NEW: Initialize player vector based on starting path
+    initializePlayerVector(type) {
+        const playerVectors = {
+            prince: {
+                loyalty: 0.8,
+                ambition: 0.6,
+                influence: 0.7,
+                suspicion: 0.1,
+                fear: 0.2
+            },
+            minister: {
+                loyalty: 0.5,
+                ambition: 0.8,
+                influence: 0.5,
+                suspicion: 0.2,
+                fear: 0.3
+            },
+            concubine: {
+                loyalty: 0.3,
+                ambition: 0.7,
+                influence: 0.2,
+                suspicion: 0.4,
+                fear: 0.5
+            }
+        };
+        
+        return playerVectors[type] || playerVectors.minister;
+    }
+
+    // NEW: Get player relationship bonuses based on character type
+    getPlayerRelationshipBonus() {
+        const bonuses = {
+            prince: {
+                trustMultiplier: 1.5,    // Princes build trust 50% faster
+                loyaltyMultiplier: 1.3,  // Natural authority
+                dependenceMultiplier: 1.2,
+                description: "Royal blood commands respect"
+            },
+            minister: {
+                trustMultiplier: 1.2,    // Ministers are skilled politicians
+                loyaltyMultiplier: 1.0,  // Standard loyalty building
+                dependenceMultiplier: 1.4, // Good at creating dependencies
+                description: "Political experience helps"
+            },
+            concubine: {
+                trustMultiplier: 0.8,    // Harder to build trust (vulnerable position)
+                loyaltyMultiplier: 0.9,  // Harder to inspire loyalty
+                dependenceMultiplier: 1.1, // Slight advantage in creating dependence
+                description: "Must work harder for respect"
+            }
+        };
+        
+        return bonuses[this.player.type] || bonuses.minister;
+    }
+
+    // NEW: Compound growth bonus based on existing trust (like old trust bonuses)
+    getTrustCompoundBonus(character) {
+        const currentTrust = character.relationshipVector.trustInPlayer;
+        
+        if (currentTrust >= 0.8) {
+            return 1.8; // 80% bonus for high trust relationships
+        } else if (currentTrust >= 0.6) {
+            return 1.4; // 40% bonus for medium trust relationships
+        } else if (currentTrust >= 0.4) {
+            return 1.2; // 20% bonus for developing relationships
+        } else {
+            return 1.0; // No bonus for low trust
+        }
     }
 
     showCharacterSelection() {
@@ -115,17 +194,34 @@ class HaremEmpireGame {
             const giftCost = character.type === 'side' ? 5 : 1;
             const supportGain = 10;
             
-            // NEW: Get personality hints
+            // NEW: Get personality hints and detailed stats
             const personalityHints = character.getPersonalityHints();
+            const canShowStats = character.relationshipVector.trustInPlayer >= 0.5;
+            
+            let statsDisplay = '';
+            if (canShowStats) {
+                const stats = character.getDetailedStats();
+                statsDisplay = `
+                    <div class="character-stats" style="font-size: 11px; color: #444; margin-top: 8px; border-top: 1px solid #ccc; padding-top: 5px;">
+                        <p><strong>Relationship:</strong></p>
+                        <p>Trust: ${stats.trustInPlayer}% | Loyalty: ${stats.loyaltyToPlayer}%</p>
+                        <p>Fear: ${stats.fearOfPlayer}% | Dependence: ${stats.dependenceOnPlayer}%</p>
+                        <p><strong>Personality:</strong></p>
+                        <p>Ambition: ${stats.ambition}% | Empire Loyalty: ${stats.loyalty}%</p>
+                        <p>Influence: ${stats.influence}% | Suspicion: ${stats.suspicion}%</p>
+                    </div>
+                `;
+            }
 
             charDiv.innerHTML = `
                 <div class="character-info">
                     <h4>${character.name}</h4>
                     <p>Type: ${character.type}</p>
-                    <p>Support: ${character.supportPoints}</p>
+                    <p><strong>Support: ${character.supportLevel}/100</strong></p>
                     <p class="personality-hint" style="font-style: italic; color: #666;">
                         Personality: ${personalityHints}
                     </p>
+                    ${statsDisplay}
                 </div>
                 <div class="character-actions">
                     <button class="gift-btn" data-character="${character.name}" data-cost="${giftCost}" data-support="${supportGain}">
@@ -174,50 +270,81 @@ class HaremEmpireGame {
     }
     
     showMessageModal(characterName, cost, support) {
-        // Create modal HTML
+        const character = this.characters.getCharacter(characterName);
+        const messageOptions = this.generateMessageOptions();
+        
         const modalHTML = `
             <div id="message-modal" class="modal">
                 <div class="modal-content">
-                    <h3>Send Message to ${characterName}</h3>
-                    <p>What would you like to say with your gift?</p>
-                    <textarea id="player-message" placeholder="Enter your message here..." style="width: 100%; height: 100px; margin: 10px 0;"></textarea>
-                    <p style="font-size: 12px; color: #666;">
-                        Tip: Try words like "change", "weak", "honor", "serve", "dangerous", etc. to see different reactions!
-                    </p>
-                    <div class="message-actions">
-                        <button id="send-message">Send Gift with Message</button>
-                        <button id="cancel-message">Cancel</button>
+                    <h3>Choose Your Message to ${characterName}</h3>
+                    <p>What approach will you take with your gift?</p>
+                    <div class="message-options" style="display: flex; flex-direction: column; gap: 10px; margin: 20px 0;">
+                        ${messageOptions.map((message, index) => `
+                            <button class="message-option" data-index="${index}" style="padding: 15px; text-align: left; border: 2px solid #DAA520; border-radius: 8px; background: #F5DEB3; cursor: pointer; transition: all 0.2s ease;">
+                                "${message.text}"
+                            </button>
+                        `).join('')}
                     </div>
+                    <button id="cancel-message" style="padding: 10px 20px; background: #666; color: white; border: none; border-radius: 5px; cursor: pointer;">Cancel</button>
                 </div>
             </div>
         `;
         
-        // Add modal to page
         document.body.insertAdjacentHTML('beforeend', modalHTML);
         
-        // Bind modal events
-        document.getElementById('send-message').addEventListener('click', () => {
-            const message = document.getElementById('player-message').value.trim();
-            if (message) {
-                this.giveGift(characterName, cost, support, message);
-            } else {
-                alert('Please enter a message!');
-                return;
-            }
-            document.getElementById('message-modal').remove();
+        // Add hover effects
+        document.querySelectorAll('.message-option').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.style.background = '#DAA520';
+                btn.style.color = 'white';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.background = '#F5DEB3';
+                btn.style.color = 'black';
+            });
+        });
+        
+        // Bind events
+        document.querySelectorAll('.message-option').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const messageIndex = parseInt(e.target.dataset.index);
+                this.giveGift(characterName, cost, support, messageIndex);
+                document.getElementById('message-modal').remove();
+            });
         });
         
         document.getElementById('cancel-message').addEventListener('click', () => {
             document.getElementById('message-modal').remove();
         });
-        
-        // Focus on textarea
-        setTimeout(() => {
-            document.getElementById('player-message').focus();
-        }, 100);
     }
 
-    giveGift(characterName, cost, supportGain, playerMessage = "") {
+    // NEW: Generate universal message options
+    generateMessageOptions() {
+        return [
+            {
+                text: "Your talents deserve greater recognition",
+                type: "ambitious",
+                keywords: ["talents", "recognition", "deserve"]
+            },
+            {
+                text: "Your dedication to the empire inspires me", 
+                type: "loyal",
+                keywords: ["empire", "dedication", "inspire"]
+            },
+            {
+                text: "We must be careful in these dangerous times",
+                type: "cautious", 
+                keywords: ["careful", "dangerous", "times"]
+            },
+            {
+                text: "Perhaps we can help each other prosper",
+                type: "neutral",
+                keywords: ["help", "prosper", "together"]
+            }
+        ];
+    }
+
+    giveGift(characterName, cost, supportGain, messageIndex = -1) {
         if (this.player.giftsRemaining >= cost) {
             const character = this.characters.getCharacter(characterName);
             
@@ -225,21 +352,36 @@ class HaremEmpireGame {
             let actualSupportGain = supportGain;
             let characterResponse = "";
             
-            if (playerMessage) {
-                const response = this.analyzeMessage(playerMessage, character.vector);
+            if (messageIndex >= 0) {
+                const messageOptions = this.generateMessageOptions();
+                const response = this.analyzeMessageChoice(messageIndex, character, messageOptions);
                 
-                // Apply vector changes
+                // Apply personality vector changes (suspicion, etc.)
                 character.updateVector(response.vectorChanges);
                 
-                // Modify support gain based on message
-                actualSupportGain = Math.round(supportGain * response.supportMultiplier);
+                // Apply relationship vector changes
+                character.updateRelationshipVector(response.relationshipChanges);
                 
                 // Get character response
                 characterResponse = this.getResponseByType(character, response.responseType);
+                
+                // Update player vector based on action
+                this.updatePlayerVector(messageOptions[messageIndex].type, character);
+                
+                // Check for execution after interaction
+                if (this.checkForExecution()) return;
+            } else {
+                // Simple gift without message - improved base impact
+                const playerBonus = this.getPlayerRelationshipBonus();
+                const trustBonus = this.getTrustCompoundBonus(character);
+                
+                character.updateRelationshipVector({ 
+                    trustInPlayer: (0.08 * playerBonus.trustMultiplier * trustBonus),
+                    dependenceOnPlayer: (0.05 * playerBonus.dependenceMultiplier * trustBonus)
+                });
             }
             
             this.player.giftsRemaining -= cost;
-            this.characters.giveSupport(characterName, actualSupportGain);
             
             // Show character response if there was a message
             if (characterResponse) {
@@ -254,79 +396,161 @@ class HaremEmpireGame {
             alert('Not enough gifts remaining!');
         }
     }
+
+    // REMOVED: Support is now calculated from relationship vectors
+
+    // NEW: Update player vector based on actions
+    updatePlayerVector(actionType, character) {
+        if (actionType === 'ambitious') {
+            this.player.vector.ambition += 0.03;
+            this.player.reputation.perceivedThreat += 0.02;
+        } else if (actionType === 'loyal') {
+            this.player.vector.loyalty += 0.03;
+            this.player.reputation.perceivedLoyalty += 0.02;
+        } else if (actionType === 'cautious') {
+            this.player.vector.fear += 0.02;
+            this.player.reputation.trustworthiness += 0.01;
+        }
+        
+        // Successful manipulation increases political skill
+        if (character.vector.trust > 0.5) {
+            this.player.reputation.politicalSkill += 0.01;
+        }
+        
+        // Keep values in bounds
+        Object.keys(this.player.vector).forEach(key => {
+            this.player.vector[key] = Math.max(0, Math.min(1, this.player.vector[key]));
+        });
+        Object.keys(this.player.reputation).forEach(key => {
+            this.player.reputation[key] = Math.max(0, Math.min(1, this.player.reputation[key]));
+        });
+    }
+
+    // NEW: Check for execution based on suspicion levels
+    checkForExecution() {
+        const dangerousCharacters = this.characters.getAllCharacters().filter(char => {
+            if (!char.isAlive || char.type === 'emperor') return false;
+            
+            // Different thresholds based on character type
+            let threshold = 0.8; // Default
+            if (char.vector.loyalty > 0.7) threshold = 0.7; // Loyal characters snitch easier
+            if (char.vector.trust > 0.8) threshold = 0.9; // Trusting characters give benefit of doubt
+            
+            return char.vector.suspicion >= threshold;
+        });
+        
+        if (dangerousCharacters.length > 0) {
+            const snitch = dangerousCharacters[0];
+            this.showGameOver('Execution', 
+                `${snitch.name} reported your suspicious activities to the Emperor. You have been executed for treason.`);
+            return true;
+        }
+        return false;
+    }
     
-    analyzeMessage(message, characterVector) {
-        const lowerMessage = message.toLowerCase();
-        let vectorChanges = {};
-        let supportMultiplier = 1;
+    // NEW: Analyze message choice and character compatibility (enhanced)
+    analyzeMessageChoice(messageIndex, character, messageOptions) {
+        const messageChoice = messageOptions[messageIndex];
+        const { type } = messageChoice;
+        const playerBonus = this.getPlayerRelationshipBonus();
+        
+        let vectorChanges = {}; // Personality changes
+        let relationshipChanges = {}; // Relationship with player changes
         let responseType = 'neutral';
         
-        // Define keyword categories
-        const rebelliousWords = ['change', 'weak', 'revolution', 'overthrow', 'corrupt', 'failing', 'reform'];
-        const loyalWords = ['honor', 'serve', 'emperor', 'duty', 'faithful', 'empire', 'tradition'];
-        const fearWords = ['dangerous', 'careful', 'secret', 'risk', 'enemies', 'watch'];
+        // Base relationship changes (before bonuses)
+        let baseTrust = 0;
+        let baseLoyalty = 0;
+        let baseDependence = 0;
+        let baseFear = 0;
         
-        const hasRebellious = rebelliousWords.some(word => lowerMessage.includes(word));
-        const hasLoyal = loyalWords.some(word => lowerMessage.includes(word));
-        const hasFear = fearWords.some(word => lowerMessage.includes(word));
-        
-        if (hasRebellious) {
-            if (characterVector.ambition > 0.6 && characterVector.loyalty < 0.5) {
-                // Rebel-minded character likes rebellious talk
-                vectorChanges.trust = 0.2;
-                vectorChanges.ambition = 0.1;
-                supportMultiplier = 2;
-                responseType = 'rebel_positive';
-            } else if (characterVector.loyalty > 0.7) {
-                // Loyal character is suspicious of rebellious talk
-                vectorChanges.trust = -0.3;
-                vectorChanges.fear = 0.2;
-                supportMultiplier = 0.3;
+        if (type === "ambitious") {
+            if (character.vector.ambition > 0.6 && character.vector.loyalty < 0.5) {
+                // Perfect match - big relationship boost
+                baseTrust = 0.25;
+                baseLoyalty = 0.20;
+                baseDependence = 0.15;
+                vectorChanges.ambition = 0.05;
+                responseType = 'ambitious_positive';
+            } else if (character.vector.loyalty > 0.7) {
+                // Bad match - relationship damage
+                baseTrust = -0.15;
+                baseFear = 0.15;
+                vectorChanges.suspicion = 0.3;
                 responseType = 'loyal_suspicious';
+            } else {
+                // Neutral reaction
+                baseTrust = 0.08;
+                baseDependence = 0.05;
+                responseType = 'neutral';
             }
-        }
-        
-        if (hasLoyal) {
-            if (characterVector.loyalty > 0.6) {
-                // Loyal character appreciates loyal talk
-                vectorChanges.trust = 0.2;
-                supportMultiplier = 1.5;
+        } else if (type === "loyal") {
+            if (character.vector.loyalty > 0.6) {
+                // Perfect match
+                baseTrust = 0.20;
+                baseLoyalty = 0.25;
+                baseDependence = 0.10;
                 responseType = 'loyal_positive';
-            } else if (characterVector.ambition > 0.7 && characterVector.loyalty < 0.4) {
-                // Ambitious, disloyal character sees loyal talk as naive
-                vectorChanges.trust = -0.1;
-                supportMultiplier = 0.7;
+            } else if (character.vector.ambition > 0.7 && character.vector.loyalty < 0.4) {
+                // They see you as naive
+                baseTrust = -0.08;
                 responseType = 'ambitious_dismissive';
+            } else {
+                baseTrust = 0.10;
+                baseLoyalty = 0.08;
+                responseType = 'neutral';
             }
-        }
-        
-        if (hasFear) {
-            if (characterVector.fear > 0.6) {
-                // Fearful character appreciates caution
-                vectorChanges.trust = 0.1;
-                vectorChanges.fear = -0.1; // Feels safer
-                supportMultiplier = 1.3;
+        } else if (type === "cautious") {
+            if (character.vector.fear > 0.6) {
+                baseTrust = 0.15;
+                baseDependence = 0.20;
+                baseFear = -0.10; // They feel safer
+                vectorChanges.fear = -0.05;
                 responseType = 'fearful_appreciative';
+            } else {
+                baseTrust = 0.08;
+                baseDependence = 0.05;
+                responseType = 'neutral';
             }
+        } else if (type === "neutral") {
+            baseTrust = 0.12;
+            baseDependence = 0.08;
+            responseType = 'neutral';
         }
         
-        return { vectorChanges, supportMultiplier, responseType };
+        // Apply player type bonuses
+        relationshipChanges.trustInPlayer = baseTrust * playerBonus.trustMultiplier;
+        relationshipChanges.loyaltyToPlayer = baseLoyalty * playerBonus.loyaltyMultiplier;
+        relationshipChanges.dependenceOnPlayer = baseDependence * playerBonus.dependenceMultiplier;
+        if (baseFear !== 0) {
+            relationshipChanges.fearOfPlayer = baseFear; // Fear not affected by player bonuses
+        }
+        
+        // Apply compound growth bonus based on existing trust
+        const trustBonus = this.getTrustCompoundBonus(character);
+        if (trustBonus > 1) {
+            relationshipChanges.trustInPlayer *= trustBonus;
+            relationshipChanges.loyaltyToPlayer *= trustBonus;
+            relationshipChanges.dependenceOnPlayer *= trustBonus;
+        }
+        
+        return { vectorChanges, relationshipChanges, responseType };
     }
     
     getResponseByType(character, responseType) {
         const responses = {
-            rebel_positive: [
-                `${character.name}: "Finally, someone who sees the truth! These are dangerous words, but necessary ones."`,
-                `${character.name}: "Your courage in speaking such thoughts... perhaps we understand each other."`,
-                `${character.name}: "The current order is indeed fragile. We should discuss this further."`
+            ambitious_positive: [
+                `${character.name}: "Finally, someone who recognizes true potential! Your words show wisdom."`,
+                `${character.name}: "Yes, talent should be rewarded. Perhaps we think alike."`,
+                `${character.name}: "The current system does waste so much potential... interesting perspective."`
             ],
             loyal_suspicious: [
                 `${character.name}: "Such talk makes me very uncomfortable. I hope you're not serious about this."`,
                 `${character.name}: "I... I think we should speak of other matters. The walls have ears."`,
-                `${character.name}: "Your words border on treason. I cannot support such thinking."`
+                `${character.name}: "Your words concern me. I serve the empire faithfully."`
             ],
             loyal_positive: [
-                `${character.name}: "Your loyalty to the empire is admirable. We need more people like you."`,
+                `${character.name}: "Your dedication to the empire is admirable. We need more people like you."`,
                 `${character.name}: "It's refreshing to meet someone who understands duty and honor."`,
                 `${character.name}: "The empire is blessed to have servants like you."`
             ],
@@ -341,9 +565,9 @@ class HaremEmpireGame {
                 `${character.name}: "Your caution shows wisdom. We must watch our steps."`
             ],
             neutral: [
-                `${character.name}: "Thank you for the gift. Your words are... interesting."`,
-                `${character.name}: "I appreciate your generosity and your thoughts."`,
-                `${character.name}: "Your gift is welcome, as are your words."`
+                `${character.name}: "Thank you for the gift. Your words are thoughtful."`,
+                `${character.name}: "I appreciate your generosity and your perspective."`,
+                `${character.name}: "Your gift is welcome, as is your friendship."`
             ]
         };
         
@@ -352,7 +576,22 @@ class HaremEmpireGame {
     }
 
     spitInFace(characterName) {
-        this.characters.removeSupport(characterName, 20);
+        const character = this.characters.getCharacter(characterName);
+        
+        // Severely damage relationship
+        character.updateRelationshipVector({
+            trustInPlayer: -0.4,
+            loyaltyToPlayer: -0.3,
+            fearOfPlayer: 0.2,
+            dependenceOnPlayer: -0.2
+        });
+        
+        // Increase their suspicion and fear
+        character.updateVector({
+            suspicion: 0.2,
+            fear: 0.1
+        });
+        
         this.updateUI();
         this.renderCharacterInteractions();
     }
@@ -395,8 +634,8 @@ class HaremEmpireGame {
 
         this.characters.getAllCharacters().forEach(char => {
             if (char.isAlive && char.type !== 'emperor') {
-                // Only count system support when characters reach 100+ support points
-                if (char.supportPoints >= 100) {
+                // Only count system support when characters reach high support levels
+                if (char.supportLevel >= 80) {
                     if (char.type === 'side') {
                         systemSupport += 25;
                     } else if (char.type === 'minor') {
@@ -503,7 +742,14 @@ class HaremEmpireGame {
             supportPoints: 0,
             giftsRemaining: 15,
             season: 1,
-            isAlive: true
+            isAlive: true,
+            vector: null,
+            reputation: {
+                perceivedLoyalty: 0.5,
+                perceivedThreat: 0.3,
+                politicalSkill: 0.4,
+                trustworthiness: 0.6
+            }
         };
 
         // Hide modals and show character selection
@@ -520,7 +766,56 @@ class HaremEmpireGame {
         document.getElementById('support-points').textContent = `Support: ${this.player.supportPoints}`;
         document.getElementById('gifts-remaining').textContent = `Gifts: ${this.player.giftsRemaining}`;
         document.getElementById('player-rank').textContent = `Rank: ${this.player.rank || 'None'}`;
+        
+        // NEW: Update player stats display
+        if (this.player.vector) {
+            const playerStatsText = `L:${Math.round(this.player.vector.loyalty * 100)} A:${Math.round(this.player.vector.ambition * 100)} I:${Math.round(this.player.vector.influence * 100)}`;
+            document.getElementById('player-stats').textContent = playerStatsText;
+            
+            // Add click handler for detailed stats (only add once)
+            const playerStatsElement = document.getElementById('player-stats');
+            if (!playerStatsElement.hasAttribute('data-handler-added')) {
+                playerStatsElement.setAttribute('data-handler-added', 'true');
+                playerStatsElement.addEventListener('click', () => {
+                    this.showPlayerStatsModal();
+                });
+            }
+        }
+        
         console.log('UI updated');
+    }
+
+    // NEW: Show detailed player stats modal
+    showPlayerStatsModal() {
+        if (!this.player.vector) return;
+        
+        const modalHTML = `
+            <div id="player-stats-modal" class="modal">
+                <div class="modal-content">
+                    <h3>Your Character Stats</h3>
+                    <div style="text-align: left; margin: 20px 0;">
+                        <h4>Personal Attributes:</h4>
+                        <p><strong>Loyalty:</strong> ${Math.round(this.player.vector.loyalty * 100)}% - Your dedication to the empire</p>
+                        <p><strong>Ambition:</strong> ${Math.round(this.player.vector.ambition * 100)}% - Your drive for power</p>
+                        <p><strong>Influence:</strong> ${Math.round(this.player.vector.influence * 100)}% - Your political power</p>
+                        <p><strong>Fear:</strong> ${Math.round(this.player.vector.fear * 100)}% - Your caution level</p>
+                        
+                        <h4 style="margin-top: 15px;">Court Reputation:</h4>
+                        <p><strong>Perceived Loyalty:</strong> ${Math.round(this.player.reputation.perceivedLoyalty * 100)}%</p>
+                        <p><strong>Perceived Threat:</strong> ${Math.round(this.player.reputation.perceivedThreat * 100)}%</p>
+                        <p><strong>Political Skill:</strong> ${Math.round(this.player.reputation.politicalSkill * 100)}%</p>
+                        <p><strong>Trustworthiness:</strong> ${Math.round(this.player.reputation.trustworthiness * 100)}%</p>
+                    </div>
+                    <button id="close-player-stats">Close</button>
+                </div>
+            </div>
+        `;
+        
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        
+        document.getElementById('close-player-stats').addEventListener('click', () => {
+            document.getElementById('player-stats-modal').remove();
+        });
     }
 }
 
