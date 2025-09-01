@@ -9,6 +9,9 @@ class Character {
         this.vector = this.generateInitialVector(type, name);
         this.relationshipVector = this.generateInitialRelationshipVector(type);
         this.interactionHistory = [];
+
+        // Initialize supportLevel as a variable (starts at calculated value)
+        this.supportLevel = this.calculateSupportLevel();
     }
 
     generateInitialVector(type, name) {
@@ -95,16 +98,16 @@ class Character {
     generateInitialRelationshipVector(type) {
         const baseRelationships = {
             side: {
-                trustInPlayer: 0.15 + Math.random() * 0.25,     // Increased from 0.1-0.3
+                trustInPlayer: 0.1 + Math.random() * 0.15,     // Increased from 0.1-0.3
                 loyaltyToPlayer: 0.05 + Math.random() * 0.15,   // Increased from 0.0-0.1
                 fearOfPlayer: 0.1 + Math.random() * 0.2,        // Same
-                dependenceOnPlayer: 0.05 + Math.random() * 0.15 // Increased from 0.0-0.1
+                dependenceOnPlayer: 0.05 + Math.random() * 0.1 // Increased from 0.0-0.1
             },
             minor: {
-                trustInPlayer: 0.25 + Math.random() * 0.25,     // Increased from 0.2-0.5
+                trustInPlayer: 0.1 + Math.random() * 0.25,     // Increased from 0.2-0.5
                 loyaltyToPlayer: 0.05 + Math.random() * 0.15,   // Increased from 0.0-0.1
                 fearOfPlayer: 0.1 + Math.random() * 0.3,        // Same
-                dependenceOnPlayer: 0.15 + Math.random() * 0.20 // Increased from 0.1-0.3
+                dependenceOnPlayer: 0.05 + Math.random() * 0.2 // Increased from 0.1-0.3
             },
             guide: {
                 trustInPlayer: 0.5 + Math.random() * 0.3,       // Same
@@ -124,11 +127,11 @@ class Character {
     }
 
     // NEW: Calculate support level from relationship vectors (trust-weighted)
-    get supportLevel() {
+    calculateSupportLevel() {
         return Math.min(100, Math.round(
-            (this.relationshipVector.trustInPlayer * 50) +      // Increased from 40
+            (this.relationshipVector.trustInPlayer * 40) +      // Increased from 40
             (this.relationshipVector.loyaltyToPlayer * 25) +    // Decreased from 30
-            (this.relationshipVector.dependenceOnPlayer * 15) + // Decreased from 20
+            (this.relationshipVector.dependenceOnPlayer * 25) + // Decreased from 20
             ((1 - this.relationshipVector.fearOfPlayer) * 10)   // Unchanged
         ));
     }
@@ -160,7 +163,6 @@ class Character {
         if (this.vector.loyalty > 0.7) hints.push("Loyal");
         if (this.vector.fear > 0.7) hints.push("Fearful");
         if (this.vector.trust > 0.7) hints.push("Trusting");
-        if (this.vector.influence > 0.7) hints.push("Influential");
         if (this.vector.suspicion > 0.5) hints.push("Suspicious");
 
         return hints.join(", ") || "Neutral";

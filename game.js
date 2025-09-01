@@ -10,6 +10,7 @@ class HaremEmpireGame {
             giftsRemaining: 15,
             season: 1,
             isAlive: true,
+            hasBeenPromoted: false, // Track promotion status
             // Player vector system
             vector: null,
             reputation: {
@@ -78,10 +79,28 @@ class HaremEmpireGame {
         this.player.type = type;
         this.player.rank = this.rankProgression[type][0];
         this.player.vector = this.initializePlayerVector(type); // NEW
+        
+        // NEW: Apply initial fear based on starting influence
+        this.applyInitialInfluenceFear();
+        
         console.log('Player rank set to:', this.player.rank);
         this.updateUI();
         this.showGameScreen();
         this.renderCharacterInteractions();
+    }
+
+    // NEW: Apply initial influence-based fear at game start
+    applyInitialInfluenceFear() {
+        if (this.player.vector.influence <= 0.0) return;
+        
+        const influenceLevel = this.player.vector.influence;
+        const fearIncrease = 0.5 * (influenceLevel / 1.0); // Scale based on influence
+        
+        this.characters.getAllCharacters().forEach(char => {
+            if (char.isAlive && char.type !== 'emperor') {
+                char.updateVector({ fear: fearIncrease });
+            }
+        });
     }
 
     // NEW: Initialize player vector based on starting path
@@ -90,21 +109,21 @@ class HaremEmpireGame {
             prince: {
                 loyalty: 0.8,
                 ambition: 0.6,
-                influence: 0.7,
+                influence: 0.5,  // Reduced from 0.7
                 suspicion: 0.1,
                 fear: 0.2
             },
             minister: {
                 loyalty: 0.5,
                 ambition: 0.8,
-                influence: 0.5,
+                influence: 0.3,  // Reduced from 0.5
                 suspicion: 0.2,
                 fear: 0.3
             },
             concubine: {
                 loyalty: 0.3,
                 ambition: 0.7,
-                influence: 0.2,
+                influence: 0.0,  // Reduced from 0.2
                 suspicion: 0.4,
                 fear: 0.5
             }
@@ -119,19 +138,19 @@ class HaremEmpireGame {
             prince: {
                 trustMultiplier: 1.5,    // Princes build trust 50% faster
                 loyaltyMultiplier: 1.3,  // Natural authority
-                dependenceMultiplier: 1.2,
+                dependenceMultiplier: 1.0, // Nerfed from 1.2
                 description: "Royal blood commands respect"
             },
             minister: {
                 trustMultiplier: 1.2,    // Ministers are skilled politicians
                 loyaltyMultiplier: 1.0,  // Standard loyalty building
-                dependenceMultiplier: 1.4, // Good at creating dependencies
+                dependenceMultiplier: 1.0, // Nerfed from 1.4
                 description: "Political experience helps"
             },
             concubine: {
                 trustMultiplier: 0.8,    // Harder to build trust (vulnerable position)
                 loyaltyMultiplier: 0.9,  // Harder to inspire loyalty
-                dependenceMultiplier: 1.1, // Slight advantage in creating dependence
+                dependenceMultiplier: 1.0, // Nerfed from 1.1
                 description: "Must work harder for respect"
             }
         };
@@ -208,7 +227,7 @@ class HaremEmpireGame {
                         <p>Fear: ${stats.fearOfPlayer}% | Dependence: ${stats.dependenceOnPlayer}%</p>
                         <p><strong>Personality:</strong></p>
                         <p>Ambition: ${stats.ambition}% | Empire Loyalty: ${stats.loyalty}%</p>
-                        <p>Influence: ${stats.influence}% | Suspicion: ${stats.suspicion}%</p>
+                        <p>Influence: ${stats.influence}% | <span style="color: ${this.getSuspicionColor(stats.suspicion)}; font-weight: bold;">Suspicion: ${stats.suspicion}%</span></p>
                     </div>
                 `;
             }
@@ -362,23 +381,31 @@ class HaremEmpireGame {
                 // Apply relationship vector changes
                 character.updateRelationshipVector(response.relationshipChanges);
                 
+                // Recalculate supportLevel from relationship vectors for message gifts
+                character.supportLevel = character.calculateSupportLevel();
+                
                 // Get character response
                 characterResponse = this.getResponseByType(character, response.responseType);
                 
                 // Update player vector based on action
                 this.updatePlayerVector(messageOptions[messageIndex].type, character);
-                
+
+                // Fear increases with every gift based on influence
+                if (this.player.vector.influence > 0 && response.responseType === "fearful_appreciative") {
+                    const fearIncrease = 0.1 * this.player.vector.influence; // Scale with influence
+                    character.updateRelationshipVector({ fearOfPlayer: fearIncrease });
+                }
+
                 // Check for execution after interaction
                 if (this.checkForExecution()) return;
-            } else {
-                // Simple gift without message - improved base impact
-                const playerBonus = this.getPlayerRelationshipBonus();
-                const trustBonus = this.getTrustCompoundBonus(character);
                 
-                character.updateRelationshipVector({ 
-                    trustInPlayer: (0.08 * playerBonus.trustMultiplier * trustBonus),
-                    dependenceOnPlayer: (0.05 * playerBonus.dependenceMultiplier * trustBonus)
-                });
+                // NEW: Check for suspicion warnings (only for Prince/Minister)
+                this.checkSuspicionWarnings();
+            } else {
+                // Simple gift without message - add +1 directly to supportLevel variable
+                character.supportLevel = Math.min(100, character.supportLevel + 1);
+                
+
             }
             
             this.player.giftsRemaining -= cost;
@@ -403,7 +430,7 @@ class HaremEmpireGame {
     updatePlayerVector(actionType, character) {
         if (actionType === 'ambitious') {
             this.player.vector.ambition += 0.03;
-            this.player.reputation.perceivedThreat += 0.02;
+            this.player.reputation.perceivedThreat += 0.05;
         } else if (actionType === 'loyal') {
             this.player.vector.loyalty += 0.03;
             this.player.reputation.perceivedLoyalty += 0.02;
@@ -413,7 +440,7 @@ class HaremEmpireGame {
         }
         
         // Successful manipulation increases political skill
-        if (character.vector.trust > 0.5) {
+        if (character.vector.trust > 0.8) {
             this.player.reputation.politicalSkill += 0.01;
         }
         
@@ -426,15 +453,30 @@ class HaremEmpireGame {
         });
     }
 
-    // NEW: Check for execution based on suspicion levels
+    // NEW: Check for execution based on suspicion levels (enhanced)
     checkForExecution() {
         const dangerousCharacters = this.characters.getAllCharacters().filter(char => {
             if (!char.isAlive || char.type === 'emperor') return false;
             
-            // Different thresholds based on character type
+            // NEW: More nuanced thresholds
             let threshold = 0.8; // Default
-            if (char.vector.loyalty > 0.7) threshold = 0.7; // Loyal characters snitch easier
-            if (char.vector.trust > 0.8) threshold = 0.9; // Trusting characters give benefit of doubt
+            
+            if (char.vector.loyalty > 0.7) {
+                threshold = 0.7; // Loyal characters snitch easier
+            } else if (char.vector.loyalty > 0.5) {
+                threshold = 0.75; // Moderately loyal characters
+            }
+            
+            if (char.relationshipVector.trustInPlayer > 0.8) {
+                threshold += 0.1; // High trust gives benefit of doubt
+            } else if (char.relationshipVector.trustInPlayer > 0.6) {
+                threshold += 0.05; // Medium trust gives small benefit
+            }
+            
+            // Fear makes characters more likely to snitch (lower threshold)
+            if (char.vector.fear > 0.7) {
+                threshold -= 0.1;
+            }
             
             return char.vector.suspicion >= threshold;
         });
@@ -446,6 +488,35 @@ class HaremEmpireGame {
             return true;
         }
         return false;
+    }
+
+    // NEW: Check for suspicion warnings (only for Prince/Minister)
+    checkSuspicionWarnings() {
+        // Only warn Princes and Ministers, not Concubines
+        if (this.player.type === 'concubine') return;
+        
+        const dangerousCharacters = this.characters.getAllCharacters().filter(char => {
+            if (!char.isAlive || char.type === 'emperor') return false;
+            
+            let threshold = 0.8;
+            if (char.vector.loyalty > 0.7) threshold = 0.7;
+            if (char.vector.loyalty > 0.5) threshold = 0.75;
+            if (char.relationshipVector.trustInPlayer > 0.8) threshold += 0.1;
+            if (char.relationshipVector.trustInPlayer > 0.6) threshold += 0.05;
+            if (char.vector.fear > 0.7) threshold -= 0.1;
+            
+            // Warn at 50% of threshold (as requested)
+            return char.vector.suspicion >= (threshold * 0.5);
+        });
+        
+        if (dangerousCharacters.length > 0) {
+            const warningChar = dangerousCharacters[0];
+            const warningLevel = Math.round(warningChar.vector.suspicion * 100);
+            
+            setTimeout(() => {
+                alert(`⚠️ Warning: ${warningChar.name} seems increasingly suspicious of you (${warningLevel}% suspicion). Be careful!`);
+            }, 200);
+        }
     }
     
     // NEW: Analyze message choice and character compatibility (enhanced)
@@ -465,14 +536,14 @@ class HaremEmpireGame {
         let baseFear = 0;
         
         if (type === "ambitious") {
-            if (character.vector.ambition > 0.6 && character.vector.loyalty < 0.5) {
+            if (character.vector.ambition > 0.8 && character.vector.loyalty < 0.6) {
                 // Perfect match - big relationship boost
                 baseTrust = 0.25;
                 baseLoyalty = 0.20;
                 baseDependence = 0.15;
                 vectorChanges.ambition = 0.05;
                 responseType = 'ambitious_positive';
-            } else if (character.vector.loyalty > 0.7) {
+            } else if (character.vector.loyalty > 0.6) {
                 // Bad match - relationship damage
                 baseTrust = -0.15;
                 baseFear = 0.15;
@@ -485,15 +556,18 @@ class HaremEmpireGame {
                 responseType = 'neutral';
             }
         } else if (type === "loyal") {
-            if (character.vector.loyalty > 0.6) {
+            if (character.vector.loyalty > 0.7) {
                 // Perfect match
                 baseTrust = 0.20;
                 baseLoyalty = 0.25;
                 baseDependence = 0.10;
                 responseType = 'loyal_positive';
-            } else if (character.vector.ambition > 0.7 && character.vector.loyalty < 0.4) {
+                
+                // NEW: Loyal messages reduce suspicion
+                vectorChanges.suspicion = -0.1;
+            } else if (character.vector.ambition > 0.7 && character.vector.loyalty < 0.5) {
                 // They see you as naive
-                baseTrust = -0.08;
+                baseTrust = -0.1;
                 responseType = 'ambitious_dismissive';
             } else {
                 baseTrust = 0.10;
@@ -503,9 +577,8 @@ class HaremEmpireGame {
         } else if (type === "cautious") {
             if (character.vector.fear > 0.6) {
                 baseTrust = 0.15;
-                baseDependence = 0.20;
-                baseFear = -0.10; // They feel safer
-                vectorChanges.fear = -0.05;
+                baseDependence = 0.1;
+                vectorChanges.fear = 0.1; // Changed: now INCREASES fear (talking about dangers makes them more afraid)
                 responseType = 'fearful_appreciative';
             } else {
                 baseTrust = 0.08;
@@ -514,7 +587,7 @@ class HaremEmpireGame {
             }
         } else if (type === "neutral") {
             baseTrust = 0.12;
-            baseDependence = 0.08;
+            baseDependence = 0.05;
             responseType = 'neutral';
         }
         
@@ -528,10 +601,18 @@ class HaremEmpireGame {
         
         // Apply compound growth bonus based on existing trust
         const trustBonus = this.getTrustCompoundBonus(character);
-        if (trustBonus > 1) {
+        if (trustBonus > 1 && this.player.type === 'prince') {
             relationshipChanges.trustInPlayer *= trustBonus;
             relationshipChanges.loyaltyToPlayer *= trustBonus;
             relationshipChanges.dependenceOnPlayer *= trustBonus;
+        } else if (trustBonus > 1 && this.player.type === 'minister') {
+            relationshipChanges.trustInPlayer *= trustBonus/2;
+            relationshipChanges.loyaltyToPlayer *= trustBonus/2;
+            relationshipChanges.dependenceOnPlayer *= trustBonus/2;
+        } else if (trustBonus > 1 && this.player.type === 'concubine') {
+            relationshipChanges.trustInPlayer *= trustBonus/4;
+            relationshipChanges.loyaltyToPlayer *= trustBonus/4;
+            relationshipChanges.dependenceOnPlayer *= trustBonus/4;
         }
         
         return { vectorChanges, relationshipChanges, responseType };
@@ -616,6 +697,8 @@ class HaremEmpireGame {
         console.log('Season incremented to:', this.player.season);
         console.log('Gifts after adding 15:', this.player.giftsRemaining);
 
+        // REMOVED: No more suspicion decay
+
         // Alert for new season
         alert(`Season ${this.player.season} begins! You have 15 new gifts to distribute.`);
 
@@ -629,13 +712,19 @@ class HaremEmpireGame {
         this.renderCharacterInteractions();
     }
 
+    // REMOVED: Suspicion decay - suspicion should be permanent consequences
+
     calculateTotalSupport() {
         let systemSupport = 0;
+        
+        // NEW: Dynamic support threshold - 80 before promotion, 100 after
+        const isStartingRank = this.player.rank === this.rankProgression[this.player.type][0];
+        const requiredSupport = isStartingRank ? 80 : 100;
 
         this.characters.getAllCharacters().forEach(char => {
             if (char.isAlive && char.type !== 'emperor') {
-                // Only count system support when characters reach high support levels
-                if (char.supportLevel >= 80) {
+                // Only count system support when characters reach required support level
+                if (char.supportLevel >= requiredSupport) {
                     if (char.type === 'side') {
                         systemSupport += 25;
                     } else if (char.type === 'minor') {
@@ -676,6 +765,10 @@ class HaremEmpireGame {
             (newRank === 'Prime Minister' && char.name === 'Prime Minister') ||
             (newRank === 'Crown Prince' && char.name === 'Crown Prince')
         );
+        // Remove 30 support points from all characters
+        this.characters.getAllCharacters().forEach(char => {
+            char.supportLevel = Math.max(0, char.supportLevel - 30);
+        });
 
         if (currentHolder) {
             this.characters.removeCharacter(currentHolder.name);
@@ -691,6 +784,10 @@ class HaremEmpireGame {
             this.player.giftsRemaining -= 10;
             document.getElementById('emperor-encounter').classList.add('hidden');
             this.advanceSeason();
+        } else if (this.player.perceivedLoyalty > 0.8 && this.player.giftsRemaining < 10) {
+            document.getElementById('emperor-encounter').classList.add('hidden');
+            alert("Your perceived loyalty saves you from execution.")
+            this.advanceSeason();
         } else {
             alert('You need 10 gifts to satisfy the Emperor!');
             this.showGameOver('Execution', 'You failed to provide enough gifts to the Emperor and were executed.');
@@ -698,7 +795,13 @@ class HaremEmpireGame {
     }
 
     refuseEmperor() {
+        if (this.player.reputation.perceivedLoyalty > 0.8 && this.player.giftsRemaining < 10) {
+            document.getElementById('emperor-encounter').classList.add('hidden');
+            alert("Your perceived loyalty saves you from execution.")
+            this.advanceSeason();
+        } else {
         this.showGameOver('Execution', 'You refused the Emperor and were executed for your insolence.');
+        }
     }
 
     showPromotionModal(newRank) {
@@ -711,15 +814,58 @@ class HaremEmpireGame {
     acceptPromotion() {
         this.player.rank = this.pendingPromotion;
         this.player.supportPoints = 0; // Reset support points after promotion
+        this.player.hasBeenPromoted = true; // Track that player has been promoted
 
-        // Reset all character support points
+        // NEW: Bigger influence increase on promotion
+        const influenceIncrease = 0.4; // Increased from 0.3
+        this.player.vector.influence = Math.min(1, this.player.vector.influence + influenceIncrease);
+
+        // NEW: Side characters lose support when you get promoted (they see you as threat)
         this.characters.getAllCharacters().forEach(char => {
-            char.supportPoints = 0;
+            if (char.type === 'side') {
+                char.updateRelationshipVector({ 
+                    trustInPlayer: -0.2,  // 20% trust loss
+                    loyaltyToPlayer: -0.1 // 10% loyalty loss
+                });
+            }
         });
+
+        // NEW: Apply 30% fear increase to all characters on promotion
+        this.characters.getAllCharacters().forEach(char => {
+            if (char.isAlive && char.type !== 'emperor') {
+                const currentFear = char.relationshipVector.fearOfPlayer;
+                char.relationshipVector.fearOfPlayer = Math.min(1, currentFear + 0.3);
+            }
+        });
+
+        // Still apply influence-based fear
+        this.applyInfluenceFear();
 
         document.getElementById('promotion-modal').classList.add('hidden');
         this.updateUI();
         this.renderCharacterInteractions();
+    }
+
+    // NEW: Apply influence-based fear when player has high influence
+    applyInfluenceFear() {
+        if (this.player.vector.influence <= 0.6) return;
+        
+        const influenceLevel = this.player.vector.influence - 0.6; // 0 to 0.4 range
+        const fearIncrease = 0.5 * (influenceLevel / 0.4); // Increased from 0.3 to 0.5
+        
+        this.characters.getAllCharacters().forEach(char => {
+            if (char.isAlive && char.type !== 'emperor') {
+                // TODO: Skip if same faction (when factions are implemented)
+                char.updateVector({ fear: fearIncrease });
+            }
+        });
+        
+        // Show notification for significant influence
+        if (this.player.vector.influence > 0.8) {
+            setTimeout(() => {
+                alert("Your growing influence strikes fear into the hearts of courtiers...");
+            }, 500);
+        }
     }
 
     showVictory() {
@@ -743,6 +889,7 @@ class HaremEmpireGame {
             giftsRemaining: 15,
             season: 1,
             isAlive: true,
+            hasBeenPromoted: false, // Reset promotion tracking
             vector: null,
             reputation: {
                 perceivedLoyalty: 0.5,
@@ -783,6 +930,14 @@ class HaremEmpireGame {
         }
         
         console.log('UI updated');
+    }
+
+    // NEW: Get color for suspicion display based on danger level
+    getSuspicionColor(suspicionPercent) {
+        if (suspicionPercent >= 70) return '#ff0000'; // Red danger
+        if (suspicionPercent >= 60) return '#ff6600'; // Orange warning
+        if (suspicionPercent >= 40) return '#ffaa00'; // Yellow caution
+        return '#444'; // Normal gray
     }
 
     // NEW: Show detailed player stats modal
