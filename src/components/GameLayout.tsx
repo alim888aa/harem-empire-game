@@ -5,6 +5,7 @@ import GameHeader from './GameHeader';
 import ActionButtons from './ActionButtons';
 import StatsModal from './StatsModal';
 import PromotionNotification from './PromotionNotification';
+import CharacterResponse from './CharacterResponse';
 import { initialCharacters } from '../data/characters';
 import type { PlayerStats } from '../types/game';
 import { useSelector } from '@xstate/react';
@@ -33,7 +34,7 @@ function GameLayout({ machineState, send, uiState, setUiState, promotionKey, onP
   const currentCharacterData = availableCharacters[uiState.currentCharacterIndex];
   
   // Get data from state machine context
-  const { season, giftsRemaining, supportPoints, characterType, rank, characters: characterActors } = machineState.context;
+  const { season, giftsRemaining, supportPoints, characterType, rank, characters: characterActors, lastCharacterResponse } = machineState.context;
   
   // Get current character's support level from character actor
   const characterActor = characterActors[currentCharacterData.name];
@@ -132,6 +133,9 @@ function GameLayout({ machineState, send, uiState, setUiState, promotionKey, onP
 
   return (
     <div className="min-h-screen bg-gray-50 grid grid-rows-[auto_1fr]">
+      {/* Character Response */}
+      <CharacterResponse response={lastCharacterResponse} />
+
       {/* Promotion Notification */}
       {(() => {
         console.log('Render check:', { promotionKey, rank, shouldShow: promotionKey && rank });

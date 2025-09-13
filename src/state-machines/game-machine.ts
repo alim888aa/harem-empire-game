@@ -190,21 +190,47 @@ export const gameMachine = setup({
             gameEndReason: 'victory'
           })
         },
-        {
-          guard: {
-            type: "canBePromoted",
-          },
-          actions: assign({
-            rank: ({ context }) => getRank(context.characterType),
-          })
-        }
+          {
+            guard: { type: "canBePromoted" },
+            actions: [
+              // stop the replaced actor by its spawn id (we spawned with id = charData.name)
+              stopChild(({ context }) => {
+                const replacedNameMap: Record<'prince'|'minister'|'concubine', string> = {
+                  prince: 'Crown Prince',
+                  minister: 'Prime Minister',
+                  concubine: 'Empress Consort'
+                };
+                return replacedNameMap[context.characterType as 'prince'|'minister'|'concubine'];
+              }),
+
+              // remove the actor ref from context.characters and set the new rank
+              assign(({ context }) => {
+                const replacedNameMap: Record<'prince'|'minister'|'concubine', string> = {
+                  prince: 'Crown Prince',
+                  minister: 'Prime Minister',
+                  concubine: 'Empress Consort'
+                };
+                const nameToRemove = replacedNameMap[
+                  context.characterType as 'prince'|'minister'|'concubine'
+                ];
+                const newChars = { ...context.characters };
+                if (nameToRemove in newChars) {
+                  delete newChars[nameToRemove];
+                }
+                return {
+                  characters: newChars,
+                  rank: getRank(context.characterType)
+                };
+              })
+            ]
+          }
       ],
       states: {
         in_season: {
           on: {
             NEXT_SEASON: [
             {
-              target: "advancing_season",
+              target: "checking_encounters",
             }],
             GIVE_GIFT_SIMPLE: {
               guard: 'canAffordGift',
@@ -251,20 +277,25 @@ export const gameMachine = setup({
           },
 
         },
-        advancing_season: {
-          entry: assign({
-            season: ({ context }) => context.season + 1,
-            giftsRemaining: ({ context }) => context.giftsRemaining + 15,
-          }),
+        checking_encounters: {
           always: [
             {
               guard: "emperor_encountered",
               target: "emperor_encounter",
             },
             {
-              target: "in_season"
+              target: "advancing_season"
             },
           ]
+        },
+        advancing_season: {
+          entry: assign({
+            season: ({ context }) => context.season + 1,
+            giftsRemaining: ({ context }) => context.giftsRemaining + 15,
+          }),
+          always: {
+          target: "in_season"
+          }
         },
         emperor_encounter: {
           on: {
