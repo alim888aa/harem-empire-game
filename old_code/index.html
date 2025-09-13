@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harem Empire - Life Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1>Harem Empire</h1>
+            <div id="game-stats">
+                <span id="season-counter">Season 1</span>
+                <span id="support-points">Support: 0</span>
+                <span id="gifts-remaining">Gifts: 15</span>
+                <span id="player-rank">Rank: Loading...</span>
+                <span id="player-stats" style="cursor: pointer;" title="Click to see detailed stats">Stats: Loading...</span>
+            </div>
+        </header>
+
+        <div id="character-selection" class="screen">
+            <h2>Choose Your Starting Path</h2>
+            <div class="character-options">
+                <button class="character-btn" data-type="concubine">
+                    <h3>Concubine</h3>
+                    <p>Difficulty: Hard</p>
+                    <p>Path: Concubine → Empress Consort → Emperor</p>
+                </button>
+                <button class="character-btn" data-type="minister">
+                    <h3>Minister</h3>
+                    <p>Difficulty: Medium</p>
+                    <p>Path: Minister → Prime Minister → Emperor</p>
+                </button>
+                <button class="character-btn" data-type="prince">
+                    <h3>Prince</h3>
+                    <p>Difficulty: Easy</p>
+                    <p>Path: Prince → Crown Prince → Emperor</p>
+                </button>
+            </div>
+        </div>
+
+        <div id="game-screen" class="screen hidden">
+            <div id="character-interactions">
+                <h2>Season Actions</h2>
+                <div id="character-list"></div>
+            </div>
+
+            <div id="emperor-encounter" class="modal hidden">
+                <div class="modal-content">
+                    <h3>Emperor Encounter!</h3>
+                    <p>You have a chance meeting with the Emperor. You must give 10 gifts or face execution!</p>
+                    <div class="emperor-actions">
+                        <button id="give-emperor-gifts">Give 10 Gifts</button>
+                        <button id="refuse-emperor" class="danger">Refuse (Death)</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="promotion-modal" class="modal hidden">
+                <div class="modal-content">
+                    <h3>Promotion Available!</h3>
+                    <p id="promotion-text"></p>
+                    <button id="accept-promotion">Accept Promotion</button>
+                </div>
+            </div>
+
+            <div id="game-over" class="modal hidden">
+                <div class="modal-content">
+                    <h3 id="game-over-title"></h3>
+                    <p id="game-over-text"></p>
+                    <button id="restart-game">Start New Game</button>
+                </div>
+            </div>
+
+            <div class="season-controls">
+                <button id="next-season">Next Season</button>
+            </div>
+        </div>
+    </div>
+<script src="/characters.js"></script>
+<script src="/game.js"></script>
+</body>
+</html>

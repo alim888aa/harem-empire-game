@@ -2,6 +2,11 @@
 class HaremEmpireGame {
     constructor() {
         console.log('HaremEmpireGame constructor called');
+        // Guard to prevent initialization when React version is running
+        if (typeof window !== 'undefined' && window.document.getElementById('root')) {
+            console.log('React version detected, skipping old game initialization');
+            return;
+        }
         this.characters = new GameCharacters();
         this.player = {
             type: null,
@@ -679,12 +684,12 @@ class HaremEmpireGame {
 
     nextSeason() {
         console.log('nextSeason called, current season:', this.player.season);
-        // Check for emperor encounter (30% chance, but only from season 2 onwards)
-        if (this.player.season >= 2 && Math.random() < 0.3) {
-            console.log('Emperor encounter triggered');
-            this.showEmperorEncounter();
-            return;
-        }
+        // MOVED TO STATE_MACHINE Check for emperor encounter (30% chance, but only from season 2 onwards)
+        // if (this.player.season >= 2 && Math.random() < 0.3) {
+        //     console.log('Emperor encounter triggered');
+        //     this.showEmperorEncounter();
+        //     return;
+        // }
 
         console.log('No emperor encounter, advancing season');
         this.advanceSeason();
@@ -696,9 +701,6 @@ class HaremEmpireGame {
         this.player.giftsRemaining += 15; // Add 15 gifts to existing gifts
         console.log('Season incremented to:', this.player.season);
         console.log('Gifts after adding 15:', this.player.giftsRemaining);
-
-        // REMOVED: No more suspicion decay
-
         // Alert for new season
         alert(`Season ${this.player.season} begins! You have 15 new gifts to distribute.`);
 
@@ -710,6 +712,13 @@ class HaremEmpireGame {
 
         this.updateUI();
         this.renderCharacterInteractions();
+
+        // Return the values the machine cares about
+        return {
+            season: this.player.season,
+            giftsRemaining: this.player.giftsRemaining,
+            supportPoints: this.player.supportPoints
+        };
     }
 
     // REMOVED: Suspicion decay - suspicion should be permanent consequences
@@ -974,9 +983,11 @@ class HaremEmpireGame {
     }
 }
 
-// Initialize game when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded, initializing game');
-    window.game = new HaremEmpireGame();
-    console.log('Game initialized');
-});
+// Initialize game when page loads - DISABLED FOR REACT VERSION
+// document.addEventListener('DOMContentLoaded', () => {
+//     console.log('DOM loaded, initializing game');
+//     window.game = new HaremEmpireGame();
+//     console.log('Game initialized');
+// });
+
+export default HaremEmpireGame;
