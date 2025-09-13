@@ -7,7 +7,7 @@ import StatsModal from './StatsModal';
 import PromotionNotification from './PromotionNotification';
 import CharacterResponse from './CharacterResponse';
 import { initialCharacters } from '../data/characters';
-import type { PlayerStats } from '../types/game';
+import type { PlayerStats, PlayerReputation } from '../types/game';
 import { useSelector } from '@xstate/react';
 import type { ActorRefFrom } from 'xstate';
 import type { gameMachine } from '../state-machines/game-machine';
@@ -36,31 +36,29 @@ function GameLayout({ machineState, send, uiState, setUiState, promotionKey, onP
   // Get data from state machine context
   const { season, giftsRemaining, supportPoints, characterType, rank, characters: characterActors, lastCharacterResponse } = machineState.context;
   
-  // Get current character's support level from character actor
+  // Get current character's data from character actor
   const characterActor = characterActors[currentCharacterData.name];
-  const currentCharacterSupport = useSelector(characterActor, (state) => state.context.supportLevel);
-  const currentCharacterPersonality = getPersonalityHint(currentCharacterData.vectors);
+  const currentCharacterSupport = useSelector(characterActor, (state: any) => state.context.supportLevel);
+  const currentCharacterSuspicion = useSelector(characterActor, (state: any) => state.context.suspicion);
+  const currentCharacterPersonalityVectors = useSelector(characterActor, (state: any) => state.context.personalityVectors);
+  const currentCharacterRelationshipVectors = useSelector(characterActor, (state: any) => state.context.relationshipVectors);
+  const currentCharacterPersonality = getPersonalityHint(currentCharacterPersonalityVectors);
   
   // Create a UI-compatible character object
   const currentCharacter = {
     name: currentCharacterData.name,
     type: currentCharacterData.type,
     supportLevel: currentCharacterSupport,
-    suspicion: 0,
-    personalityVectors: currentCharacterData.vectors,
-    relationshipVectors: {
-      trustInPlayer: currentCharacterData.vectors.trust,
-      loyaltyToPlayer: currentCharacterData.vectors.loyalty,
-      fearOfPlayer: currentCharacterData.vectors.fear,
-      dependenceOnPlayer: currentCharacterData.vectors.influence,
-      loveForPlayer: currentCharacterData.vectors.romantic
-    },
+    suspicion: currentCharacterSuspicion,
+    personalityVectors: currentCharacterPersonalityVectors,
+    relationshipVectors: currentCharacterRelationshipVectors,
     lastResponse: "",
     imgPath: currentCharacterData.imgPath
   };
 
   // Get player stats from machine context
   const playerStats: PlayerStats = machineState.context.playerPersonality;
+  const playerReputation: PlayerReputation = machineState.context.playerReputation;
 
   const handlePrevious = () => {
     setUiState(prev => {
@@ -163,7 +161,7 @@ function GameLayout({ machineState, send, uiState, setUiState, promotionKey, onP
           onNext={handleNext}
         />
         <div className="flex flex-col gap-6">
-          <CharacterInfo character={currentCharacter} personality={currentCharacterPersonality} />
+          <CharacterInfo character={currentCharacter} personality={currentCharacterPersonality} canShowStats={true} />
           <ActionButtons
             character={currentCharacter}
             onAction={handleAction}
@@ -177,6 +175,7 @@ function GameLayout({ machineState, send, uiState, setUiState, promotionKey, onP
         isOpen={uiState.showStatsModal}
         onClose={handleCloseModal}
         playerStats={playerStats}
+        playerReputation={playerReputation}
       />
     </div>
   );

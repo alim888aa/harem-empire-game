@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
-import type { PlayerStats } from '../types/game';
+import type { PlayerStats, PlayerReputation } from '../types/game';
 
 interface StatsModalProps {
   isOpen: boolean;
   onClose: () => void;
   playerStats: PlayerStats;
+  playerReputation: PlayerReputation;
 }
 
-function StatsModal({ isOpen, onClose, playerStats }: StatsModalProps) {
+function StatsModal({ isOpen, onClose, playerStats, playerReputation }: StatsModalProps) {
   useEffect(() => {
     const handleEscapeKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -72,6 +73,38 @@ function StatsModal({ isOpen, onClose, playerStats }: StatsModalProps) {
           <div className="flex justify-between items-center">
             <span className="text-gray-700 font-medium">Fear:</span>
             <span className="text-gray-900 font-semibold">{playerStats.fear.toFixed(1)}</span>
+          </div>
+          
+          <div className="flex justify-between items-center">
+            <span className="text-gray-700 font-medium">Charisma:</span>
+            <span className="text-gray-900 font-semibold">{playerStats.charisma.toFixed(1)}</span>
+          </div>
+        </div>
+        
+        {/* Court Reputation Section */}
+        <div className="space-y-3">
+          <h3 className="text-lg font-semibold text-gray-800 border-b border-gray-200 pb-2">
+            Court Reputation
+          </h3>
+          
+          <div className="flex justify-between items-center">
+            <span className="text-gray-700 font-medium">Perceived Loyalty:</span>
+            <span className="text-gray-900 font-semibold">{Math.round(playerReputation.perceivedLoyalty * 100)}%</span>
+          </div>
+          
+          <div className="flex justify-between items-center">
+            <span className="text-gray-700 font-medium">Perceived Threat:</span>
+            <span className="text-gray-900 font-semibold">{Math.round(playerReputation.perceivedThreat * 100)}%</span>
+          </div>
+          
+          <div className="flex justify-between items-center">
+            <span className="text-gray-700 font-medium">Trustworthiness:</span>
+            <span className="text-gray-900 font-semibold">{Math.round(playerReputation.trustworthiness * 100)}%</span>
+          </div>
+          
+          <div className="flex justify-between items-center">
+            <span className="text-gray-700 font-medium">Political Skill:</span>
+            <span className="text-gray-900 font-semibold">{Math.round(playerReputation.politicalSkill * 100)}%</span>
           </div>
         </div>
       </div>

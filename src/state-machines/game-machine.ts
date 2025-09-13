@@ -3,10 +3,11 @@ import type { ActorRefFrom } from "xstate";
 import { assign } from "xstate";
 import { initialCharacters } from '../data/characters.ts'
 import { characterMachine } from './character-machine.ts'
-import type { PlayerStats } from "../types/game.ts";
+import type { PlayerStats, PlayerReputation } from "../types/game.ts";
 import { getResponseByType } from "../lib/getResponse.ts";
 import { getRank } from "../lib/helpers.ts";
 import { getPersonality } from "../lib/helpers.ts";
+import { updatePlayerVector, canBypassEmperorExecution } from "../lib/playerVector.ts";
 
 
 type CharRef = ActorRefFrom<typeof characterMachine>;
@@ -27,6 +28,12 @@ export const gameMachine = setup({
         fear: 0.0,
         charisma: 0.0
       },
+      playerReputation: {
+        perceivedThreat: 0.3,
+        perceivedLoyalty: 0.5,
+        trustworthiness: 0.6,
+        politicalSkill: 0.4
+      },
       suspiciousCharacters: [],
       lastCharacterResponse: "",
       gameEndReason: null
@@ -39,6 +46,7 @@ export const gameMachine = setup({
         rank: 'crown_prince' | 'prime_minister' | 'empress_consort' | null;
         characters: Record<string, CharRef>,
         playerPersonality: PlayerStats,
+        playerReputation: PlayerReputation,
         suspiciousCharacters: string[],
         lastCharacterResponse: string,
         gameEndReason: 'victory' | 'defeat' | null
@@ -70,6 +78,9 @@ export const gameMachine = setup({
     emperor_gifting: function ({ context }) {
       return context.giftsRemaining >= 10;
     },
+    emperor_loyalty_bypass: function ({ context }) {
+      return canBypassEmperorExecution(context.giftsRemaining, context.playerReputation);
+    },
     canAffordGift: function ({ context, event }) {
       // Check if the event is one of the gift-giving events
       if (event.type !== 'GIVE_GIFT_SIMPLE' && event.type !== 'GIVE_GIFT_WITH_MESSAGE') {
@@ -100,6 +111,12 @@ export const gameMachine = setup({
       loyalty: 0.0,
       fear: 0.0,
       charisma: 0.0
+    },
+    playerReputation: {
+      perceivedThreat: 0.3,
+      perceivedLoyalty: 0.5,
+      trustworthiness: 0.6,
+      politicalSkill: 0.4
     },
     suspiciousCharacters: [],
     lastCharacterResponse: "",
@@ -256,6 +273,36 @@ export const gameMachine = setup({
                     return context.giftsRemaining - cost;
                   }
                 }),
+                // Update player vector and reputation based on message type
+                assign(({ context, event }) => {
+                  // Get the character to check trust level for political skill bonus
+                  const characterSnapshot = context.characters[event.characterId]?.getSnapshot()?.context;
+                  if (!characterSnapshot || !characterSnapshot.type) return {};
+
+                  // Create a Character object from the snapshot
+                  const character = {
+                    name: characterSnapshot.name,
+                    type: characterSnapshot.type,
+                    supportLevel: characterSnapshot.supportLevel,
+                    suspicion: characterSnapshot.suspicion,
+                    personalityVectors: characterSnapshot.personalityVectors,
+                    relationshipVectors: characterSnapshot.relationshipVectors,
+                    lastResponse: characterSnapshot.lastResponse,
+                    imgPath: characterSnapshot.imgPath
+                  };
+
+                  const { updatedStats, updatedReputation } = updatePlayerVector(
+                    event.messageType,
+                    character,
+                    context.playerPersonality,
+                    context.playerReputation
+                  );
+
+                  return {
+                    playerPersonality: updatedStats,
+                    playerReputation: updatedReputation
+                  };
+                }),
                 sendTo(
                   ({ event }) => event.characterId,
                   // Forward all necessary info to the character machine
@@ -310,18 +357,38 @@ export const gameMachine = setup({
                 }),
               },
               {
+                guard: {
+                  type: "emperor_loyalty_bypass",
+                },
+                target: 'in_season',
+                actions: () => {
+                  alert("Your perceived loyalty saves you from execution.");
+                }
+              },
+              {
                 target: '#gameMachine.game_over',
                 actions: assign({
                   gameEndReason: 'defeat'
                 })
               }
             ],
-            REFUSE: {
-              target: '#gameMachine.game_over',
-              actions: assign({
-                gameEndReason: 'defeat'
-              })
-            }
+            REFUSE: [
+              {
+                guard: {
+                  type: "emperor_loyalty_bypass",
+                },
+                target: 'in_season',
+                actions: () => {
+                  alert("Your perceived loyalty saves you from execution.");
+                }
+              },
+              {
+                target: '#gameMachine.game_over',
+                actions: assign({
+                  gameEndReason: 'defeat'
+                })
+              }
+            ]
           }
         },
       },
@@ -343,6 +410,12 @@ export const gameMachine = setup({
               loyalty: 0.0,
               fear: 0.0,
               charisma: 0.0
+            },
+            playerReputation: {
+              perceivedThreat: 0.3,
+              perceivedLoyalty: 0.5,
+              trustworthiness: 0.6,
+              politicalSkill: 0.4
             },
             suspiciousCharacters: [],
             lastCharacterResponse: ""

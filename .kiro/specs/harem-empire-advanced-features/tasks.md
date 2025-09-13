@@ -1,0 +1,141 @@
+# Implementation Plan
+
+- [x] 0.1 Character Stats Display System
+  - Create character stats display component that shows relationship and personality statistics
+  - Implement getSuspicionColor function for color-coding suspicion levels based on severity
+  - Add formatted display sections for relationship stats (Trust, Loyalty, Fear, Dependence percentages)
+  - Add formatted display sections for personality stats (Ambition, Empire Loyalty, Influence, Suspicion percentages)
+  - Apply proper CSS styling with font-size 11px, color #444, border-top, and padding
+  - Add conditional display logic that only shows stats when canShowStats is true
+  - **Expected Gameplay**: When you click on characters, you'll see detailed formatted statistics showing their relationship with you and their personality traits, with suspicion highlighted in warning colors.
+  - **Expected UI**: Character detail panels should show two sections - Relationship and Personality - with percentage values and proper styling. Suspicion should be color-coded based on danger level.
+  - _Requirements: 0.1.1, 0.1.2, 0.1.3, 0.1.4, 0.1.5_
+
+- [ ] 0.2 Player Vector and Reputation System
+  - Implement updatePlayerVector function that modifies player stats based on action types
+  - Add player ambition increase (+0.03) and perceivedThreat increase (+0.05) for ambitious actions
+  - Add player loyalty increase (+0.03) and perceivedLoyalty increase (+0.02) for loyal actions
+  - Add player fear increase (+0.02) and trustworthiness increase (+0.01) for cautious actions
+  - Implement politicalSkill increase (+0.01) when successfully manipulating high-trust characters
+  - Update giveEmperorGifts function to allow loyalty bypass when perceivedLoyalty > 0.8
+  - **Expected Gameplay**: Your actions will shape your character's personality and reputation. Ambitious actions make you more threatening, loyal actions improve your reputation, and successful manipulation increases your political skill.
+  - **Expected UI**: Player stats should visibly change after performing different actions. Emperor encounters should show loyalty bypass option when your reputation is high enough.
+  - _Requirements: 0.2.1, 0.2.2, 0.2.3, 0.2.4, 0.2.5_
+
+- [ ] 0.3 Influence-Based Fear and Promotion Effects
+  - Implement applyInitialInfluenceFear function for game start fear application based on starting influence
+  - Create promotion effects that increase player influence by 0.4 (capped at 1.0)
+  - Add side character penalties on promotion (-0.2 trust, -0.1 loyalty to player)
+  - Implement fear increase (+0.3) for all living non-emperor characters on promotion
+  - Create applyInfluenceFear function for ongoing fear increases when player influence > 0.6
+  - Add influence-based fear calculation: 0.5 * ((influence - 0.6) / 0.4) per season
+  - Implement getTrustCompoundBonus function with trust-based multipliers (1.8x, 1.4x, 1.2x, 1.0x)
+  - Add notification system for high influence (> 0.8): "Your growing influence strikes fear..."
+  - **Expected Gameplay**: As you gain influence and promotions, other characters will become increasingly fearful of you. High-trust relationships will develop faster due to compound bonuses.
+  - **Expected UI**: Character fear levels should increase visibly as your influence grows. Promotions should show immediate stat changes across all characters. High influence should trigger fear notifications.
+  - _Requirements: 0.3.1, 0.3.2, 0.3.3, 0.3.4, 0.3.5, 0.3.6, 0.3.7_
+
+- [ ] 1. Enhanced Suspicion System
+  - Extend Character interface to include suspicionThreshold property based on character type
+  - Implement suspicion decay function that reduces suspicion by 0.1-0.2 for loyal actions
+  - Add character-type-based suspicion thresholds (0.5 major, 0.7 side, 0.9 minor)
+  - Create cross-character suspicion effects where loyal actions to high-loyalty characters reduce other loyal characters' suspicion by 0.05
+  - Update character machine to handle suspicion decay and cross-character effects
+  - **Expected Gameplay**: When you give loyal messages, you'll see suspicion levels decrease on the target character and other loyal characters. Major characters will become suspicious and potentially execute you at lower suspicion levels than minor characters.
+  - **Expected UI**: Character stats should show decreasing suspicion values after loyal actions. Visual warnings should appear when characters approach their suspicion thresholds.
+  - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6_
+
+- [ ] 2. Influence-Gated Actions
+  - Implement action validation system that checks character influence vs player influence
+  - Add UI logic to disable "Spit in Face" action when character influence > 0.6
+  - Add UI logic to disable threatening message options when character influence > 0.8
+  - Create tooltip system showing explanatory messages for disabled actions
+  - Implement character interaction refusal when player influence < character influence - 0.3
+  - Add dynamic action availability updates as player influence changes
+  - **Expected Gameplay**: High-influence characters will be protected from certain hostile actions. Very powerful characters may refuse to interact with you entirely if your influence is too low.
+  - **Expected UI**: Action buttons will be grayed out with tooltips explaining why (e.g., "They are too powerful to insult directly"). Characters may display "They consider you beneath their notice" messages.
+  - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6_
+
+- [ ] 3. Gift Reward System
+  - Create gift calculation logic based on character type (10 gifts for major, 5 for side, 1 for minor)
+  - Implement gift notification system that displays when characters give gifts at 100 support
+  - Add gift cooldown mechanism preventing characters from giving gifts again for 3 seasons
+  - Update character dependence vector by 0.2 when gifts are given
+  - Add UI indicators showing characters in gift cooldown period
+  - Create gift tracking to prevent duplicate rewards
+  - **Expected Gameplay**: When you reach 100 support with a character, they'll reward you with gifts. Major characters give the most gifts. Characters won't give gifts again for several seasons.
+  - **Expected UI**: Notification popups showing "[Character Name] has given you [X] gifts!" Character profiles should show cooldown indicators and updated dependence levels.
+  - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7_
+
+- [ ] 4. Cross-Character Suspicion Effects
+  - Implement ambitious message effects that increase suspicion by 0.1 for all characters with loyalty > 0.6
+  - Add "spit in face" effects that increase suspicion by 0.05 for all characters of the same type
+  - Create influence-based fear cascade where player influence > 0.6 increases fear for non-faction characters
+  - Add notification system showing when actions affect multiple characters
+  - Implement loyal action benefits that reduce suspicion by 0.03 for characters with loyalty > 0.5
+  - **Expected Gameplay**: Your actions with one character will affect others. Ambitious behavior will make loyal characters suspicious. Insulting someone will make similar characters wary of you.
+  - **Expected UI**: Notifications showing "Your ambitious words have made loyal characters suspicious" or "Other princes are disturbed by your behavior." Multiple character stats should update simultaneously.
+  - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5_
+
+- [ ] 5. Random Character Assignment
+  - Create character pool selection system that chooses 6-8 characters per game
+  - Implement thematic matching based on player type (60% thematic, 40% variety)
+  - Ensure major characters (Crown Prince, Prime Minister, Empress Consort) always appear
+  - Add character pool management with different selections for prince/minister/concubine paths
+  - Update game initialization to use selected character pool instead of all characters
+  - Add game restart functionality that generates completely new character sets
+  - **Expected Gameplay**: Each new game will have a different set of characters, but always include the major political figures. Character selection will favor your chosen path's social circle.
+  - **Expected UI**: Character selection screen should show different characters each game. The character roster should reflect your chosen path (more princes if you're a prince, etc.).
+  - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7_
+
+- [ ] 6. Faction Auto-Formation
+  - Implement faction assignment logic based on personality vectors (Rebel: ambition > 0.7 & loyalty < 0.4, Imperial: loyalty > 0.7 & influence > 0.5, Loyalist: fear > 0.6 & loyalty > 0.5)
+  - Add faction membership tracking to game state and character profiles
+  - Create faction effects: +5 support when gaining support with faction members, -10 support with opposing faction members
+  - Implement faction membership offers when faction has 3+ members at 80+ support
+  - Add UI indicators showing character faction membership with colors or badges
+  - Create faction bonus activation system when player joins a faction
+  - **Expected Gameplay**: Characters will naturally form political factions based on their personalities. Supporting faction members will boost your standing with the entire faction but hurt you with opposing factions.
+  - **Expected UI**: Character portraits should show faction badges (Rebel/Imperial/Loyalist/Independent). Faction membership offers should appear as notifications. Support changes should show faction bonuses/penalties.
+  - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.8, 6.9_
+
+- [ ] 7. Character Dislike Vector
+  - Create dislike calculation based on vector similarity (difference < 0.3 = dislike 0.2-0.4) and promotion competition (0.5-0.7 dislike)
+  - Implement dislike effects that slow relationship building by 50% when dislike > 0.6
+  - Add hostile comments for characters with high dislike levels
+  - Create dislike increase/decrease mechanics based on player actions matching/opposing character traits
+  - Update character initialization to calculate initial dislike values
+  - Add seasonal dislike decay when player consistently acts against character's disliked traits
+  - **Expected Gameplay**: Some characters will naturally dislike you based on similarity or competition. These relationships will be harder to build and characters may make hostile comments.
+  - **Expected UI**: Character profiles should show dislike levels. Hostile characters should make negative comments in their responses. Relationship progress should be visibly slower with disliked characters.
+  - _Requirements: 7.1, 7.2, 7.3, 7.4, 7.5, 7.6_
+
+- [ ] 8. Influence-Based Fear Cascade
+  - Create fear calculation system where player influence > 0.6 increases fear for non-faction characters by (influence - 0.6) * 0.5 each season
+  - Add behavioral changes: characters with fear > 0.8 refuse ambitious messages, fear > 0.9 only accept cautious/loyal messages
+  - Implement fearful comments in character responses when fear levels are high
+  - Create fear decay mechanism (0.1 per season) when player influence decreases
+  - Add faction immunity so same-faction characters don't gain influence-based fear
+  - **Expected Gameplay**: As your influence grows, characters will become increasingly afraid of you, limiting your interaction options but making them more compliant.
+  - **Expected UI**: High-fear characters should show limited message options. Character responses should include fearful language. Fear levels should be visible in character stats.
+  - _Requirements: 8.1, 8.2, 8.3, 8.4, 8.5, 8.6_
+
+- [ ] 9. Conspiracy Detection System
+  - Create conspiracy detection logic that triggers when player has 3+ characters with ambition > 0.7 at 80+ support
+  - Add seasonal suspicion increases (0.2 per season) for loyal characters when conspiracy is detected
+  - Implement Imperial faction hostility when conspiracy is detected
+  - Create investigation events for large conspiracies (5+ members) with random event triggers
+  - Add player choice system for abandoning conspiracy or risking execution during investigations
+  - **Expected Gameplay**: Building a large group of ambitious supporters will be detected as a conspiracy, making loyal characters suspicious and triggering investigation events.
+  - **Expected UI**: Conspiracy detection should trigger notifications. Investigation events should present choices. Loyal characters should show increasing suspicion levels over time.
+  - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5_
+
+- [ ] 10. Seasonal Vector Evolution
+  - Implement loyalty vector increases (0.05) for characters with high support for 3+ seasons
+  - Add fear vector increases (0.1) when characters witness executions
+  - Create ambition vector increases (0.03) for successful faction members
+  - Implement vector drift toward neutral for isolated characters (no faction, low support)
+  - Add major political event vector adjustments based on character personality types
+  - **Expected Gameplay**: Character personalities will gradually evolve based on their experiences and relationships. Long-term allies become more loyal, while isolated characters become more neutral.
+  - **Expected UI**: Character personality stats should show gradual changes over seasons. Major events should cause visible personality shifts across multiple characters.
+  - _Requirements: 10.1, 10.2, 10.3, 10.4, 10.5_

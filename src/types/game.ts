@@ -7,6 +7,13 @@ export interface PlayerStats {
   charisma: number;
 }
 
+export interface PlayerReputation {
+  perceivedThreat: number;
+  perceivedLoyalty: number;
+  trustworthiness: number;
+  politicalSkill: number;
+}
+
 export type PlayerType = 'prince' | 'minister' | 'concubine';
 
 export interface GameState {
