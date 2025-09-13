@@ -1,1 +1,12 @@
-@import "tailwindcss";
+@import "tailwindcss";.text
+-gold {
+  color: #ffd700;
+}
+
+.bg-gold {
+  background-color: #ffd700;
+}
+
+.border-gold {
+  border-color: #ffd700;
+}

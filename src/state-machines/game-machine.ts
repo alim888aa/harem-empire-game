@@ -1,4 +1,4 @@
-import { setup, sendTo } from "xstate";
+import { setup, sendTo, stopChild } from "xstate";
 import type { ActorRefFrom } from "xstate";
 import { assign } from "xstate";
 import { initialCharacters } from '../data/characters.ts'
@@ -28,7 +28,8 @@ export const gameMachine = setup({
         charisma: 0.0
       },
       suspiciousCharacters: [],
-      lastCharacterResponse: ""
+      lastCharacterResponse: "",
+      gameEndReason: null
     } as
       {
         characterType: 'prince' | 'minister' | 'concubine' | null;
@@ -39,7 +40,8 @@ export const gameMachine = setup({
         characters: Record<string, CharRef>,
         playerPersonality: PlayerStats,
         suspiciousCharacters: string[],
-        lastCharacterResponse: string
+        lastCharacterResponse: string,
+        gameEndReason: 'victory' | 'defeat' | null
       },
     events: {} as
       | { type: "INITIALIZE_GAME" }
@@ -56,13 +58,14 @@ export const gameMachine = setup({
       | { type: "CHARACTER_IS_SUSPICIOUS", name: string, characterType: 'major' | 'side' | 'minor' }
       | { type: "CHARACTER_RESPONDED", name: string, response: "ambitious_positive" | "loyal_suspicious" | "neutral" | "fearful_appreciative" | "ambitious_dismissive" | "loyal_positive" | "neutral" }
       | { type: "GAME_COMPLETED" }
+      | { type: "RESTART_GAME" }
   },
   actors: {
     characterMachine: characterMachine
   },
   guards: {
     emperor_encountered: function ({ context }) {
-      return context.season === 2 && Math.random() < 0.5
+      return context.season >= 2 && Math.random() < 0.3;
     },
     emperor_gifting: function ({ context }) {
       return context.giftsRemaining >= 10;
@@ -77,7 +80,7 @@ export const gameMachine = setup({
       return context.giftsRemaining >= cost;
     },
     canBePromoted: function ({ context }) {
-      return context.supportPoints >= 80;
+      return context.supportPoints >= 80 && context.rank === null;
     },
     canBeEmperor: function ({ context }) {
       return context.supportPoints >= 100;
@@ -99,8 +102,8 @@ export const gameMachine = setup({
       charisma: 0.0
     },
     suspiciousCharacters: [],
-    lastCharacterResponse: ""
-
+    lastCharacterResponse: "",
+    gameEndReason: null
   },
   on: {
   },
@@ -122,7 +125,7 @@ export const gameMachine = setup({
         INITIALIZE_GAME: {
           target: "playing",
           actions: assign({
-            playerPersonality: ({context}) => getPersonality(context.characterType),
+            playerPersonality: ({ context }) => getPersonality(context.characterType),
             characters: ({ spawn }) => {
               const characterActors: Record<string, CharRef> = {};
               for (const charData of initialCharacters) {
@@ -147,7 +150,7 @@ export const gameMachine = setup({
               if (event.characterType === 'major') points = 30;
               else if (event.characterType === 'side') points = 15;
               else if (event.characterType === 'minor') points = 5;
-              return context.supportPoints + points;
+              return Math.min(100, context.supportPoints + points);
             }
           })
         },
@@ -158,7 +161,7 @@ export const gameMachine = setup({
               if (event.characterType === 'major') points = 30;
               else if (event.characterType === 'side') points = 15;
               else if (event.characterType === 'minor') points = 5;
-              return context.supportPoints + points;
+              return Math.min(100, context.supportPoints + points);
             },
           })
         },
@@ -175,31 +178,31 @@ export const gameMachine = setup({
             // Use the helper function to get the full text
             lastCharacterResponse: ({ event }) => getResponseByType(event.name, event.response)
           })
+        }
+      },
+      always: [
+        {
+          guard: {
+            type: "canBeEmperor",
+          },
+          target: '#gameMachine.game_over',
+          actions: assign({
+            gameEndReason: 'victory'
+          })
         },
-        PROMOTED: {
+        {
           guard: {
             type: "canBePromoted",
           },
           actions: assign({
             rank: ({ context }) => getRank(context.characterType),
           })
-        },
-        GAME_COMPLETED: {
-          guard: {
-            type: "canBeEmperor",
-          },
-          target: '#gameMachine.game_over',
         }
-      },
+      ],
       states: {
         in_season: {
           on: {
-            NEXT_SEASON: [{
-              guard: {
-                type: "emperor_encountered",
-              },
-              target: "emperor_encounter",
-            },
+            NEXT_SEASON: [
             {
               target: "advancing_season",
             }],
@@ -254,14 +257,14 @@ export const gameMachine = setup({
             giftsRemaining: ({ context }) => context.giftsRemaining + 15,
           }),
           always: [
-          {
-            guard: "emperor_encountered",
-            target: "emperor_encounter",
-          },  
-          {
-            target: "in_season"
-          },
-        ]
+            {
+              guard: "emperor_encountered",
+              target: "emperor_encounter",
+            },
+            {
+              target: "in_season"
+            },
+          ]
         },
         emperor_encounter: {
           on: {
@@ -270,25 +273,52 @@ export const gameMachine = setup({
                 guard: {
                   type: "emperor_gifting",
                 },
-                target: 'advancing_season',
+                target: 'in_season',
                 actions: assign({
                   giftsRemaining: ({ context }) => context.giftsRemaining - 10,
                 }),
               },
               {
-                target: '#gameMachine.game_over'
+                target: '#gameMachine.game_over',
+                actions: assign({
+                  gameEndReason: 'defeat'
+                })
               }
             ],
             REFUSE: {
               target: '#gameMachine.game_over',
+              actions: assign({
+                gameEndReason: 'defeat'
+              })
             }
           }
         },
       },
     },
     game_over: {
-      type: "final",
+      on: {
+        RESTART_GAME: {
+          target: 'choosing_character',
+          actions: assign({
+            characterType: null,
+            season: 1,
+            giftsRemaining: 15,
+            supportPoints: 0,
+            rank: null,
+            characters: {},
+            playerPersonality: {
+              influence: 0.0,
+              ambition: 0.0,
+              loyalty: 0.0,
+              fear: 0.0,
+              charisma: 0.0
+            },
+            suspiciousCharacters: [],
+            lastCharacterResponse: ""
+          })
+        }
+      },
     },
-  },
+  }
 });
 

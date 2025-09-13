@@ -4,11 +4,13 @@ import CharacterInfo from './CharacterInfo';
 import GameHeader from './GameHeader';
 import ActionButtons from './ActionButtons';
 import StatsModal from './StatsModal';
+import PromotionNotification from './PromotionNotification';
 import { initialCharacters } from '../data/characters';
 import type { PlayerStats } from '../types/game';
 import { useSelector } from '@xstate/react';
 import type { ActorRefFrom } from 'xstate';
 import type { gameMachine } from '../state-machines/game-machine';
+import { getPersonalityHint } from '../lib/helpers'
 
 interface GameLayoutProps {
   machineState: any; // XState state
@@ -21,9 +23,11 @@ interface GameLayoutProps {
     currentCharacterIndex: number;
     showStatsModal: boolean;
   }>>;
+  promotionKey: string | null;
+  onPromotionDismiss: () => void;
 }
 
-function GameLayout({ machineState, send, uiState, setUiState }: GameLayoutProps) {
+function GameLayout({ machineState, send, uiState, setUiState, promotionKey, onPromotionDismiss }: GameLayoutProps) {
   // Use initialCharacters for navigation (matches state machine)
   const availableCharacters = initialCharacters;
   const currentCharacterData = availableCharacters[uiState.currentCharacterIndex];
@@ -34,6 +38,7 @@ function GameLayout({ machineState, send, uiState, setUiState }: GameLayoutProps
   // Get current character's support level from character actor
   const characterActor = characterActors[currentCharacterData.name];
   const currentCharacterSupport = useSelector(characterActor, (state) => state.context.supportLevel);
+  const currentCharacterPersonality = getPersonalityHint(currentCharacterData.vectors);
   
   // Create a UI-compatible character object
   const currentCharacter = {
@@ -110,6 +115,8 @@ function GameLayout({ machineState, send, uiState, setUiState }: GameLayoutProps
     setUiState(prev => ({ ...prev, showStatsModal: false }));
   };
 
+
+
   // Create gameState object for components that still expect it
   const gameState = {
     playerType: characterType,
@@ -125,6 +132,18 @@ function GameLayout({ machineState, send, uiState, setUiState }: GameLayoutProps
 
   return (
     <div className="min-h-screen bg-gray-50 grid grid-rows-[auto_1fr]">
+      {/* Promotion Notification */}
+      {(() => {
+        console.log('Render check:', { promotionKey, rank, shouldShow: promotionKey && rank });
+        return promotionKey && rank && (
+          <PromotionNotification 
+            key={promotionKey}
+            rank={rank}
+            onDismiss={onPromotionDismiss}
+          />
+        );
+      })()}
+
       {/* Header area */}
       <GameHeader
         gameState={gameState}
@@ -140,7 +159,7 @@ function GameLayout({ machineState, send, uiState, setUiState }: GameLayoutProps
           onNext={handleNext}
         />
         <div className="flex flex-col gap-6">
-          <CharacterInfo character={currentCharacter} support={currentCharacterSupport} />
+          <CharacterInfo character={currentCharacter} personality={currentCharacterPersonality} />
           <ActionButtons
             character={currentCharacter}
             onAction={handleAction}

@@ -1,3 +1,5 @@
+import type { CharacterPersonalityVectors } from "../types/character";
+
 export function getRank(characterType: 'prince' | 'minister' | 'concubine' | null ) {
 
     switch (characterType) {
@@ -42,4 +44,17 @@ export function getPersonality(characterType: 'prince' | 'minister' | 'concubine
       const playerPersonality = playerVectors[characterType as keyof typeof playerVectors];
 
       return playerPersonality
+}
+
+export function getPersonalityHint(personalityVector: CharacterPersonalityVectors) {
+  let hints = [];
+
+  if (personalityVector.ambition > 0.7) hints.push("Ambitious");
+  if (personalityVector.loyalty < 0.3) hints.push("Disloyal");
+  if (personalityVector.loyalty > 0.6) hints.push("Loyal");
+  if (personalityVector.fear > 0.7) hints.push("Fearful");  
+  if (personalityVector.influence > 0.8) hints.push("Influential");
+  if (personalityVector.romantic > 0.7) hints.push("Romantic");
+
+  return hints.join(", ") || "Neutral";
 }

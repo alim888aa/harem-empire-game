@@ -2,10 +2,10 @@ import type { Character } from '../types/character';
 
 interface CharacterInfoProps {
   character: Character;
-  support: number;
+  personality: string;
 }
 
-function CharacterInfo({ character, support }: CharacterInfoProps) {
+function CharacterInfo({ character, personality }: CharacterInfoProps) {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 w-80">
       {/* Character name */}
@@ -25,10 +25,10 @@ function CharacterInfo({ character, support }: CharacterInfoProps) {
           <span className="text-gray-900">{character.supportLevel}/100</span>
         </div>
         
-        {/* <div className="flex justify-between">
+        <div className="flex justify-between">
           <span className="font-medium text-gray-700">Personality:</span>
-          <span className="text-gray-900">{character.personality}</span>
-        </div> */}
+          <span className="text-gray-900">{personality}</span>
+        </div>
       </div>
     </div>
   );
