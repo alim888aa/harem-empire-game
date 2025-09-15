@@ -97,6 +97,7 @@ interface InfluenceFearSystem {
 
 #### Extended Character Type Interface
 ```typescript
+//Just add these to the Character type, no need to create another interface like EnhancedCharacter
 interface EnhancedCharacter extends Character {
   // New vectors
   dislike: number;
@@ -116,6 +117,7 @@ interface EnhancedCharacter extends Character {
 
 #### Faction System Interface
 ```typescript
+//Add these to the game machine's context
 interface FactionSystem {
   factions: {
     Rebel: string[];      // character names
@@ -133,21 +135,6 @@ interface FactionSystem {
 }
 ```
 
-### 2. Suspicion Enhancement System
-
-#### Suspicion Decay Mechanism
-- **Loyal Action Decay**: When player performs loyal actions, target character suspicion decreases by 0.1-0.2
-- **Cross-Character Loyalty Effects**: When player gives loyal message to character with loyalty > 0.6, other loyal characters' suspicion decreases by 0.05
-- **Threshold-Based Execution**: Different character types have different suspicion thresholds
-
-#### Implementation Strategy
-```typescript
-interface SuspicionSystem {
-  applySuspicionDecay(characterId: string, actionType: 'loyal' | 'neutral'): void;
-  applyCrossCharacterEffects(sourceCharacter: string, actionType: string): void;
-  checkSuspicionThresholds(): string[]; // returns suspicious character IDs
-}
-```
 
 ### 3. Influence-Gated Actions System
 
@@ -177,7 +164,6 @@ interface ActionGating {
 
 #### Cooldown Mechanism
 - Characters cannot give gifts again for 3 seasons after giving
-- Dependence vector increases by 0.2 when gifts are given
 
 ### 5. Random Character Assignment System
 
@@ -204,27 +190,31 @@ interface CharacterPool {
 ```typescript
 interface FactionRules {
   Rebel: {
-    ambition: "> 0.7",
-    loyalty: "< 0.4"
+    ambition: ">= 0.7",
+    loyalty: "=< 0.5"
   };
   
   Imperial: {
-    loyalty: "> 0.7",
-    influence: "> 0.5"
+    loyalty: ">= 0.7",
+    influence: ">= 0.5"
   };
   
   Loyalist: {
-    fear: "> 0.6",
-    loyalty: "> 0.5"
+    fear: ">= 0.5",
+    loyalty: ">= 0.5"
   };
   
-  // Independent: doesn't meet other criteria
+  // Neutral: doesn't meet other criteria
 }
 ```
 
+### UI changes
+- **Badge**: Badges for each faction
+- **Factions Information**: Card with faction information like how many members each faction has & the player's current faction & how close they are to each faction
+
 #### Faction Effects
-- **Support Bonus**: +5 support when gaining support with faction member
-- **Opposition Penalty**: -10 support with opposing faction members
+- **Support Bonus**: +10 support and +20% in trust when gaining support with faction member
+- **Opposition Penalty**: -10 support and +20% in suspicion with opposing faction members 
 - **Membership Offers**: When faction has 3+ members at 80+ support
 
 ### 7. Character Dislike Vector System

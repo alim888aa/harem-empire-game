@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
+import { shouldShowHighInfluenceNotification, getHighInfluenceNotification } from '../lib/influenceFear';
 
 interface PromotionNotificationProps {
   rank: string;
+  playerInfluence: number;
   onDismiss: () => void;
 }
 
-function PromotionNotification({ rank, onDismiss }: PromotionNotificationProps) {
+function PromotionNotification({ rank, playerInfluence, onDismiss }: PromotionNotificationProps) {
   console.log('PromotionNotification mounted with rank:', rank);
 
   // Auto-dismiss after 4 seconds
@@ -25,6 +27,8 @@ function PromotionNotification({ rank, onDismiss }: PromotionNotificationProps) 
     ).join(' ');
   };
 
+  const showInfluenceMessage = shouldShowHighInfluenceNotification(playerInfluence);
+
   return (
     <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
       <div className="bg-yellow-600 text-white px-6 py-4 rounded-lg shadow-lg border-2 border-yellow-500 animate-bounce">
@@ -36,6 +40,11 @@ function PromotionNotification({ rank, onDismiss }: PromotionNotificationProps) 
               <div className="text-yellow-100">
                 You are now {formatRank(rank)}!
               </div>
+              {showInfluenceMessage && (
+                <div className="text-yellow-200 text-sm mt-1 italic">
+                  {getHighInfluenceNotification()}
+                </div>
+              )}
             </div>
           </div>
           <button

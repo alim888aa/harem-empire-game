@@ -15,6 +15,7 @@ function App() {
   const [uiState, setUiState] = useState({
     currentCharacterIndex: 0,
     showStatsModal: false,
+    showFactionPanel: false,
   });
 
   // Promotion tracking - stays persistent across state transitions

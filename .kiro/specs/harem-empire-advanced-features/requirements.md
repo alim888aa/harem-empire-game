@@ -47,18 +47,29 @@ The core game foundation is already implemented with character vector systems, p
 7. WHEN calculating relationship bonuses THEN trust compound bonus SHALL return 1.8x for trust >= 0.8, 1.4x for >= 0.6, 1.2x for >= 0.4, 1.0x otherwise
 
 ## Requirements
-### Requirement 1: Enhanced Suspicion System
+Requirement 1: Enhanced Suspicion System
 
-**User Story:** As a player, I want suspicion to be a nuanced risk system where loyal actions can reduce suspicion and different characters have different tolerance levels, so that I can strategically manage political risk through careful relationship building.
+User Story: As a player, I want suspicion to act as a clear political risk counter. Each character has a per-type suspicion threshold; when a character reaches its threshold they are recorded in the game's suspiciousCharacters list. If the number of suspicious characters reaches a player-role-specific execution threshold, the game ends in defeat.
 
-#### Acceptance Criteria
+Acceptance Criteria
 
-1. WHEN player performs loyal actions THEN character suspicion SHALL decrease by 0.1-0.2
-2. WHEN character type is 'major' THEN suspicion threshold SHALL be 0.5 (easier to trigger)
-3. WHEN character type is 'side' THEN suspicion threshold SHALL be 0.7 (standard)
-4. WHEN character type is 'minor' THEN suspicion threshold SHALL be 0.9 (more forgiving)
-5. WHEN player gives loyal message THEN target character suspicion SHALL decrease
-6. WHEN player gives loyal message to character with loyalty > 0.6 THEN other loyal characters' suspicion SHALL decrease by 0.05
+1. WHEN character type is 'major' THEN that character's suspicionThreshold SHALL be 0.5.
+
+2. WHEN character type is 'side' THEN that character's suspicionThreshold SHALL be 0.7.
+
+3. WHEN character type is 'minor' THEN that character's suspicionThreshold SHALL be 0.9.
+
+4. WHEN a character's suspicion >= its suspicionThreshold THEN that character SHALL be added (once) to game.context.suspiciousCharacters.
+
+5. WHEN the length of game.context.suspiciousCharacters reaches the execution threshold for the player's current role THEN the game SHALL transition to game_over with gameEndReason: 'defeat'. Execution thresholds:
+	- concubine: 1 suspicious character
+
+	- minister: 3 suspicious characters
+
+	- prince: 5 suspicious characters
+
+6. WHEN a SPIT_IN_FACE event is sent to a character THEN that character's suspicion SHALL increase (and support-level adjustments may be applied per game design).
+
 
 ### Requirement 2: Influence-Gated Actions
 
@@ -80,11 +91,11 @@ The core game foundation is already implemented with character vector systems, p
 #### Acceptance Criteria
 
 1. WHEN character support reaches 100 THEN character SHALL give gifts to player
+2. WHEN 'loveForPlayer' relationship vector reaches 100 THEN character SHALL give gifts to player
 2. WHEN 'major' character gives gifts THEN player SHALL receive 10 gifts
 3. WHEN 'side' character gives gifts THEN player SHALL receive 5 gifts  
 4. WHEN 'minor' character gives gifts THEN player SHALL receive 1 gift
 5. WHEN gifts are received THEN notification SHALL display with character name and amount
-6. WHEN character gives gifts THEN character dependence vector SHALL increase by 0.2
 7. WHEN character has given gifts THEN they SHALL NOT give gifts again for 3 seasons
 
 ### Requirement 4: Cross-Character Suspicion Effects
@@ -93,11 +104,10 @@ The core game foundation is already implemented with character vector systems, p
 
 #### Acceptance Criteria
 
-1. WHEN player gives ambitious message to character with ambition > 0.7 THEN all characters with loyalty > 0.6 SHALL gain 0.1 suspicion
-2. WHEN player spits in face of character THEN all characters of same type SHALL gain 0.05 suspicion
+1. WHEN player gives ambitious message to character with ambition >= 0.7 THEN all characters within the same faction SHALL gain 0.1 suspicion
+2. WHEN player spits in face of character THEN all characters of same faction SHALL gain 0.1 suspicion
 3. WHEN player gains influence > 0.6 THEN all characters not in same faction SHALL gain fear exponentially (fear * 1.2)
-4. WHEN character becomes suspicious THEN other characters SHALL be notified and gain 0.02 suspicion
-5. WHEN player performs loyal action THEN characters with loyalty > 0.5 SHALL lose 0.03 suspicion
+5. WHEN player performs loyal action THEN characters with loyalty > 0.5 SHALL lose 0.1 suspicion
 
 ### Requirement 5: Random Character Assignment
 
@@ -107,11 +117,11 @@ The core game foundation is already implemented with character vector systems, p
 
 1. WHEN game starts THEN 6-8 characters SHALL be randomly selected from character pool
 2. WHEN player chooses 'prince' THEN 60% of characters SHALL be princes/ministers, 40% others
-3. WHEN player chooses 'minister' THEN 60% of characters SHALL be ministers/officials, 40% others  
-4. WHEN player chooses 'concubine' THEN 60% of characters SHALL be concubines/court ladies, 40% others
+3. WHEN player chooses 'minister' THEN 60% of characters SHALL be ministers/princes, 40% others  
+4. WHEN player chooses 'concubine' THEN 60% of characters SHALL be concubines/maids, 40% others
 5. WHEN characters are selected THEN at least 2 SHALL be from outside player's circle for variety
 6. WHEN game restarts THEN completely new character set SHALL be generated
-7. WHEN character pool is selected THEN major characters (Crown Prince, Prime Minister, Empress Consort) SHALL always be included
+7. WHEN character pool is selected THEN one or more major character (Crown Prince, Prime Minister, Empress Consort) SHALL always be included
 
 ### 6. Faction Auto-Formation
 
@@ -119,13 +129,13 @@ The core game foundation is already implemented with character vector systems, p
 
 #### Acceptance Criteria
 1. WHEN game initializes THEN characters SHALL be assigned to factions based on vectors
-2. WHEN character has ambition > 0.7 AND loyalty < 0.4 THEN character SHALL join Rebel faction
+2. WHEN character has ambition > 0.7 AND loyalty < 0.5 THEN character SHALL join Rebel faction
 3. WHEN character has loyalty > 0.7 AND influence > 0.5 THEN character SHALL join Imperial faction
-4. WHEN character has fear > 0.6 AND loyalty > 0.5 THEN character SHALL join Loyalist faction
-5. WHEN character doesn't fit faction criteria THEN character SHALL remain Independent
-6. WHEN player gains support with faction member THEN all faction members SHALL gain 5 support
+4. WHEN character has fear > 0.5 AND loyalty > 0.5 THEN character SHALL join Loyalist faction
+5. WHEN character doesn't fit faction criteria THEN character SHALL remain Neutral
+6. WHEN player gains support with faction member THEN all faction members SHALL gain 10 support
 7. WHEN player gains support with faction member THEN opposing faction members SHALL lose 10 support
-8. WHEN faction has 3+ members at 80+ support THEN faction SHALL offer player membership
+8. WHEN faction has 3+ members at 50+ support THEN faction SHALL offer player membership
 9. WHEN player joins faction THEN faction bonus effects SHALL activate
 
 ### 7. Character Dislike Vector
@@ -133,7 +143,7 @@ The core game foundation is already implemented with character vector systems, p
 **User Story:** As a player, I want characters to have natural dislikes based on similarity and competition, adding realistic interpersonal dynamics.
 
 #### Acceptance Criteria
-1. WHEN character vectors are similar to player vectors (difference < 0.3) THEN character SHALL have dislike 0.2-0.4
+1. WHEN character type is similar to player type (concubines and player is concubine) THEN character SHALL have dislike 0.2-0.4
 2. WHEN character is the promotion target for player path THEN character SHALL have dislike 0.5-0.7
 3. WHEN character has high dislike THEN relationship building SHALL be 50% slower
 4. WHEN character dislike > 0.6 THEN character SHALL occasionally make hostile comments

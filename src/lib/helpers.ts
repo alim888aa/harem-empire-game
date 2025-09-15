@@ -21,7 +21,7 @@ export function getPersonality(characterType: 'prince' | 'minister' | 'concubine
         prince: {
           loyalty: 0.8,
           ambition: 0.6,
-          influence: 0.5,
+          influence: 0.6,
           fear: 0.2,
           charisma: 0.4
         },
@@ -35,7 +35,7 @@ export function getPersonality(characterType: 'prince' | 'minister' | 'concubine
         concubine: {
           loyalty: 0.3,
           ambition: 0.7,
-          influence: 0.0,
+          influence: 0.1,
           fear: 0.5,
           charisma: 0.6
         }

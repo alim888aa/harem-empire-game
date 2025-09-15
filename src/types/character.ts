@@ -21,6 +21,8 @@ export interface InitialCharacterType {
       type: 'major' | 'side' | 'minor';
       vectors: CharacterPersonalityVectors;
       imgPath: string;
+      suspicionThreshold: number;
+      paths?: ('prince' | 'minister' | 'concubine')[];
 }
 
 export interface Character {
@@ -32,4 +34,7 @@ export interface Character {
       relationshipVectors: CharacterRelationshipVectors;
       lastResponse: string;
       imgPath: string;
+      suspicionThreshold: number;
+      hasGivenGifts: boolean;
+      giftCooldownUntil: number;
 }

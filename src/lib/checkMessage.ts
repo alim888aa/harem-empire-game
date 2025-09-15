@@ -84,14 +84,14 @@ export function analyzeMessageChoice(
     let baseLove = 0;
 
     if (messageType === "ambitious") {
-        if (personalityVectors.ambition > 0.8 && personalityVectors.loyalty < 0.6) {
+        if (personalityVectors.ambition >= 0.6 && personalityVectors.loyalty <= 0.5) {
             // Perfect match - big relationship boost
             baseTrust = 0.25;
             baseLoyalty = 0.20;
             baseDependence = 0.15;
             vectorChanges.ambition = 0.05;
             responseType = 'ambitious_positive';
-        } else if (personalityVectors.loyalty > 0.6) {
+        } else if (personalityVectors.loyalty >= 0.5 || personalityVectors.ambition <= 0.5) {
             // Bad match - relationship damage
             baseTrust = -0.15;
             baseFear = 0.15;
@@ -104,16 +104,14 @@ export function analyzeMessageChoice(
             responseType = 'neutral';
         }
     } else if (messageType === "loyal") {
-        if (personalityVectors.loyalty > 0.7) {
+        if (personalityVectors.loyalty >= 0.7) {
             // Perfect match
             baseTrust = 0.20;
             baseLoyalty = 0.25;
             baseDependence = 0.10;
             responseType = 'loyal_positive';
-            
-            // NEW: Loyal messages reduce suspicion
-            vectorChanges.suspicion = -0.1;
-        } else if (personalityVectors.ambition > 0.7 && personalityVectors.loyalty < 0.5) {
+        
+        } else if (personalityVectors.ambition >= 0.7 && personalityVectors.loyalty <= 0.5) {
             // They see you as naive
             baseTrust = -0.1;
             responseType = 'ambitious_dismissive';
@@ -123,7 +121,7 @@ export function analyzeMessageChoice(
             responseType = 'neutral';
         }
     } else if (messageType === "cautious") {
-        if (personalityVectors.fear > 0.6) {
+        if (personalityVectors.fear >= 0.5) {
             baseTrust = 0.15;
             baseDependence = 0.1;
             vectorChanges.fear = 0.1; // Talking about dangers makes them more afraid
@@ -138,14 +136,14 @@ export function analyzeMessageChoice(
         const romanticCompatibility = personalityVectors.romantic;
         const charismaBonus = playerCharisma; // 0-1 scale
 
-        if (romanticCompatibility > 0.7) {
+        if (romanticCompatibility >= 0.7) {
             // High romantic personality - very receptive
             baseLove = 0.3 * (1 + charismaBonus);
             baseTrust = 0.15 * (1 + charismaBonus * 0.5);
             baseDependence = 0.1;
             vectorChanges.romantic = 0.05; // Increases their romantic nature
             responseType = 'romantic_positive';
-        } else if (romanticCompatibility > 0.4) {
+        } else if (romanticCompatibility >= 0.4) {
             // Medium romantic personality - moderately receptive
             baseLove = 0.2 * (1 + charismaBonus * 0.7);
             baseTrust = 0.1 * (1 + charismaBonus * 0.3);

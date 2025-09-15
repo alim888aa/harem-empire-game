@@ -1,9 +1,11 @@
 import type { Character } from '../types/character';
+import FactionBadge from './FactionBadge';
 
 interface CharacterInfoProps {
   character: Character;
   personality: string;
   canShowStats?: boolean;
+  currentSeason?: number;
 }
 
 // Color-coding function for suspicion levels based on severity
@@ -14,13 +16,18 @@ function getSuspicionColor(suspicion: number): string {
   return '#444'; // default gray
 }
 
-function CharacterInfo({ character, personality, canShowStats = false }: CharacterInfoProps) {
+function CharacterInfo({ character, personality, canShowStats = false, currentSeason = 1 }: CharacterInfoProps) {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 w-80">
       {/* Character name */}
-      <h2 className="text-2xl font-semibold text-center mb-4">
+      <h2 className="text-2xl font-semibold text-center mb-2">
         {character.name}
       </h2>
+      
+      {/* Faction Badge */}
+      <div className="flex justify-center mb-4">
+        <FactionBadge character={character} size="medium" />
+      </div>
       
       {/* Character details */}
       <div className="space-y-3">
@@ -37,6 +44,26 @@ function CharacterInfo({ character, personality, canShowStats = false }: Charact
         <div className="flex justify-between">
           <span className="font-medium text-gray-700">Personality:</span>
           <span className="text-gray-900">{personality}</span>
+        </div>
+
+        {/* Gift Status */}
+        <div className="flex justify-between">
+          <span className="font-medium text-gray-700">Gift Status:</span>
+          <span className={`text-sm ${
+            character.hasGivenGifts && character.giftCooldownUntil > currentSeason
+              ? 'text-orange-600'
+              : character.hasGivenGifts
+              ? 'text-green-600'
+              : 'text-gray-500'
+          }`}>
+            {character.hasGivenGifts && character.giftCooldownUntil > currentSeason
+              ? `Cooldown (${character.giftCooldownUntil - currentSeason} seasons)`
+              : character.hasGivenGifts
+              ? 'Can give gifts'
+              : 'No gifts given'
+            }
+            
+          </span>
         </div>
       </div>
 
@@ -86,11 +113,15 @@ function CharacterInfo({ character, personality, canShowStats = false }: Charact
                 <span>Influence:</span>
                 <span>{Math.round(character.personalityVectors.influence * 100)}%</span>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2px' }}>
                 <span>Suspicion:</span>
                 <span style={{ color: getSuspicionColor(character.suspicion) }}>
                   {Math.round(character.suspicion * 100)}%
                 </span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <span>Threshold:</span>
+                <span>{Math.round(character.suspicionThreshold * 100)}%</span>
               </div>
             </div>
           </div>
