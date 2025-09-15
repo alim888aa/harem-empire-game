@@ -244,7 +244,7 @@ export function applyFactionMembershipEffects(
   penalties: Array<{ characterName: string; supportPenalty: number; suspicionPenalty: number }>;
 } {
   console.log(`Applying faction membership effects for player joining ${playerFaction}`);
-  
+
   const bonuses: Array<{ characterName: string; supportBonus: number; trustBonus: number }> = [];
   const penalties: Array<{ characterName: string; supportPenalty: number; suspicionPenalty: number }> = [];
 
@@ -308,7 +308,7 @@ export function applyFactionMembershipEffects(
   console.log(`Faction membership effects calculated: ${bonuses.length} bonuses, ${penalties.length} penalties`);
   console.log('Bonuses:', bonuses.map(b => `${b.characterName}: +${b.supportBonus} support, +${Math.round(b.trustBonus * 100)}% trust`));
   console.log('Penalties:', penalties.map(p => `${p.characterName}: -${p.supportPenalty} support, +${Math.round(p.suspicionPenalty * 100)}% suspicion`));
-  
+
   return { bonuses, penalties };
 }
 

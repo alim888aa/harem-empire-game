@@ -12,6 +12,9 @@ import { updatePlayerVector, canBypassEmperorExecution } from "../lib/playerVect
 import { applyInitialInfluenceFear, applyInfluenceFear, handlePromotion } from "../lib/influenceFear.ts";
 import { calculateFactionEffects, checkFactionMembershipOffers, assignCharacterFaction, applyFactionMembershipEffects, type FactionSystem, type FactionType } from "../lib/factionSystem.ts";
 import { calculateAmbitiousMessageEffects, calculateSpitInFaceEffects, calculateLoyalActionBenefits, applyCrossCharacterEffects, generateCrossCharacterNotification } from "../lib/crossCharacterEffects.ts";
+import { shouldOfferEmperorAudience, determineVictoryPath, extractGameContext, isAtMaxSuspicion } from "../lib/emperorAudience.ts";
+import type { VictoryPath } from "../types/emperorAudience.ts";
+import { emperorAudienceMachine } from "./emperor-audience-machine.ts";
 
 // Helper functions for character pool selection
 function randInt(min: number, max: number): number {
@@ -127,7 +130,11 @@ export const gameMachine = setup({
         },
         playerFaction: null,
         membershipOffers: []
-      }
+      },
+      emperorAudienceCompleted: false,
+      emperorAudienceVictoryPath: null,
+      emperorAudienceOutcome: null,
+      emperorMessage: ''
     } as
       {
         characterType: 'prince' | 'minister' | 'concubine' | null;
@@ -142,13 +149,23 @@ export const gameMachine = setup({
         suspiciousCharacters: string[],
         lastCharacterResponse: string,
         gameEndReason: 'victory' | 'defeat' | null,
-        factionSystem: FactionSystem
+        factionSystem: FactionSystem,
+        emperorAudienceCompleted: boolean,
+        emperorAudienceVictoryPath: VictoryPath | null,
+        emperorAudienceOutcome: 'victory' | 'execution' | 'failure' | null,
+        emperorMessage: string
       },
     events: {} as
       | { type: "INITIALIZE_GAME" }
       | { type: "NEXT_SEASON" }
       | { type: "GIVE_GIFT_SIMPLE", characterId: string, characterType: 'major' | 'side' | 'minor' }
       | { type: "GIVE_GIFT_WITH_MESSAGE", characterId: string, messageType: 'ambitious' | 'loyal' | 'cautious' | 'neutral', characterType: 'major' | 'side' | 'minor', }
+      | { type: "APPLY_SIMPLE_GIFT_EFFECTS"; characterId: string }
+      | {
+        type: "APPLY_GIFT_MESSAGE_EFFECTS";
+        characterId: string;
+        messageType: "ambitious" | "loyal" | "cautious" | "neutral";
+      }
       | { type: "SPIT_IN_FACE", characterId: string }
       | { type: "CHOOSE_CHARACTER", payload: { type: 'prince' | 'minister' | 'concubine' } }
       | { type: "GIVE_EMPEROR_GIFT", giftsRemaining: number }
@@ -163,9 +180,13 @@ export const gameMachine = setup({
       | { type: "RESTART_GAME" }
       | { type: "JOIN_FACTION", faction: FactionType }
       | { type: "FACTION_MEMBERSHIP_OFFERED", faction: FactionType }
+      | { type: "ENTER_AUDIENCE" }
+      | { type: "REFUSE_AUDIENCE" }
+      | { type: "EMPEROR_AUDIENCE_COMPLETE", outcome: 'victory' | 'execution' | 'failure' | null, message: string }
   },
   actors: {
-    characterMachine: characterMachine
+    characterMachine: characterMachine,
+    emperorAudienceMachine: emperorAudienceMachine
   },
   guards: {
     emperor_encountered: function ({ context }) {
@@ -191,6 +212,9 @@ export const gameMachine = setup({
     },
     canBeEmperor: function ({ context }) {
       return context.supportPoints >= 100;
+    },
+    shouldOfferEmperorAudience: function ({ context }) {
+      return shouldOfferEmperorAudience(context);
     }
   },
 }).createMachine({
@@ -227,7 +251,11 @@ export const gameMachine = setup({
       },
       playerFaction: null,
       membershipOffers: []
-    }
+    },
+    emperorAudienceCompleted: false,
+    emperorAudienceVictoryPath: null,
+    emperorAudienceOutcome: null,
+    emperorMessage: ''
   },
   on: {
   },
@@ -421,15 +449,15 @@ export const gameMachine = setup({
             ({ context, event }) => {
               console.log(`Player joining ${event.faction} faction - applying immediate effects`);
               const { bonuses, penalties } = applyFactionMembershipEffects(event.faction, context.characters);
-              
+
               // Apply bonuses
               console.log(`Applying ${bonuses.length} faction bonuses`);
               for (const bonus of bonuses) {
                 const bonusActor = context.characters[bonus.characterName];
                 if (bonusActor) {
                   console.log(`Sending faction bonus to ${bonus.characterName}`);
-                  bonusActor.send({ 
-                    type: 'APPLY_FACTION_BONUS', 
+                  bonusActor.send({
+                    type: 'APPLY_FACTION_BONUS',
                     supportBonus: bonus.supportBonus,
                     trustBonus: bonus.trustBonus
                   });
@@ -444,8 +472,8 @@ export const gameMachine = setup({
                 const penaltyActor = context.characters[penalty.characterName];
                 if (penaltyActor) {
                   console.log(`Sending faction penalty to ${penalty.characterName}`);
-                  penaltyActor.send({ 
-                    type: 'APPLY_FACTION_PENALTY', 
+                  penaltyActor.send({
+                    type: 'APPLY_FACTION_PENALTY',
                     supportPenalty: penalty.supportPenalty,
                     suspicionPenalty: penalty.suspicionPenalty
                   });
@@ -481,46 +509,11 @@ export const gameMachine = setup({
         },
         {
           guard: { type: "canBePromoted" },
-          actions: [
-            // Handle promotion effects first (influence increase, character penalties, fear)
-            assign(({ context }) => {
-              const { updatedPlayerStats } = handlePromotion(
-                context.characters,
-                context.playerPersonality
-              );
-
-              return {
-                playerPersonality: updatedPlayerStats
-              };
-            }),
-
-            // stop the replaced actor by its spawn id (we spawned with id = charData.name)
-            stopChild(({ context }) => {
-              const replacedNameMap = { prince: 'Crown Prince', minister: 'Prime Minister', concubine: 'Empress Consort' };
-              const nameToRemove = replacedNameMap[context.characterType as 'prince' | 'minister' | 'concubine'];
-              return context.characters[nameToRemove]; // return the ActorRef (or undefined -> stopChild will no-op)
-            }),
-
-            // remove the actor ref from context.characters and set the new rank
-            assign(({ context }) => {
-              const replacedNameMap: Record<'prince' | 'minister' | 'concubine', string> = {
-                prince: 'Crown Prince',
-                minister: 'Prime Minister',
-                concubine: 'Empress Consort'
-              };
-              const nameToRemove = replacedNameMap[
-                context.characterType as 'prince' | 'minister' | 'concubine'
-              ];
-              const newChars = { ...context.characters };
-              if (nameToRemove in newChars) {
-                delete newChars[nameToRemove];
-              }
-              return {
-                characters: newChars,
-                rank: getRank(context.characterType)
-              };
-            })
-          ]
+          target: 'promotion_processing'
+        },
+        {
+          guard: { type: "shouldOfferEmperorAudience" },
+          target: 'emperor_audience_offer'
         }
       ],
       states: {
@@ -531,273 +524,237 @@ export const gameMachine = setup({
                 target: "checking_encounters",
               }],
             GIVE_GIFT_SIMPLE: {
-              guard: 'canAffordGift',
+              guard: "canAffordGift",
               actions: [
                 assign({
                   giftsRemaining: ({ context, event }) => {
-                    const cost = (event.characterType === 'major' || event.characterType === 'side') ? 5 : 1;
+                    const cost =
+                      event.characterType === "major" ||
+                        event.characterType === "side"
+                        ? 5
+                        : 1;
                     return context.giftsRemaining - cost;
-                  }
+                  },
                 }),
                 sendTo(
                   ({ context, event }) => context.characters[event.characterId],
-                  { type: 'GIVE_GIFT_SIMPLE' }
+                  { type: "GIVE_GIFT_SIMPLE" }
                 ),
-                // Apply faction effects using enqueueActions - delayed to ensure gift processing completes
-                ({ context, event, self }) => {
-                  // Only apply faction effects if player is in a faction
-                  if (!context.factionSystem.playerFaction || context.factionSystem.playerFaction === 'Independent') {
-                    return;
-                  }
-
-                  // Use setTimeout to ensure gift processing completes first, then send faction effects
-                  setTimeout(() => {
-                    try {
-                      const targetActor = context.characters[event.characterId];
-                      if (!targetActor) return;
-
-                      const targetSnapshot = targetActor.getSnapshot();
-                      if (!targetSnapshot?.context) return;
-
-                      const targetCharacter = {
-                        name: targetSnapshot.context.name,
-                        type: targetSnapshot.context.type,
-                        supportLevel: targetSnapshot.context.supportLevel,
-                        suspicion: targetSnapshot.context.suspicion,
-                        personalityVectors: targetSnapshot.context.personalityVectors,
-                        relationshipVectors: targetSnapshot.context.relationshipVectors,
-                        lastResponse: targetSnapshot.context.lastResponse,
-                        imgPath: targetSnapshot.context.imgPath,
-                        suspicionThreshold: targetSnapshot.context.suspicionThreshold,
-                        hasGivenGifts: targetSnapshot.context.hasGivenGifts || false,
-                        giftCooldownUntil: targetSnapshot.context.giftCooldownUntil || 0
-                      };
-
-                      // Calculate faction effects
-                      const targetFaction = assignCharacterFaction(targetCharacter);
-                      console.log(`Calculating faction effects for simple gift to ${targetCharacter.name} (${targetFaction}), player faction: ${context.factionSystem.playerFaction}`);
-                      
-                      const { bonuses, penalties } = calculateFactionEffects(
-                        targetCharacter,
-                        targetFaction,
-                        context.characters,
-                        context.factionSystem.playerFaction,
-                        5 // support gain from simple gift
-                      );
-
-                      // Apply bonuses directly
-                      for (const bonus of bonuses) {
-                        const bonusActor = context.characters[bonus.characterName];
-                        if (bonusActor) {
-                          console.log(`Sending faction bonus to ${bonus.characterName}`);
-                          bonusActor.send({
-                            type: 'APPLY_FACTION_BONUS',
-                            supportBonus: bonus.supportBonus,
-                            trustBonus: bonus.trustBonus
-                          });
-                        }
-                      }
-
-                      // Apply penalties directly
-                      for (const penalty of penalties) {
-                        const penaltyActor = context.characters[penalty.characterName];
-                        if (penaltyActor) {
-                          console.log(`Sending faction penalty to ${penalty.characterName}`);
-                          penaltyActor.send({
-                            type: 'APPLY_FACTION_PENALTY',
-                            supportPenalty: penalty.supportPenalty,
-                            suspicionPenalty: penalty.suspicionPenalty
-                          });
-                        }
-                      }
-
-                      // Show faction effect notification
-                      if (bonuses.length > 0 || penalties.length > 0) {
-                        const bonusNames = bonuses.map(b => b.characterName).join(', ');
-                        const penaltyNames = penalties.map(p => p.characterName).join(', ');
-                        let message = `Faction effects: `;
-                        if (bonuses.length > 0) message += `+10 support with ${bonusNames}`;
-                        if (penalties.length > 0) message += `${bonuses.length > 0 ? ', ' : ''}-10 support with ${penaltyNames}`;
-                        console.log(message);
-                      }
-                    } catch (error) {
-                      console.warn('Failed to apply faction effects for simple gift:', error);
-                    }
-                  }, 100);
-                }
-              ]
+                // Schedule post-gift effects on the machine itself
+                sendTo(
+                  ({ self }) => self,
+                  ({ event }) => ({
+                    type: "APPLY_SIMPLE_GIFT_EFFECTS",
+                    characterId: event.characterId,
+                  }),
+                  { delay: 100 }
+                ),
+              ],
             },
+
             GIVE_GIFT_WITH_MESSAGE: {
-              guard: 'canAffordGift',
+              guard: "canAffordGift",
               actions: [
                 assign({
                   giftsRemaining: ({ context, event }) => {
-                    const cost = (event.characterType === 'major' || event.characterType === 'side') ? 5 : 1;
+                    const cost =
+                      event.characterType === "major" ||
+                        event.characterType === "side"
+                        ? 5
+                        : 1;
                     return context.giftsRemaining - cost;
-                  }
+                  },
                 }),
-                // Update player vector and reputation based on message type
+                // Update player vector and reputation
                 assign(({ context, event }) => {
-                  // Get the character to check trust level for political skill bonus
-                  const characterSnapshot = context.characters[event.characterId]?.getSnapshot()?.context;
-                  if (!characterSnapshot || !characterSnapshot.type) return {};
-
-                  // Create a Character object from the snapshot
+                  const snap =
+                    context.characters[event.characterId]?.getSnapshot()?.context;
+                  if (!snap || !snap.type) return {};
                   const character = {
-                    name: characterSnapshot.name,
-                    type: characterSnapshot.type,
-                    supportLevel: characterSnapshot.supportLevel,
-                    suspicion: characterSnapshot.suspicion,
-                    personalityVectors: characterSnapshot.personalityVectors,
-                    relationshipVectors: characterSnapshot.relationshipVectors,
-                    lastResponse: characterSnapshot.lastResponse,
-                    imgPath: characterSnapshot.imgPath,
-                    suspicionThreshold: characterSnapshot.suspicionThreshold,
-                    hasGivenGifts: characterSnapshot.hasGivenGifts || false,
-                    giftCooldownUntil: characterSnapshot.giftCooldownUntil || 0
+                    name: snap.name,
+                    type: snap.type,
+                    supportLevel: snap.supportLevel,
+                    suspicion: snap.suspicion,
+                    personalityVectors: snap.personalityVectors,
+                    relationshipVectors: snap.relationshipVectors,
+                    lastResponse: snap.lastResponse,
+                    imgPath: snap.imgPath,
+                    suspicionThreshold: snap.suspicionThreshold,
+                    hasGivenGifts: snap.hasGivenGifts || false,
+                    giftCooldownUntil: snap.giftCooldownUntil || 0,
                   };
-
                   const { updatedStats, updatedReputation } = updatePlayerVector(
                     event.messageType,
                     character,
                     context.playerPersonality,
                     context.playerReputation
                   );
-
                   return {
                     playerPersonality: updatedStats,
-                    playerReputation: updatedReputation
+                    playerReputation: updatedReputation,
                   };
                 }),
-                enqueueActions(({ enqueue, context, event }) => {
-                  // Narrow the parent event shape
-                  if (event.type !== 'GIVE_GIFT_WITH_MESSAGE') return;
+                // Send the message to the character actor
+                sendTo(
+                  ({ context, event }) => context.characters[event.characterId],
+                  ({ context, event }) => ({
+                    type: "GIVE_GIFT_WITH_MESSAGE",
+                    messageType: event.messageType,
+                    playerVectors: context.playerPersonality,
+                    playerType: context.characterType as
+                      | "prince"
+                      | "minister"
+                      | "concubine",
+                  })
+                ),
+                // Schedule post-message effects on the machine itself
+                sendTo(
+                  ({ self }) => self,
+                  ({ event }) => ({
+                    type: "APPLY_GIFT_MESSAGE_EFFECTS",
+                    characterId: event.characterId,
+                    messageType: event.messageType,
+                  }),
+                  { delay: 200 }
+                ),
+              ],
+            },
 
-                  // Guard context.characterType so TS knows it's present
-                  if (!context.characterType) {
-                    console.warn('Skipping GIVE_GIFT_WITH_MESSAGE: characterType is not set');
-                    return;
+            APPLY_SIMPLE_GIFT_EFFECTS: {
+              actions: ({ context, event }) => {
+                const target = context.characters[event.characterId];
+                if (!target) return;
+
+                const snap = target.getSnapshot()?.context;
+                if (!snap) return;
+
+                const targetCharacter = {
+                  name: snap.name,
+                  type: snap.type,
+                  supportLevel: snap.supportLevel,
+                  suspicion: snap.suspicion,
+                  personalityVectors: snap.personalityVectors,
+                  relationshipVectors: snap.relationshipVectors,
+                  lastResponse: snap.lastResponse,
+                  imgPath: snap.imgPath,
+                  suspicionThreshold: snap.suspicionThreshold,
+                  hasGivenGifts: snap.hasGivenGifts || false,
+                  giftCooldownUntil: snap.giftCooldownUntil || 0,
+                };
+
+                if (
+                  !context.factionSystem.playerFaction ||
+                  context.factionSystem.playerFaction === "Independent"
+                ) {
+                  return;
+                }
+
+                const targetFaction = assignCharacterFaction(targetCharacter);
+                const { bonuses, penalties } = calculateFactionEffects(
+                  targetCharacter,
+                  targetFaction,
+                  context.characters,
+                  context.factionSystem.playerFaction,
+                  5 // support gain from simple gift
+                );
+
+                for (const b of bonuses) {
+                  const ref = context.characters[b.characterName];
+                  ref?.send({
+                    type: "APPLY_FACTION_BONUS",
+                    supportBonus: b.supportBonus,
+                    trustBonus: b.trustBonus,
+                  });
+                }
+                for (const p of penalties) {
+                  const ref = context.characters[p.characterName];
+                  ref?.send({
+                    type: "APPLY_FACTION_PENALTY",
+                    supportPenalty: p.supportPenalty,
+                    suspicionPenalty: p.suspicionPenalty,
+                  });
+                }
+              },
+            },
+
+            APPLY_GIFT_MESSAGE_EFFECTS: {
+              actions: ({ context, event }) => {
+                const target = context.characters[event.characterId];
+                if (!target) return;
+
+                const snap = target.getSnapshot()?.context;
+                if (!snap) return;
+
+                const targetCharacter = {
+                  name: snap.name,
+                  type: snap.type,
+                  supportLevel: snap.supportLevel,
+                  suspicion: snap.suspicion,
+                  personalityVectors: snap.personalityVectors,
+                  relationshipVectors: snap.relationshipVectors,
+                  lastResponse: snap.lastResponse,
+                  imgPath: snap.imgPath,
+                  suspicionThreshold: snap.suspicionThreshold,
+                  hasGivenGifts: snap.hasGivenGifts || false,
+                  giftCooldownUntil: snap.giftCooldownUntil || 0,
+                };
+
+                // Cross-character effects
+                type CrossEffects = ReturnType<typeof calculateLoyalActionBenefits>;
+                const crossCharacterEffects: CrossEffects =
+                  event.messageType === "ambitious"
+                    ? (calculateAmbitiousMessageEffects(
+                      targetCharacter,
+                      context.characters,
+                      context.factionSystem.playerFaction
+                    ) as CrossEffects)
+                    : event.messageType === "loyal"
+                      ? calculateLoyalActionBenefits(context.characters)
+                      : ([] as CrossEffects);
+
+                if (crossCharacterEffects.length > 0) {
+                  applyCrossCharacterEffects(crossCharacterEffects, context.characters);
+                  const note = generateCrossCharacterNotification(
+                    crossCharacterEffects
+                  );
+                  if (note) {
+                    // optional UI surface
+                    console.log(note);
                   }
+                }
 
-                  const target = context.characters[event.characterId];
-                  if (!target) return;
-
-                  // Narrow once for TS (safe because of the guard above)
-                  const playerType = context.characterType as 'prince' | 'minister' | 'concubine';
-
-                  // Enqueue a single sendTo with a concrete event object (no nullable fields)
-                  enqueue(
-                    sendTo(
-                      () => target,
-                      {
-                        type: 'GIVE_GIFT_WITH_MESSAGE',
-                        messageType: event.messageType,
-                        playerVectors: context.playerPersonality,
-                        playerType
-                      }
-                    )
+                // Faction effects
+                if (
+                  context.factionSystem.playerFaction &&
+                  context.factionSystem.playerFaction !== "Independent"
+                ) {
+                  const targetFaction = assignCharacterFaction(targetCharacter);
+                  const { bonuses, penalties } = calculateFactionEffects(
+                    targetCharacter,
+                    targetFaction,
+                    context.characters,
+                    context.factionSystem.playerFaction,
+                    5 // approx support gain from gift with message
                   );
 
-                  // Apply faction effects and cross-character suspicion effects after message is processed
-                  setTimeout(() => {
-                    try {
-                      const targetSnapshot = target.getSnapshot();
-                      if (!targetSnapshot?.context) return;
-
-                      const targetCharacter = {
-                        name: targetSnapshot.context.name,
-                        type: targetSnapshot.context.type,
-                        supportLevel: targetSnapshot.context.supportLevel,
-                        suspicion: targetSnapshot.context.suspicion,
-                        personalityVectors: targetSnapshot.context.personalityVectors,
-                        relationshipVectors: targetSnapshot.context.relationshipVectors,
-                        lastResponse: targetSnapshot.context.lastResponse,
-                        imgPath: targetSnapshot.context.imgPath,
-                        suspicionThreshold: targetSnapshot.context.suspicionThreshold,
-                        hasGivenGifts: targetSnapshot.context.hasGivenGifts || false,
-                        giftCooldownUntil: targetSnapshot.context.giftCooldownUntil || 0
-                      };
-
-                      // Calculate cross-character suspicion effects
-                      let crossCharacterEffects = [];
-                      
-                      if (event.messageType === 'ambitious') {
-                        crossCharacterEffects = calculateAmbitiousMessageEffects(
-                          targetCharacter,
-                          context.characters,
-                          context.factionSystem.playerFaction
-                        );
-                      } else if (event.messageType === 'loyal') {
-                        crossCharacterEffects = calculateLoyalActionBenefits(context.characters);
-                      }
-
-                      // Apply cross-character suspicion effects
-                      if (crossCharacterEffects.length > 0) {
-                        applyCrossCharacterEffects(crossCharacterEffects, context.characters);
-                        
-                        // Show cross-character notification
-                        const crossCharacterNotification = generateCrossCharacterNotification(crossCharacterEffects);
-                        if (crossCharacterNotification) {
-                          console.log('Cross-character effects:', crossCharacterNotification);
-                          alert(crossCharacterNotification);
-                        }
-                      }
-
-                      // Apply faction effects only if player is in a faction
-                      if (context.factionSystem.playerFaction && context.factionSystem.playerFaction !== 'Independent') {
-                        const targetFaction = assignCharacterFaction(targetCharacter);
-                        console.log(`Calculating faction effects for gift with message to ${targetCharacter.name} (${targetFaction}), player faction: ${context.factionSystem.playerFaction}`);
-                        
-                        const { bonuses, penalties } = calculateFactionEffects(
-                          targetCharacter,
-                          targetFaction,
-                          context.characters,
-                          context.factionSystem.playerFaction,
-                          5 // approximate support gain from gift with message
-                        );
-
-                        // Apply bonuses directly
-                        for (const bonus of bonuses) {
-                          const bonusActor = context.characters[bonus.characterName];
-                          if (bonusActor) {
-                            console.log(`Sending faction bonus to ${bonus.characterName}`);
-                            bonusActor.send({
-                              type: 'APPLY_FACTION_BONUS',
-                              supportBonus: bonus.supportBonus,
-                              trustBonus: bonus.trustBonus
-                            });
-                          }
-                        }
-
-                        // Apply penalties directly
-                        for (const penalty of penalties) {
-                          const penaltyActor = context.characters[penalty.characterName];
-                          if (penaltyActor) {
-                            console.log(`Sending faction penalty to ${penalty.characterName}`);
-                            penaltyActor.send({
-                              type: 'APPLY_FACTION_PENALTY',
-                              supportPenalty: penalty.supportPenalty,
-                              suspicionPenalty: penalty.suspicionPenalty
-                            });
-                          }
-                        }
-
-                        // Show faction effect notification
-                        if (bonuses.length > 0 || penalties.length > 0) {
-                          const bonusNames = bonuses.map(b => b.characterName).join(', ');
-                          const penaltyNames = penalties.map(p => p.characterName).join(', ');
-                          let message = `Faction effects: `;
-                          if (bonuses.length > 0) message += `+10 support with ${bonusNames}`;
-                          if (penalties.length > 0) message += `${bonuses.length > 0 ? ', ' : ''}-10 support with ${penaltyNames}`;
-                          console.log(message);
-                        }
-                      }
-                    } catch (error) {
-                      console.warn('Failed to apply effects for gift with message:', error);
-                    }
-                  }, 200); // Longer delay to ensure message processing is complete
-                })
-              ]
+                  for (const b of bonuses) {
+                    const ref = context.characters[b.characterName];
+                    ref?.send({
+                      type: "APPLY_FACTION_BONUS",
+                      supportBonus: b.supportBonus,
+                      trustBonus: b.trustBonus,
+                    });
+                  }
+                  for (const p of penalties) {
+                    const ref = context.characters[p.characterName];
+                    ref?.send({
+                      type: "APPLY_FACTION_PENALTY",
+                      supportPenalty: p.supportPenalty,
+                      suspicionPenalty: p.suspicionPenalty,
+                    });
+                  }
+                }
+              },
             },
             SPIT_IN_FACE: {
               actions: [
@@ -838,7 +795,7 @@ export const gameMachine = setup({
                       // Apply cross-character suspicion effects
                       if (crossCharacterEffects.length > 0) {
                         applyCrossCharacterEffects(crossCharacterEffects, context.characters);
-                        
+
                         // Show cross-character notification
                         const crossCharacterNotification = generateCrossCharacterNotification(crossCharacterEffects);
                         if (crossCharacterNotification) {
@@ -933,7 +890,7 @@ export const gameMachine = setup({
               console.log('Season advancement: Checking for faction membership offers');
               const offers = checkFactionMembershipOffers(context.factionSystem, context.characters);
               console.log(`Found ${offers.length} potential offers, existing offers:`, context.factionSystem.membershipOffers.map(o => o.faction));
-              
+
               for (const faction of offers) {
                 if (!context.factionSystem.membershipOffers.some(offer => offer.faction === faction)) {
                   console.log(`Sending faction membership offer for ${faction}`);
@@ -1040,12 +997,173 @@ export const gameMachine = setup({
                 },
                 playerFaction: null,
                 membershipOffers: []
-              }
+              },
+              emperorAudienceCompleted: false,
+              emperorAudienceVictoryPath: null,
+              emperorAudienceOutcome: null,
+              emperorMessage: ''
             })
           ]
         }
       },
     },
+    promotion_processing: {
+      entry: [
+        // Handle promotion effects first (influence increase, character penalties, fear)
+        assign(({ context }) => {
+          const { updatedPlayerStats } = handlePromotion(
+            context.characters,
+            context.playerPersonality
+          );
+
+          return {
+            playerPersonality: updatedPlayerStats
+          };
+        }),
+
+        // stop the replaced actor by its spawn id (we spawned with id = charData.name)
+        stopChild(({ context }) => {
+          const replacedNameMap = { prince: 'Crown Prince', minister: 'Prime Minister', concubine: 'Empress Consort' };
+          const nameToRemove = replacedNameMap[context.characterType as 'prince' | 'minister' | 'concubine'];
+          return context.characters[nameToRemove]; // return the ActorRef (or undefined -> stopChild will no-op)
+        }),
+
+        // remove the actor ref from context.characters and set the new rank
+        assign(({ context }) => {
+          const replacedNameMap: Record<'prince' | 'minister' | 'concubine', string> = {
+            prince: 'Crown Prince',
+            minister: 'Prime Minister',
+            concubine: 'Empress Consort'
+          };
+          const nameToRemove = replacedNameMap[
+            context.characterType as 'prince' | 'minister' | 'concubine'
+          ];
+          const newChars = { ...context.characters };
+          if (nameToRemove in newChars) {
+            delete newChars[nameToRemove];
+          }
+          return {
+            characters: newChars,
+            rank: getRank(context.characterType)
+          };
+        })
+      ],
+      always: [
+        {
+          guard: { type: "shouldOfferEmperorAudience" },
+          target: 'emperor_audience_offer'
+        },
+        {
+          target: 'playing'
+        }
+      ]
+    },
+    emperor_audience_offer: {
+      on: {
+        ENTER_AUDIENCE: {
+          target: 'emperor_audience'
+        },
+        REFUSE_AUDIENCE: [
+          {
+            guard: ({ context }) => isAtMaxSuspicion(context),
+            target: 'game_over',
+            actions: assign({ gameEndReason: 'defeat' })
+          },
+          {
+            target: 'playing'
+          }
+        ]
+      }
+    },
+    emperor_audience: {
+      invoke: {
+        id: 'emperorAudienceMachine',
+        src: 'emperorAudienceMachine',
+        input: ({ context }) => {
+          const victoryPath = determineVictoryPath(context);
+          if (!victoryPath) {
+            throw new Error('No victory path available for emperor audience');
+          }
+          return {
+            victoryPath,
+            gameContext: extractGameContext(context, victoryPath)
+          };
+        },
+        onDone: [
+          {
+            guard: ({ event }) => {
+              console.log('Game machine received emperor audience completion event:', event);
+              console.log('Event output:', event.output);
+              const outcome = event.output?.outcome;
+              console.log('Resolved outcome:', outcome);
+              return outcome === 'victory' || outcome === 'execution';
+            },
+            target: 'game_over',
+            actions: assign({
+              gameEndReason: ({ event }) => {
+                const outcome = event.output?.outcome;
+                return outcome === 'victory' ? 'victory' : 'defeat';
+              },
+              emperorAudienceCompleted: true,
+              emperorAudienceVictoryPath: ({ context }) => determineVictoryPath(context),
+              emperorAudienceOutcome: ({ event }) => event.output?.outcome || null,
+              emperorMessage: ({ event }) => event.output?.message || ''
+            })
+          },
+          {
+            target: 'playing',
+            actions: assign({
+              rank: null,
+              playerPersonality: ({ context }) => ({
+                ...context.playerPersonality,
+                influence: Math.max(0, context.playerPersonality.influence - 0.4)
+              }),
+              emperorAudienceCompleted: true,
+              emperorAudienceVictoryPath: ({ context }) => determineVictoryPath(context),
+              emperorAudienceOutcome: 'failure',
+              emperorMessage: ({ event }) => event.output?.message || 'The Emperor dismisses you.'
+            })
+          }
+        ]
+      },
+      on: {
+        EMPEROR_AUDIENCE_COMPLETE: [
+          {
+            guard: ({ event }) => {
+              console.log('Game machine received EMPEROR_AUDIENCE_COMPLETE event:', event);
+              const outcome = event.outcome;
+              console.log('Event outcome:', outcome);
+              return outcome === 'victory' || outcome === 'execution';
+            },
+            target: 'game_over',
+            actions: assign({
+              gameEndReason: ({ event }) => {
+                const outcome = event.outcome;
+                return outcome === 'victory' ? 'victory' : 'defeat';
+              },
+              emperorAudienceCompleted: true,
+              emperorAudienceVictoryPath: ({ context }) => determineVictoryPath(context),
+              emperorAudienceOutcome: ({ event }) => event.outcome,
+              emperorMessage: ({ event }) => event.message
+            })
+          },
+          {
+            target: 'playing',
+            actions: assign({
+              rank: null,
+              playerPersonality: ({ context }) => ({
+                ...context.playerPersonality,
+                influence: Math.max(0, context.playerPersonality.influence - 0.4)
+              }),
+              emperorAudienceCompleted: true,
+              emperorAudienceVictoryPath: ({ context }) => determineVictoryPath(context),
+              emperorAudienceOutcome: 'failure',
+              emperorMessage: ({ event }) => event.message
+            })
+          }
+        ]
+      }
+    }
   }
 });
 

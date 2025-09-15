@@ -95,6 +95,10 @@ function App() {
           rank: state.context.rank,
           season: state.context.season
         }}
+        emperorAudienceCompleted={state.context.emperorAudienceCompleted}
+        emperorAudienceVictoryPath={state.context.emperorAudienceVictoryPath}
+        emperorAudienceOutcome={state.context.emperorAudienceOutcome}
+        emperorMessage={state.context.emperorMessage}
         onRestart={handleRestart}
       />
     );
