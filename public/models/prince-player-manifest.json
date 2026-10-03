@@ -1,0 +1,234 @@
+{
+  "file_bytes": 10118680,
+  "sha256": "b15fc414f1207b737c414d9d23e3a7887c31ca9e4fc5cd7e7fa97c8d703e20f3",
+  "meshes": 1,
+  "material_primitives": 12,
+  "triangles": 165632,
+  "export_vertices": 90105,
+  "bones": 59,
+  "animations": [
+    {
+      "name": "Idle",
+      "seconds": 4.0,
+      "channels": 177,
+      "root_motion": [
+        {
+          "min": [
+            0.0,
+            0.00012419636186677963,
+            7.020558712156344e-08
+          ],
+          "max": [
+            0.0,
+            0.00012419636186677963,
+            7.020558712156344e-08
+          ],
+          "net": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Walk",
+      "seconds": 0.9333332777023315,
+      "channels": 177,
+      "root_motion": [
+        {
+          "min": [
+            0.0,
+            -0.06787580996751785,
+            7.020558712156344e-08
+          ],
+          "max": [
+            0.0,
+            -0.03187580406665802,
+            7.020558712156344e-08
+          ],
+          "net": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Run",
+      "seconds": 0.699999988079071,
+      "channels": 177,
+      "root_motion": [
+        {
+          "min": [
+            0.0,
+            -0.07999681681394577,
+            7.020558712156344e-08
+          ],
+          "max": [
+            0.0,
+            -0.007375803310424089,
+            7.020558712156344e-08
+          ],
+          "net": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gift_Present",
+      "seconds": 2.5,
+      "channels": 177,
+      "root_motion": [
+        {
+          "min": [
+            0.0,
+            0.00012419636186677963,
+            7.020558712156344e-08
+          ],
+          "max": [
+            0.0,
+            0.00012419636186677963,
+            7.020558712156344e-08
+          ],
+          "net": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    }
+  ],
+  "all_finite": true,
+  "max_weight_sum_error": 1.1920928955078125e-07,
+  "max_influences": 4,
+  "embedded_images": 2,
+  "extensions_used": [
+    "KHR_materials_specular"
+  ],
+  "local_mesh_bounds_min": [
+    -0.4259999990463257,
+    -0.0030000023543834686,
+    -0.26152682304382324
+  ],
+  "local_mesh_bounds_max": [
+    0.3428143262863159,
+    1.8931350708007812,
+    0.23031562566757202
+  ],
+  "character": "Prince / Prince Feng",
+  "forward": "+Z",
+  "up": "+Y",
+  "units": "meters",
+  "bind_pose_visual_height_m": 1.896135,
+  "textures": [
+    {
+      "name": "young_lightskinned_male_diffuse3",
+      "width": 2048,
+      "height": 2048,
+      "encoded_bytes": 3593099,
+      "mime_type": "image/png"
+    },
+    {
+      "name": "brown_eye",
+      "width": 1024,
+      "height": 1024,
+      "encoded_bytes": 610817,
+      "mime_type": "image/png"
+    }
+  ],
+  "material_contract": "Embedded textures and standard glTF PBR material factors; KHR_materials_specular; no Blender-only shader dependency",
+  "authored_movement_mps": {
+    "Walk": 1.2,
+    "Run": 3.8
+  },
+  "recommended_player_movement_mps": {
+    "Walk": 1.35,
+    "Run": 3.8
+  },
+  "recommended_clip_rates": {
+    "Walk": 1.125,
+    "Run": 1.0,
+    "NPC_Prince_Feng_Walk": 0.5416666666666667
+  },
+  "root_motion": "In-place, zero horizontal travel and zero net loop displacement; vertical gait bob is intentional",
+  "recommended_collision": {
+    "body_capsule_radius_m": 0.34,
+    "body_capsule_total_height_m": 1.85,
+    "body_capsule_center_height_m": 0.925,
+    "full_visual_prop_clearance_radius_m": 0.657,
+    "note": "The body capsule is for navigation. Hair, skirt and sword are visual attachments outside portions of this capsule. Use the measured prop-inclusive envelope when exact visual clearance is required."
+  },
+  "sampled_animation_envelope": {
+    "coordinate_system": "Blender verification X-right, Y-backward, Z-up; exported GLB X-right Y-up Z-forward",
+    "sampled_frames": 248,
+    "all_clip_bounds_blender_min": [
+      -0.4316640794277191,
+      -0.6420842409133911,
+      -0.003000019583851099
+    ],
+    "all_clip_bounds_blender_max": [
+      0.343012273311615,
+      0.4536852240562439,
+      1.8956983089447021
+    ],
+    "all_clip_envelope_size_xyz_m": [
+      0.7746763527393341,
+      1.095769464969635,
+      1.8986983285285532
+    ],
+    "max_prop_inclusive_horizontal_radius_m": 0.6467981518681808,
+    "imported_stance_contact_checks": [
+      {
+        "clip": "Walk",
+        "side": "l",
+        "intended_stance_speed_mps": 1.2,
+        "measured_speed_min_mps": 1.199991221074015,
+        "measured_speed_max_mps": 1.2000086903572083,
+        "ankle_height_min_m": 0.06799983978271484,
+        "ankle_height_max_m": 0.06800025701522827
+      },
+      {
+        "clip": "Walk",
+        "side": "r",
+        "intended_stance_speed_mps": 1.2,
+        "measured_speed_min_mps": 1.199989914894104,
+        "measured_speed_max_mps": 1.2000086903572083,
+        "ankle_height_min_m": 0.0679999440908432,
+        "ankle_height_max_m": 0.06800032407045364
+      },
+      {
+        "clip": "Run",
+        "side": "l",
+        "intended_stance_speed_mps": 3.8,
+        "measured_speed_min_mps": 3.7999818474054337,
+        "measured_speed_max_mps": 3.8000106811523438,
+        "ankle_height_min_m": 0.06799983978271484,
+        "ankle_height_max_m": 0.06800007820129395
+      },
+      {
+        "clip": "Run",
+        "side": "r",
+        "intended_stance_speed_mps": 3.8,
+        "measured_speed_min_mps": 3.799985758960247,
+        "measured_speed_max_mps": 3.799995481967926,
+        "ankle_height_min_m": 0.06799957901239395,
+        "ankle_height_max_m": 0.06799992173910141
+      }
+    ]
+  },
+  "art_limits": [
+    "Portrait-inspired likeness rather than exact anime reconstruction",
+    "Simplified pointed-ribbon hair",
+    "Skinned cloth and armor rather than cloth physics",
+    "Stylized linework instead of exact painted dragon ornament"
+  ],
+  "source_bundle": "prince-player-reproducible-source.zip",
+  "technical_review": "Original portrait, exported front/profile/three-quarter/back, imported walk/run/gift poses, weights, clips and in-place travel checked; no user appearance approval implied",
+  "recommended_ground_offset_m": 0.003
+}

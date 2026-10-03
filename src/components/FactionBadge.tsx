@@ -1,4 +1,4 @@
-import { getFactionInfo, assignCharacterFaction, type FactionType } from '../lib/factionSystem';
+import { getFactionInfo, assignCharacterFaction } from '../lib/factionSystem';
 import type { Character } from '../types/character';
 
 interface FactionBadgeProps {

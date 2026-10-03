@@ -6,7 +6,7 @@ import type { Character } from '../types/character';
  */
 export function updatePlayerVector(
   actionType: 'ambitious' | 'loyal' | 'cautious' | 'neutral',
-  character: Character,
+  _character: Character,
   playerStats: PlayerStats,
   playerReputation: PlayerReputation
 ): { updatedStats: PlayerStats; updatedReputation: PlayerReputation } {
@@ -34,11 +34,6 @@ export function updatePlayerVector(
       break;
   }
 
-  // Political skill increase when successfully manipulating high-trust characters
-  if (character.relationshipVectors.trustInPlayer > 0.8) {
-    newReputation.politicalSkill = Math.min(1.0, newReputation.politicalSkill + 0.01);
-  }
-
   return {
     updatedStats: newStats,
     updatedReputation: newReputation
@@ -46,23 +41,12 @@ export function updatePlayerVector(
 }
 
 /**
- * Returns trust-based compound bonus for relationship building
- */
-export function getTrustCompoundBonus(character: Character): number {
-  const trust = character.relationshipVectors.trustInPlayer;
-  
-  if (trust >= 0.8) return 1.8;
-  if (trust >= 0.6) return 1.4;
-  if (trust >= 0.4) return 1.2;
-  return 1.0;
-}
-
-/**
  * Checks if emperor execution can be bypassed due to high perceived loyalty
  */
 export function canBypassEmperorExecution(
   giftsRemaining: number,
-  playerReputation: PlayerReputation
+  playerReputation: PlayerReputation,
+  requiredTribute = 10
 ): boolean {
-  return giftsRemaining < 10 && playerReputation.perceivedLoyalty > 0.8;
+  return giftsRemaining < requiredTribute && playerReputation.perceivedLoyalty > 0.8;
 }

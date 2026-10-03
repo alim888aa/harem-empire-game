@@ -1,4 +1,3 @@
-import React from 'react';
 import type { VictoryPath } from '../types/emperorAudience';
 
 interface EmperorAudienceOfferProps {

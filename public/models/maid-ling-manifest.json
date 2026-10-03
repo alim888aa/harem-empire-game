@@ -1,0 +1,125 @@
+{
+  "file_bytes": 10681036,
+  "sha256": "1d413f8ec6f6a2279596be1e03d412528e128694123fdcd8196d129ae8ead2f2",
+  "meshes": 1,
+  "material_primitives": 14,
+  "triangles": 171650,
+  "export_vertices": 91883,
+  "bones": 57,
+  "animations": [
+    {
+      "name": "Idle",
+      "seconds": 3.9666666984558105,
+      "channels": 171,
+      "root_motion": [
+        {
+          "min": [
+            0.0,
+            -0.001834968919865787,
+            6.578886058150601e-08
+          ],
+          "max": [
+            0.0,
+            -0.001834968919865787,
+            6.578886058150601e-08
+          ],
+          "net": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Walk",
+      "seconds": 1.033333420753479,
+      "channels": 171,
+      "root_motion": [
+        {
+          "min": [
+            0.0,
+            -0.001834968919865787,
+            6.578886058150601e-08
+          ],
+          "max": [
+            0.0,
+            0.006144508719444275,
+            6.578886058150601e-08
+          ],
+          "net": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gift_Reaction",
+      "seconds": 2.5,
+      "channels": 171,
+      "root_motion": [
+        {
+          "min": [
+            0.0,
+            -0.001834968919865787,
+            6.578886058150601e-08
+          ],
+          "max": [
+            0.0,
+            -0.001834968919865787,
+            6.578886058150601e-08
+          ],
+          "net": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    }
+  ],
+  "all_finite": true,
+  "max_weight_sum_error": 1.1920928955078125e-07,
+  "max_influences": 4,
+  "embedded_images": 4,
+  "extensions_used": [
+    "KHR_materials_specular"
+  ],
+  "local_mesh_bounds_min": [
+    -0.32576966285705566,
+    -0.005000002682209015,
+    -0.2088867872953415
+  ],
+  "local_mesh_bounds_max": [
+    0.32576268911361694,
+    1.6869720220565796,
+    0.2148846685886383
+  ],
+  "name": "Maid Ling",
+  "height_m": 1.692,
+  "forward": "GLB +Z",
+  "up": "GLB +Y",
+  "texture_sizes": {
+    "skin": [
+      2048,
+      2048
+    ],
+    "eyes": [
+      1024,
+      1024
+    ],
+    "eyebrows": [
+      512,
+      512
+    ],
+    "eyelashes": [
+      512,
+      512
+    ]
+  },
+  "stage_exported": false,
+  "source_file": "maid-ling.blend",
+  "shader_contract": "Standard PBR factors and embedded CC0 textures; no procedural-shader dependency"
+}

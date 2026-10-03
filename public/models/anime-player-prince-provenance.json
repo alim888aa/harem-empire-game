@@ -1,0 +1,32 @@
+{
+  "character": "Distinct anime Player Prince",
+  "portrait": "Original game public/prince.png and actual user game screenshot inspected as background; player is a deliberately distinct new simplified design, not a portrait-identical copy of Prince Feng.",
+  "anatomy_tool": "Official MPFB 2.0.17, Blender 4.3.2",
+  "extension_source": "https://extensions.blender.org/add-ons/mpfb/",
+  "extension_sha256": "4f0a879d64a39bf646fbf5f53601ac678855da329d650617dca5737548239a87",
+  "asset_license": "CC0 1.0 Universal",
+  "asset_license_source": "https://github.com/makehumancommunity/mpfb2/blob/master/LICENSE.md",
+  "system_asset_source": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+  "program_license": "GPL-3.0-or-later; MPFB program code is not embedded in the runtime GLB",
+  "official_assets_used_in_runtime": [
+    "MakeHuman adult male anatomical hands; torso/limb topology adapted into clothing",
+    "GameEngine rig and anatomical skin weights"
+  ],
+  "project_created_assets": [
+    "Entire custom anime head, face, ears, neck, eyes, brows and mouth geometry",
+    "Chunky sculpted hair with compact half-up knot",
+    "Ivory split royal robe, short teal mantle, belt, cuffs and boots",
+    "Solid-color glTF-safe PBR materials; no scan/photo skin maps",
+    "Cloth bones and seven in-place action clips: Idle, Walk, Run, Gift_Present, Jump_Start, Jump_Air, Land"
+  ],
+  "portrait_asset_license": "Existing user game artwork; not represented as MakeHuman CC0",
+  "paid_services_used": false,
+  "limitations": [
+    "Early anime-styled benchmark; no user appearance approval",
+    "Simplified face, solid painted colors, chunky hair and clothing",
+    "Mantle is rigidly skinned; split robe bends prominently during strides; no cloth simulation",
+    "Jump clips are pose hooks; world-space trajectory and collision belong to game controller",
+    "Studio and game-height proofs are rendered from a fresh GLB import, not screenshots of the published game"
+  ],
+  "concept_reference": "One simplified player/Feng proposal generated with the built-in image tool. Reference only; never used to represent actual 3D proof."
+}

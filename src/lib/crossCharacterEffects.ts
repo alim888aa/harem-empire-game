@@ -15,7 +15,7 @@ export interface CrossCharacterEffect {
 export function calculateAmbitiousMessageEffects(
   targetCharacter: Character,
   allCharacters: Record<string, any>,
-  playerFaction: FactionType | null
+  _playerFaction: FactionType | null
 ): CrossCharacterEffect[] {
   const effects: CrossCharacterEffect[] = [];
 

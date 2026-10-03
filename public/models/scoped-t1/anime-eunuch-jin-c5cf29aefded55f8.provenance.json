@@ -1,0 +1,24 @@
+{
+  "name": "Eunuch Jin",
+  "sha256": "c5cf29aefded55f8ac8cf2ecb63d641d80726274d7ac8fe2b0e37c33f8083dad",
+  "source_master_sha256": "9ee7c74d82161eb475375e91d47649ee7c31ef4e0ab95f82a0b2f4311ec1f9aa",
+  "anatomy_source": "Legacy generic VRoid Studio0.14.0 Base_Male, publisher-identified CC0; original project adult proportions/face styling",
+  "head_profile": "Actual authored adult anatomical head and original facial UVs, fitted cloth service cap; no separate hairstyle geometry claimed",
+  "clothing_source": "Original project continuous fitted service coat/pants/boots/cap, one economical T1 uniform family",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "clip_origin_behavior": "Unshifted original0.0333333351s starts, no added NPC Run reachability",
+  "identity_palette": "Canonical actor skin/brow/iris colors with exact alpha; source UV/geometry/weights/rig/clips preserved",
+  "texture_derivative": "Declared game-resolution LANCZOS resize to512px cap; source editable masters retained",
+  "source_motion_gates": "Actual four-clip sampled wardrobe/source/grounding evidence preserved",
+  "runtime_contact_limits_m": {
+    "actor_plane": 0.01576,
+    "palace_floor": 0.02045
+  },
+  "GPU_FPS_measured": false
+}

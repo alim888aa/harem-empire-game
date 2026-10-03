@@ -1,0 +1,34 @@
+[
+  {
+    "rank": "grand_prince",
+    "path": "grand_prince.glb",
+    "sha256": "de159044b2e0e83dba5e19058a18b3cdb960c1b37dbefccae537f12d911888a4",
+    "bytes": 4702812,
+    "triangles": 130212,
+    "animations": [
+      "Idle",
+      "Walk",
+      "Run",
+      "Gift_Present",
+      "Jump_Start",
+      "Jump_Air",
+      "Land"
+    ]
+  },
+  {
+    "rank": "crown_prince",
+    "path": "crown_prince.glb",
+    "sha256": "9d3281e57ba282895d8c354f206de3c619a9cc36c00d4927a8480bac4846e924",
+    "bytes": 4982316,
+    "triangles": 138472,
+    "animations": [
+      "Idle",
+      "Walk",
+      "Run",
+      "Gift_Present",
+      "Jump_Start",
+      "Jump_Air",
+      "Land"
+    ]
+  }
+]

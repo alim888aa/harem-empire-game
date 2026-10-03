@@ -1,0 +1,18 @@
+{
+  "name": "Scholar Tao",
+  "sha256": "19c77473dfaf8c5b2e4a6e2af4875cee4a6983a6bec1d8de06d3993e3a107a51",
+  "anatomy_source": "Adult generic legacy VRoid Base_Male, publisher-identified CC0; original native facialUVs and project proportions",
+  "clothing_source": "Original project, separate actual cuff/lap/skirt/sash variation for each of six T2 Scholars",
+  "head_profile": "Adult authored anatomical head and cloth scholar cap; no separate hairstyle role claimed",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "clip_origin_behavior": "Original unshifted source starts",
+  "canonical_identity": "Exact per-name skin/iris/brow/garment palettes and source fingerprints; no name/role/random-campaign swaps",
+  "texture_derivative": "Exact source512px LANCZOS compaction",
+  "GPU_FPS_measured": false
+}

@@ -1,5 +1,4 @@
 import type { Character } from '../types/character';
-import type { PlayerStats } from '../types/game';
 
 export type FactionType = 'Rebel' | 'Imperial' | 'Loyalist' | 'Independent';
 
@@ -25,6 +24,7 @@ export interface FactionSystem {
  * Determines a character's faction based on their personality vectors
  */
 export function assignCharacterFaction(character: Character): FactionType {
+  if(character.hasGivenAllegiance && character.factionOverride) return character.factionOverride;
   const { ambition, loyalty, fear, influence } = character.personalityVectors;
 
   // Rebel faction: high ambition, low loyalty
@@ -95,12 +95,12 @@ export function calculateFactionEffects(
   targetFaction: FactionType,
   allCharacters: Record<string, any>, // Character actors
   playerFaction: FactionType | null,
-  supportGain: number
+  _supportGain: number
 ): {
-  bonuses: Array<{ characterName: string; supportBonus: number; trustBonus: number }>;
+  bonuses: Array<{ characterName: string; supportBonus: number }>;
   penalties: Array<{ characterName: string; supportPenalty: number; suspicionPenalty: number }>;
 } {
-  const bonuses: Array<{ characterName: string; supportBonus: number; trustBonus: number }> = [];
+  const bonuses: Array<{ characterName: string; supportBonus: number }> = [];
   const penalties: Array<{ characterName: string; supportPenalty: number; suspicionPenalty: number }> = [];
 
   // Only apply faction effects if player is in a faction
@@ -124,26 +124,13 @@ export function calculateFactionEffects(
       if (!characterSnapshot?.context) continue;
 
       const character = characterSnapshot.context;
-      const characterFaction = assignCharacterFaction({
-        name: character.name,
-        type: character.type,
-        supportLevel: character.supportLevel,
-        suspicion: character.suspicion,
-        personalityVectors: character.personalityVectors,
-        relationshipVectors: character.relationshipVectors,
-        lastResponse: character.lastResponse,
-        imgPath: character.imgPath,
-        suspicionThreshold: character.suspicionThreshold,
-        hasGivenGifts: character.hasGivenGifts || false,
-        giftCooldownUntil: character.giftCooldownUntil || 0
-      });
+      const characterFaction = assignCharacterFaction(character);
 
       // Faction member bonus - when you support someone from your faction, other faction members gain support
       if (playerFaction && characterFaction === playerFaction && targetFaction === playerFaction) {
         bonuses.push({
           characterName,
-          supportBonus: 10,
-          trustBonus: 0.2 // 20% increase
+          supportBonus: 10
         });
       }
 
@@ -192,21 +179,9 @@ export function checkFactionMembershipOffers(
       if (!characterSnapshot?.context) continue;
 
       const character = characterSnapshot.context;
-      const characterFaction = assignCharacterFaction({
-        name: character.name,
-        type: character.type,
-        supportLevel: character.supportLevel,
-        suspicion: character.suspicion,
-        personalityVectors: character.personalityVectors,
-        relationshipVectors: character.relationshipVectors,
-        lastResponse: character.lastResponse,
-        imgPath: character.imgPath,
-        suspicionThreshold: character.suspicionThreshold,
-        hasGivenGifts: character.hasGivenGifts || false,
-        giftCooldownUntil: character.giftCooldownUntil || 0
-      });
+      const characterFaction = assignCharacterFaction(character);
 
-      if (character.supportLevel >= 80) {
+      if (character.hasGivenAllegiance || character.supportLevel >= (character.supportThreshold ?? 80)) {
         console.log(`${characterName} (${characterFaction}) has ${character.supportLevel} support - counts for faction offer`);
         factionSupport[characterFaction].count++;
         factionSupport[characterFaction].totalSupport += character.supportLevel;
@@ -218,14 +193,14 @@ export function checkFactionMembershipOffers(
     }
   }
 
-  // Check for membership offers (3+ members at 80+ support)
+  // Backing thresholds belong to the player career; a pledge always counts.
   console.log('Faction support summary:', factionSupport);
   for (const [faction, data] of Object.entries(factionSupport)) {
     if (faction !== 'Independent' && data.count >= 3) {
-      console.log(`${faction} faction qualifies for membership offer (${data.count} members with 80+ support)`);
+      console.log(`${faction} faction qualifies for membership offer (${data.count} backers)`);
       offers.push(faction as FactionType);
     } else if (faction !== 'Independent') {
-      console.log(`${faction} faction does not qualify (${data.count} members with 80+ support, need 3)`);
+      console.log(`${faction} faction does not qualify (${data.count} backers, need 3)`);
     }
   }
 
@@ -240,12 +215,12 @@ export function applyFactionMembershipEffects(
   playerFaction: FactionType,
   allCharacters: Record<string, any>
 ): {
-  bonuses: Array<{ characterName: string; supportBonus: number; trustBonus: number }>;
+  bonuses: Array<{ characterName: string; supportBonus: number }>;
   penalties: Array<{ characterName: string; supportPenalty: number; suspicionPenalty: number }>;
 } {
   console.log(`Applying faction membership effects for player joining ${playerFaction}`);
 
-  const bonuses: Array<{ characterName: string; supportBonus: number; trustBonus: number }> = [];
+  const bonuses: Array<{ characterName: string; supportBonus: number }> = [];
   const penalties: Array<{ characterName: string; supportPenalty: number; suspicionPenalty: number }> = [];
 
   if (playerFaction === 'Independent') {
@@ -253,60 +228,30 @@ export function applyFactionMembershipEffects(
     return { bonuses, penalties };
   }
 
-  // Get opposing factions
-  const opposingFactions: Record<FactionType, FactionType[]> = {
-    Rebel: ['Imperial', 'Loyalist'],
-    Imperial: ['Rebel'],
-    Loyalist: ['Rebel'],
-    Independent: []
-  };
-
   for (const [characterName, characterActor] of Object.entries(allCharacters)) {
     try {
       const characterSnapshot = characterActor.getSnapshot();
       if (!characterSnapshot?.context) continue;
 
       const character = characterSnapshot.context;
-      const characterFaction = assignCharacterFaction({
-        name: character.name,
-        type: character.type,
-        supportLevel: character.supportLevel,
-        suspicion: character.suspicion,
-        personalityVectors: character.personalityVectors,
-        relationshipVectors: character.relationshipVectors,
-        lastResponse: character.lastResponse,
-        imgPath: character.imgPath,
-        suspicionThreshold: character.suspicionThreshold,
-        hasGivenGifts: character.hasGivenGifts || false,
-        giftCooldownUntil: character.giftCooldownUntil || 0
-      });
+      const characterFaction = assignCharacterFaction(character);
 
-      // Faction member bonus - immediate trust boost with faction members
+      // Faction member bonus - immediate support boost with faction members
       if (characterFaction === playerFaction) {
         console.log(`${characterName} (${characterFaction}) gets faction bonus for joining same faction as player`);
         bonuses.push({
           characterName,
           supportBonus: 5, // Smaller immediate bonus
-          trustBonus: 0.2 // 20% trust increase (0.2 = 20 percentage points)
         });
       }
 
-      // Opposition penalty - immediate suspicion increase with opposing factions
-      if (opposingFactions[playerFaction]?.includes(characterFaction)) {
-        console.log(`${characterName} (${characterFaction}) gets faction penalty for opposing player's ${playerFaction} faction`);
-        penalties.push({
-          characterName,
-          supportPenalty: 5, // Smaller immediate penalty
-          suspicionPenalty: 0.2 // 20% suspicion increase (0.2 = 20 percentage points)
-        });
-      }
     } catch (error) {
       console.warn(`Failed to apply faction membership effects for ${characterName}:`, error);
     }
   }
 
   console.log(`Faction membership effects calculated: ${bonuses.length} bonuses, ${penalties.length} penalties`);
-  console.log('Bonuses:', bonuses.map(b => `${b.characterName}: +${b.supportBonus} support, +${Math.round(b.trustBonus * 100)}% trust`));
+  console.log('Bonuses:', bonuses.map(b => `${b.characterName}: +${b.supportBonus} support`));
   console.log('Penalties:', penalties.map(p => `${p.characterName}: -${p.supportPenalty} support, +${Math.round(p.suspicionPenalty * 100)}% suspicion`));
 
   return { bonuses, penalties };
@@ -329,19 +274,7 @@ export function getFactionComposition(allCharacters: Record<string, any>): Recor
       if (!characterSnapshot?.context) continue;
 
       const character = characterSnapshot.context;
-      const characterFaction = assignCharacterFaction({
-        name: character.name,
-        type: character.type,
-        supportLevel: character.supportLevel,
-        suspicion: character.suspicion,
-        personalityVectors: character.personalityVectors,
-        relationshipVectors: character.relationshipVectors,
-        lastResponse: character.lastResponse,
-        imgPath: character.imgPath,
-        suspicionThreshold: character.suspicionThreshold,
-        hasGivenGifts: character.hasGivenGifts || false,
-        giftCooldownUntil: character.giftCooldownUntil || 0
-      });
+      const characterFaction = assignCharacterFaction(character);
 
       composition[characterFaction].push(characterName);
     } catch (error) {

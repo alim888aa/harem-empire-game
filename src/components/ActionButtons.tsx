@@ -1,190 +1,80 @@
-import type { Character } from '../types/character';
-import type { PlayerStats } from '../types/game';
-import { getInfluenceGating } from '../lib/influenceGating';
-
+import {endorsementRenewal,type StandingRecovery} from '../lib/campaignStanding';
+import {processGiftWithMessage} from '../lib/checkMessage';
+import {giftPositiveScale} from '../lib/campaignBalance';
+import { useState } from "react";
+import type { Character } from "../types/character";
+import type { PlayerStats, PlayerType } from "../types/game";
+import { getInfluenceGating } from "../lib/influenceGating";
+import { giftCost, previewMessage, signed, type MessageChoice } from "../lib/courtStrategy";
+import { GIFT_MESSAGES, giftMessage } from "../lib/giftMessages";
 interface ActionButtonsProps {
   character: Character;
   gifts: number;
   playerStats: PlayerStats;
-  onAction: (action: string, messageType?: string) => void;
+  playerType: PlayerType;
+  rank?: string|null;
+  pending?: boolean;
+  giftError?: string;
+  standing?:StandingRecovery;
+  onAction: (action: "message" | "spit", messageType?: MessageChoice) => void;
 }
-
-function ActionButtons({ character, gifts, playerStats, onAction }: ActionButtonsProps) {
-  // Get influence gating information
-  const influenceGating = getInfluenceGating(character, playerStats);
-
-  const handleGiveSimpleGift = () => {
-    if (!influenceGating.canInteract.allowed) {
-      alert(influenceGating.canInteract.reason);
-      return;
-    }
-    onAction('gift');
+export default function ActionButtons({standing, character, gifts, playerStats, playerType, rank, pending = false, giftError = "", onAction }: ActionButtonsProps) {
+  // Presentation-only choice. Selecting a tone never spends a gift; only Send does.
+  const [choice, setChoice] = useState<"" | MessageChoice>("");
+  const gating = getInfluenceGating(character, playerStats, rank);
+  const cost = giftCost(character);
+  const canAfford = gifts >= cost;
+  const availability = {
+    ambitious: gating.canUseAmbitiousMessage,
+    loyal: gating.canUseLoyalMessage,
+    cautious: gating.canUseCautiousMessage,
+    neutral: gating.canUseNeutralMessage,
   };
-
-  const handleGiveGiftWithMessage = (messageType: string) => {
-    if (!influenceGating.canInteract.allowed) {
-      alert(influenceGating.canInteract.reason);
-      return;
-    }
-    
-    // Check specific message type availability
-    let messageAllowed = true;
-    let reason = '';
-    
-    switch (messageType) {
-      case 'ambitious':
-        messageAllowed = influenceGating.canUseAmbitiousMessage.allowed;
-        reason = influenceGating.canUseAmbitiousMessage.reason || '';
-        break;
-      case 'loyal':
-        messageAllowed = influenceGating.canUseLoyalMessage.allowed;
-        reason = influenceGating.canUseLoyalMessage.reason || '';
-        break;
-      case 'cautious':
-        messageAllowed = influenceGating.canUseCautiousMessage.allowed;
-        reason = influenceGating.canUseCautiousMessage.reason || '';
-        break;
-      case 'neutral':
-        messageAllowed = influenceGating.canUseNeutralMessage.allowed;
-        reason = influenceGating.canUseNeutralMessage.reason || '';
-        break;
-    }
-    
-    if (!messageAllowed) {
-      alert(reason);
-      return;
-    }
-    
-    onAction('message', messageType);
-  };
-
-  const handleSpitInFace = () => {
-    if (!influenceGating.canInteract.allowed) {
-      alert(influenceGating.canInteract.reason);
-      return;
-    }
-    
-    if (!influenceGating.canSpitInFace.allowed) {
-      alert(influenceGating.canSpitInFace.reason);
-      return;
-    }
-    
-    onAction('spit');
-  };
-
-  // Show interaction refusal message if character won't interact
-  if (!influenceGating.canInteract.allowed) {
-    return (
-      <div className="flex flex-col space-y-3">
-        <div className="p-4 bg-gray-100 border border-gray-300 rounded-lg text-center">
-          <p className="text-gray-600 font-medium">{influenceGating.canInteract.reason}</p>
-          <p className="text-sm text-gray-500 mt-1">Build your influence to interact with this character.</p>
-        </div>
-      </div>
-    );
+  const message = giftMessage(choice);
+  const preview = message ? previewMessage(character, message.type, playerType, playerStats) : null;
+  const renewal=message&&standing?endorsementRenewal(character,processGiftWithMessage(message.type,{...character.personalityVectors,suspicion:character.suspicion},character.relationshipVectors,playerType,playerStats,character.supportLevel,{positiveEffectScale:giftPositiveScale(character,playerStats.influence)}).supportDelta,playerType,standing):0;
+  const allowed = !!message && availability[message.type].allowed;
+  if (!gating.canInteract.allowed) {
+    const required = Math.max(0, character.personalityVectors.influence - 0.3);
+    return <section className="action-panel locked-audience">
+      <h3>They won’t receive you yet</h3>
+      <p>Requires {Math.ceil(required * 100)}% influence. Yours is {Math.round(playerStats.influence * 100)}%.</p>
+      <p>Choose a less influential courtier under People.</p>
+    </section>;
   }
-
-  return (
-    <div className="flex flex-col space-y-3">
-      <button
-        onClick={handleGiveSimpleGift}
-        className={`px-4 py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-blue-500 hover:bg-blue-600 text-white focus:ring-blue-500`}
-      >
-        Give Simple Gift
+  return <section className="action-panel" aria-label={`Actions for ${character.name}`}>
+    <form onSubmit={(event) => {
+      event.preventDefault();
+      if (canAfford && allowed && message && !pending) onAction("message", message.type);
+    }}>
+      <label className="action-label" htmlFor="gift-tone">Choose your message</label>
+      <select id="gift-tone" value={choice} disabled={pending} onChange={(event) => setChoice(event.target.value as typeof choice)}>
+        <option value="" disabled>Choose a message…</option>
+        {GIFT_MESSAGES.map((item) => <option key={item.type} value={item.type} disabled={!availability[item.type].allowed}>
+          {item.title}{!availability[item.type].allowed ? " · locked" : ""}
+        </option>)}
+      </select>
+      {message && <p className="selected-message">“{message.text}”</p>}
+      <p className={`selected-effect ${preview?.dangerous ? "danger-text" : ""}`} aria-live="polite">
+        {preview?.dangerous ? "High risk · " : ""}
+        {preview ? `Next gift: ${signed(preview.support)} personal support${renewal>0?` · +${renewal} global renewal`:""}` : "Every gift includes one of these authored messages."}
+        {preview && preview.suspicion !== 0 ? ` · ${signed(preview.suspicion)} suspicion` : ""}
+      </p>
+      <button className="send-gift" type="submit" disabled={pending || !canAfford || !allowed}>
+        <span>{pending ? "Evaluating message…" : "Send gift"}</span><span>{cost} ◇</span>
       </button>
-      
-      <div className="space-y-2">
-        <p className="text-sm font-medium text-gray-700">Give Gift with Message:</p>
-        <div className="grid grid-cols-2 gap-2">
-          <button
-            onClick={() => handleGiveGiftWithMessage('ambitious')}
-            disabled={!influenceGating.canUseAmbitiousMessage.allowed}
-            title={!influenceGating.canUseAmbitiousMessage.allowed ? influenceGating.canUseAmbitiousMessage.reason : ''}
-            className={`px-3 py-2 text-sm rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-              influenceGating.canUseAmbitiousMessage.allowed
-                ? 'bg-purple-500 hover:bg-purple-600 text-white focus:ring-purple-500'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            }`}
-          >
-            Ambitious
-          </button>
-          <button
-            onClick={() => handleGiveGiftWithMessage('loyal')}
-            disabled={!influenceGating.canUseLoyalMessage.allowed}
-            title={!influenceGating.canUseLoyalMessage.allowed ? influenceGating.canUseLoyalMessage.reason : ''}
-            className={`px-3 py-2 text-sm rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-              influenceGating.canUseLoyalMessage.allowed
-                ? 'bg-green-500 hover:bg-green-600 text-white focus:ring-green-500'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            }`}
-          >
-            Loyal
-          </button>
-          <button
-            onClick={() => handleGiveGiftWithMessage('cautious')}
-            disabled={!influenceGating.canUseCautiousMessage.allowed}
-            title={!influenceGating.canUseCautiousMessage.allowed ? influenceGating.canUseCautiousMessage.reason : ''}
-            className={`px-3 py-2 text-sm rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-              influenceGating.canUseCautiousMessage.allowed
-                ? 'bg-yellow-500 hover:bg-yellow-600 text-white focus:ring-yellow-500'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            }`}
-          >
-            Cautious
-          </button>
-          <button
-            onClick={() => handleGiveGiftWithMessage('neutral')}
-            disabled={!influenceGating.canUseNeutralMessage.allowed}
-            title={!influenceGating.canUseNeutralMessage.allowed ? influenceGating.canUseNeutralMessage.reason : ''}
-            className={`px-3 py-2 text-sm rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-              influenceGating.canUseNeutralMessage.allowed
-                ? 'bg-gray-500 hover:bg-gray-600 text-white focus:ring-gray-500'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            }`}
-          >
-            Neutral
-          </button>
-        </div>
-        {(!influenceGating.canUseAmbitiousMessage.allowed || 
-          !influenceGating.canUseLoyalMessage.allowed || 
-          !influenceGating.canUseCautiousMessage.allowed || 
-          !influenceGating.canUseNeutralMessage.allowed) && (
-          <div className="text-xs text-gray-500 italic space-y-1">
-            {!influenceGating.canUseAmbitiousMessage.allowed && (
-              <p>• Ambitious: {influenceGating.canUseAmbitiousMessage.reason}</p>
-            )}
-            {!influenceGating.canUseLoyalMessage.allowed && (
-              <p>• Loyal: {influenceGating.canUseLoyalMessage.reason}</p>
-            )}
-            {!influenceGating.canUseCautiousMessage.allowed && (
-              <p>• Cautious: {influenceGating.canUseCautiousMessage.reason}</p>
-            )}
-            {!influenceGating.canUseNeutralMessage.allowed && (
-              <p>• Neutral: {influenceGating.canUseNeutralMessage.reason}</p>
-            )}
-          </div>
-        )}
+      {!canAfford && <p className="action-notice" role="status">Not enough gifts. {gifts ? "Choose a cheaper courtier or start the next season." : "Start the next season to replenish them."}</p>}
+      {message && !allowed && <p className="action-notice">{availability[message.type].reason}</p>}
+      {giftError && <p className="action-notice" role="status">{giftError}</p>}
+    </form>
+    <details className="move-details">
+      <summary>Effects & other actions</summary>
+      <p>{preview ? "The response adds to or subtracts from existing support." : "Choose a message to preview its evaluated response."} Message fit, your role, relative influence and hostility determine support. A more influential recipient gains less from a positive gift; bad messages keep their full penalty. Previews show direct effects; nearby courtiers may react.</p>
+      <div className="hostile-choice">
+        <p>Insult: lose up to 20 support, gain {character.supportLevel === 0 ? "50" : "30"} suspicion. Costs no gifts.</p>
+        <button type="button" disabled={pending || !gating.canSpitInFace.allowed} onClick={() => { if (!pending && gating.canSpitInFace.allowed) onAction("spit"); }}>Spit in Face</button>
+        {!gating.canSpitInFace.allowed && <p>{gating.canSpitInFace.reason}</p>}
       </div>
-      
-      <div className="space-y-1">
-        <button
-          onClick={handleSpitInFace}
-          disabled={!influenceGating.canSpitInFace.allowed}
-          title={!influenceGating.canSpitInFace.allowed ? influenceGating.canSpitInFace.reason : ''}
-          className={`w-full px-4 py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-            influenceGating.canSpitInFace.allowed
-              ? 'bg-red-500 hover:bg-red-600 text-white focus:ring-red-500'
-              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-          }`}
-        >
-          Spit in Face
-        </button>
-        {!influenceGating.canSpitInFace.allowed && (
-          <p className="text-xs text-gray-500 italic">{influenceGating.canSpitInFace.reason}</p>
-        )}
-      </div>
-    </div>
-  );
+    </details>
+  </section>;
 }
-
-export default ActionButtons;

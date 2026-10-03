@@ -1,0 +1,14 @@
+{
+  "name": "Maid Rou",
+  "sha256": "b44ac0c1de4058fbb253d92e65cd03f8d2473a18834052373879be51ff617346",
+  "source_master_sha256": "875aef72d597abbce442980db6dced01197e3bbf0bce27b0757b3bd5b4568e4e",
+  "identity_fingerprint_sha256": "eebdc390e9340c0502027dd123fbdc5d200f91ee72420e14e24786edd3615a3f",
+  "scope": "Hair-only original authored bob update; adult head/body/face/robe/apron/rig/clips unchanged",
+  "anatomy_source": "Legacy generic VRoid adult Base_Female, publisher-identified CC0",
+  "hair_source": "Legacy beta AvatarSample2 / AvatarSample E authored bob, hair only; explicit publisher CC0",
+  "publisher_license_url": "https://vroid.pixiv.help/hc/en-us/articles/360014900273-%CE%B2-Ver-AvatarSample-2",
+  "official_model_url": "https://hub.vroid.com/en/characters/945152946522067123/models/1622417912888236740",
+  "mirror_page": "https://opengameart.org/content/vroid-studio-cc0-models",
+  "source_adaptation": "Optional bows/side puffs/cowlick removed, one global head-fit transform, source UV/strand texture retained; canonical actor palette and declared texture resizing",
+  "device_fps_measured": false
+}

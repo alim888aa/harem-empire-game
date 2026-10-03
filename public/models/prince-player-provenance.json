@@ -1,0 +1,33 @@
+{
+  "character": "Prince / Prince Feng",
+  "portrait": "Original game public/prince.png, inspected directly before modeling; same portrait serves player selection and Prince Feng",
+  "anatomy_tool": "Official MPFB 2.0.17, Blender 4.3.2",
+  "extension_source": "https://extensions.blender.org/add-ons/mpfb/",
+  "extension_sha256": "4f0a879d64a39bf646fbf5f53601ac678855da329d650617dca5737548239a87",
+  "asset_license": "CC0 1.0 Universal",
+  "asset_license_source": "https://github.com/makehumancommunity/mpfb2/blob/master/LICENSE.md",
+  "system_asset_source": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+  "program_license": "GPL-3.0-or-later; MPFB program code is not embedded in the runtime GLB",
+  "official_assets_used_in_runtime": [
+    "MakeHuman adult male base mesh and shape targets",
+    "GameEngine rig and anatomical skin weights",
+    "young_asian_male skin",
+    "high-poly eyes with brown eye texture"
+  ],
+  "project_created_assets": [
+    "distinct prince face target choices",
+    "convex black cuirass, layered shoulder caps and hip plates",
+    "split riding robe, tabard, boots and sword",
+    "sculpted high ponytail, crown and eyebrows",
+    "four cloth bones and two ponytail bones",
+    "Idle, Walk, Run, Gift_Present animation"
+  ],
+  "portrait_asset_license": "Existing user game artwork; not represented as MakeHuman CC0",
+  "paid_services_used": false,
+  "limitations": [
+    "Portrait-inspired likeness rather than exact anime reconstruction",
+    "Simplified pointed-ribbon hair",
+    "Skinned cloth and armor rather than cloth physics",
+    "Stylized linework instead of exact painted dragon ornament"
+  ]
+}

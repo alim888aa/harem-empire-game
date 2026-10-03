@@ -1,0 +1,88 @@
+IMPERIAL THRONE + FIVE-PANEL CARVED SCREEN
+Harem Empire • authored in Blender 4.3.2 • 1 October 2026
+
+WHAT THIS IS
+Original, volumetric, Forbidden City-inspired decorative game art. This is an
+interpretive model, not a measured museum replica or an AAA-quality claim.
+The throne has rounded wooden scroll arms, gold edge trim, a shaped high back,
+open side lattice, swept feet, and a jade-teal cushion. The stepped screen has
+raised dragon, cloud and lotus motifs and geometric key-fret ornament. Motifs
+are actual mesh relief rather than a rendered image or billboard.
+
+DELIVERABLES
+Imperial_Throne.glb                 Runtime model, with embedded PBR textures
+Imperial_Throne_Source.blend        Editable, separated authoring geometry
+Imperial_Throne_Front.png           Front render of the runtime geometry
+Imperial_Throne_ThreeQuarter.png    Three-quarter render of runtime geometry
+Imperial_Throne_Chair_Detail.png    Close render of runtime chair geometry
+asset_stats.json                  Final budget and bounds report
+glb_validation.json               Independent import/texture/scale validation
+build_imperial_throne.py           Recreates editable authoring geometry
+optimize_and_render.py             Merges, decimates, exports, renders runtime
+validate_glb.py                    Imports exported GLB and checks budgets
+textures/                         Original CC0 maps used by source script
+
+COORDINATES AND INTEGRATION
+GLB units are meters; +Y is up; +Z is forward. The floor pivot is directly under
+the chair centre. The screen is behind the chair, centred at GLB Z=-1.40 m.
+The chair cushion top is Y=0.67 m; its back is about 2.56 m high. Its footprint
+is approximately 2.7 m wide by 1.8 m deep. Screen width is about 7.52 m and its
+highest carving is about 5.93 m above the floor. Use asset_stats.json for exact
+whole-asset bounds. Do not centre the imported bounding box: keep the origin.
+
+Suggested placement for the current palace: (0, 0.56, -25), scale (1,1,1).
+All eight runtime mesh origins and transforms are normalized to the floor pivot.
+No dais, environment floor, camera or light is exported. The source .blend
+contains a separate STUDIO collection for reviewing the model; this is excluded
+from GLB export. No collision hull is supplied; use the game's simple chair /
+screen colliders if required. In Three.js enable castShadow / receiveShadow on
+meshes and retain their exported PBR materials. Preview lighting is separate.
+
+PERFORMANCE
+Target: <50,000 triangles, <8 MB GLB, embedded textures no larger than 1024.
+Final measured figures are in asset_stats.json and glb_validation.json.
+The GLB has eight material batches. The editable source deliberately retains
+separate components and more authoring triangles. The PNG renders show the
+merged and decimated runtime geometry, rendered with Cycles CPU, not imagegen.
+Small relief is intended to read mainly in the chair and medium-distance screen
+views. It is stylized ornament, not photogrammetry.
+
+REBUILD
+Requires Blender 4.3.2. No add-ons, paid services or external software are used.
+Unzip the source archive into any folder and run:
+blender -b --python build_imperial_throne.py
+blender -b --python optimize_and_render.py
+blender -b --python validate_glb.py
+All paths in the scripts are relative to their own folder. The .blend contains
+packed image maps, so it can also be opened and edited independently.
+
+PROVENANCE / LICENSES
+Geometry and Python authoring scripts were newly authored for this project.
+No third-party model, mesh kit, logo or purchased asset was downloaded.
+No external reference photographs are included in the deliverables or textures.
+
+Included surface maps are CC0-1.0:
+1. Poly Haven, Dark Wood
+   Creators: Dario Barresi, Dimitrios Savva, Rico Cilliers
+   https://polyhaven.com/a/dark_wood
+   https://polyhaven.com/license
+   Maps: dark_wood_diff_1k.jpg, dark_wood_nor_gl_1k.jpg,
+         dark_wood_rough_1k.jpg
+2. TextureCan, Worn Yellow Brass Metal Texture (Metal 0065)
+   https://www.texturecan.com/details/497/
+   https://www.texturecan.com/terms/
+   Maps: metal_0065_color_1k.jpg, metal_0065_roughness_1k.jpg
+   CC0: https://creativecommons.org/publicdomain/zero/1.0/
+These maps were reused from the project's already verified CC0 material set.
+The GLB exporter packs roughness/metalness channels into embedded textures.
+
+Visual/contextual reference, viewed only:
+The Palace Museum, The Misfortunate Dragon Throne
+https://young.dpm.org.cn/en/article/1095
+The article and museum photograph informed the curved chair, stepped carved
+backdrop, gold lacquer and dragon decoration. They were not used as textures.
+
+QA
+The front, three-quarter and close renders were visually inspected. The exported
+GLB was imported into a fresh Blender scene and checked for geometry counts,
+correct texture dimensions, normalized mesh scales and absence of lights/cameras.

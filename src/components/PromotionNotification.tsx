@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { shouldShowHighInfluenceNotification, getHighInfluenceNotification } from '../lib/influenceFear';
 
 interface PromotionNotificationProps {
@@ -40,6 +40,7 @@ function PromotionNotification({ rank, playerInfluence, onDismiss }: PromotionNo
               <div className="text-yellow-100">
                 You are now {formatRank(rank)}!
               </div>
+              <div className="text-yellow-100 text-sm">Your office now grants ordinary audiences with the court.</div>
               {showInfluenceMessage && (
                 <div className="text-yellow-200 text-sm mt-1 italic">
                   {getHighInfluenceNotification()}

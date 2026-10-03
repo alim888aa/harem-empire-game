@@ -1,0 +1,134 @@
+{
+  "coordinate_conversion": "Blender(x,y,z) -> Three(x,z,-y)",
+  "lights_relative_to_character_rest_origin": [
+    {
+      "name": "High crown-shadow key",
+      "type": "AREA",
+      "position_blender": [
+        -0.10000000149011612,
+        -0.4000000059604645,
+        5.5
+      ],
+      "position_three": [
+        -0.10000000149011612,
+        5.5,
+        0.4000000059604645
+      ],
+      "aim_direction_point_three": [
+        -0.07737176865339279,
+        4.504361629486084,
+        0.3094872832298279
+      ],
+      "power_blender_watts": 500.0,
+      "color_linear": [
+        1.0,
+        0.7900000214576721,
+        0.550000011920929
+      ],
+      "diameter_m": 0.2800000011920929
+    },
+    {
+      "name": "Warm rear rim",
+      "type": "AREA",
+      "position_blender": [
+        0.0,
+        2.200000047683716,
+        3.200000047683716
+      ],
+      "position_three": [
+        0.0,
+        3.200000047683716,
+        -2.200000047683716
+      ],
+      "aim_direction_point_three": [
+        -7.401850865562665e-08,
+        2.5667624473571777,
+        -1.4260426759719849
+      ],
+      "power_blender_watts": 620.0,
+      "color_linear": [
+        1.0,
+        0.6200000047683716,
+        0.3100000023841858
+      ],
+      "diameter_m": 0.6499999761581421
+    },
+    {
+      "name": "Robe-only soft spot",
+      "type": "SPOT",
+      "position_blender": [
+        -1.2999999523162842,
+        -2.5,
+        1.7000000476837158
+      ],
+      "position_three": [
+        -1.2999999523162842,
+        1.7000000476837158,
+        2.5
+      ],
+      "aim_direction_point_three": [
+        -0.8561872243881226,
+        1.4268845319747925,
+        1.6465141773223877
+      ],
+      "power_blender_watts": 260.0,
+      "color_linear": [
+        0.6399999856948853,
+        0.7699999809265137,
+        1.0
+      ],
+      "three_angle_half_radians": 0.33000001311302185,
+      "soft_edge_blend": 0.6499999761581421
+    },
+    {
+      "name": "Gold robe highlight",
+      "type": "SPOT",
+      "position_blender": [
+        1.2000000476837158,
+        -2.0999999046325684,
+        1.5
+      ],
+      "position_three": [
+        1.2000000476837158,
+        1.5,
+        2.0999999046325684
+      ],
+      "aim_direction_point_three": [
+        0.720861554145813,
+        1.2404669523239136,
+        1.2615078687667847
+      ],
+      "power_blender_watts": 170.0,
+      "color_linear": [
+        1.0,
+        0.800000011920929,
+        0.47999998927116394
+      ],
+      "three_angle_half_radians": 0.3149999976158142,
+      "soft_edge_blend": 0.6499999761581421
+    }
+  ],
+  "world_background_strength": 0.017999999225139618,
+  "world_background_color_linear": [
+    0.12999999523162842,
+    0.15000000596046448,
+    0.18000000715255737,
+    1.0
+  ],
+  "floor_albedo_linear": [
+    0.012000000104308128,
+    0.014000000432133675,
+    0.017000000923871994,
+    1.0
+  ],
+  "exposure": -0.25,
+  "look": "AgX - Medium High Contrast",
+  "integration_notes": [
+    "Key moved substantially more overhead than older (0,5.4,1.1) Three position. Current key is approximately (-0.1,5.5,0.4), directed at (0,1.1,0).",
+    "The male nose/front face projects further forward than the old procedural head, so the older key angle revealed facial details.",
+    "Enable castShadow on the physical crown board and receiveShadow on real head. No face plane, black paint, mask, veil or special light linking is used.",
+    "Use low ambient fill. Source uses low environment and a dark floor to reduce bounced fill; Three intensities need visual calibration because Blender watts do not map 1:1.",
+    "Do not aim robe spots at the head. The key/rim/spot positions are relative to the character rest origin and can be maintained relative to its approach position.",
+    "For Three.js, matching directional key angle is more important than literal point-light distance; use an adequately detailed shadow map."
+  ]
+}

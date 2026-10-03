@@ -435,7 +435,7 @@ export async function judgeOutcome(input: AIOutcomeJudgmentInput): Promise<AIOut
 /**
  * Generate fallback outcome when AI fails
  */
-function getFallbackOutcome(input: AIOutcomeJudgmentInput): AIOutcomeJudgmentOutput {
+export function getFallbackOutcome(input: AIOutcomeJudgmentInput): AIOutcomeJudgmentOutput {
   const { path, questions, answers, gameContext } = input;
 
   // Basic scoring: count correct answers

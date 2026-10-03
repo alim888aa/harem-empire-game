@@ -1,0 +1,43 @@
+{
+  "actor": "Maid Lan",
+  "scope": "Eight exact-name Maid family assets;40 other court actors,9 player outfits and Emperor unchanged",
+  "runtime_sha256": "8eb72d47d37aad05edeacd6d1550992686967972490255a5bc0053afc767c9b1",
+  "runtime_bytes": 2551892,
+  "authored_source_master_sha256": "be4498f8e92f484c1200e2261495e03f0187010c7249e95e8d2e57d611cbcd71",
+  "source_models": [
+    "VRoid Studio0.14.0 legacy generic Base_Female",
+    "VRoid Studio0.14.0 legacy generic HairSample_Female"
+  ],
+  "upstream_license": "CC0 1.0",
+  "source_provenance_urls": [
+    "https://vroid.pixiv.help/hc/en-us/articles/4402614652569-Do-VRoid-Studio-s-sample-models-come-with-conditions-of-use",
+    "https://vroid.pixiv.help/hc/en-us/articles/900000088126-New-model",
+    "https://opengameart.org/content/vroid-studio-cc0-models"
+  ],
+  "original_modifications": "Adult anatomy/proportions and court identity palettes, fitted continuous robe/front apron/sash/slippers, natural swept fringe/crown/low bun and actual game-rig binding",
+  "rig_joints": 63,
+  "clips_seconds": {
+    "Idle": 4,
+    "Walk": 0.9333333333333333,
+    "Gift_Present": 2.5
+  },
+  "triangles": 26587,
+  "material_primitives": 14,
+  "embedded_images": 11,
+  "rgba_texture_bytes_excluding_mips": 8126464,
+  "preservation": "Exact authored mesh/UV/normal/weight/rig/clip data from reviewed master; runtime images equal master/LANCZOS derivatives",
+  "standalone_120hz_sole_samples": 895,
+  "real_controller_samples": 2448,
+  "measured_controller_height_m": 1.79583164,
+  "crossfade_penetration_mm": {
+    "actor_plane": 12.67,
+    "palace_floor": 17.35
+  },
+  "limitations": [
+    "Finite sampled pose/grounding checks do not certify all continuous contact",
+    "Local WebGL could not be observed; post-deployment browser smoke required",
+    "GPU/device FPS and mobile memory not measured",
+    "Full cast rebuild incomplete"
+  ],
+  "source_identity": "Canonical per-name skin/hair/iris/brow palette with exact shared authored geometry/rig/clips"
+}

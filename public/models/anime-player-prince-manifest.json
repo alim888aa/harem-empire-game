@@ -1,0 +1,296 @@
+{
+  "character": "Distinct anime Player Prince",
+  "stage": "Inspected exported-geometry benchmark; appearance not user-approved",
+  "file": "anime-player-prince.glb",
+  "sha256": "d7a9cf8a4c94b7144861fa4ea014d839c4e803aa5eaf01d8d46a662ebdc1e387",
+  "coordinate_system": "meters; glTF Y-up, +Z-forward",
+  "runtime_budget": {
+    "file_bytes": 4664112,
+    "triangles": 130184,
+    "export_vertices": 67670,
+    "meshes": 1,
+    "material_primitives": 15,
+    "bones": 57,
+    "embedded_images": 0,
+    "max_influences": 4,
+    "max_weight_sum_error": 1.1920928955078125e-07,
+    "extensions_used": [
+      "KHR_materials_specular"
+    ]
+  },
+  "materials": "Solid-color PBR. Zero texture images and no procedural shader dependency.",
+  "clips": [
+    {
+      "name": "Idle",
+      "seconds": 4.0,
+      "channels": 171,
+      "root_motion": [
+        {
+          "min": [
+            0.0,
+            0.00012419636186677963,
+            7.020558712156344e-08
+          ],
+          "max": [
+            0.0,
+            0.00012419636186677963,
+            7.020558712156344e-08
+          ],
+          "net": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Walk",
+      "seconds": 0.9333332777023315,
+      "channels": 171,
+      "root_motion": [
+        {
+          "min": [
+            0.0,
+            -0.06787580996751785,
+            7.020558712156344e-08
+          ],
+          "max": [
+            0.0,
+            -0.03187580406665802,
+            7.020558712156344e-08
+          ],
+          "net": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Run",
+      "seconds": 0.699999988079071,
+      "channels": 171,
+      "root_motion": [
+        {
+          "min": [
+            0.0,
+            -0.07999681681394577,
+            7.020558712156344e-08
+          ],
+          "max": [
+            0.0,
+            -0.007375803310424089,
+            7.020558712156344e-08
+          ],
+          "net": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gift_Present",
+      "seconds": 2.5,
+      "channels": 171,
+      "root_motion": [
+        {
+          "min": [
+            0.0,
+            0.00012419636186677963,
+            7.020558712156344e-08
+          ],
+          "max": [
+            0.0,
+            0.00012419636186677963,
+            7.020558712156344e-08
+          ],
+          "net": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jump_Start",
+      "seconds": 0.20000000298023224,
+      "channels": 171,
+      "root_motion": [
+        {
+          "min": [
+            0.0,
+            -0.07487580925226212,
+            7.020558712156344e-08
+          ],
+          "max": [
+            0.0,
+            0.00012419636186677963,
+            7.020558712156344e-08
+          ],
+          "net": [
+            0.0,
+            -0.07500000298023224,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jump_Air",
+      "seconds": 0.5999999642372131,
+      "channels": 171,
+      "root_motion": [
+        {
+          "min": [
+            0.0,
+            0.00012419636186677963,
+            7.020558712156344e-08
+          ],
+          "max": [
+            0.0,
+            0.00012419636186677963,
+            7.020558712156344e-08
+          ],
+          "net": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Land",
+      "seconds": 0.30000001192092896,
+      "channels": 171,
+      "root_motion": [
+        {
+          "min": [
+            0.0,
+            -0.07487580925226212,
+            7.020558712156344e-08
+          ],
+          "max": [
+            0.0,
+            0.00012419636186677963,
+            7.020558712156344e-08
+          ],
+          "net": [
+            0.0,
+            0.07500000298023224,
+            0.0
+          ]
+        }
+      ]
+    }
+  ],
+  "locomotion": {
+    "reference_speed_mps": {
+      "Walk": 1.2,
+      "Run": 3.8
+    },
+    "player_speed_mps": {
+      "Walk": 1.35,
+      "Run": 3.8
+    },
+    "playback_rate": {
+      "Walk": 1.125,
+      "Run": 1
+    },
+    "npc_walk_playback_for_0_65_mps": 0.5416666666666667,
+    "horizontal_root_motion": "none; loop endpoints match",
+    "contact_validation": [
+      {
+        "clip": "Walk",
+        "side": "l",
+        "intended_stance_speed_mps": 1.2,
+        "measured_speed_min_mps": 1.199991221074015,
+        "measured_speed_max_mps": 1.2000086903572083,
+        "ankle_height_min_m": 0.06799983978271484,
+        "ankle_height_max_m": 0.06800025701522827
+      },
+      {
+        "clip": "Walk",
+        "side": "r",
+        "intended_stance_speed_mps": 1.2,
+        "measured_speed_min_mps": 1.199989914894104,
+        "measured_speed_max_mps": 1.2000086903572083,
+        "ankle_height_min_m": 0.0679999440908432,
+        "ankle_height_max_m": 0.06800032407045364
+      },
+      {
+        "clip": "Run",
+        "side": "l",
+        "intended_stance_speed_mps": 3.8,
+        "measured_speed_min_mps": 3.7999818474054337,
+        "measured_speed_max_mps": 3.8000106811523438,
+        "ankle_height_min_m": 0.06799983978271484,
+        "ankle_height_max_m": 0.06800007820129395
+      },
+      {
+        "clip": "Run",
+        "side": "r",
+        "intended_stance_speed_mps": 3.8,
+        "measured_speed_min_mps": 3.799985758960247,
+        "measured_speed_max_mps": 3.799995481967926,
+        "ankle_height_min_m": 0.06799957901239395,
+        "ankle_height_max_m": 0.06799992173910141
+      }
+    ]
+  },
+  "jump_contract": {
+    "Jump_Start": {
+      "duration_seconds": 0.2,
+      "loop": false,
+      "root_vertical_crouch_m": 0.075
+    },
+    "Jump_Air": {
+      "duration_seconds": 0.6,
+      "loop": true
+    },
+    "Land": {
+      "duration_seconds": 0.3,
+      "loop": false,
+      "root_vertical_recovery_m": 0.075
+    },
+    "trajectory": "Controller supplies all world-space lift, forward travel, collision and landing state. These clips contain pose and crouch only.",
+    "transition_note": "Crossfade about 0.06\u20130.10 s; do not wait for a looping airborne clip to end before landing."
+  },
+  "animation_envelope": {
+    "sampled_frames": 284,
+    "gltf_min": [
+      -0.34768831729888916,
+      0.0039999824948608875,
+      -0.47879815101623535
+    ],
+    "gltf_max": [
+      0.34772172570228577,
+      1.8579728603363037,
+      0.6714526414871216
+    ],
+    "width_m": 0.6954100430011749,
+    "height_m": 1.8539728778414428,
+    "depth_m": 1.150250792503357,
+    "max_visual_horizontal_radius_m": 0.6718081005730212
+  },
+  "recommended_body_collision": {
+    "radius_m": 0.34,
+    "production_radius_with_margin_m": 0.36,
+    "height_m": 1.85,
+    "floor_offset_m": 0,
+    "note": "Visual robe/arm sweep extends beyond body capsule; use broad-phase visual envelope only for culling, not hard body collision."
+  },
+  "limitations": [
+    "Early anime-styled benchmark; no user appearance approval",
+    "Simplified face, solid painted colors, chunky hair and clothing",
+    "Mantle is rigidly skinned; split robe bends prominently during strides; no cloth simulation",
+    "Jump clips are pose hooks; world-space trajectory and collision belong to game controller",
+    "Studio and game-height proofs are rendered from a fresh GLB import, not screenshots of the published game"
+  ],
+  "source_provenance_file": "anime-player-prince-provenance.json"
+}

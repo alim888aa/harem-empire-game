@@ -9,14 +9,13 @@ export interface CharacterPersonalityVectors {
 }
 
 export interface CharacterRelationshipVectors {
-      trustInPlayer: number;
-      loyaltyToPlayer: number;
       fearOfPlayer: number;
-      dependenceOnPlayer: number;
       loveForPlayer: number;
 }
 
 export interface InitialCharacterType {
+      displayName?: string;
+      supportThreshold?: number;
       name: string;
       type: 'major' | 'side' | 'minor';
       vectors: CharacterPersonalityVectors;
@@ -26,6 +25,14 @@ export interface InitialCharacterType {
 }
 
 export interface Character {
+      displayName?: string;
+      hate?: number;
+      isLover?: boolean;
+      legacyCourtshipGiftEligible?: boolean;
+      supportThreshold?: number;
+      hasGivenSupport?: boolean;
+      hasGivenAllegiance?: boolean;
+      factionOverride?: 'Rebel' | 'Imperial' | 'Loyalist' | 'Independent' | null;
       name: string;
       type: 'major' | 'side' | 'minor';
       supportLevel: number;

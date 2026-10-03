@@ -58,3 +58,6 @@ export function getPersonalityHint(personalityVector: CharacterPersonalityVector
 
   return hints.join(", ") || "Neutral";
 }
+export function getSupportThreshold(playerType: 'prince'|'minister'|'concubine'|null) {
+    return playerType === 'prince' ? 60 : playerType === 'minister' ? 70 : 80;
+}

@@ -1,0 +1,13 @@
+.campaign-save-button{position:fixed;bottom:18px;right:18px;z-index:70;border:1px solid #b79b5a80;border-radius:5px;padding:8px 12px;color:#eee2c5;background:#142422ed;font-size:11px;letter-spacing:.06em;box-shadow:0 3px 15px #0003}
+.campaign-save-button:hover,.campaign-save-button:focus-visible{background:#304440;outline:2px solid #cbb67e;outline-offset:3px}
+.campaign-save-button.save-problem{border-color:#ecb982;color:#ffe0af}
+.campaign-save-warning{position:fixed;right:18px;bottom:56px;z-index:70;max-width:min(450px,calc(100vw - 36px));padding:12px 15px;border:1px solid #a58051;background:#fff2da;color:#533d20;border-radius:5px;font-size:12px;line-height:1.5;box-shadow:0 3px 15px #0002}
+.save-explanation{font-size:13px;line-height:1.7;color:#777565;margin:14px 0}
+.save-actions,.save-confirmation{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.save-confirmation h3,.save-confirmation p{flex-basis:100%;margin:0 0 8px}.save-confirmation p{font-size:14px;line-height:1.6}
+.save-actions button,.save-confirmation button{border:1px solid #b2a47c;background:#f4f0e6;color:#34443c;border-radius:5px;padding:10px 16px;font-size:13px}
+.save-confirmation button.save-primary{background:#294339;color:#fff4da}
+@media(max-width:600px){.campaign-save-button{bottom:10px;right:10px;padding:7px 9px;font-size:10px}.campaign-save-warning{right:10px;bottom:46px}}
+@media(max-width:540px){.campaign-save-button{left:10px;right:auto}}
+
+.save-campaign-summary{font-weight:600;color:#34443c;margin-bottom:6px}.save-details{font-size:13px;color:#777565}.save-details summary{cursor:pointer}.save-details p{line-height:1.6;max-width:50em}

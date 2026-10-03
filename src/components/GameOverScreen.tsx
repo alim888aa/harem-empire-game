@@ -1,6 +1,8 @@
+import {formatRank} from "../lib/courtStrategy";
 import type { VictoryPath } from '../types/emperorAudience';
 
 interface GameOverScreenProps {
+  careerEnding?:{title:string;description:string}|null;
   gameEndReason: 'victory' | 'defeat' | null;
   finalStats: {
     supportPoints: number;
@@ -15,6 +17,7 @@ interface GameOverScreenProps {
 }
 
 function GameOverScreen({ 
+  careerEnding,
   gameEndReason, 
   finalStats, 
   emperorAudienceCompleted = false,
@@ -23,8 +26,6 @@ function GameOverScreen({
   emperorMessage = '',
   onRestart 
 }: GameOverScreenProps) {
-  const isVictory = gameEndReason === 'victory';
-  const isEmperorAudienceVictory = emperorAudienceCompleted && emperorAudienceOutcome === 'victory';
   const isEmperorAudienceExecution = emperorAudienceCompleted && emperorAudienceOutcome === 'execution';
 
   // Victory path specific messages
@@ -48,22 +49,16 @@ function GameOverScreen({
           message: 'You have successfully overthrown the old order!',
           description: 'The Emperor has been deposed and you now lead a new government. Your revolution has transformed the empire forever.'
         };
-      case 'survivor':
-        return {
-          title: '🏃 Narrow Escape!',
-          message: 'You have escaped execution and lived to fight another day!',
-          description: 'Though you faced the Emperor\'s wrath, your political skills saved you from certain death. You survive to pursue power again.'
-        };
       default:
-        return {
-          title: '🎉 Victory!',
-          message: 'Congratulations! You have successfully seized power!',
-          description: 'Your political maneuvering has paid off and you now rule the empire.'
-        };
+        return null;
     }
   };
 
+  const victoryMessage = getVictoryPathMessage(emperorAudienceVictoryPath);
+  const isVictory = gameEndReason === 'victory' && emperorAudienceCompleted && emperorAudienceOutcome === 'victory' && victoryMessage !== null;
+
   const getDefeatMessage = () => {
+    if(careerEnding)return{title:careerEnding.title,message:careerEnding.description,description:"Your court career ends here. Begin again with a new strategy."};
     if (isEmperorAudienceExecution) {
       return {
         title: '⚔️ Executed by Imperial Decree!',
@@ -86,7 +81,7 @@ function GameOverScreen({
           isVictory ? 'text-yellow-600' : 'text-red-600'
         }`}>
           {isVictory 
-            ? (isEmperorAudienceVictory ? getVictoryPathMessage(emperorAudienceVictoryPath).title : '🎉 Victory!')
+            ? victoryMessage.title
             : getDefeatMessage().title
           }
         </h1>
@@ -96,16 +91,10 @@ function GameOverScreen({
           {isVictory ? (
             <div>
               <p className="text-lg text-gray-700 mb-2">
-                {isEmperorAudienceVictory 
-                  ? getVictoryPathMessage(emperorAudienceVictoryPath).message
-                  : 'Congratulations! You have successfully seized power!'
-                }
+                {victoryMessage.message}
               </p>
               <p className="text-gray-600">
-                {isEmperorAudienceVictory 
-                  ? getVictoryPathMessage(emperorAudienceVictoryPath).description
-                  : 'Your political maneuvering has paid off and you now rule the empire.'
-                }
+                {victoryMessage.description}
               </p>
             </div>
           ) : (
@@ -182,7 +171,7 @@ function GameOverScreen({
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Rank Achieved:</span>
-              <span className="font-medium">{finalStats.rank || 'None'}</span>
+              <span className="font-medium">{finalStats.rank ? formatRank(finalStats.rank) : 'None'}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Seasons Survived:</span>

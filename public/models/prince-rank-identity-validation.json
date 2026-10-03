@@ -1,0 +1,20 @@
+{
+  "base": "anime-player-prince.glb",
+  "precision_meters": 1e-06,
+  "checks": [
+    {
+      "file": "grand_prince.glb",
+      "same_nonoutfit_geometry": true,
+      "different_material_geometry": [],
+      "same_clips": true,
+      "same_joint_count": true
+    },
+    {
+      "file": "crown_prince.glb",
+      "same_nonoutfit_geometry": true,
+      "different_material_geometry": [],
+      "same_clips": true,
+      "same_joint_count": true
+    }
+  ]
+}

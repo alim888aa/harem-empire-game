@@ -1,0 +1,6 @@
+.palace-gate-label{max-width:250px;text-align:center;background:#352d29e8;border:1px solid #cfb579;font-size:12px;color:#f2dfb6}
+.palace-gate-label.is-locked{border-color:#d39383;color:#f4b7a8}
+.palace-interaction small{display:block;margin-top:4px;font-size:11px;color:#f4b7a8}
+.palace-gate-notice{position:absolute;left:50%;bottom:160px;transform:translateX(-50%);max-width:min(540px,calc(100vw - 28px));padding:14px 40px 14px 16px;background:#382d29ee;border:1px solid #d39383;border-radius:7px;color:#f4dbca;z-index:25;font-size:13px}
+.palace-gate-notice button{position:absolute;right:10px;top:8px;font-size:20px;background:none;border:0;color:inherit}
+@media(max-width:640px){.palace-gate-label{max-width:180px;font-size:10px}.palace-gate-notice{bottom:195px}.palace-location>span{max-width:180px;display:block;font-size:8px}}

@@ -1,3 +1,4 @@
+import { rankIndex } from './campaignBalance';
 import type { 
   VictoryPath, 
   GameContextData, 
@@ -6,7 +7,7 @@ import type {
   ShadowRulerContext, 
   SurvivorContext 
 } from '../types/emperorAudience';
-import type { FactionType, FactionSystem } from './factionSystem';
+import type { FactionSystem } from './factionSystem';
 import { assignCharacterFaction } from './factionSystem';
 import type { PlayerStats, PlayerReputation } from '../types/game';
 
@@ -16,48 +17,29 @@ import type { PlayerStats, PlayerReputation } from '../types/game';
 interface GameContext {
   characterType: 'prince' | 'minister' | 'concubine' | null;
   season: number;
-  rank: 'crown_prince' | 'prime_minister' | 'empress_consort' | null;
+  rank: string | null;
+  rankEnteredSeason?: number;
+  consolidationWaived?:boolean;
   playerPersonality: PlayerStats;
   playerReputation: PlayerReputation;
   suspiciousCharacters: string[];
   factionSystem: FactionSystem;
   characters: Record<string, any>;
   emperorAudienceCompleted: boolean;
+  emperorAudienceDeferredUntilSeason?: number;
 }
 
 /**
  * Checks if the player should be offered an emperor audience event
- * Based on victory path conditions from requirements 11.1
+ * Victory requires promotion and membership in one of the three court factions.
  */
 export function shouldOfferEmperorAudience(context: GameContext): boolean {
-  // Must have a character type to proceed
-  if (!context.characterType) {
+  // A declined invitation must leave the player free to finish this season.
+  if (context.emperorAudienceCompleted || context.season < (context.emperorAudienceDeferredUntilSeason ?? 0)) {
     return false;
   }
 
-  // Don't offer if already completed
-  if (context.emperorAudienceCompleted) {
-    return false;
-  }
-
-  // Check for Survivor Path first (max suspicion threshold)
-  const executionThresholds = { 
-    concubine: 1, 
-    minister: 3, 
-    prince: 5 
-  };
-  const threshold = executionThresholds[context.characterType];
-  if (context.suspiciousCharacters.length >= threshold) {
-    return true; // Survivor path available
-  }
-
-  // Check for faction-based paths (requires promotion)
-  if (context.rank && context.factionSystem.playerFaction) {
-    const validFactions: FactionType[] = ['Imperial', 'Loyalist', 'Rebel'];
-    return validFactions.indexOf(context.factionSystem.playerFaction) !== -1;
-  }
-
-  return false;
+  return determineVictoryPath(context) !== null;
 }
 
 /**
@@ -69,19 +51,8 @@ export function determineVictoryPath(context: GameContext): VictoryPath | null {
     return null;
   }
 
-  // Check execution threshold first (Survivor path takes precedence)
-  const executionThresholds = { 
-    concubine: 1, 
-    minister: 3, 
-    prince: 5 
-  };
-  const threshold = executionThresholds[context.characterType];
-  if (context.suspiciousCharacters.length >= threshold) {
-    return 'survivor';
-  }
-
   // Check faction-based paths (requires promotion and faction membership)
-  if (context.rank && context.factionSystem.playerFaction) {
+  if (rankIndex(context.characterType,context.rank)===2 && (context.consolidationWaived||context.season >= (context.rankEnteredSeason ?? context.season) + 3) && context.factionSystem.playerFaction) {
     switch (context.factionSystem.playerFaction) {
       case 'Imperial':
         return 'traditional';
@@ -234,6 +205,8 @@ function getFactionMemberCounts(characters: Record<string, any>): Record<string,
       const characterFaction = assignCharacterFaction({
         name: character.name,
         type: character.type,
+        hasGivenAllegiance: character.hasGivenAllegiance,
+        factionOverride: character.factionOverride,
         supportLevel: character.supportLevel,
         suspicion: character.suspicion,
         personalityVectors: character.personalityVectors,

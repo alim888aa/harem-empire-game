@@ -63,17 +63,6 @@ export function handlePromotion(
   Object.values(characters).forEach((characterRef) => {
     const snapshot = characterRef.getSnapshot();
     if (snapshot?.context?.name && snapshot.context.name !== 'Emperor') {
-      const characterType = snapshot.context.type;
-      
-      // Side character penalties: -0.2 trust, -0.1 loyalty to player
-      if (characterType === 'side') {
-        characterRef.send({
-          type: 'APPLY_PROMOTION_PENALTY',
-          trustPenalty: 0.2,
-          loyaltyPenalty: 0.1
-        });
-      }
-
       // Fear increase (+0.3) for all living non-emperor characters
       characterRef.send({
         type: 'APPLY_FEAR',

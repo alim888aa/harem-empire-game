@@ -1,0 +1,134 @@
+{
+  "name": "Imperial Throne and Five-Panel Carved Screen",
+  "version": "1.0.0",
+  "date": "2026-10-01",
+  "runtime_file": "Imperial_Throne.glb",
+  "runtime_sha256": "c2bee21c4164a27a96ec7ed155e8854418d88cd5ad9a4860a2a3993f68cc62dd",
+  "runtime_bytes": 5502540,
+  "triangles": 46090,
+  "meshes": 8,
+  "materials": 8,
+  "embedded_images": 5,
+  "max_texture_size": [
+    1024,
+    1024
+  ],
+  "bounds_glb_min": [
+    -3.758021116256714,
+    1.862645149230957e-09,
+    -1.6050000190734863
+  ],
+  "bounds_glb_max": [
+    3.7598414421081543,
+    5.928291320800781,
+    1.0499999523162842
+  ],
+  "size_xyz": [
+    7.517862558364868,
+    5.928291318938136,
+    2.6549999713897705
+  ],
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "units": "meters",
+  "orientation": "+Y up; +Z forward",
+  "suggested_scene_position": [
+    0,
+    0.56,
+    -25
+  ],
+  "camera_count": 0,
+  "light_count": 0,
+  "floor_or_dais_exported": false,
+  "authoring": "Original AI-assisted Blender mesh authoring; no downloaded third-party models",
+  "reference": "https://young.dpm.org.cn/en/article/1095; viewed for inspiration only, no photo redistribution",
+  "materials_provenance": [
+    {
+      "asset": "Dark Wood",
+      "provider": "Poly Haven",
+      "url": "https://polyhaven.com/a/dark_wood",
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "files": [
+        "dark_wood_diff_1k.jpg",
+        "dark_wood_nor_gl_1k.jpg",
+        "dark_wood_rough_1k.jpg"
+      ]
+    },
+    {
+      "asset": "Worn Yellow Brass / Metal 0065",
+      "provider": "TextureCan",
+      "url": "https://www.texturecan.com/details/497/",
+      "license": "CC0-1.0",
+      "license_url": "https://www.texturecan.com/terms/",
+      "files": [
+        "metal_0065_color_1k.jpg",
+        "metal_0065_roughness_1k.jpg"
+      ]
+    }
+  ],
+  "geometry_license_note": "Newly authored project output; no third-party model license. Included texture assets are CC0-1.0.",
+  "limits": "Interpretive decorative game art, not a museum replica, scan or AAA claim",
+  "files": {
+    "Imperial_Throne.glb": {
+      "bytes": 5502540,
+      "sha256": "c2bee21c4164a27a96ec7ed155e8854418d88cd5ad9a4860a2a3993f68cc62dd"
+    },
+    "Imperial_Throne_Source.blend": {
+      "bytes": 9355768,
+      "sha256": "29699a826a8ce8fa621e1fbcf64756dc1850b85230fae373732297b45062f229"
+    },
+    "README.txt": {
+      "bytes": 4875,
+      "sha256": "e8153c598f9033c06dd96c89a4cf1e4dcbfd1fc60aa96e7f71d4068a22ad1d08"
+    },
+    "build_imperial_throne.py": {
+      "bytes": 18839,
+      "sha256": "f326ffd22d17a275e8a318a2d83af2d27ced96604d2013ceecb99e9067f5701f"
+    },
+    "optimize_and_render.py": {
+      "bytes": 3905,
+      "sha256": "6cb9c59db02db03bbc08c424f9782e65a1b309ef3a2a9fde827652f5609e9a1d"
+    },
+    "validate_glb.py": {
+      "bytes": 1235,
+      "sha256": "f5412d01ea6306a090658f8c03ebb861fab6a703be5b430339f46edacaf36f89"
+    },
+    "asset_stats.json": {
+      "bytes": 577,
+      "sha256": "b4ea8f7eca120b7df56fdd00eda79af9f8ae66e07ccf9c282331ed8f5570a15a"
+    },
+    "glb_validation.json": {
+      "bytes": 1054,
+      "sha256": "036f8ef369a8139e4c11f752654ee33df75980a9e93feda6218c5d5afa069a94"
+    },
+    "textures/dark_wood_diff_1k.jpg": {
+      "bytes": 754754,
+      "sha256": "d68da31655bf47024af893156a6a01a6c95bb60f55d97e2dc9bdd47be320e5b5",
+      "license": "CC0-1.0"
+    },
+    "textures/dark_wood_nor_gl_1k.jpg": {
+      "bytes": 344338,
+      "sha256": "c42541f1bda0a14b39f120c24407eeba699af8ac85b371c7cef98ffd7d7b13bf",
+      "license": "CC0-1.0"
+    },
+    "textures/dark_wood_rough_1k.jpg": {
+      "bytes": 574415,
+      "sha256": "47ea12dbf649109b02eaa164dde9732a74e839957f29ad0ec7f5266b575d1835",
+      "license": "CC0-1.0"
+    },
+    "textures/metal_0065_color_1k.jpg": {
+      "bytes": 188552,
+      "sha256": "43d975f8110a26a688906eaaf1c4e52571dd7f340ca28005d074d59b9f7b8b09",
+      "license": "CC0-1.0"
+    },
+    "textures/metal_0065_roughness_1k.jpg": {
+      "bytes": 117013,
+      "sha256": "a683e973443b5e3113bcc6185da5a0769741c8ca0dccda13e4e24824d25401b9",
+      "license": "CC0-1.0"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Scholar Song",
+  "sha256": "4085dffc4b8b5e86251e543de00e982325a4db439dd7e82d3490cce5a96ba0cb",
+  "anatomy_source": "Adult generic legacy VRoid Base_Male, publisher-identified CC0; original native facialUVs and project proportions",
+  "clothing_source": "Original project, separate actual cuff/lap/skirt/sash variation for each of six T2 Scholars",
+  "head_profile": "Adult authored anatomical head and cloth scholar cap; no separate hairstyle role claimed",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "clip_origin_behavior": "Original unshifted source starts",
+  "canonical_identity": "Exact per-name skin/iris/brow/garment palettes and source fingerprints; no name/role/random-campaign swaps",
+  "texture_derivative": "Exact source512px LANCZOS compaction",
+  "GPU_FPS_measured": false
+}

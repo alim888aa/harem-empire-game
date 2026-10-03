@@ -1,0 +1,31 @@
+{
+  "character": "Maid Ling",
+  "reference": "Original game public/maid.png, inspected directly before modeling",
+  "anatomy_tool": "MPFB 2.0.17 in Blender 4.3.2",
+  "extension_source": "https://extensions.blender.org/add-ons/mpfb/",
+  "extension_sha256": "4f0a879d64a39bf646fbf5f53601ac678855da329d650617dca5737548239a87",
+  "program_license": "GPL-3.0-or-later; extension program is not embedded in the GLB",
+  "asset_license": "CC0 1.0 Universal",
+  "asset_license_source": "https://github.com/makehumancommunity/mpfb2/blob/master/LICENSE.md",
+  "system_pack_source": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+  "used_official_assets": [
+    "MakeHuman base mesh and shape targets",
+    "MPFB GameEngine rig and weights",
+    "young_asian_female skin",
+    "high-poly eyes with brown material",
+    "eyebrow001",
+    "eyelashes01"
+  ],
+  "project_original_geometry": [
+    "golden wrap robe and bell sleeves",
+    "ivory apron and sash",
+    "sculpted fringe and bun",
+    "pearl comb",
+    "slippers",
+    "floral trim",
+    "four cloth bones",
+    "Idle, Walk and Gift_Reaction animation"
+  ],
+  "scope": "One-character anatomical benchmark. Portrait-inspired facial adaptation, simplified sculpted hair and skinned cloth. Not a whole-cast quality claim.",
+  "paid_services_used": false
+}

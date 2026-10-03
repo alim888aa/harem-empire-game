@@ -1,0 +1,82 @@
+{
+  "status": "Integrated anatomical-cloth checkpoint; appearance and WebGL lighting remain under review",
+  "source_triangles": 452536,
+  "runtime_triangles": 212846,
+  "mesh_objects": 18,
+  "joints": 57,
+  "glb_bytes": 16629868,
+  "sha256": "1c86ef5afaec145896d747ebc3c82e9489eb63205168947ebea82188ad1392e1",
+  "textures_max_dimension": 1024,
+  "clips": [
+    "Imperial_Idle",
+    "Imperial_Approach"
+  ],
+  "in_place": true,
+  "up_axis": "+Y",
+  "forward_axis": "+Z",
+  "height_m_approx": 2.18,
+  "visible_skin": "only real MPFB head/neck plus eyes; anatomical arms and hands excluded",
+  "construction": "sewn cloth panels settled over real male anatomy, with crossed front and walking-clearance hem",
+  "file": "emperor-runtime.glb",
+  "validation": {
+    "bytes": 16629868,
+    "sha256": "1c86ef5afaec145896d747ebc3c82e9489eb63205168947ebea82188ad1392e1",
+    "meshes": 18,
+    "materials": 15,
+    "skins": 1,
+    "skin_joints": 57,
+    "triangles": 212846,
+    "animations": [
+      {
+        "name": "Imperial_Idle",
+        "seconds": 4.041666507720947,
+        "root_translation_range": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "Imperial_Approach",
+        "seconds": 4.041666507720947,
+        "root_translation_range": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "mesh_node_names": [
+      "Emperor Crown | Aged imperial gold",
+      "Emperor Crown | Black hair strands",
+      "Emperor Crown | Black lacquer",
+      "Emperor Crown | Black lacquered hair",
+      "Emperor Crown | Celadon carved jade",
+      "Emperor Crown | Gold recess patina",
+      "Emperor Crown | Oxblood coral",
+      "Emperor Crown | Polished raised gold",
+      "Emperor | Court shoe l",
+      "Emperor | Court shoe r",
+      "Emperor | Curved crossed-front outer panel",
+      "Emperor | Fitted continuous panel robe",
+      "Emperor | Inner red collar reveal",
+      "Emperor | Real anatomical head and neck",
+      "Emperor | Short underlapping collar",
+      "Emperor | Soft diagonal crossed collar",
+      "Emperor_Male_Anatomical_Base.eyebrow001",
+      "Emperor_Male_Anatomical_Base.high-poly"
+    ],
+    "all_meshes_skinned": true
+  },
+  "gameplay_scale": 1.1,
+  "gameplay_clearance": {
+    "radius_m": 0.66,
+    "overhead_m": 2.53
+  },
+  "provenance": {
+    "anatomy": "Official MPFB 2.0.17 / MakeHuman assets, CC0",
+    "costume": "Project-authored sewn cloth, simulation-fitted rest shape; bone-driven runtime animation",
+    "crown_and_ornaments": "Project-authored geometry from earlier emperor checkpoint",
+    "services": "No paid assets or paid generation"
+  }
+}

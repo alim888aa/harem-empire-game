@@ -1,74 +1,138 @@
-import React from 'react';
+import {runtimePortrait} from '../data/runtimePortraits';
+import type { FC } from "react";
 
-export type PlayerType = 'prince' | 'minister' | 'concubine';
+export type PlayerType = "prince" | "minister" | "concubine";
 
 interface CharacterSelectionProps {
   onCharacterSelect: (type: PlayerType) => void;
 }
 
-const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onCharacterSelect }) => {
-  const characterOptions = [
-    {
-      type: 'prince' as PlayerType,
-      title: 'Prince',
-      description: 'Start with royal blood and natural authority',
-      startingRank: 'Prince'
-    },
-    {
-      type: 'minister' as PlayerType,
-      title: 'Minister',
-      description: 'Begin as a skilled political advisor',
-      startingRank: 'Minister'
-    },
-    {
-      type: 'concubine' as PlayerType,
-      title: 'Concubine',
-      description: 'Rise from the lowest position in the court',
-      startingRank: 'Concubine'
-    }
-  ];
+const characterOptions: {
+  type: PlayerType;
+  title: string;
+  subtitle: string;
+  description: string;
+  influence: number;
+  tolerance: number;
+  numeral: string;
+}[] = [
+  {
+    type: "prince",
+    title: "The Prince",
+    subtitle: "Born to power",
+    description:
+      "Royal blood opens doors. Turn your head start into a court that stands behind you.",
+    influence: 60,
+    tolerance: 5,
+    numeral: "I",
+  },
+  {
+    type: "minister",
+    title: "The Scholar",
+    subtitle: "Power through persuasion",
+    description:
+      "Enter court with knowledge, read the room, and make yourself indispensable to the throne.",
+    influence: 30,
+    tolerance: 3,
+    numeral: "II",
+  },
+  {
+    type: "concubine",
+    title: "The Concubine",
+    subtitle: "A delicate ascent",
+    description:
+      "Begin with little influence. Earn quiet allies, and let no suspicion become certainty.",
+    influence: 10,
+    tolerance: 1,
+    numeral: "III",
+  },
+];
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-yellow-100 to-yellow-200 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-yellow-800 mb-4">Harem Empire</h1>
-          <p className="text-lg text-gray-700">Choose your path to power</p>
+const CharacterSelection: FC<CharacterSelectionProps> = ({
+  onCharacterSelect,
+}) => (
+  <main className="path-selection">
+    <div className="selection-palace" aria-hidden="true" />
+    <div className="selection-content">
+      <header className="selection-heading">
+        <div className="selection-ornament" aria-hidden="true">
+          <span />◆<span />
         </div>
+        <p className="eyebrow">A game of favors, ambition & consequence</p>
+        <h1>Harem Empire</h1>
+        <p className="selection-intro">The throne is never won alone.</p>
+        <p className="selection-description">
+          Choose your place in the palace. Every gift builds a connection. Every
+          word can change your fate.
+        </p>
+      </header>
 
-        <div className="grid gap-6">
-          {characterOptions.map((option) => (
-            <button
-              key={option.type}
-              onClick={() => onCharacterSelect(option.type)}
-              className="p-6 border-2 border-yellow-400 rounded-lg hover:bg-yellow-50 hover:border-yellow-600 transition-all duration-200 text-left group"
-            >
-              <div className="flex justify-between items-start">
+      <div className="selection-section-heading">
+        <h2>Choose your path</h2>
+        <span>Three beginnings. Choose your allegiance.</span>
+      </div>
+
+      <div className="path-grid">
+        {characterOptions.map((option) => (
+          <button
+            type="button"
+            key={option.type}
+            onClick={() => onCharacterSelect(option.type)}
+            className={`path-card path-card-${option.type}`}
+            aria-label={`Play as ${option.title}. ${option.influence}% starting influence. Defeat at ${option.tolerance} suspicious ${option.tolerance === 1 ? "courtier" : "courtiers"}.`}
+          >
+            <div className="path-portrait">
+              <span className="path-numeral" aria-hidden="true">
+                {option.numeral}
+              </span>
+              <img
+                src={runtimePortrait(`@player:${option.type}`,`/${option.type}.png`)}
+                alt=""
+                width="928"
+                height="1120"
+              />
+              <span className="path-subtitle">{option.subtitle}</span>
+            </div>
+            <div className="path-card-content">
+              <h3>{option.title}</h3>
+              <p className="path-description">{option.description}</p>
+              <div className="path-metrics">
                 <div>
-                  <h3 className="text-2xl font-bold text-yellow-800 mb-2 group-hover:text-yellow-900">
-                    {option.title}
-                  </h3>
-                  <p className="text-gray-600 mb-2">{option.description}</p>
-                  <p className="text-sm text-yellow-700 font-medium">
-                    Starting Rank: {option.startingRank}
-                  </p>
+                  <span>Starting influence</span>
+                  <strong>
+                    {option.influence}
+                    <small>%</small>
+                  </strong>
                 </div>
-                <div className="text-yellow-600 group-hover:text-yellow-800 transition-colors">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                <div>
+                  <span>Defeat threshold</span>
+                  <strong>
+                    {option.tolerance}
+                    <small> suspicious</small>
+                  </strong>
                 </div>
               </div>
-            </button>
-          ))}
-        </div>
-
-        <div className="mt-8 text-center text-sm text-gray-500">
-          <p>Navigate the treacherous court politics to become Emperor</p>
-        </div>
+              <div className="path-enter">
+                <span>Enter the court</span>
+                <span aria-hidden="true">↗</span>
+              </div>
+            </div>
+          </button>
+        ))}
       </div>
+
+      <div className="selection-guide">
+        <span className="selection-guide-label">Your path to power</span>
+        <p>
+          Build <strong>global support and influence</strong> to rise through three ranks. Join a faction,
+          then face the Emperor to decide your ending.
+        </p>
+      </div>
+      <p className="session-note">
+        Saved stories resume on refresh · Save & game shows local storage status
+      </p>
     </div>
-  );
-};
+  </main>
+);
 
 export default CharacterSelection;

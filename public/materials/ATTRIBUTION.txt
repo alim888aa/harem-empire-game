@@ -1,0 +1,21 @@
+PBR materials used by HaremEmpire3D
+Verified 2026-10-01
+
+Dark Wood, Poly Haven
+Dario Barresi, Dimitrios Savva, Rico Cilliers
+https://polyhaven.com/a/dark_wood
+
+Marble 01, Poly Haven
+Rob Tuytel
+https://polyhaven.com/a/marble_01
+
+Worn Yellow Brass Metal Texture (Metal 0065), TextureCan
+https://www.texturecan.com/details/497/
+
+All texture assets are CC0-1.0. Attribution is not required.
+https://polyhaven.com/license
+https://www.texturecan.com/terms/
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Maps are unmodified 1024 x 1024 source downloads.
+Normals use OpenGL convention. See sources.json for exact URLs, map roles and hashes.

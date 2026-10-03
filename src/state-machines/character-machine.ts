@@ -1,336 +1,107 @@
-import type { CharacterPersonalityVectors, CharacterRelationshipVectors, InitialCharacterType } from '../types/character.js';
-import { assign, sendParent, setup, } from 'xstate';
-import type { PlayerStats } from '../types/game.js';
-import { processGiftWithMessage } from '../lib/checkMessage.js';
-
-export const characterMachine = setup({
-  types: {
-    input: {} as InitialCharacterType,
-    context: {
-      name: "",
-      type: null,
-      supportLevel: 0,
-      suspicion: 0,
-      personalityVectors: {
-        trust: 0.0,
-        fear: 0.0,
-        ambition: 0.0,
-        loyalty: 0.0,
-        influence: 0.0,
-        romantic: 0.0,
-        suspicion: 0.0
-      },
-      relationshipVectors: {
-        trustInPlayer: 0.0,
-        loyaltyToPlayer: 0.0,
-        fearOfPlayer: 0,
-        dependenceOnPlayer: 0,
-        loveForPlayer: 0
-      },
-      lastResponse: "",
-      imgPath: "",
-      suspicionThreshold: 0.0,
-      hasGivenSupport: false,
-      hasGivenAllegiance: false,
-      hasGivenGifts: false,
-      giftCooldownUntil: 0,
-      currentSeason: 1
-    } as {
-      name: string;
-      suspicion: number;
-      type: "major" | "side" | "minor" | null;
-      supportLevel: number;
-      personalityVectors: CharacterPersonalityVectors;
-      relationshipVectors: CharacterRelationshipVectors;
-      lastResponse: string;
-      imgPath: string;
-      suspicionThreshold: number;
-      hasGivenSupport: boolean;
-      hasGivenAllegiance: boolean;
-      hasGivenGifts: boolean;
-      giftCooldownUntil: number;
-      currentSeason: number;
-    },
-    events: {} as
-      { type: 'ACTIVATE' } |
-      { type: 'GIVE_GIFT_SIMPLE' } |
-      { type: 'GIVE_GIFT_WITH_MESSAGE', messageType: 'ambitious' | 'loyal' | 'cautious' | 'neutral', playerVectors: PlayerStats, playerType: 'prince' | 'minister' | 'concubine' } |
-      { type: 'SPIT_IN_FACE' } |
-      { type: 'APPLY_FEAR', fearAmount: number } |
-      { type: 'APPLY_PROMOTION_PENALTY', trustPenalty: number, loyaltyPenalty: number } |
-      { type: 'UPDATE_SEASON', currentSeason: number } |
-      { type: 'DEACTIVATE' } |
-      { type: 'APPLY_FACTION_BONUS', supportBonus: number, trustBonus: number } |
-      { type: 'APPLY_FACTION_PENALTY', supportPenalty: number, suspicionPenalty: number } |
-      { type: 'APPLY_SUSPICION_CHANGE', suspicionChange: number }
-  },
-  guards: {
-    characterSuspicious: function ({ context }) {
-      return context.suspicion >= context.suspicionThreshold;
-    },
-    giveSupport: function ({ context }) {
-      return context.supportLevel >= 80 && !context.hasGivenSupport;
-    },
-    giveAllegiance: function ({ context }) {
-      return context.supportLevel >= 100 && !context.hasGivenAllegiance;
-    },
-    giveGifts: function ({ context }) {
-      // Character gives gifts when reaching 100 support or 100 loveForPlayer, and hasn't given gifts yet
-      const canGive = (context.supportLevel >= 100 || context.relationshipVectors.loveForPlayer >= 1.0) && 
-                      !context.hasGivenGifts;
-      if (context.supportLevel >= 90 || context.relationshipVectors.loveForPlayer >= 0.9) {
-        console.log(`${context.name} gift check: support=${context.supportLevel}, love=${context.relationshipVectors.loveForPlayer}, hasGiven=${context.hasGivenGifts}, canGive=${canGive}`);
-      }
-      return canGive;
-    },
-    zeroSupport: function ({ context }) {
-      return context.supportLevel === 0;
-    }
-  }
+import {getResponseByType} from '../lib/getResponse';
+import {promotionHate} from '../lib/campaignBalance';
+import {assign,sendParent,setup,enqueueActions} from 'xstate';
+import {clampCourtInfluence} from '../lib/courtHierarchy';
+import {withoutRetiredRelationships,type GiftWithMessageResult} from '../lib/checkMessage';
+import type {CharacterPersonalityVectors,CharacterRelationshipVectors,InitialCharacterType} from '../types/character';
+import type {FactionType} from '../lib/factionSystem';
+import {giftMessage,validGiftRequestId,validGiftResult,type MessageChoice} from '../lib/giftMessages';
+import type {CourtRelation,RelationshipCommand} from '../lib/courtGraph';
+export type RelationshipOrigin={kind:'plain'}|{kind:'spit'}|{kind:'penalty';suspicionPenalty:number}|{kind:'gift';requestId:string;sessionId:number;messageType:MessageChoice;result:GiftWithMessageResult};
+export type CharacterContext={
+ name:string;type:'major'|'side'|'minor'|null;supportLevel:number;supportThreshold:number;suspicion:number;hate:number;
+ factionOverride:FactionType|null;playerFaction?:FactionType|null;personalityVectors:CharacterPersonalityVectors;relationshipVectors:CharacterRelationshipVectors;
+ lastResponse:string;imgPath:string;suspicionThreshold:number;hasGivenSupport:boolean;hasGivenAllegiance:boolean;hasGivenGifts:boolean;giftCooldownUntil:number;currentSeason:number;giftSessionId:number;processedGiftRequests:string[];
+ graphCommandSerial:number;graphProjectionSerial:number;isLover:boolean;legacyCourtshipGiftEligible:boolean;
+};
+type CharacterEvent=
+ |{type:'APPLY_ROMANCE_SUSPICION'}
+ |{type:'SYNC_ROMANCE_PROJECTION';relation:CourtRelation;response?:string}
+ |{type:'CONSORT_HOSTILITY'}|{type:'WITHDRAW_BACKING'}|{type:'GAIN_HATE';amount:number}
+ |{type:'FOLLOW_PLAYER_FACTION';faction:FactionType}|{type:'SET_PLAYER_FACTION';faction:FactionType|null}
+ |{type:'ACTIVATE'}|{type:'DEACTIVATE'}|{type:'SPIT_IN_FACE'}|{type:'APPLY_FEAR';fearAmount:number}
+ |{type:'UPDATE_SEASON';currentSeason:number}|{type:'APPLY_FACTION_BONUS';supportBonus:number}
+ |{type:'APPLY_FACTION_PENALTY';supportPenalty:number;suspicionPenalty:number}|{type:'APPLY_SUSPICION_CHANGE';suspicionChange:number}
+ |{type:'APPLY_EVALUATED_GIFT';requestId:string;sessionId:number;messageType:MessageChoice;result:GiftWithMessageResult}
+ |{type:'APPLY_RELATIONSHIP_PROJECTION';serial:number;relation:CourtRelation;origin:RelationshipOrigin;newlyPledged:boolean};
+function requestedChange(c:CharacterContext,e:CharacterEvent,active:boolean):{command:RelationshipCommand;origin:RelationshipOrigin}|null {
+ switch(e.type){
+ case 'ACTIVATE':return{command:{kind:'support',amount:0,formPledge:true},origin:{kind:'plain'}};
+ case 'APPLY_EVALUATED_GIFT':return{command:{kind:'gift',support:e.result.newSupportLevel,negativeDelta:e.result.supportDelta,formPledge:true},origin:{kind:'gift',requestId:e.requestId,sessionId:e.sessionId,messageType:e.messageType,result:e.result}};
+ case 'APPLY_FACTION_BONUS':return{command:{kind:'support',amount:e.supportBonus,formPledge:active},origin:{kind:'plain'}};
+ case 'APPLY_FACTION_PENALTY':return{command:{kind:'support',amount:-e.supportPenalty,formPledge:false},origin:{kind:'penalty',suspicionPenalty:e.suspicionPenalty}};
+ case 'WITHDRAW_BACKING':return{command:{kind:'withdraw',threshold:c.supportThreshold},origin:{kind:'plain'}};
+ case 'CONSORT_HOSTILITY':return{command:{kind:'rivalry',amount:promotionHate('concubine'),threshold:c.supportThreshold},origin:{kind:'plain'}};
+ case 'GAIN_HATE':return{command:{kind:'hate',amount:e.amount},origin:{kind:'plain'}};
+ case 'SPIT_IN_FACE':return{command:{kind:'spit'},origin:{kind:'spit'}};
+ default:return null;
+ }
+}
+/** Character actors own personality, suspicion, animation receipts and historical
+ * reward flags. Support/hate/pledge are projections of the parent-owned court graph. */
+export const characterMachine=setup({
+ types:{input:{} as InitialCharacterType&{giftSessionId?:number},context:{} as CharacterContext,events:{} as CharacterEvent},
+ actions:{requestRelationship:enqueueActions(({context,event,enqueue,self})=>{
+  const request=requestedChange(context,event,self.getSnapshot().value==='alive');if(!request)return;
+  const serial=(context.graphCommandSerial??0)+1;enqueue.assign({graphCommandSerial:serial});
+  enqueue.sendParent({type:'RELATIONSHIP_COMMAND',name:context.name,actorId:self.id,serial,...request});
+ })},
+ guards:{
+  characterSuspicious:({context})=>!context.hasGivenAllegiance&&context.suspicion>=context.suspicionThreshold,
+  giveSupport:({context})=>context.supportLevel>=context.supportThreshold&&!context.hasGivenSupport,
+  giveGifts:({context})=>(context.supportLevel>=100||context.legacyCourtshipGiftEligible)&&!context.hasGivenGifts,
+ }
 }).createMachine({
-  context: ({ input }) => ({
-    name: input.name,
-    type: input.type,
-    supportLevel: 0,
-    suspicion: 0,
-    personalityVectors: input.vectors,
-    relationshipVectors: {
-      trustInPlayer: 0.0,
-      loyaltyToPlayer: 0.0,
-      fearOfPlayer: 0,
-      dependenceOnPlayer: 0,
-      loveForPlayer: 0
-    },
-    lastResponse: "",
-    imgPath: input.imgPath,
-    suspicionThreshold: input.suspicionThreshold,
-    hasGivenSupport: false,
-    hasGivenAllegiance: false,
-    hasGivenGifts: false,
-    giftCooldownUntil: 0,
-    currentSeason: 1
-  }),
-  initial: "inactive",
-  states: {
-    inactive: {
-      on: {
-        ACTIVATE: 'alive' // Transition to active when the parent says so
-      }
-    },
-    alive: {
-      always: [
-        {
-          guard: 'giveAllegiance',
-          actions: [
-            assign({
-              hasGivenAllegiance: true
-            }),
-            sendParent(({ context }) => ({
-              type: 'CHARACTER_GAVE_ALLEGIANCE',
-              characterType: context.type,
-              name: context.name
-            }))
-          ]
-        },
-        {
-          guard: 'giveSupport',
-          actions: [
-            assign({
-              hasGivenSupport: true
-            }),
-            sendParent(({ context }) => ({
-              type: 'CHARACTER_GAVE_SUPPORT',
-              characterType: context.type,
-              name: context.name
-            }))
-          ]
-        },
-        {
-          guard: 'giveGifts',
-          actions: [
-            ({ context }) => {
-              console.log(`${context.name} is giving gifts! Support: ${context.supportLevel}, Love: ${context.relationshipVectors.loveForPlayer}`);
-            },
-            assign({
-              hasGivenGifts: true,
-              giftCooldownUntil: ({ context }) => {
-                const cooldownUntil = context.currentSeason + 3;
-                console.log(`${context.name}: Setting gift cooldown until season ${cooldownUntil} (current: ${context.currentSeason})`);
-                return cooldownUntil;
-              },
-              relationshipVectors: ({ context }) => ({
-                ...context.relationshipVectors
-              })
-            }),
-            sendParent(({ context }) => ({
-              type: 'CHARACTER_GAVE_GIFTS',
-              characterType: context.type,
-              name: context.name
-            }))
-          ]
-        },
-        {
-          guard: 'characterSuspicious',
-          actions: sendParent(({ context }) => ({
-            type: 'CHARACTER_IS_SUSPICIOUS',
-            characterType: context.type,
-            name: context.name
-          }))
-        }
-      ],
-      on: {
-        DEACTIVATE: 'inactive',
-        GIVE_GIFT_SIMPLE: {
-          actions: assign({
-            supportLevel: ({ context }) => Math.min(100, context.supportLevel + 5)
-          })
-        },
-        GIVE_GIFT_WITH_MESSAGE: {
-          actions: [
-            // 1. Update context and store the response type
-            assign(({ context, event }) => {
-              const result = processGiftWithMessage(
-                event.messageType,
-                context.personalityVectors,
-                context.relationshipVectors,
-                event.playerType,
-                event.playerVectors
-              );
-
-              // Update suspicion based on personality vectors
-              const newSuspicion = result.newPersonalityVectors.suspicion || context.suspicion;
-
-              return {
-                supportLevel: Math.min(100, result.newSupportLevel),
-                personalityVectors: result.newPersonalityVectors,
-                relationshipVectors: result.newRelationshipVectors,
-                suspicion: newSuspicion,
-                lastResponse: result.responseType
-              };
-            }),
-
-            sendParent(({ context }) => ({
-              type: 'CHARACTER_RESPONDED',
-              name: context.name,
-              response: context.lastResponse
-            })),
-            assign({
-              lastResponse: ""
-            })
-          ]
-        },
-        SPIT_IN_FACE: [{
-          guard: 'zeroSupport',
-          actions: assign({
-            suspicion: ({ context }) => Math.min(1, context.suspicion + 0.5)
-          })
-        },
-        {
-          actions: assign({
-            supportLevel: ({ context }) => Math.max(0, context.supportLevel - 20),
-            suspicion: ({ context }) => Math.min(1, context.suspicion + 0.3)
-          })
-        }
-        ],
-        APPLY_FEAR: {
-          actions: assign({
-            relationshipVectors: ({ context, event }) => ({
-              ...context.relationshipVectors,
-              fearOfPlayer: Math.min(1.0, context.relationshipVectors.fearOfPlayer + event.fearAmount)
-            })
-          })
-        },
-        APPLY_PROMOTION_PENALTY: {
-          actions: assign({
-            relationshipVectors: ({ context, event }) => ({
-              ...context.relationshipVectors,
-              trustInPlayer: Math.max(0.0, context.relationshipVectors.trustInPlayer - event.trustPenalty),
-              loyaltyToPlayer: Math.max(0.0, context.relationshipVectors.loyaltyToPlayer - event.loyaltyPenalty)
-            })
-          })
-        },
-        UPDATE_SEASON: {
-          actions: assign({
-            currentSeason: ({ event }) => event.currentSeason,
-            hasGivenGifts: ({ context, event }) => {
-              // Reset gift giving ability if cooldown period has passed
-              if (context.hasGivenGifts && context.giftCooldownUntil > 0 && event.currentSeason >= context.giftCooldownUntil) {
-                console.log(`${context.name}: Resetting gift ability. Season ${event.currentSeason} >= cooldown ${context.giftCooldownUntil}`);
-                return false;
-              }
-              return context.hasGivenGifts;
-            },
-            giftCooldownUntil: ({ context, event }) => {
-              // Reset cooldown if period has passed
-              if (context.giftCooldownUntil > 0 && event.currentSeason >= context.giftCooldownUntil) {
-                console.log(`${context.name}: Clearing gift cooldown`);
-                return 0;
-              }
-              return context.giftCooldownUntil;
-            }
-          })
-        },
-        APPLY_FACTION_BONUS: {
-          actions: [
-            ({ context, event }) => {
-              console.log(`${context.name}: Applying faction bonus - Support +${event.supportBonus}, Trust +${Math.round(event.trustBonus * 100)}%`);
-            },
-            assign({
-              supportLevel: ({ context, event }) => {
-                const newSupport = Math.min(100, context.supportLevel + event.supportBonus);
-                console.log(`${context.name}: Support ${context.supportLevel} -> ${newSupport}`);
-                return newSupport;
-              },
-              relationshipVectors: ({ context, event }) => {
-                const oldTrust = context.relationshipVectors.trustInPlayer;
-                const newTrust = Math.min(1.0, oldTrust + event.trustBonus);
-                console.log(`${context.name}: Trust ${Math.round(oldTrust * 100)}% -> ${Math.round(newTrust * 100)}%`);
-                return {
-                  ...context.relationshipVectors,
-                  trustInPlayer: newTrust
-                };
-              }
-            })
-          ]
-        },
-        APPLY_FACTION_PENALTY: {
-          actions: [
-            ({ context, event }) => {
-              console.log(`${context.name}: Applying faction penalty - Support -${event.supportPenalty}, Suspicion +${Math.round(event.suspicionPenalty * 100)}%`);
-            },
-            assign({
-              supportLevel: ({ context, event }) => {
-                const newSupport = Math.max(0, context.supportLevel - event.supportPenalty);
-                console.log(`${context.name}: Support ${context.supportLevel} -> ${newSupport}`);
-                return newSupport;
-              },
-              suspicion: ({ context, event }) => {
-                const oldSuspicion = context.suspicion;
-                const newSuspicion = Math.min(1.0, oldSuspicion + event.suspicionPenalty);
-                console.log(`${context.name}: Suspicion ${Math.round(oldSuspicion * 100)}% -> ${Math.round(newSuspicion * 100)}%`);
-                return newSuspicion;
-              }
-            })
-          ]
-        },
-        APPLY_SUSPICION_CHANGE: {
-          actions: [
-            ({ context, event }) => {
-              const changeType = event.suspicionChange > 0 ? 'increase' : 'decrease';
-              console.log(`${context.name}: Cross-character suspicion ${changeType} by ${Math.abs(event.suspicionChange)}`);
-            },
-            assign({
-              suspicion: ({ context, event }) => {
-                const oldSuspicion = context.suspicion;
-                const newSuspicion = Math.max(0, Math.min(1.0, oldSuspicion + event.suspicionChange));
-                console.log(`${context.name}: Suspicion ${Math.round(oldSuspicion * 100)}% -> ${Math.round(newSuspicion * 100)}%`);
-                return newSuspicion;
-              }
-            })
-          ]
-        },
-
-      }
-    }
-  },
-})
+ context:({input})=>({name:input.name,type:input.type,supportLevel:0,supportThreshold:input.supportThreshold??80,factionOverride:null,playerFaction:null,suspicion:0,hate:0,
+  personalityVectors:{...input.vectors,influence:clampCourtInfluence(input,input.vectors.influence)},relationshipVectors:{fearOfPlayer:0,loveForPlayer:0},lastResponse:'',imgPath:input.imgPath,suspicionThreshold:input.suspicionThreshold,
+  hasGivenSupport:false,hasGivenAllegiance:false,hasGivenGifts:false,giftCooldownUntil:0,currentSeason:1,giftSessionId:input.giftSessionId??0,processedGiftRequests:[],graphCommandSerial:0,graphProjectionSerial:0,isLover:false,legacyCourtshipGiftEligible:false}),
+ initial:'inactive',
+ on:{
+  SYNC_ROMANCE_PROJECTION:{actions:assign(({context,event})=>({relationshipVectors:{...context.relationshipVectors,loveForPlayer:event.relation.affection/100},isLover:!!event.relation.romance,lastResponse:event.response??context.lastResponse}))},
+  CONSORT_HOSTILITY:{actions:'requestRelationship'},WITHDRAW_BACKING:{actions:'requestRelationship'},GAIN_HATE:{guard:({event})=>Number.isFinite(event.amount)&&event.amount>0,actions:'requestRelationship'},
+  APPLY_FACTION_BONUS:{actions:'requestRelationship'},APPLY_FACTION_PENALTY:{actions:'requestRelationship'},
+  SET_PLAYER_FACTION:{actions:assign({playerFaction:({event})=>event.faction})},
+  FOLLOW_PLAYER_FACTION:{guard:({context})=>context.hasGivenAllegiance,actions:assign({factionOverride:({event})=>event.faction,suspicion:0,personalityVectors:({context})=>({...context.personalityVectors,suspicion:0})})},
+  APPLY_FEAR:{actions:assign({relationshipVectors:({context,event})=>({...context.relationshipVectors,fearOfPlayer:Math.min(1,context.relationshipVectors.fearOfPlayer+event.fearAmount)})})},
+  APPLY_ROMANCE_SUSPICION:{actions:assign({suspicion:({context})=>context.hasGivenAllegiance?0:Math.min(1,Math.round((context.suspicion+.1)*1e12)/1e12)})},
+  APPLY_SUSPICION_CHANGE:{actions:assign({suspicion:({context,event})=>context.hasGivenAllegiance?0:Math.max(0,Math.min(1,context.suspicion+event.suspicionChange))})},
+  UPDATE_SEASON:{actions:assign(({context,event})=>({currentSeason:event.currentSeason,hasGivenGifts:context.giftCooldownUntil>0&&event.currentSeason>=context.giftCooldownUntil?false:context.hasGivenGifts,giftCooldownUntil:context.giftCooldownUntil>0&&event.currentSeason>=context.giftCooldownUntil?0:context.giftCooldownUntil}))},
+  APPLY_RELATIONSHIP_PROJECTION:{
+   guard:({context,event})=>event.serial>(context.graphProjectionSerial??0)&&event.serial<=(context.graphCommandSerial??0),
+   actions:[
+    assign(({context,event})=>{
+     const pledged=!!event.relation.pledge,origin=event.origin;
+     let suspicion=context.suspicion,personalityVectors=context.personalityVectors,relationshipVectors=context.relationshipVectors,processedGiftRequests=context.processedGiftRequests;
+     if(origin.kind==='gift'){
+      personalityVectors={...origin.result.newPersonalityVectors,influence:clampCourtInfluence(context,origin.result.newPersonalityVectors.influence)};
+      relationshipVectors=withoutRetiredRelationships(origin.result.newRelationshipVectors);suspicion=personalityVectors.suspicion;processedGiftRequests=[...processedGiftRequests,origin.requestId];
+     }else if(origin.kind==='spit')suspicion=Math.min(1,suspicion+(context.supportLevel===0?.5:.3));
+     else if(origin.kind==='penalty')suspicion=Math.min(1,suspicion+origin.suspicionPenalty);
+     if(pledged){suspicion=0;personalityVectors={...personalityVectors,suspicion:0};}
+     relationshipVectors={...relationshipVectors,loveForPlayer:event.relation.affection/100};
+     const lastResponse=origin.kind==='gift'?getResponseByType(context.name,origin.result.responseType as Parameters<typeof getResponseByType>[1]):origin.kind==='spit'?`${context.name}: I will remember this insult.`:context.lastResponse;
+     return{isLover:!!event.relation.romance,lastResponse,supportLevel:event.relation.support,hate:event.relation.hate,hasGivenAllegiance:pledged,factionOverride:pledged&&context.playerFaction?context.playerFaction:context.factionOverride,suspicion,personalityVectors,relationshipVectors,processedGiftRequests,graphProjectionSerial:event.serial};
+    }),
+    enqueueActions(({context,event,self,enqueue})=>{
+     if(event.origin.kind==='gift')enqueue.sendParent({type:'GIFT_APPLIED',requestId:event.origin.requestId,sessionId:event.origin.sessionId,characterId:context.name,actorId:self.id,response:event.origin.result.responseType});
+     if(event.newlyPledged)enqueue.sendParent({type:'CHARACTER_GAVE_ALLEGIANCE',characterType:context.type,name:context.name});
+    })
+   ]
+  }
+ },
+ states:{
+  inactive:{on:{ACTIVATE:[{guard:({context})=>context.supportLevel>=100&&!context.hasGivenAllegiance,target:'activating',actions:'requestRelationship'},{target:'alive'}]}},
+  activating:{always:{guard:({context})=>context.graphProjectionSerial===context.graphCommandSerial,target:'alive'}},
+  alive:{
+   always:[
+    {guard:'giveSupport',actions:[assign({hasGivenSupport:true}),sendParent(({context})=>({type:'CHARACTER_GAVE_SUPPORT',characterType:context.type,name:context.name}))]},
+    {guard:'giveGifts',actions:[assign({hasGivenGifts:true,giftCooldownUntil:({context})=>context.currentSeason+3}),sendParent(({context})=>({type:'CHARACTER_GAVE_GIFTS',characterType:context.type,name:context.name}))]},
+    {guard:'characterSuspicious',actions:sendParent(({context})=>({type:'CHARACTER_IS_SUSPICIOUS',characterType:context.type,name:context.name}))}
+   ],
+   on:{
+    DEACTIVATE:'inactive',SPIT_IN_FACE:{actions:'requestRelationship'},
+    APPLY_EVALUATED_GIFT:{guard:({context,event})=>validGiftRequestId(event.requestId)&&event.sessionId===context.giftSessionId&&!!giftMessage(event.messageType)&&!context.processedGiftRequests.includes(event.requestId)&&validGiftResult(event.result),actions:'requestRelationship'}
+   }
+  }
+ }
+});

@@ -1,6 +1,8 @@
 import type { Character } from '../types/character';
 import type { PlayerStats } from '../types/game';
 
+export const hasPromotedOffice = (rank?:string|null) => ['grand_prince','crown_prince','minister','prime_minister','consort','empress','empress_consort'].includes(rank ?? '');
+
 export interface ActionAvailability {
   allowed: boolean;
   reason?: string;
@@ -21,10 +23,11 @@ export interface InfluenceGatingResult {
 export function checkActionAvailability(
   action: 'spit_in_face' | 'ambitious_message' | 'loyal_message' | 'cautious_message' | 'neutral_message' | 'interaction',
   character: Character,
-  playerStats: PlayerStats
+  playerStats: PlayerStats,
+  rank?: string | null
 ): ActionAvailability {
   const characterInfluence = character.personalityVectors.influence;
-  const playerInfluence = playerStats.influence;
+  void playerStats; void rank;
 
   switch (action) {
     case 'spit_in_face':
@@ -52,12 +55,8 @@ export function checkActionAvailability(
       return { allowed: true };
 
     case 'interaction':
-      if (playerInfluence < characterInfluence - 0.3) {
-        return {
-          allowed: false,
-          reason: "They consider you beneath their notice"
-        };
-      }
+      // Palace access follows rank. A permitted audience is never blocked a second
+      // time by influence; influence changes benefits and political leverage.
       return { allowed: true };
 
     default:
@@ -68,8 +67,8 @@ export function checkActionAvailability(
 /**
  * Gets all action availabilities for a character
  */
-export function getInfluenceGating(character: Character, playerStats: PlayerStats): InfluenceGatingResult {
-  const canInteract = checkActionAvailability('interaction', character, playerStats);
+export function getInfluenceGating(character: Character, playerStats: PlayerStats, rank?:string|null): InfluenceGatingResult {
+  const canInteract = checkActionAvailability('interaction', character, playerStats, rank);
   
   // If character refuses interaction entirely, all actions are blocked
   if (!canInteract.allowed) {
@@ -96,8 +95,8 @@ export function getInfluenceGating(character: Character, playerStats: PlayerStat
 /**
  * Gets disabled actions for UI display
  */
-export function getDisabledActions(character: Character, playerStats: PlayerStats): string[] {
-  const gating = getInfluenceGating(character, playerStats);
+export function getDisabledActions(character: Character, playerStats: PlayerStats, rank?:string|null): string[] {
+  const gating = getInfluenceGating(character, playerStats, rank);
   const disabled: string[] = [];
 
   if (!gating.canSpitInFace.allowed) disabled.push('spit');

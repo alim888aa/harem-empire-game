@@ -1,0 +1,18 @@
+{
+  "name": "Scholar Jia",
+  "sha256": "459bdbf0147869fe93a8c92638f2dce2b5047a7ab65a4f3e408495c83f54d337",
+  "anatomy_source": "Adult generic legacy VRoid Base_Male, publisher-identified CC0; original native facialUVs and project proportions",
+  "clothing_source": "Original project, separate actual cuff/lap/skirt/sash variation for each of six T2 Scholars",
+  "head_profile": "Adult authored anatomical head and cloth scholar cap; no separate hairstyle role claimed",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "clip_origin_behavior": "Original unshifted source starts",
+  "canonical_identity": "Exact per-name skin/iris/brow/garment palettes and source fingerprints; no name/role/random-campaign swaps",
+  "texture_derivative": "Exact source512px LANCZOS compaction",
+  "GPU_FPS_measured": false
+}
