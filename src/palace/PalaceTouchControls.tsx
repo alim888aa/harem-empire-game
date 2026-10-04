@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState, type RefObject, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react';
 import { ActionGesture, JoystickGesture, STOPPED_TOUCH, type TouchVector } from './touchGestures';
-import './touch-controls.css';
 
 export const hasTouchControls = () => navigator.maxTouchPoints > 0 || window.matchMedia('(any-pointer: coarse), (max-width: 780px)').matches || (new URLSearchParams(window.location.search).get('playtest') === 'intrigue' && new URLSearchParams(window.location.search).get('controls') === 'touch');
 export function useTouchControls() {

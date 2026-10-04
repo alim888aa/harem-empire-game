@@ -13,9 +13,7 @@ import { loadPalaceAssets, acquireEmperorModel, palaceAssetUrls, EMPEROR_ASSET_U
 import { palaceAssetPool, type ModelInstanceLease, type ModelLease } from './assetPool';
 import { careerZoneAccess, type PalaceZone } from '../lib/careerAccess';
 import { createPalaceVisitState, zoneRoster, zoneSpawn, zoneGates, ZONES, PLAYABLE_ZONES, type PalaceVisitState, type PlayableZone } from './zones';
-import './zones.css';
 import {requestJump,stepJump,type JumpState} from './jumpPhysics';
-import './palace.css';
 import PalaceTouchControls, { useTouchControls } from './PalaceTouchControls';
 import { CameraGesture, combineMovement, STOPPED_TOUCH, type TouchVector } from './touchGestures';
 

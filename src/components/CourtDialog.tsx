@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode } from "react";
+import { playCue } from "../ui";
 
 export default function CourtDialog({ title, onClose, children }: { title: string; onClose: () => void; children: ReactNode }) {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -7,6 +8,7 @@ export default function CourtDialog({ title, onClose, children }: { title: strin
     const element = dialog.current;
     const trigger = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     element?.showModal();
+    playCue("scroll");
     return () => {
       element?.close();
       if (trigger?.isConnected) trigger.focus({ preventScroll: true });

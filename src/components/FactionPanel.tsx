@@ -1,3 +1,4 @@
+import { Emblem } from '../ui';
 import { getFactionInfo, getFactionComposition, type FactionType, type FactionSystem } from '../lib/factionSystem';
 interface FactionPanelProps {
   displayNames?:Record<string,string>;
@@ -5,6 +6,7 @@ interface FactionPanelProps {
   allCharacters: Record<string, any>;
   onJoinFaction?: (faction: FactionType) => void;
 }
+const FACTION_EMBLEMS = { Rebel: 'rebel', Imperial: 'imperial', Loyalist: 'loyalist', Independent: 'independent' } as const;
 export default function FactionPanel({ displayNames={},factionSystem, allCharacters, onJoinFaction }: FactionPanelProps) {
   const composition = getFactionComposition(allCharacters);
   const factions: FactionType[] = ['Rebel', 'Imperial', 'Loyalist', 'Independent'];
@@ -22,8 +24,8 @@ export default function FactionPanel({ displayNames={},factionSystem, allCharact
       const info = getFactionInfo(faction);
       const members = composition[faction] || [];
       const supporters = members.filter((name) => allCharacters[name]?.getSnapshot()?.context?.hasGivenAllegiance || support(name) >= threshold).length;
-      return <details className="faction-card" key={faction}>
-        <summary><span>{info.badge} {faction}</span><small>{faction === 'Independent' ? 'No ending' : `${supporters}/3 supporters`} · Details</small></summary>
+      return <details className="faction-card" data-faction={faction} key={faction}>
+        <summary><span><span className="faction-emblem"><Emblem name={FACTION_EMBLEMS[faction]} /></span>{faction}</span><small>{faction === 'Independent' ? 'No ending' : `${supporters}/3 supporters`} · Details</small></summary>
         <p>{info.description}</p>
         {faction !== 'Independent' && <p>Three members at {threshold} support earn an invitation next season.</p>}
         <ul>{members.map((name) => <li key={name}><span>{displayNames[name]??name}</span><span>{support(name)} support</span></li>)}</ul>

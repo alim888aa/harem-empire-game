@@ -1,3 +1,4 @@
+import {Emblem} from '../ui';
 import {RomanceRisk} from './RomanceActions';
 import {courtRelation,PLAYER_NODE,type CourtGraph} from '../lib/courtGraph';
 import {ROMANCE_BALANCE,romancePairEligibility,type RomanceWitness} from '../lib/courtRomance';
@@ -74,7 +75,7 @@ export default function ActionButtons({graph,zone,witnesses,onRomanticGift,stand
         {preview && preview.suspicion !== 0 ? ` · ${signed(preview.suspicion)} suspicion` : ""}
       </p>
       <button className="send-gift" type="submit" disabled={pending || !canAfford || !allowed}>
-        <span>{pending ? "Evaluating message…" : romantic ? "Send romantic gift" : "Send gift"}</span><span>{cost} ◇</span>
+        <span>{pending ? "Evaluating message…" : romantic ? "Send romantic gift" : "Send gift"}</span><span>{cost} <Emblem name="ingot" /></span>
       </button>
       {!canAfford && <p className="action-notice" role="status">Not enough gifts. {gifts ? "Choose a cheaper courtier or start the next season." : "Start the next season to replenish them."}</p>}
       {message && !allowed && <p className="action-notice">{availability[message.type].reason}</p>}
