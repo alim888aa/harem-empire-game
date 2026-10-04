@@ -1,0 +1,89 @@
+/*
+ * Design tokens: the only place raw colors, fonts and ornament art are defined.
+ * Everything else refers to these variables. Mood: an imperial palace at dusk.
+ * Black-brown lacquer, cinnabar red, aged gold, jade and silk paper.
+ */
+:root {
+  /* Lacquer (dark surfaces) */
+  --lacquer-950: #110c0a;
+  --lacquer-900: #1b1411;
+  --lacquer-800: #2a1e19;
+  --lacquer-700: #3b2b23;
+  --lacquer-glass: rgb(24 17 14 / 0.78);
+
+  /* Cinnabar (imperial red: primary actions, danger, seals) */
+  --cinnabar-800: #5e1a15;
+  --cinnabar-700: #7d241d;
+  --cinnabar-600: #9e3127;
+  --cinnabar-500: #b8432f;
+  --cinnabar-300: #e9a28e;
+
+  /* Gold (ornament, emphasis, numbers) */
+  --gold-200: #f6e7bd;
+  --gold-300: #ecd59b;
+  --gold-400: #ddbd77;
+  --gold-500: #c9a35a;
+  --gold-600: #a07f3f;
+  --gold-700: #7a5f2c;
+
+  /* Jade (calm, progress, allies) */
+  --jade-300: #a9cbb9;
+  --jade-500: #5f8f7d;
+  --jade-700: #2f5047;
+  --jade-900: #16302b;
+
+  /* Silk paper (light surfaces) and ink */
+  --silk-50: #fcf8ee;
+  --silk-100: #f5ecd8;
+  --silk-200: #eadcbf;
+  --silk-300: #d9c59d;
+  --ink-900: #251b15;
+  --ink-700: #4a3b2f;
+  --ink-500: #76634f;
+  --ink-300: #a08d76;
+
+  /* Type */
+  --font-display: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --font-body: "Alegreya Sans", "Gill Sans", "Segoe UI", system-ui, sans-serif;
+  --tracking-caps: 0.18em;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-ceremony: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Shadows */
+  --shadow-float: 0 18px 60px rgb(10 6 4 / 0.45);
+  --shadow-text: 0 1px 2px rgb(10 6 4 / 0.8), 0 2px 14px rgb(10 6 4 / 0.55);
+
+  /*
+   * Frames: 9-slice SVGs used with border-image, giving any element chamfered
+   * corners, a gold line and a fill without extra markup. Usage:
+   *   border: 1px solid transparent;
+   *   border-image: var(--frame-lacquer) 12 fill / 12px stretch;
+   */
+  --frame-lacquer: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M8 .75h24L39.25 8v24L32 39.25H8L.75 32V8z' fill='%231b1411' fill-opacity='.84' stroke='%23c9a35a' stroke-opacity='.85' stroke-width='1.5'/%3E%3Cpath d='M9.5 4h21L36 9.5v21L30.5 36h-21L4 30.5v-21z' fill='none' stroke='%23c9a35a' stroke-opacity='.3' stroke-width='.75'/%3E%3C/svg%3E");
+  --frame-cinnabar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M8 .75h24L39.25 8v24L32 39.25H8L.75 32V8z' fill='%239e3127' stroke='%23ddbd77' stroke-width='1.5'/%3E%3Cpath d='M9.5 4h21L36 9.5v21L30.5 36h-21L4 30.5v-21z' fill='none' stroke='%23f6e7bd' stroke-opacity='.4' stroke-width='.75'/%3E%3C/svg%3E");
+  --frame-gold: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M8 .75h24L39.25 8v24L32 39.25H8L.75 32V8z' fill='%23ddbd77' stroke='%237a5f2c' stroke-width='1.5'/%3E%3Cpath d='M9.5 4h21L36 9.5v21L30.5 36h-21L4 30.5v-21z' fill='none' stroke='%23fcf8ee' stroke-opacity='.55' stroke-width='.75'/%3E%3C/svg%3E");
+  --frame-hairline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M8 .75h24L39.25 8v24L32 39.25H8L.75 32V8z' fill='%23a07f3f' fill-opacity='.06' stroke='%23a07f3f' stroke-opacity='.75' stroke-width='1.2'/%3E%3C/svg%3E");
+  --frame-silk: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M8 .75h24L39.25 8v24L32 39.25H8L.75 32V8z' fill='%23fcf8ee' stroke='%23c9a35a' stroke-opacity='.7' stroke-width='1.2'/%3E%3C/svg%3E");
+
+  /* Fret-work corner ornaments, as background layers. */
+  --corner-tl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' fill='none' stroke='%23a07f3f' stroke-width='1.2'%3E%3Cpath d='M2 26V2h24'/%3E%3Cpath d='M6 20V6h14' stroke-opacity='.55'/%3E%3Cpath d='M10 10h4v4h-4z' fill='%23a07f3f' fill-opacity='.3'/%3E%3C/svg%3E");
+  --corner-tr: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' fill='none' stroke='%23a07f3f' stroke-width='1.2'%3E%3Cg transform='translate(28 0) scale(-1 1)'%3E%3Cpath d='M2 26V2h24'/%3E%3Cpath d='M6 20V6h14' stroke-opacity='.55'/%3E%3Cpath d='M10 10h4v4h-4z' fill='%23a07f3f' fill-opacity='.3'/%3E%3C/g%3E%3C/svg%3E");
+  --corner-bl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' fill='none' stroke='%23a07f3f' stroke-width='1.2'%3E%3Cg transform='translate(0 28) scale(1 -1)'%3E%3Cpath d='M2 26V2h24'/%3E%3Cpath d='M6 20V6h14' stroke-opacity='.55'/%3E%3Cpath d='M10 10h4v4h-4z' fill='%23a07f3f' fill-opacity='.3'/%3E%3C/g%3E%3C/svg%3E");
+  --corner-br: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' fill='none' stroke='%23a07f3f' stroke-width='1.2'%3E%3Cg transform='translate(28 28) scale(-1 -1)'%3E%3Cpath d='M2 26V2h24'/%3E%3Cpath d='M6 20V6h14' stroke-opacity='.55'/%3E%3Cpath d='M10 10h4v4h-4z' fill='%23a07f3f' fill-opacity='.3'/%3E%3C/g%3E%3C/svg%3E");
+  --ornament-corners:
+    var(--corner-tl) top 10px left 10px / 26px no-repeat,
+    var(--corner-tr) top 10px right 10px / 26px no-repeat,
+    var(--corner-bl) bottom 10px left 10px / 26px no-repeat,
+    var(--corner-br) bottom 10px right 10px / 26px no-repeat;
+
+  /* Fibrous paper grain. */
+  --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .32 0 0 0 0 .18 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0 / 180px repeat;
+
+  /* A divider: a thin gold rule with a small diamond in the middle. */
+  --divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 12'%3E%3Cpath d='M0 6h104M136 6h104' stroke='%23a07f3f' stroke-opacity='.7'/%3E%3Cpath d='M120 1l5 5-5 5-5-5z' fill='%239e3127'/%3E%3Cpath d='M110 6h-4M130 6h4' stroke='%23a07f3f'/%3E%3C/svg%3E");
+
+  /* The silk surface used by scrolls and conversation panels. */
+  --surface-silk: var(--ornament-corners), var(--paper-grain), radial-gradient(ellipse at 50% 0%, var(--silk-50), var(--silk-100) 70%) ;
+}

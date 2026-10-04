@@ -18,7 +18,7 @@ import SeasonTransition from '../palace/SeasonTransition';
 import { CAMPAIGN_BALANCE as B, tributeCost, seasonalGiftGrant, promotionRequirement, consolidationProgress } from '../lib/campaignBalance';
 import { promotionDeadline } from '../lib/careerDeadline';
 import { useEffect, useState, useRef } from "react";
-import type { Dispatch, SetStateAction } from "react";
+import type { CSSProperties, Dispatch, SetStateAction } from "react";
 import { useSelector } from "@xstate/react";
 import type { ActorRefFrom } from "xstate";
 import type { characterMachine } from "../state-machines/character-machine";
@@ -391,7 +391,7 @@ export default function GameLayout({
         characterType={characterType}
       />
       <button className={exploring ? "palace-mode" : "classic-mode"} onClick={() => { setConversation(null); setExploring(value => !value); }}>{exploring ? "2D court" : "Explore palace 3D"}</button>
-      {exploring && <div className={`palace-clock ${secondsLeft < 60 ? 'clock-low' : ''}`} title="The timer pauses during conversations, menus, and when you leave this tab"><span>{clockPaused ? "TIME PAUSED" : "SEASON ENDS IN"}</span><strong>{Math.floor(secondsLeft / 60).toString().padStart(2, '0')}:{(secondsLeft % 60).toString().padStart(2, '0')}</strong>{context.firstEmperorVisitDone===false&&<small className="first-emperor-countdown">First imperial visit in {Math.floor(firstVisitRemaining/60)}:{String(firstVisitRemaining%60).padStart(2,'0')}</small>}</div>}
+      {exploring && <div className={`palace-clock ${secondsLeft < 60 ? 'clock-low' : ''}`} title="The timer pauses during conversations, menus, and when you leave this tab"><span>{clockPaused ? "TIME PAUSED" : "SEASON ENDS IN"}</span><strong>{Math.floor(secondsLeft / 60).toString().padStart(2, '0')}:{(secondsLeft % 60).toString().padStart(2, '0')}</strong><i className="ui-incense" aria-hidden="true" style={{'--left':Math.max(0,Math.min(1,secondsLeft/(seasonMinutes*60)))} as CSSProperties}/>{context.firstEmperorVisitDone===false&&<small className="first-emperor-countdown">First imperial visit in {Math.floor(firstVisitRemaining/60)}:{String(firstVisitRemaining%60).padStart(2,'0')}</small>}</div>}
       {emperorIntro&&<CourtDialog title="A first imperial visit" onClose={()=>send({type:'EMPEROR_INTRO_FINISHED'})}><div className="imperial-encounter"><EmperorIntro arrived={!exploring||emperorArrived} loading={exploring&&emperorAppearance.loading} error={exploring&&!!emperorAppearance.retry} onRetry={emperorAppearance.retry??undefined} onContinue={()=>send({type:'EMPEROR_INTRO_FINISHED'})}/></div></CourtDialog>}
       {emperorEncounter && <CourtDialog title="An imperial summons" onClose={() => {}}>
         <div className="imperial-encounter"><EmperorEncounter role={characterType} rank={rank} loading={exploring && emperorAppearance.loading} error={exploring && !!emperorAppearance.retry} onRetry={emperorAppearance.retry??undefined} onContinueIn2D={()=>setExploring(false)} arrived={!exploring || emperorArrived} giftsRemaining={giftsRemaining} onGiveGift={() => send({type: 'GIVE_EMPEROR_GIFT', giftsRemaining})} onRefuse={() => send({type: 'REFUSE'})} /></div>

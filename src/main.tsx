@@ -2,8 +2,15 @@ import {isIntriguePlaytest,isTouchViewportPlaytest,playtestSaveStorage} from './
 import { rankIndex } from './lib/campaignBalance';
 import React, { useState, useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom/client'
-import './style.css'
-import './components/campaign-save.css'
+import '@fontsource/cormorant-garamond/500.css'
+import '@fontsource/cormorant-garamond/600.css'
+import '@fontsource/cormorant-garamond/700.css'
+import '@fontsource/cormorant-garamond/500-italic.css'
+import '@fontsource/alegreya-sans/400.css'
+import '@fontsource/alegreya-sans/500.css'
+import '@fontsource/alegreya-sans/700.css'
+import './ui/styles.css'
+import { installUiSounds } from './ui'
 import GameLayout from './components/GameLayout'
 import CharacterSelection, { type PlayerType } from './components/CharacterSelection'
 import GameOverScreen from './components/GameOverScreen'
@@ -134,6 +141,7 @@ function CampaignHost() {
     onReplace={save => setCampaign(previous => ({ generation: previous.generation + 1, save }))} /></>;
 }
 
+installUiSounds();
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <CampaignHost />

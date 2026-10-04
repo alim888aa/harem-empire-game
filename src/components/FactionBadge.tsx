@@ -1,4 +1,5 @@
 import { getFactionInfo, assignCharacterFaction } from '../lib/factionSystem';
+import { Emblem } from '../ui';
 import type { Character } from '../types/character';
 
 interface FactionBadgeProps {
@@ -24,11 +25,11 @@ function FactionBadge({ character, size = 'medium' }: FactionBadgeProps) {
 
   return (
     <div
-      className={`inline-flex items-center gap-1 rounded-full font-medium text-white ${sizeClasses[size]}`}
+      className={`faction-badge inline-flex items-center gap-1 font-medium text-white ${sizeClasses[size]}`}
       style={{ backgroundColor: factionInfo.color }}
       title={factionInfo.description}
     >
-      <span className={badgeSize[size]}>{factionInfo.badge}</span>
+      <span className={badgeSize[size]}><Emblem name={faction === 'Rebel' ? 'rebel' : faction === 'Imperial' ? 'imperial' : faction === 'Loyalist' ? 'loyalist' : 'independent'} /></span>
       <span>{factionInfo.name}</span>
     </div>
   );

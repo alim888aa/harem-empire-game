@@ -1,0 +1,20 @@
+/*
+ * The single CSS entry point (imported once from main.tsx).
+ *
+ * Order matters:
+ *  1. Tailwind declares its layers (theme, base, components, utilities).
+ *  2. Legacy feature CSS goes into `@layer legacy`, after Tailwind's layers.
+ *  3. The theme (tokens + skin) is unlayered, so it always wins over legacy
+ *     CSS regardless of selector specificity. New visual work goes in the
+ *     theme; legacy files should only shrink over time.
+ */
+@import "tailwindcss";
+
+@import "../style.css" layer(legacy);
+@import "../components/campaign-save.css" layer(legacy);
+@import "../palace/palace.css" layer(legacy);
+@import "../palace/zones.css" layer(legacy);
+@import "../palace/touch-controls.css" layer(legacy);
+
+@import "./theme/tokens.css";
+@import "./theme/skin.css";
