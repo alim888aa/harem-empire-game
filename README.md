@@ -1,6 +1,6 @@
 # Harem Empire beta
 
-A browser court-politics game with three careers, persistent relationships, five connected 3D palaces, and a 2D fallback. This repository contains reproducible source and runtime assets. Large validation archives and editable Blender workbenches are preserved separately. The current checkpoint is the published v38 runtime, including 23 rebuilt lower-court models: eight Maids, eight corrected Eunuchs, six corrected Scholars and Concubine Mei. The remaining cast and higher-rank outfits are still in progress. See `SCOPED_CHARACTER_UPDATE.md` for the precise art and verification limits.
+A browser court-politics game with three careers, persistent relationships, five connected 3D palaces, and a 2D fallback. This repository contains reproducible source and runtime assets. Large validation archives and editable Blender workbenches are preserved separately. The current checkpoint is the published v40 runtime, including 23 rebuilt lower-court models: eight Maids, eight Eunuchs with authored temple/nape hair, six Scholars with raised natural-waist sashes and attached tails, and Concubine Mei. Version39 speech placement and romantic messages remain intact. The remaining cast and higher-rank outfits are still in progress. See `SCOPED_CHARACTER_UPDATE.md` for the precise art and verification limits.
 
 ## Run
 - Node 22+; `npm ci`
@@ -76,3 +76,8 @@ The subsequent v38 update changes the named cast registry and its tests, adds 15
 ## Portable Mei asset metadata
 
 The Git repository removes one obsolete machine-local authoring path from Mei’s node extras. Geometry, materials, textures, skeleton and animation data are unchanged; all binary chunks are byte-identical to the published v38 model. The registry selects the sanitized content-addressed file. Its new SHA-256 is d0c39967a8b1b807efdc63c9c24b1559eba6c75649f401b1fccfdf9eb1cd46ab; the published v38 SHA-256 remains ae97df765eb066db61dcb273ae678d89eaa6a9e8cc6728d4c7a464e4ae71ab16. This is a metadata-sanitized equivalent, not a byte-identical copy of that one published GLB. The public Site is unchanged by this sync.
+
+
+### v40 sync
+
+The v40 update adds exactly 14 content-addressed runtime GLBs and their matching license/provenance: eight corrected Eunuch hairstyles and six corrected Scholar sashes/tails. The selected registry and golden tests match the published source snapshot. All eight Maids, clean Mei, 25 fallback courtiers, and v39 UI behavior remain unchanged. Older checked-in assets are retained for history and recovery. Private workbenches, validation archives, source ZIPs, generated output, dependencies, and machine-specific hosting configuration are excluded. Existing material-source path sanitation is preserved. This sync does not deploy the public Site.

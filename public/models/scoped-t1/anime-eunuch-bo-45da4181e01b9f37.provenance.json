@@ -1,0 +1,27 @@
+{
+  "name": "Eunuch Bo",
+  "sha256": "45da4181e01b9f3745469c42af13ad4465dd4c59bad006b1fdc1894a20776818",
+  "baseline_asset": "npc-eunuch.glb",
+  "source_review_record": "retarget-eunuch-visible-authored-hair-v2-22e45b76c52caec0-acceptance-palette-pins-v2.json",
+  "source_review_record_sha256": "5f82d94a7133f1549e843dcc63fe61e155971668685d76e6da01fc46c1c7f271",
+  "anatomy_source": "Original generic adult legacy VRoid0.14 CC0 authored anatomy/native facial UVs with reviewed project anatomical retarget foundation",
+  "hair_source": "Licensed legacy CC0 source-authored topology/native UVs/images; fitted source head, no donor body/persona",
+  "license": "CC0-1.0 plus original project-authored garments",
+  "license_primary_url": "https://vroid.pixiv.help/hc/en-us/articles/4402614652569-Do-VRoid-Studio-s-sample-models-come-with-conditions-of-use",
+  "bounded_current_correction": "Only licensed authored temple/nape hair geometry/material/UV source differs. Body/face/robe/cap/sash/shoes/own59/Root/current708 arrays are exact to the accepted prior source. Hair is visible and modeled; no canonical identity palette changed.",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "all_current708_clock_output_arrays_preserved": true,
+  "canonical_identity_preserved": true,
+  "recorded_controller_contact_limits": {
+    "actor_plane_penetration_mm": 15.756361528396708,
+    "palace_floor_penetration_mm": 20.452567194995066
+  },
+  "GPU_FPS_measured": false,
+  "full_cast_complete": false
+}

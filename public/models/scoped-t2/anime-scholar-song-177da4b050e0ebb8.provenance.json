@@ -1,0 +1,27 @@
+{
+  "name": "Scholar Song",
+  "sha256": "177da4b050e0ebb8ad2b5331b18a452f251fb92d76ffa670058bb1177d07ae85",
+  "baseline_asset": "npc-scholar.glb",
+  "source_review_record": "retarget-scholar-song-waist-sash-v1-177da4b050e0ebb8-acceptance.json",
+  "source_review_record_sha256": "78c475ac806e559a355657b90ee027a761550a8657698534384e32cefa50e3e9",
+  "anatomy_source": "Original generic adult legacy VRoid0.14 CC0 authored anatomy/native facial UVs with reviewed project anatomical retarget foundation",
+  "hair_source": "Licensed legacy CC0 source-authored topology/native UVs/images; fitted source head, no donor body/persona",
+  "license": "CC0-1.0 plus original project-authored garments",
+  "license_primary_url": "https://vroid.pixiv.help/hc/en-us/articles/4402614652569-Do-VRoid-Studio-s-sample-models-come-with-conditions-of-use",
+  "bounded_current_correction": "Only natural-waist sash/two fitted-tail geometry/weights and below-sash ivory material endpoint differ. Body/face/hair/shoes/Root/own59/current708 and robe corner geometry are exact. All six share corrected geometry with only canonical identity/cloth RGB differences.",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "all_current708_clock_output_arrays_preserved": true,
+  "canonical_identity_preserved": true,
+  "recorded_controller_contact_limits": {
+    "actor_plane_penetration_mm": 15.780236982290836,
+    "palace_floor_penetration_mm": 20.471793307566635
+  },
+  "GPU_FPS_measured": false,
+  "full_cast_complete": false
+}

@@ -57,72 +57,72 @@ export const SCOPED_COURT_MODELS:Readonly<Record<string,ScopedCourtSpec>> = Obje
     "normalizeClipOrigin": true
   },
   "Eunuch Gao": {
-    "file": "/models/scoped-t1/anime-eunuch-gao-67c258569f5e6f23.glb?v=67c258569f5e6f23",
+    "file": "/models/scoped-t1/anime-eunuch-gao-22e45b76c52caec0.glb?v=22e45b76c52caec0",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Eunuch Lu": {
-    "file": "/models/scoped-t1/anime-eunuch-lu-8f4ca783f00aeb35.glb?v=8f4ca783f00aeb35",
+    "file": "/models/scoped-t1/anime-eunuch-lu-d52735798dbcccf6.glb?v=d52735798dbcccf6",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Eunuch Ren": {
-    "file": "/models/scoped-t1/anime-eunuch-ren-4f6de05ba3c44de7.glb?v=4f6de05ba3c44de7",
+    "file": "/models/scoped-t1/anime-eunuch-ren-a0b38064e308891d.glb?v=a0b38064e308891d",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Eunuch Min": {
-    "file": "/models/scoped-t1/anime-eunuch-min-0733e6f3f7635471.glb?v=0733e6f3f7635471",
+    "file": "/models/scoped-t1/anime-eunuch-min-2f89d439a5c4b469.glb?v=2f89d439a5c4b469",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Eunuch Jin": {
-    "file": "/models/scoped-t1/anime-eunuch-jin-194bcc5da3798052.glb?v=194bcc5da3798052",
+    "file": "/models/scoped-t1/anime-eunuch-jin-6be9b7125e9eeedb.glb?v=6be9b7125e9eeedb",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Eunuch Bo": {
-    "file": "/models/scoped-t1/anime-eunuch-bo-27e5ae9aa4b1e753.glb?v=27e5ae9aa4b1e753",
+    "file": "/models/scoped-t1/anime-eunuch-bo-45da4181e01b9f37.glb?v=45da4181e01b9f37",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Eunuch Tian": {
-    "file": "/models/scoped-t1/anime-eunuch-tian-7314d886bed7c63b.glb?v=7314d886bed7c63b",
+    "file": "/models/scoped-t1/anime-eunuch-tian-b5dac086d8381dba.glb?v=b5dac086d8381dba",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Eunuch Shu": {
-    "file": "/models/scoped-t1/anime-eunuch-shu-be1739b6c1672b54.glb?v=be1739b6c1672b54",
+    "file": "/models/scoped-t1/anime-eunuch-shu-83afdfc797b552ad.glb?v=83afdfc797b552ad",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Scholar Qin": {
-    "file": "/models/scoped-t2/anime-scholar-qin-709f51abfb3a2ce9.glb?v=709f51abfb3a2ce9",
+    "file": "/models/scoped-t2/anime-scholar-qin-3a1b0f4504044de5.glb?v=3a1b0f4504044de5",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Scholar Tao": {
-    "file": "/models/scoped-t2/anime-scholar-tao-bbac61404aedcb51.glb?v=bbac61404aedcb51",
+    "file": "/models/scoped-t2/anime-scholar-tao-cf742af125edc091.glb?v=cf742af125edc091",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Scholar Jia": {
-    "file": "/models/scoped-t2/anime-scholar-jia-766287c2bb92998d.glb?v=766287c2bb92998d",
+    "file": "/models/scoped-t2/anime-scholar-jia-dd91de695726cf5f.glb?v=dd91de695726cf5f",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Scholar Ren": {
-    "file": "/models/scoped-t2/anime-scholar-ren-e5e76dfc5a56a030.glb?v=e5e76dfc5a56a030",
+    "file": "/models/scoped-t2/anime-scholar-ren-34e491ba870cda23.glb?v=34e491ba870cda23",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Scholar Song": {
-    "file": "/models/scoped-t2/anime-scholar-song-e95300f34b7e68d8.glb?v=e95300f34b7e68d8",
+    "file": "/models/scoped-t2/anime-scholar-song-177da4b050e0ebb8.glb?v=177da4b050e0ebb8",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Scholar Yu": {
-    "file": "/models/scoped-t2/anime-scholar-yu-984253aa5942f56c.glb?v=984253aa5942f56c",
+    "file": "/models/scoped-t2/anime-scholar-yu-d95e37117c5d88e8.glb?v=d95e37117c5d88e8",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   }
