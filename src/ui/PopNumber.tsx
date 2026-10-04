@@ -9,7 +9,12 @@ const FLOAT_MS = 1400;
 
 export default function PopNumber({ value, format = String, cueOnGain }: { value: number; format?: (value: number) => string; cueOnGain?: Cue }) {
   const previous = useRef(value);
+  const timers = useRef(new Set<ReturnType<typeof setTimeout>>());
   const [deltas, setDeltas] = useState<Array<{ id: number; amount: number }>>([]);
+  useEffect(() => () => {
+    timers.current.forEach(clearTimeout);
+    timers.current.clear();
+  }, []);
   useEffect(() => {
     const amount = value - previous.current;
     previous.current = value;
@@ -17,8 +22,11 @@ export default function PopNumber({ value, format = String, cueOnGain }: { value
     const id = Date.now() + Math.random();
     setDeltas(list => [...list.slice(-2), { id, amount }]);
     if (amount > 0 && cueOnGain) playCue(cueOnGain);
-    const timer = setTimeout(() => setDeltas(list => list.filter(delta => delta.id !== id)), FLOAT_MS);
-    return () => clearTimeout(timer);
+    const timer = setTimeout(() => {
+      setDeltas(list => list.filter(delta => delta.id !== id));
+      timers.current.delete(timer);
+    }, FLOAT_MS);
+    timers.current.add(timer);
   }, [value]);
   const last = deltas.at(-1);
   return <span className="ui-pop" data-change={last ? (last.amount > 0 ? 'gain' : 'loss') : undefined}>
