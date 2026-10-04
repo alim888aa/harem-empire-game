@@ -1,6 +1,6 @@
 # Harem Empire beta
 
-A browser court-politics game with three careers, persistent relationships, five connected 3D palaces, and a 2D fallback. This repository contains reproducible source and runtime assets. Large validation archives and editable Blender workbenches are preserved separately. The current checkpoint is the published v37 runtime, including 22 rebuilt lower-court models; Eunuch and Scholar clothing corrections remain unfinished. See `SCOPED_CHARACTER_UPDATE.md` for the precise art and verification limits.
+A browser court-politics game with three careers, persistent relationships, five connected 3D palaces, and a 2D fallback. This repository contains reproducible source and runtime assets. Large validation archives and editable Blender workbenches are preserved separately. The current checkpoint is the published v38 runtime, including 23 rebuilt lower-court models: eight Maids, eight corrected Eunuchs, six corrected Scholars and Concubine Mei. The remaining cast and higher-rank outfits are still in progress. See `SCOPED_CHARACTER_UPDATE.md` for the precise art and verification limits.
 
 ## Run
 - Node 22+; `npm ci`
@@ -68,3 +68,11 @@ Automated gesture/state tests are not physical iPad testing. Device-specific tou
 The 2026-10-03 sync preserves the published v37 runtime without deploying the Site again. Existing repository history and legacy files are retained. Generated `dist`, dependencies, machine-specific hosting configuration, large proof archives, and unpublished art work are excluded. Provenance stays beside runtime assets; only obsolete local filesystem paths were removed from material provenance.
 
 Run the build and tests listed above for this current version. Historical `.kiro/steering/rules.md` describes an earlier manual-only workflow; these current commands reflect the approved build/test workflow. Create `validation/` before running optional simulation/export scripts (`mkdir -p validation/palace`). References above to archived validation evidence describe separately retained release evidence, not files checked into this repository.
+
+### v38 sync
+
+The subsequent v38 update changes the named cast registry and its tests, adds 15 corrected/new runtime models with their provenance, and updates the release notes. The prior v37 models remain preserved for history/recovery; only the new content-addressed filenames are selected. No Site deployment is performed by this repository sync.
+
+## Portable Mei asset metadata
+
+The Git repository removes one obsolete machine-local authoring path from Mei’s node extras. Geometry, materials, textures, skeleton and animation data are unchanged; all binary chunks are byte-identical to the published v38 model. The registry selects the sanitized content-addressed file. Its new SHA-256 is d0c39967a8b1b807efdc63c9c24b1559eba6c75649f401b1fccfdf9eb1cd46ab; the published v38 SHA-256 remains ae97df765eb066db61dcb273ae678d89eaa6a9e8cc6728d4c7a464e4ae71ab16. This is a metadata-sanitized equivalent, not a byte-identical copy of that one published GLB. The public Site is unchanged by this sync.

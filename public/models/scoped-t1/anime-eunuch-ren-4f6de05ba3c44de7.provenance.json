@@ -1,0 +1,32 @@
+{
+  "name": "Eunuch Ren",
+  "sha256": "4f6de05ba3c44de75247428712e89b9df712373e04ca0e584a42f1f236b7592a",
+  "baseline_asset": "npc-eunuch.glb",
+  "source_master_sha256": "67c258569f5e6f2322b68519b775adc66e4cbcd9dc9f08c97cc6d841a04365c3",
+  "source_review_record_sha256": "38f7e0d0939206156380b212e413b4924a05739398c00f54051023d8b994e072",
+  "anatomy_source": "Original generic adult legacy VRoid Studio0.14 CC0 body/head/native facial UVs, with project anatomical retarget foundation",
+  "hair_source": "Preserved legacy CC0 source-authored strand topology/native UVs/textures; project scalp fit, no donor body/persona",
+  "license": "CC0-1.0 plus original project-authored clothing",
+  "license_primary_url": "https://vroid.pixiv.help/hc/en-us/articles/4402614652569-Do-VRoid-Studio-s-sample-models-come-with-conditions-of-use",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "clothing_source": "Selected SIMPLE closed blue-grey ankle robe, roomy sleeves, white inner collar, dark wrapped two-tail sash, raised dark rear-lobe cap and small black cloth shoes",
+  "canonical_identity_preserved": true,
+  "texture_derivative": "Recorded LANCZOS game-resolution resampling; original editable source maps retained",
+  "current_motion_source_exceptions": [
+    "Walk and Run cloth_back leaf translations only; original clocks/rotations/Root retained"
+  ],
+  "raw_v32_animation_or_anatomy_byte_equality_claimed": false,
+  "recorded_controller_contact_limits": {
+    "actor_plane_penetration_mm": 15.756361528396708,
+    "palace_floor_penetration_mm": 20.452567194995066
+  },
+  "world_speed_and_action_clocks_preserved": true,
+  "GPU_FPS_measured": false,
+  "full_cast_complete": false
+}

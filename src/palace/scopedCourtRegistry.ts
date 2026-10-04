@@ -2,6 +2,12 @@
 // A scoped pass is never full-cast completion. Do not hand-register unreviewed fitting candidates.
 export interface ScopedCourtSpec { readonly file:string; readonly labelHeight:number; readonly walkSpeed:number; readonly normalizeClipOrigin?:boolean }
 export const SCOPED_COURT_MODELS:Readonly<Record<string,ScopedCourtSpec>> = Object.freeze({
+  "Concubine Mei": {
+    "file": "/models/scoped-t2/anime-concubine-mei-d0c39967a8b1b807.glb?v=d0c39967a8b1b807",
+    "labelHeight": 2.1,
+    "walkSpeed": 0.902234637,
+    "normalizeClipOrigin": true
+  },
   "Maid Ling": {
     "file": "/models/scoped-t1/anime-maid-ling-7a1a4b84a21d7d9c.glb?v=7a1a4b84a21d7d9c",
     "labelHeight": 2.02,
@@ -51,72 +57,72 @@ export const SCOPED_COURT_MODELS:Readonly<Record<string,ScopedCourtSpec>> = Obje
     "normalizeClipOrigin": true
   },
   "Eunuch Gao": {
-    "file": "/models/scoped-t1/anime-eunuch-gao-1a0555dbadc0e641.glb?v=1a0555dbadc0e641",
+    "file": "/models/scoped-t1/anime-eunuch-gao-67c258569f5e6f23.glb?v=67c258569f5e6f23",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Eunuch Lu": {
-    "file": "/models/scoped-t1/anime-eunuch-lu-d2b19c803dedeff7.glb?v=d2b19c803dedeff7",
+    "file": "/models/scoped-t1/anime-eunuch-lu-8f4ca783f00aeb35.glb?v=8f4ca783f00aeb35",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Eunuch Ren": {
-    "file": "/models/scoped-t1/anime-eunuch-ren-d86a54d032e01b4e.glb?v=d86a54d032e01b4e",
+    "file": "/models/scoped-t1/anime-eunuch-ren-4f6de05ba3c44de7.glb?v=4f6de05ba3c44de7",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Eunuch Min": {
-    "file": "/models/scoped-t1/anime-eunuch-min-70c925fc48755f16.glb?v=70c925fc48755f16",
+    "file": "/models/scoped-t1/anime-eunuch-min-0733e6f3f7635471.glb?v=0733e6f3f7635471",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Eunuch Jin": {
-    "file": "/models/scoped-t1/anime-eunuch-jin-c5cf29aefded55f8.glb?v=c5cf29aefded55f8",
+    "file": "/models/scoped-t1/anime-eunuch-jin-194bcc5da3798052.glb?v=194bcc5da3798052",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Eunuch Bo": {
-    "file": "/models/scoped-t1/anime-eunuch-bo-7171b2e69d00b3c6.glb?v=7171b2e69d00b3c6",
+    "file": "/models/scoped-t1/anime-eunuch-bo-27e5ae9aa4b1e753.glb?v=27e5ae9aa4b1e753",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Eunuch Tian": {
-    "file": "/models/scoped-t1/anime-eunuch-tian-644698cf7bf370a4.glb?v=644698cf7bf370a4",
+    "file": "/models/scoped-t1/anime-eunuch-tian-7314d886bed7c63b.glb?v=7314d886bed7c63b",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Eunuch Shu": {
-    "file": "/models/scoped-t1/anime-eunuch-shu-2f92f332a84a0451.glb?v=2f92f332a84a0451",
+    "file": "/models/scoped-t1/anime-eunuch-shu-be1739b6c1672b54.glb?v=be1739b6c1672b54",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Scholar Qin": {
-    "file": "/models/scoped-t2/anime-scholar-qin-896b2904971db1f1.glb?v=896b2904971db1f1",
+    "file": "/models/scoped-t2/anime-scholar-qin-709f51abfb3a2ce9.glb?v=709f51abfb3a2ce9",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Scholar Tao": {
-    "file": "/models/scoped-t2/anime-scholar-tao-19c77473dfaf8c5b.glb?v=19c77473dfaf8c5b",
+    "file": "/models/scoped-t2/anime-scholar-tao-bbac61404aedcb51.glb?v=bbac61404aedcb51",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Scholar Jia": {
-    "file": "/models/scoped-t2/anime-scholar-jia-459bdbf0147869fe.glb?v=459bdbf0147869fe",
+    "file": "/models/scoped-t2/anime-scholar-jia-766287c2bb92998d.glb?v=766287c2bb92998d",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Scholar Ren": {
-    "file": "/models/scoped-t2/anime-scholar-ren-b0bc3ca415d3a3c7.glb?v=b0bc3ca415d3a3c7",
+    "file": "/models/scoped-t2/anime-scholar-ren-e5e76dfc5a56a030.glb?v=e5e76dfc5a56a030",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Scholar Song": {
-    "file": "/models/scoped-t2/anime-scholar-song-4085dffc4b8b5e86.glb?v=4085dffc4b8b5e86",
+    "file": "/models/scoped-t2/anime-scholar-song-e95300f34b7e68d8.glb?v=e95300f34b7e68d8",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
   "Scholar Yu": {
-    "file": "/models/scoped-t2/anime-scholar-yu-d40b8024eed5f1f1.glb?v=d40b8024eed5f1f1",
+    "file": "/models/scoped-t2/anime-scholar-yu-984253aa5942f56c.glb?v=984253aa5942f56c",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   }

@@ -1,0 +1,32 @@
+{
+  "name": "Scholar Qin",
+  "sha256": "709f51abfb3a2ce98b73677073e3849117631c8cc41ba9adef33bfd151e0dbfd",
+  "baseline_asset": "npc-scholar.glb",
+  "source_master_sha256": "709f51abfb3a2ce98b73677073e3849117631c8cc41ba9adef33bfd151e0dbfd",
+  "source_review_record_sha256": "08c013049bd01bed94d5e5c72b7fadc846edcc3ea8ba296e116bb8749c40eba5",
+  "anatomy_source": "Original generic adult legacy VRoid Studio0.14 CC0 body/head/native facial UVs, with project anatomical retarget foundation",
+  "hair_source": "Preserved legacy CC0 source-authored strand topology/native UVs/textures; project scalp fit, no donor body/persona",
+  "license": "CC0-1.0 plus original project-authored clothing",
+  "license_primary_url": "https://vroid.pixiv.help/hc/en-us/articles/4402614652569-Do-VRoid-Studio-s-sample-models-come-with-conditions-of-use",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "clothing_source": "Selected SIMPLE closed sage ankle robe, continuous ivory diagonal facing, roomy cuffs, broad dark wrap/two tails, authored swept hair/compact topknot and small black shoes; palette differences only",
+  "canonical_identity_preserved": true,
+  "texture_derivative": "Recorded LANCZOS game-resolution resampling; original editable source maps retained",
+  "current_motion_source_exceptions": [
+    "Walk and Run cloth_back leaf translations only; original clocks/rotations/Root retained"
+  ],
+  "raw_v32_animation_or_anatomy_byte_equality_claimed": false,
+  "recorded_controller_contact_limits": {
+    "actor_plane_penetration_mm": 15.780236982290836,
+    "palace_floor_penetration_mm": 20.471793307566635
+  },
+  "world_speed_and_action_clocks_preserved": true,
+  "GPU_FPS_measured": false,
+  "full_cast_complete": false
+}
