@@ -1,3 +1,4 @@
+import {placeSpeech} from './speechPlacement';
 import {isTouchViewportPlaytest} from '../persistence/playtestMode';
 import {emperorEntrancePlan,type EmperorAppearanceStatus} from './emperorEntrance';
 import {clearInteractionPath} from './interactionPath';
@@ -401,11 +402,18 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
           const hostTop=element.getBoundingClientRect().top,dialog=document.querySelector<HTMLDialogElement>('dialog[open]:has(.palace-conversation)'),header=document.querySelector<HTMLElement>('.court-header');
           const minTop=Math.max(16,(header?.getBoundingClientRect().bottom??96)-hostTop+12),maxBottom=Math.min(element.clientHeight-20,(dialog?.getBoundingClientRect().top??element.clientHeight*.5)-hostTop-24);
           const w=speech.offsetWidth,h=speech.offsetHeight;
-          // A showModal dialog is in the browser's top layer. If the whole reply
-          // cannot fit above it, retain the readable in-dialog fallback.
-          if(maxBottom-minTop>=h&&element.clientWidth>=w+32){
-            nextSpeechProjected=true;const x=Math.max(w/2+16,Math.min(element.clientWidth-w/2-16,(projected.x*.5+.5)*element.clientWidth)),y=Math.max(minTop+h,Math.min(maxBottom,(-projected.y*.5+.5)*element.clientHeight-20));
-            speech.style.left=`${x}px`;speech.style.top=`${y}px`;
+          // Project a padded full-character region, not just a single head point.
+          const headX=(projected.x*.5+.5)*element.clientWidth,headY=(-projected.y*.5+.5)*element.clientHeight;
+          const feet=new THREE.Vector3(n.x,n.group.position.y,n.z).project(camera);
+          const feetY=(-feet.y*.5+.5)*element.clientHeight;
+          const halfWidth=Math.max(44,Math.abs(feetY-headY)*.38);
+          const actor={left:headX-halfWidth,right:headX+halfWidth,top:headY-18,bottom:Math.max(headY,feetY)+12};
+          const host=element.getBoundingClientRect();
+          const obstacles=Array.from(document.querySelectorAll<HTMLElement>('.intrigue-alert.is-palace')).map(el=>{const r=el.getBoundingClientRect();return {left:r.left-host.left-8,right:r.right-host.left+8,top:r.top-host.top-8,bottom:r.bottom-host.top+8};});
+          const placement=placeSpeech({left:16,right:element.clientWidth-16,top:minTop,bottom:maxBottom},actor,w,h,obstacles);
+          if(placement){
+            nextSpeechProjected=true;
+            speech.style.left=`${placement.left+w/2}px`;speech.style.top=`${placement.bottom}px`;
           }
         }
         labels[i].classList.toggle('is-near',dist<2.7);n.ring.visible=characterModels.isReady(n.name)&&dist<2.7;

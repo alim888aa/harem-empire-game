@@ -53,3 +53,6 @@
 .palace-head-speech:after{content:'';position:absolute;bottom:-7px;left:50%;width:13px;height:13px;background:#fffaf0;border-right:1px solid #b7a17c;border-bottom:1px solid #b7a17c;transform:rotate(45deg)}
 .palace-shell .palace-conversation .court-speech{grid-column:1/-1;margin:0}.palace-shell .court-dialog:has(.palace-conversation){max-height:49svh}.palace-shell .palace-conversation .audience-choices{min-width:0}.palace-shell .palace-conversation .action-panel{padding-top:0;border-top:0}
 @media(max-width:540px){.palace-head-speech{font-size:14px;padding:12px 15px}.palace-shell .court-dialog:has(.palace-conversation){max-height:56svh}.court-speech{font-size:15px}.romance-buttons button{flex:1}}
+
+/* Side-positioned replies must not draw a misleading tail through the actor. */
+.palace-head-speech::after{display:none}

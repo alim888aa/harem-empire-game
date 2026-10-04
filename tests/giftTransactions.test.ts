@@ -289,9 +289,10 @@ test('stale completion after restart cannot spend or animate in a new session', 
 test('shared2D/3D gift form starts blank and disabled, exposes only authored messages, and disables pending controls', t => {
   const {game,target}=start(t);
   const data=target.getSnapshot().context;
-  const props={character:{...data,type:data.type!},gifts:15,playerStats:game.getSnapshot().context.playerPersonality,playerType:'concubine' as const,onAction:()=>{}};
+  const props={graph:game.getSnapshot().context.relationshipGraph,zone:"ladies",witnesses:[],onRomanticGift:()=>{},character:{...data,type:data.type!},gifts:15,playerStats:game.getSnapshot().context.playerPersonality,playerType:'concubine' as const,onAction:()=>{}};
   const markup=renderToStaticMarkup(createElement(ActionButtons,props));
   assert.match(markup,/Choose your message/);
+  assert.match(markup,/value="romantic"/);
   assert.match(markup,/Choose a message/);
   assert.doesNotMatch(markup,/A gift, no words|value="simple"/);
   for(const message of GIFT_MESSAGES)assert.ok(markup.includes(message.title));
