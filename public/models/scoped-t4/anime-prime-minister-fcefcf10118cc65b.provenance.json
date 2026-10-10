@@ -1,0 +1,26 @@
+{
+  "name": "Prime Minister",
+  "sha256": "fcefcf10118cc65b7841f31a33c7f75a406ac2ffa4d6ee44e2960da4897a82ac",
+  "source_glb_sha256": "7abd76f2521ec6918758dfe2ab178f66311dbf79bfcf51e91076b90048dfc5c7",
+  "editable_source_sha256": "277a3113d1e62c1ae8e7a30b0526d7f90497fbe2bbbb1b0b9d4f63931086f80a",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "foundation_bone_channels_preserved": 708,
+  "additional_costume_morph_channels": 20,
+  "selected_design": "Mature clean-shaven gray temples, tall official hat, aubergine ankle robe, long ivory stole and gold chest ornament",
+  "anatomy_source": "Fitted own59 generic adult legacy VRoid CC0 foundation with native UVs and restrained role-specific adult identity treatment",
+  "hair_source": "Licensed source-authored native hair parts fitted to recipient; no donor body or persona",
+  "license": "CC0-1.0 plus original project-authored clothing",
+  "geometry_rig_uv_weights_material_bindings_all_bone_and_morph_data_exact_source_to_runtime": true,
+  "female_own_ancestor_x_scale": null,
+  "full_48_courtier_roster_rebuilt": true,
+  "limits": [
+    "Finite source/compact CPU material and motion proof, not continuous collision-free cloth or target-device performance.",
+    "Emperor is separate; existing inherited floor bob and local interfaces are not certified zero."
+  ]
+}

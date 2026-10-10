@@ -1,0 +1,793 @@
+{
+  "version": 1,
+  "release": "V55",
+  "baseUrl": "https://pub-79c7cda7fb524f4fab929b74d14c5f1f.r2.dev",
+  "files": [
+    {
+      "path": "public/materials/ATTRIBUTION.txt",
+      "key": "materials/ATTRIBUTION.txt",
+      "bytes": 639,
+      "sha256": "ff8b1af8068766a3683e4dd779d2345a82a371f52d803f73cf9a99af5db6008c"
+    },
+    {
+      "path": "public/materials/dark_wood_diff_1k.jpg",
+      "key": "materials/dark_wood_diff_1k.jpg",
+      "bytes": 754754,
+      "sha256": "d68da31655bf47024af893156a6a01a6c95bb60f55d97e2dc9bdd47be320e5b5"
+    },
+    {
+      "path": "public/materials/dark_wood_nor_gl_1k.jpg",
+      "key": "materials/dark_wood_nor_gl_1k.jpg",
+      "bytes": 344338,
+      "sha256": "c42541f1bda0a14b39f120c24407eeba699af8ac85b371c7cef98ffd7d7b13bf"
+    },
+    {
+      "path": "public/materials/dark_wood_rough_1k.jpg",
+      "key": "materials/dark_wood_rough_1k.jpg",
+      "bytes": 574415,
+      "sha256": "47ea12dbf649109b02eaa164dde9732a74e839957f29ad0ec7f5266b575d1835"
+    },
+    {
+      "path": "public/materials/marble_01_diff_1k.jpg",
+      "key": "materials/marble_01_diff_1k.jpg",
+      "bytes": 305029,
+      "sha256": "b10dabea976d68baa976a0d4e8dac58789df8d26a1b50697f320106f1b00a229"
+    },
+    {
+      "path": "public/materials/marble_01_nor_gl_1k.jpg",
+      "key": "materials/marble_01_nor_gl_1k.jpg",
+      "bytes": 110230,
+      "sha256": "77c2a9b549a6a408659f8197be91945aeb0abc33e697f1dd2ce24ee8dc7c2bc0"
+    },
+    {
+      "path": "public/materials/marble_01_rough_1k.jpg",
+      "key": "materials/marble_01_rough_1k.jpg",
+      "bytes": 91848,
+      "sha256": "a3e9f373d22aebc449af73f6a18c9817e2146f17e567a083609ba8fbb62a72f5"
+    },
+    {
+      "path": "public/materials/metal_0065_ao_1k.jpg",
+      "key": "materials/metal_0065_ao_1k.jpg",
+      "bytes": 100131,
+      "sha256": "b987ab655d09df1c0f6121e04d075344e1f6420ce4d34eda922b0217b123f5ff"
+    },
+    {
+      "path": "public/materials/metal_0065_color_1k.jpg",
+      "key": "materials/metal_0065_color_1k.jpg",
+      "bytes": 188552,
+      "sha256": "43d975f8110a26a688906eaaf1c4e52571dd7f340ca28005d074d59b9f7b8b09"
+    },
+    {
+      "path": "public/materials/metal_0065_metallic_1k.jpg",
+      "key": "materials/metal_0065_metallic_1k.jpg",
+      "bytes": 5220,
+      "sha256": "1322ed967f83d280ac0f98c36e7caac4899adb93a04d945e205d9182b2f93eed"
+    },
+    {
+      "path": "public/materials/metal_0065_normal_opengl_1k.png",
+      "key": "materials/metal_0065_normal_opengl_1k.png",
+      "bytes": 4740254,
+      "sha256": "92fdccea0ec22e84767bcb92eb5af1eeee646c1bd9e6fc6a4da835663bb1bd2f"
+    },
+    {
+      "path": "public/materials/metal_0065_roughness_1k.jpg",
+      "key": "materials/metal_0065_roughness_1k.jpg",
+      "bytes": 117013,
+      "sha256": "a683e973443b5e3113bcc6185da5a0769741c8ca0dccda13e4e24824d25401b9"
+    },
+    {
+      "path": "public/materials/sources.json",
+      "key": "materials/sources.json",
+      "bytes": 6157,
+      "sha256": "da88e213001bcd1a6f7e2ece11c219a5e682b526bed5a2eee4e2163680b0251f"
+    },
+    {
+      "path": "public/models/emperor-runtime.glb",
+      "key": "models/emperor-runtime.glb",
+      "bytes": 20202108,
+      "sha256": "b0abb24f3496b9e05ee392d1dec1f95752eb197da984cfc8ceff146e6d1c15e9"
+    },
+    {
+      "path": "public/models/imperial-throne.glb",
+      "key": "models/imperial-throne.glb",
+      "bytes": 5502540,
+      "sha256": "c2bee21c4164a27a96ec7ed155e8854418d88cd5ad9a4860a2a3993f68cc62dd"
+    },
+    {
+      "path": "public/models/maid-ling-runtime.glb",
+      "key": "models/maid-ling-runtime.glb",
+      "bytes": 10681036,
+      "sha256": "1d413f8ec6f6a2279596be1e03d412528e128694123fdcd8196d129ae8ead2f2"
+    },
+    {
+      "path": "public/models/npc-concubine.glb",
+      "key": "models/npc-concubine.glb",
+      "bytes": 2835280,
+      "sha256": "08e209f5fc697897cfbba94dcb1c5bb0c15fb56b1c78024627df7f02c121ae9e"
+    },
+    {
+      "path": "public/models/npc-consort.glb",
+      "key": "models/npc-consort.glb",
+      "bytes": 3029412,
+      "sha256": "784cc5044edea09db995a2d86da5b48387e11876c044885b9d1edbb221159f30"
+    },
+    {
+      "path": "public/models/npc-crown-prince.glb",
+      "key": "models/npc-crown-prince.glb",
+      "bytes": 1732488,
+      "sha256": "271879e284d1b63acddf3cdb66a8a66260b8d7df8636246b304d3fbca8b80787"
+    },
+    {
+      "path": "public/models/npc-empress-consort.glb",
+      "key": "models/npc-empress-consort.glb",
+      "bytes": 2205972,
+      "sha256": "e20a5959b84861353eb647556427a1cadc4ab3924d7dd2bc2b6d1ff43e74e092"
+    },
+    {
+      "path": "public/models/npc-empress-dowager.glb",
+      "key": "models/npc-empress-dowager.glb",
+      "bytes": 1940864,
+      "sha256": "498361aa702b155bf37585a747858eac8fc5812e65c66036dda8b775a03aa1db"
+    },
+    {
+      "path": "public/models/npc-eunuch.glb",
+      "key": "models/npc-eunuch.glb",
+      "bytes": 2647116,
+      "sha256": "2eedf1497addb62341a1d52ce623c7094118506f008134f5e5e2210414fbd1b3"
+    },
+    {
+      "path": "public/models/npc-general.glb",
+      "key": "models/npc-general.glb",
+      "bytes": 3307196,
+      "sha256": "00574e2e4cf503bd54c4e3653f9e078299027570a75f1e968c5eceb606a5cc60"
+    },
+    {
+      "path": "public/models/npc-maid.glb",
+      "key": "models/npc-maid.glb",
+      "bytes": 2675276,
+      "sha256": "ccc7c17cf5476b23c75901252a798d7d23a54433700bd93c6aabd168c3eccdc6"
+    },
+    {
+      "path": "public/models/npc-minister.glb",
+      "key": "models/npc-minister.glb",
+      "bytes": 2694552,
+      "sha256": "3692082fd0431b85f0d561de43d31706189cfe2efcc9608bd703210c3a60db9c"
+    },
+    {
+      "path": "public/models/npc-prime-minister.glb",
+      "key": "models/npc-prime-minister.glb",
+      "bytes": 1761276,
+      "sha256": "cb40e363512af9834f8e3d51e58a0686ee97f4ee81debff75dddad22f050a41e"
+    },
+    {
+      "path": "public/models/npc-scholar.glb",
+      "key": "models/npc-scholar.glb",
+      "bytes": 2702556,
+      "sha256": "efcc09cb4cd9f82bfb79ec9a59cf586b53bebb99cb6a2f897ad2960aee96b574"
+    },
+    {
+      "path": "public/models/player-concubine.glb",
+      "key": "models/player-concubine.glb",
+      "bytes": 2364932,
+      "sha256": "e63077a89151d523a2b9cc0f4e5d000f07fc50e8c540396a5a960a9c51eefc11"
+    },
+    {
+      "path": "public/models/player-consort.glb",
+      "key": "models/player-consort.glb",
+      "bytes": 3953816,
+      "sha256": "554a98dc055f55148307253facef994ddb2be6821940be87d50aebe65bd89339"
+    },
+    {
+      "path": "public/models/player-crown-prince-anime.glb",
+      "key": "models/player-crown-prince-anime.glb",
+      "bytes": 3673708,
+      "sha256": "a44eee13f591c0e1ce2d453a8b5cbe450ab0072f230e857954ff61ecd735a9e9"
+    },
+    {
+      "path": "public/models/player-empress.glb",
+      "key": "models/player-empress.glb",
+      "bytes": 4217432,
+      "sha256": "4dc2bc145556352cd7d5c497a851e550c52acc1acb866a6d99f58ee85ca43c99"
+    },
+    {
+      "path": "public/models/player-grand-prince-anime.glb",
+      "key": "models/player-grand-prince-anime.glb",
+      "bytes": 3024880,
+      "sha256": "6bb9d31e35c9a057fa138f683295603e1e9377e233cd5e681c2bcf9434c313df"
+    },
+    {
+      "path": "public/models/player-minister.glb",
+      "key": "models/player-minister.glb",
+      "bytes": 2438928,
+      "sha256": "7691943e86cb03eded252d4bbe112eef889ce94f672a59d02b7f9782f269dd61"
+    },
+    {
+      "path": "public/models/player-prime-minister.glb",
+      "key": "models/player-prime-minister.glb",
+      "bytes": 2971616,
+      "sha256": "6db7538e78f7c3ae5f57fececf437522e1a26cbea3df53d51fb1f4be982973d5"
+    },
+    {
+      "path": "public/models/player-prince-anime.glb",
+      "key": "models/player-prince-anime.glb",
+      "bytes": 2490188,
+      "sha256": "823bceeae64f751951d36fefecd5b9718c6111832cfa8d8334db19a253215861"
+    },
+    {
+      "path": "public/models/player-scholar.glb",
+      "key": "models/player-scholar.glb",
+      "bytes": 1975816,
+      "sha256": "19d1f0036d96fea8b70dfc1aed325c25b07824feaf59a512c2d9b1c353839333"
+    },
+    {
+      "path": "public/models/prince-runtime.glb",
+      "key": "models/prince-runtime.glb",
+      "bytes": 5741768,
+      "sha256": "b4820284c7ec319bb8eb515df15ef9b28e446855a6038a78451a97b7b951b6c3"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-bo-27e5ae9aa4b1e753.glb",
+      "key": "models/scoped-t1/anime-eunuch-bo-27e5ae9aa4b1e753.glb",
+      "bytes": 3045436,
+      "sha256": "27e5ae9aa4b1e75310f942084ba252d8dddccdcdbb07a14a7689a094396004a7"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-bo-45da4181e01b9f37.glb",
+      "key": "models/scoped-t1/anime-eunuch-bo-45da4181e01b9f37.glb",
+      "bytes": 3250776,
+      "sha256": "45da4181e01b9f3745469c42af13ad4465dd4c59bad006b1fdc1894a20776818"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-bo-7171b2e69d00b3c6.glb",
+      "key": "models/scoped-t1/anime-eunuch-bo-7171b2e69d00b3c6.glb",
+      "bytes": 1891420,
+      "sha256": "7171b2e69d00b3c66a62678e13147ab9a0d1d5e8f2534837a4b9cf79a0891f74"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-gao-1a0555dbadc0e641.glb",
+      "key": "models/scoped-t1/anime-eunuch-gao-1a0555dbadc0e641.glb",
+      "bytes": 1936668,
+      "sha256": "1a0555dbadc0e641973494e4b6e9e7228a97e5db8c48076f20742ac8c9c1adb7"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-gao-22e45b76c52caec0.glb",
+      "key": "models/scoped-t1/anime-eunuch-gao-22e45b76c52caec0.glb",
+      "bytes": 3243340,
+      "sha256": "22e45b76c52caec07bbd9d6b7df212f6984dcc42bafd3b9fcbdb4cb2cb67303c"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-gao-67c258569f5e6f23.glb",
+      "key": "models/scoped-t1/anime-eunuch-gao-67c258569f5e6f23.glb",
+      "bytes": 3038000,
+      "sha256": "67c258569f5e6f2322b68519b775adc66e4cbcd9dc9f08c97cc6d841a04365c3"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-jin-194bcc5da3798052.glb",
+      "key": "models/scoped-t1/anime-eunuch-jin-194bcc5da3798052.glb",
+      "bytes": 3058476,
+      "sha256": "194bcc5da37980527cb4f981c642bdf2a1b0baa023a12f8a6292eb66d67f0379"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-jin-6be9b7125e9eeedb.glb",
+      "key": "models/scoped-t1/anime-eunuch-jin-6be9b7125e9eeedb.glb",
+      "bytes": 3263816,
+      "sha256": "6be9b7125e9eeedbb2711062f271428f0a8cb6edbcb1370592235914f5724ed6"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-jin-c5cf29aefded55f8.glb",
+      "key": "models/scoped-t1/anime-eunuch-jin-c5cf29aefded55f8.glb",
+      "bytes": 1923896,
+      "sha256": "c5cf29aefded55f8ac8cf2ecb63d641d80726274d7ac8fe2b0e37c33f8083dad"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-lu-8f4ca783f00aeb35.glb",
+      "key": "models/scoped-t1/anime-eunuch-lu-8f4ca783f00aeb35.glb",
+      "bytes": 3111924,
+      "sha256": "8f4ca783f00aeb35589bef5eeac7d81f7bd16f98b76599d0af3c1dea8a66e833"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-lu-d2b19c803dedeff7.glb",
+      "key": "models/scoped-t1/anime-eunuch-lu-d2b19c803dedeff7.glb",
+      "bytes": 1977120,
+      "sha256": "d2b19c803dedeff70da9c1c67cffc2c44bed4d0e60081877d317d0fb5f2be556"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-lu-d52735798dbcccf6.glb",
+      "key": "models/scoped-t1/anime-eunuch-lu-d52735798dbcccf6.glb",
+      "bytes": 3317264,
+      "sha256": "d52735798dbcccf6979c95d3f7d34efd8cf2c5d2a8900d06dabf0eb6261be0fa"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-min-0733e6f3f7635471.glb",
+      "key": "models/scoped-t1/anime-eunuch-min-0733e6f3f7635471.glb",
+      "bytes": 3101800,
+      "sha256": "0733e6f3f7635471bacafc8986a70ec9635ff0498e8ee54e05c1661b35a2e315"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-min-2f89d439a5c4b469.glb",
+      "key": "models/scoped-t1/anime-eunuch-min-2f89d439a5c4b469.glb",
+      "bytes": 3307140,
+      "sha256": "2f89d439a5c4b46911a3edccf906b0386ad46da24131fe6fcd4fc7f6df55866c"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-min-70c925fc48755f16.glb",
+      "key": "models/scoped-t1/anime-eunuch-min-70c925fc48755f16.glb",
+      "bytes": 1962884,
+      "sha256": "70c925fc48755f1659bc2337ed7a2a33562ea1510f8b05a6e97d250e4cf4f983"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-ren-4f6de05ba3c44de7.glb",
+      "key": "models/scoped-t1/anime-eunuch-ren-4f6de05ba3c44de7.glb",
+      "bytes": 3034652,
+      "sha256": "4f6de05ba3c44de75247428712e89b9df712373e04ca0e584a42f1f236b7592a"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-ren-a0b38064e308891d.glb",
+      "key": "models/scoped-t1/anime-eunuch-ren-a0b38064e308891d.glb",
+      "bytes": 3239992,
+      "sha256": "a0b38064e308891da0beff34eaf66dc445b8f25b7ed0dccd10d780f3e75d1be6"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-ren-d86a54d032e01b4e.glb",
+      "key": "models/scoped-t1/anime-eunuch-ren-d86a54d032e01b4e.glb",
+      "bytes": 1926608,
+      "sha256": "d86a54d032e01b4edb4d85ab24551e055d4b336495faed278a76b07ec642cbca"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-shu-2f92f332a84a0451.glb",
+      "key": "models/scoped-t1/anime-eunuch-shu-2f92f332a84a0451.glb",
+      "bytes": 1851680,
+      "sha256": "2f92f332a84a045150fadadeba2de5ec9c772411e235ecb566288435117c41bf"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-shu-83afdfc797b552ad.glb",
+      "key": "models/scoped-t1/anime-eunuch-shu-83afdfc797b552ad.glb",
+      "bytes": 3165064,
+      "sha256": "83afdfc797b552ad3d70552a8d5fe533327ad8ddae81c3dcb893555bf911a8f6"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-shu-be1739b6c1672b54.glb",
+      "key": "models/scoped-t1/anime-eunuch-shu-be1739b6c1672b54.glb",
+      "bytes": 2959724,
+      "sha256": "be1739b6c1672b549139f2b890325535fda3bcac9b8eef8970fc8ca7a6be72b5"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-tian-644698cf7bf370a4.glb",
+      "key": "models/scoped-t1/anime-eunuch-tian-644698cf7bf370a4.glb",
+      "bytes": 1970992,
+      "sha256": "644698cf7bf370a4c3042ce69341155b804717f5464a51fe208be027bcaf2220"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-tian-7314d886bed7c63b.glb",
+      "key": "models/scoped-t1/anime-eunuch-tian-7314d886bed7c63b.glb",
+      "bytes": 3072316,
+      "sha256": "7314d886bed7c63b02571974f3d8d86f2ab688f5eaf2003da4251bef3abcdad7"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-eunuch-tian-b5dac086d8381dba.glb",
+      "key": "models/scoped-t1/anime-eunuch-tian-b5dac086d8381dba.glb",
+      "bytes": 3277656,
+      "sha256": "b5dac086d8381dbae9f3da07df4d8303e5364b6944b9c66051ababd7f4267973"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-bai-35944bbcac178d29.glb",
+      "key": "models/scoped-t1/anime-maid-bai-35944bbcac178d29.glb",
+      "bytes": 2567520,
+      "sha256": "35944bbcac178d295185caa57d7530c8e199850a0d49fcb284cb2c3749f84844"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-bai-6b8736f8ab14ec84.glb",
+      "key": "models/scoped-t1/anime-maid-bai-6b8736f8ab14ec84.glb",
+      "bytes": 2915672,
+      "sha256": "6b8736f8ab14ec8425d97f479217b60a47809c4e35193e7e9436e49fa1dfcd0e"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-he-bf60ca57c3be5561.glb",
+      "key": "models/scoped-t1/anime-maid-he-bf60ca57c3be5561.glb",
+      "bytes": 3024904,
+      "sha256": "bf60ca57c3be5561d288ae89372b1dea7245ab248e97cc2821dd9399c353eb07"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-he-df0a2918b67dadb7.glb",
+      "key": "models/scoped-t1/anime-maid-he-df0a2918b67dadb7.glb",
+      "bytes": 2574800,
+      "sha256": "df0a2918b67dadb78bb64bbeab3b7a00df4510f472ba879b10360b634d97a0ca"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-lan-8eb72d47d37aad05.glb",
+      "key": "models/scoped-t1/anime-maid-lan-8eb72d47d37aad05.glb",
+      "bytes": 2551892,
+      "sha256": "8eb72d47d37aad05edeacd6d1550992686967972490255a5bc0053afc767c9b1"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-lan-ea84dafd8091f167.glb",
+      "key": "models/scoped-t1/anime-maid-lan-ea84dafd8091f167.glb",
+      "bytes": 2971372,
+      "sha256": "ea84dafd8091f167ef4aa8d21f4124100aabd52b7b29fef74b2b9aeaafd2f04f"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-ling-198ed0c87da75565.glb",
+      "key": "models/scoped-t1/anime-maid-ling-198ed0c87da75565.glb",
+      "bytes": 2597004,
+      "sha256": "198ed0c87da75565790c4828e40961204507d179a6d3935577d3e05fb40ee9be"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-ling-7a1a4b84a21d7d9c.glb",
+      "key": "models/scoped-t1/anime-maid-ling-7a1a4b84a21d7d9c.glb",
+      "bytes": 3016488,
+      "sha256": "7a1a4b84a21d7d9cc9ff1487f1369ab60f9b9c1b1c13461107eb840bc18067ea"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-rou-5aae6dc6d235e7d5.glb",
+      "key": "models/scoped-t1/anime-maid-rou-5aae6dc6d235e7d5.glb",
+      "bytes": 2603044,
+      "sha256": "5aae6dc6d235e7d563092db634fb31893c397839d89796f85f0678c9bb0ca93e"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-rou-b44ac0c1de4058fb.glb",
+      "key": "models/scoped-t1/anime-maid-rou-b44ac0c1de4058fb.glb",
+      "bytes": 3045424,
+      "sha256": "b44ac0c1de4058fbb253d92e65cd03f8d2473a18834052373879be51ff617346"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-su-253ed6c3c66621e0.glb",
+      "key": "models/scoped-t1/anime-maid-su-253ed6c3c66621e0.glb",
+      "bytes": 2936624,
+      "sha256": "253ed6c3c66621e07d2ed66d8acf4fbc1f0595ebf9412b6a46bdfd3c4bce8207"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-su-8287d1d7b831b345.glb",
+      "key": "models/scoped-t1/anime-maid-su-8287d1d7b831b345.glb",
+      "bytes": 2554496,
+      "sha256": "8287d1d7b831b3456f30c64515b650768bada51deb5d29678785dd7fb4bb8aa2"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-ting-479a7cf9214137ee.glb",
+      "key": "models/scoped-t1/anime-maid-ting-479a7cf9214137ee.glb",
+      "bytes": 2960512,
+      "sha256": "479a7cf9214137ee26f889c89e14085263b477989d1d03dfaa783b51f8dfbadf"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-ting-5d849717ac473bb9.glb",
+      "key": "models/scoped-t1/anime-maid-ting-5d849717ac473bb9.glb",
+      "bytes": 2566908,
+      "sha256": "5d849717ac473bb94459a69e6afc2bd9ae568a73e64e391a193b39e634fd2055"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-zhu-5712505462507a37.glb",
+      "key": "models/scoped-t1/anime-maid-zhu-5712505462507a37.glb",
+      "bytes": 2876320,
+      "sha256": "5712505462507a376b174319768c1d382e31cdec36d494c028c44f99bbe9301f"
+    },
+    {
+      "path": "public/models/scoped-t1/anime-maid-zhu-c31803742cf543af.glb",
+      "key": "models/scoped-t1/anime-maid-zhu-c31803742cf543af.glb",
+      "bytes": 2494188,
+      "sha256": "c31803742cf543afff1c02999d170d185df9c939100c5cd208498bebd541805a"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-concubine-an-simple-23868f6495d257b2.glb",
+      "key": "models/scoped-t2/anime-concubine-an-simple-23868f6495d257b2.glb",
+      "bytes": 3168092,
+      "sha256": "23868f6495d257b2c98304fe68322a175f01a8d97c2a86bc2f734bf7a686b50e"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-concubine-lin-simple-492fbb821f4e8488.glb",
+      "key": "models/scoped-t2/anime-concubine-lin-simple-492fbb821f4e8488.glb",
+      "bytes": 3126936,
+      "sha256": "492fbb821f4e848855a09413f0c87e66e23153e4ae3f4396b7ebd816a040f644"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-concubine-mei-d0c39967a8b1b807.glb",
+      "key": "models/scoped-t2/anime-concubine-mei-d0c39967a8b1b807.glb",
+      "bytes": 3139512,
+      "sha256": "d0c39967a8b1b807efdc63c9c24b1559eba6c75649f401b1fccfdf9eb1cd46ab"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-concubine-qiao-simple-765cee9cbec853bc.glb",
+      "key": "models/scoped-t2/anime-concubine-qiao-simple-765cee9cbec853bc.glb",
+      "bytes": 3193360,
+      "sha256": "765cee9cbec853bcce2653129dc3b7f966a22b252416e8e6120fd67480105bee"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-concubine-xia-simple-e9dfe7a779b25fb7.glb",
+      "key": "models/scoped-t2/anime-concubine-xia-simple-e9dfe7a779b25fb7.glb",
+      "bytes": 3193632,
+      "sha256": "e9dfe7a779b25fb737419d362613130246bad798401906070c9e12e0ea6b6dd8"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-concubine-yun-simple-794373daf5827ed4.glb",
+      "key": "models/scoped-t2/anime-concubine-yun-simple-794373daf5827ed4.glb",
+      "bytes": 3130972,
+      "sha256": "794373daf5827ed43d49c3a606aa5cf9ce8d8d5e2ea4dc2d066e66b86374254a"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-jia-459bdbf0147869fe.glb",
+      "key": "models/scoped-t2/anime-scholar-jia-459bdbf0147869fe.glb",
+      "bytes": 1953484,
+      "sha256": "459bdbf0147869fe93a8c92638f2dce2b5047a7ab65a4f3e408495c83f54d337"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-jia-766287c2bb92998d.glb",
+      "key": "models/scoped-t2/anime-scholar-jia-766287c2bb92998d.glb",
+      "bytes": 3268492,
+      "sha256": "766287c2bb92998dcd14a20b2314afacf61fa15af9f232e52abc439b03bb542d"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-jia-dd91de695726cf5f.glb",
+      "key": "models/scoped-t2/anime-scholar-jia-dd91de695726cf5f.glb",
+      "bytes": 3276940,
+      "sha256": "dd91de695726cf5f03843b0df82714c5d90ed009123bb70bea96fa7e5acf01f9"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-qin-3a1b0f4504044de5.glb",
+      "key": "models/scoped-t2/anime-scholar-qin-3a1b0f4504044de5.glb",
+      "bytes": 3376004,
+      "sha256": "3a1b0f4504044de5de43b65396f691f8dd3b4df4006954cb4678db24183851b0"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-qin-709f51abfb3a2ce9.glb",
+      "key": "models/scoped-t2/anime-scholar-qin-709f51abfb3a2ce9.glb",
+      "bytes": 3367628,
+      "sha256": "709f51abfb3a2ce98b73677073e3849117631c8cc41ba9adef33bfd151e0dbfd"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-qin-896b2904971db1f1.glb",
+      "key": "models/scoped-t2/anime-scholar-qin-896b2904971db1f1.glb",
+      "bytes": 1999856,
+      "sha256": "896b2904971db1f1378a83905c81e99560376b621f7858e156d24685e38a05fd"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-ren-34e491ba870cda23.glb",
+      "key": "models/scoped-t2/anime-scholar-ren-34e491ba870cda23.glb",
+      "bytes": 3349276,
+      "sha256": "34e491ba870cda23355de9521f9abcdc0acb17f1febc5267afd064bbeb23975d"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-ren-b0bc3ca415d3a3c7.glb",
+      "key": "models/scoped-t2/anime-scholar-ren-b0bc3ca415d3a3c7.glb",
+      "bytes": 2007260,
+      "sha256": "b0bc3ca415d3a3c71d6c9874811fe8139c30602b403a6d3f8f36a079eff0b456"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-ren-e5e76dfc5a56a030.glb",
+      "key": "models/scoped-t2/anime-scholar-ren-e5e76dfc5a56a030.glb",
+      "bytes": 3340852,
+      "sha256": "e5e76dfc5a56a03038d118801fa4037f66dd802b6a0b16ec48df3cae613e011f"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-song-177da4b050e0ebb8.glb",
+      "key": "models/scoped-t2/anime-scholar-song-177da4b050e0ebb8.glb",
+      "bytes": 3265268,
+      "sha256": "177da4b050e0ebb8ad2b5331b18a452f251fb92d76ffa670058bb1177d07ae85"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-song-4085dffc4b8b5e86.glb",
+      "key": "models/scoped-t2/anime-scholar-song-4085dffc4b8b5e86.glb",
+      "bytes": 1923480,
+      "sha256": "4085dffc4b8b5e86251e543de00e982325a4db439dd7e82d3490cce5a96ba0cb"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-song-e95300f34b7e68d8.glb",
+      "key": "models/scoped-t2/anime-scholar-song-e95300f34b7e68d8.glb",
+      "bytes": 3256848,
+      "sha256": "e95300f34b7e68d8e742998a7810bc9e3f18bccbece0285cae0c7b13c88912c7"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-tao-19c77473dfaf8c5b.glb",
+      "key": "models/scoped-t2/anime-scholar-tao-19c77473dfaf8c5b.glb",
+      "bytes": 1957592,
+      "sha256": "19c77473dfaf8c5b2e4a6e2af4875cee4a6983a6bec1d8de06d3993e3a107a51"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-tao-bbac61404aedcb51.glb",
+      "key": "models/scoped-t2/anime-scholar-tao-bbac61404aedcb51.glb",
+      "bytes": 3303872,
+      "sha256": "bbac61404aedcb511579ab42aa83ac7067c75346a3d2afe061d5e2cebeaa84ec"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-tao-cf742af125edc091.glb",
+      "key": "models/scoped-t2/anime-scholar-tao-cf742af125edc091.glb",
+      "bytes": 3312276,
+      "sha256": "cf742af125edc091971bad7327fbe2b2a5f366752d967685c3f891af7677acb2"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-yu-984253aa5942f56c.glb",
+      "key": "models/scoped-t2/anime-scholar-yu-984253aa5942f56c.glb",
+      "bytes": 3302120,
+      "sha256": "984253aa5942f56c3cd71a300a0fd3f3cf2643a1c67a975cebff339555788970"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-yu-d40b8024eed5f1f1.glb",
+      "key": "models/scoped-t2/anime-scholar-yu-d40b8024eed5f1f1.glb",
+      "bytes": 1966492,
+      "sha256": "d40b8024eed5f1f1d530a81ff9f6de990b0e82e9208637a9469e9360c6b973c0"
+    },
+    {
+      "path": "public/models/scoped-t2/anime-scholar-yu-d95e37117c5d88e8.glb",
+      "key": "models/scoped-t2/anime-scholar-yu-d95e37117c5d88e8.glb",
+      "bytes": 3310548,
+      "sha256": "d95e37117c5d88e8d44576f957132c8ecb91f28c71ccdbe83d76f4587c3e9939"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-consort-hua-4c654c8f5ebceba5.glb",
+      "key": "models/scoped-t3/anime-consort-hua-4c654c8f5ebceba5.glb",
+      "bytes": 4386820,
+      "sha256": "4c654c8f5ebceba5ef65d97e2e4f812e99796e29c53efec2685d6af030bfbd49"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-consort-hua-5af8c5a10980296f.glb",
+      "key": "models/scoped-t3/anime-consort-hua-5af8c5a10980296f.glb",
+      "bytes": 3963652,
+      "sha256": "5af8c5a10980296fd5582d752c3ba33ab04f21e4c546277dc918233330f98031"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-consort-rong-df8e2d4bf8f18a67.glb",
+      "key": "models/scoped-t3/anime-consort-rong-df8e2d4bf8f18a67.glb",
+      "bytes": 3343472,
+      "sha256": "df8e2d4bf8f18a67788f682d8578b2f134f60142af52f445664c6f643b8ae11a"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-consort-yue-38a35c66f0c11f8c.glb",
+      "key": "models/scoped-t3/anime-consort-yue-38a35c66f0c11f8c.glb",
+      "bytes": 4381940,
+      "sha256": "38a35c66f0c11f8c5574c6bb15fb84c6f72e98a11d8538ec7bbb809871a18f07"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-consort-yue-c875f025f6358e05.glb",
+      "key": "models/scoped-t3/anime-consort-yue-c875f025f6358e05.glb",
+      "bytes": 3920564,
+      "sha256": "c875f025f6358e057bb2c0d1ba34a5a793c02cfa422d1117db7a1ae004bac3b1"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-consort-zhen-956777ba55d373d1.glb",
+      "key": "models/scoped-t3/anime-consort-zhen-956777ba55d373d1.glb",
+      "bytes": 4410408,
+      "sha256": "956777ba55d373d11e16bdcf3940010b280cb42a3a3d1bdb2f3caa097732f381"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-consort-zhen-ecedb6ff374084ef.glb",
+      "key": "models/scoped-t3/anime-consort-zhen-ecedb6ff374084ef.glb",
+      "bytes": 3984340,
+      "sha256": "ecedb6ff374084ef9ac5cc07cabb7251aea7f2fc2a8ed2a7a716e89512437303"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-general-luo-3abf592a4e455e8b.glb",
+      "key": "models/scoped-t3/anime-general-luo-3abf592a4e455e8b.glb",
+      "bytes": 3611696,
+      "sha256": "3abf592a4e455e8b154697e794deb55a9ef4576058407f1cacd1b3394e07fc51"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-general-luo-3d49ad5601d425ef.glb",
+      "key": "models/scoped-t3/anime-general-luo-3d49ad5601d425ef.glb",
+      "bytes": 3427968,
+      "sha256": "3d49ad5601d425efc962782fed22ff7f1d5e123b7b0bfb1e085447e632a4106e"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-general-shen-5566ee5e1495ffdb.glb",
+      "key": "models/scoped-t3/anime-general-shen-5566ee5e1495ffdb.glb",
+      "bytes": 3649876,
+      "sha256": "5566ee5e1495ffdbac797e5db93607940c70d6d8db0f7877686ee14f1dfe13d0"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-general-shen-e860cab313ddc7b3.glb",
+      "key": "models/scoped-t3/anime-general-shen-e860cab313ddc7b3.glb",
+      "bytes": 3630120,
+      "sha256": "e860cab313ddc7b39cafb4e403013f6826e26bf712e5ef298b4cb2bae7918788"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-general-wei-5322d95d64d408af.glb",
+      "key": "models/scoped-t3/anime-general-wei-5322d95d64d408af.glb",
+      "bytes": 3127564,
+      "sha256": "5322d95d64d408af6f0adfd35727ba956a752c56bf9e7e8ab8c62df88d61e682"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-general-wei-7d8b73d05b6e0bbc.glb",
+      "key": "models/scoped-t3/anime-general-wei-7d8b73d05b6e0bbc.glb",
+      "bytes": 3333832,
+      "sha256": "7d8b73d05b6e0bbcd32e86dddf4ae40fc6546fa9d25ea21a01efbbbb694f4424"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-general-zhao-0099b844069724ed.glb",
+      "key": "models/scoped-t3/anime-general-zhao-0099b844069724ed.glb",
+      "bytes": 3554716,
+      "sha256": "0099b844069724ed2c558261144183c244c85ed102303a4e8991f19863484455"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-general-zhao-e30c036ff3ff257b.glb",
+      "key": "models/scoped-t3/anime-general-zhao-e30c036ff3ff257b.glb",
+      "bytes": 3494364,
+      "sha256": "e30c036ff3ff257b362da14d5f747d818f724040c5370b80dbc111700364675e"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-minister-chen-60ee0f25d0f0e554.glb",
+      "key": "models/scoped-t3/anime-minister-chen-60ee0f25d0f0e554.glb",
+      "bytes": 2912328,
+      "sha256": "60ee0f25d0f0e554e65113a52efabcb0feaa204dc5871d07546f610027f3f6ce"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-minister-liu-7ca6f02e202892a9.glb",
+      "key": "models/scoped-t3/anime-minister-liu-7ca6f02e202892a9.glb",
+      "bytes": 3753664,
+      "sha256": "7ca6f02e202892a9b5bfc8555b3f34abeb6c89336004ae5decb0b804894d5913"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-minister-wang-b06d43ea1c6466d2.glb",
+      "key": "models/scoped-t3/anime-minister-wang-b06d43ea1c6466d2.glb",
+      "bytes": 3853116,
+      "sha256": "b06d43ea1c6466d2c711a2fa34b9f429b09004e80877643fbacadd8c4f48b39c"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-minister-zhang-273d89d123d593c5.glb",
+      "key": "models/scoped-t3/anime-minister-zhang-273d89d123d593c5.glb",
+      "bytes": 3953684,
+      "sha256": "273d89d123d593c52b48e310de4e8e3467719287f32396a993d6b16c8d978a37"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-prince-feng-90440f404f28f764.glb",
+      "key": "models/scoped-t3/anime-prince-feng-90440f404f28f764.glb",
+      "bytes": 2888864,
+      "sha256": "90440f404f28f764f6ef26b0068f3e63d40b8d81eb40facd3864d8acb8993126"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-prince-han-30fe380214c9b797.glb",
+      "key": "models/scoped-t3/anime-prince-han-30fe380214c9b797.glb",
+      "bytes": 2849280,
+      "sha256": "30fe380214c9b7974a89218a80093c96b9c453bdf9a80d10389e34c59206479f"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-prince-jun-bf2ca995541e47dd.glb",
+      "key": "models/scoped-t3/anime-prince-jun-bf2ca995541e47dd.glb",
+      "bytes": 2872172,
+      "sha256": "bf2ca995541e47dd6935ca56a33cdc657798ef5938f85497ab0d770b81d94ef3"
+    },
+    {
+      "path": "public/models/scoped-t3/anime-prince-lei-88ba5f4bcc1d6adb.glb",
+      "key": "models/scoped-t3/anime-prince-lei-88ba5f4bcc1d6adb.glb",
+      "bytes": 2767364,
+      "sha256": "88ba5f4bcc1d6adb66c35f74d70cdac624a3fe223b1a3e85609e0c759af8a5e8"
+    },
+    {
+      "path": "public/models/scoped-t4/anime-crown-prince-00197e287f3a8520.glb",
+      "key": "models/scoped-t4/anime-crown-prince-00197e287f3a8520.glb",
+      "bytes": 3900184,
+      "sha256": "00197e287f3a85202476c87993efba56861ea92bc846a7b74e9b4ee0f366170a"
+    },
+    {
+      "path": "public/models/scoped-t4/anime-empress-consort-3bd570bc62a2895e.glb",
+      "key": "models/scoped-t4/anime-empress-consort-3bd570bc62a2895e.glb",
+      "bytes": 8337344,
+      "sha256": "3bd570bc62a2895e3935a784ebd5d729f25f02592ef2fd8aed70e2c53b69da76"
+    },
+    {
+      "path": "public/models/scoped-t4/anime-empress-consort-628b7bdd5116071c.glb",
+      "key": "models/scoped-t4/anime-empress-consort-628b7bdd5116071c.glb",
+      "bytes": 6686632,
+      "sha256": "628b7bdd5116071c35aa6d21416eaec8bb4633471179fc5a49a904798bfcc383"
+    },
+    {
+      "path": "public/models/scoped-t4/anime-empress-dowager-5beb1638297e4ff1.glb",
+      "key": "models/scoped-t4/anime-empress-dowager-5beb1638297e4ff1.glb",
+      "bytes": 8901908,
+      "sha256": "5beb1638297e4ff10c28e0f733d833774ba623746d1ad3826f2153dc99623a2f"
+    },
+    {
+      "path": "public/models/scoped-t4/anime-empress-dowager-9eef1df26fc571a6.glb",
+      "key": "models/scoped-t4/anime-empress-dowager-9eef1df26fc571a6.glb",
+      "bytes": 5418188,
+      "sha256": "9eef1df26fc571a693061569fbfff0f18a8c2b0debfbcf6f42457a7a8b8858b8"
+    },
+    {
+      "path": "public/models/scoped-t4/anime-prime-minister-fcefcf10118cc65b.glb",
+      "key": "models/scoped-t4/anime-prime-minister-fcefcf10118cc65b.glb",
+      "bytes": 2942340,
+      "sha256": "fcefcf10118cc65b7841f31a33c7f75a406ac2ffa4d6ee44e2960da4897a82ac"
+    },
+    {
+      "path": "public/models/silk-chamber-canopy-bed.glb",
+      "key": "models/silk-chamber-canopy-bed.glb",
+      "bytes": 4904040,
+      "sha256": "0fd10fa5e7fccb7b436490654f27e70717de6704d2618a7cf0c4bc4e7e919017"
+    }
+  ]
+}

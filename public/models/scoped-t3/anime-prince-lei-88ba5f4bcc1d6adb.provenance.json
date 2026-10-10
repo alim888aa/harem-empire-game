@@ -1,0 +1,29 @@
+{
+  "name": "Prince Lei",
+  "sha256": "88ba5f4bcc1d6adb66c35f74d70cdac624a3fe223b1a3e85609e0c759af8a5e8",
+  "identity_key": "npc-prince-lei-adult-identity-v1",
+  "identity_fingerprint_sha256": "ceafa2f2351a399448a20007037ef2e08b7cee6b23ae0e0efd2cebb674efa859",
+  "anatomy_source": "Original generic adult legacy VRoid0.14 CC0 body/head/native facial UVs with accepted own59 foundation",
+  "hair_source": "Licensed source-authored legacy CC0 topology and native UVs; no donor body/persona",
+  "license": "CC0-1.0 plus original project-authored garments",
+  "license_primary_url": "https://vroid.pixiv.help/hc/en-us/articles/4402614652569-Do-VRoid-Studio-s-sample-models-come-with-conditions-of-use",
+  "selected_design": [
+    "Asymmetric long sleeveless riding overrobe",
+    "Raised opposite and side hem profile",
+    "Short single-side shoulderwrap",
+    "Diagonal chest harness and compact waist band"
+  ],
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "geometry_rig_uv_weights_current_motion_exact_source_to_runtime": true,
+  "active_channels": 708,
+  "sampler_rows_including8_historical_inactive": 716,
+  "controller_proof_basis": "Fresh exact current-source CPU routes and independent poses, cancel/decode/retry/shared-cancel/disposal; no browser/GPU claim",
+  "remaining_contact_cautions": "Inherited native sole/blend/tile-floor dips and intentional source-approved layer interfaces remain; finite tests do not establish global collision freedom",
+  "full_cast_complete": false
+}

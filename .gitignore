@@ -23,3 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Runtime binaries are hosted externally; assets:fetch restores verified local test copies.
+public/models/**/*.glb
+public/materials/*.jpg
+public/materials/*.png

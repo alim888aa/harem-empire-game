@@ -1,0 +1,29 @@
+{
+  "name": "General Wei",
+  "url": "/models/scoped-t3/anime-general-wei-5322d95d64d408af.glb?v=5322d95d64d408af",
+  "sha256": "5322d95d64d408af6f0adfd35727ba956a752c56bf9e7e8ab8c62df88d61e682",
+  "runtime": "/workspace/scratch/5e0e15dcbbf8/anime-recovery-proof/remaining-cast-checkpoints/generals-identity-runtime-v49/general-wei-runtime.glb",
+  "source": "/workspace/scratch/5e0e15dcbbf8/anime-recovery-proof/identity-repair-generals-v1/animation-validation-v1/general-wei-animated-source.glb",
+  "source_sha256": "c449ba5e19222d0e47853ee488c24a7fbf464a8d5da64053d5e5ee64d5943bad",
+  "editable": "/workspace/scratch/5e0e15dcbbf8/anime-recovery-proof/identity-repair-generals-v1/general-wei-identity-study.blend",
+  "editable_sha256": "bb289a7684ace1241fcb507ef2aa67eec6fe0ee9c46bd1fd9d6f1a5a03a46e48",
+  "bytes": 3127564,
+  "labelHeight": 2.1,
+  "walkSpeed": 1.2,
+  "previous_url": "/models/scoped-t3/anime-general-wei-7d8b73d05b6e0bbc.glb?v=7d8b73d05b6e0bbc",
+  "previous_sha256": "7d8b73d05b6e0bbcd32e86dddf4ae40fc6546fa9d25ea21a01efbbbb694f4424",
+  "rig_joints": 59,
+  "bone_channels": 708,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "user_approved_identity_checkpoint": "checkpoint03",
+  "design": "Distinct adult faces, native layered hair, coordinated skin and individual irises",
+  "license": "CC0 native VRoid foundation and original project-authored clothing",
+  "costume_and_below_neck_positions_preserved": true,
+  "native_animation_channel_bytes_preserved": true,
+  "source_to_runtime_nonimage_accessors_and_semantics_exact": true
+}

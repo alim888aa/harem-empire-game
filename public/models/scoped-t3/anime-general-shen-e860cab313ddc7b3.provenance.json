@@ -1,0 +1,25 @@
+{
+  "name": "General Shen",
+  "sha256": "e860cab313ddc7b39cafb4e403013f6826e26bf712e5ef298b4cb2bae7918788",
+  "source_glb_sha256": "e9159614d0b3467725f4c0015bb348732867d8b231d2b5af32aa1ea094512a0f",
+  "editable_source_sha256": "5055a82319182b9ad07f110337a1e688809cbd2069cb0dce00c1897376c626fe",
+  "anatomy_source": "Own59 accepted generic adult legacy VRoid CC0 Minister/General foundation",
+  "hair_source": "Licensed source-authored native hair geometry and UVs, retained from accepted Chen/Zhao",
+  "license": "CC0-1.0 plus original project-authored garments",
+  "selected_design": "Sage tunic and asymmetric bronze chest/shoulder armor, one-sided cape and fitted boots",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "geometry_rig_uv_weights_current_motion_exact_source_to_runtime": true,
+  "all708_current_foundation_motion_channels_exact": true,
+  "visual_review": "Actual source and exact compact runtime front, side, back, focused Idle/Walk/Run/Gift and cuff views inspected",
+  "limits": [
+    "Finite CPU-rendered poses, not continuous collision-free cloth or target-device GPU performance.",
+    "Inherited nonzero local interfaces and spatial floor bob remain; no global zero-contact claim."
+  ],
+  "full_cast_complete": false
+}

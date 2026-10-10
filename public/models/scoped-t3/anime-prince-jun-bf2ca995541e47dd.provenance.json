@@ -1,0 +1,29 @@
+{
+  "name": "Prince Jun",
+  "sha256": "bf2ca995541e47dd6935ca56a33cdc657798ef5938f85497ab0d770b81d94ef3",
+  "identity_key": "npc-prince-jun-adult-identity-v1",
+  "identity_fingerprint_sha256": "00dad654abd05c54ff690f4563910111c2ddc640c0987ccee478d809a165a004",
+  "anatomy_source": "Original generic adult legacy VRoid0.14 CC0 body/head/native facial UVs with accepted own59 foundation",
+  "hair_source": "Licensed source-authored legacy CC0 topology and native UVs; no donor body/persona",
+  "license": "CC0-1.0 plus original project-authored garments",
+  "license_primary_url": "https://vroid.pixiv.help/hc/en-us/articles/4402614652569-Do-VRoid-Studio-s-sample-models-come-with-conditions-of-use",
+  "selected_design": [
+    "Crescent-profile cropped outer vest",
+    "Rounded short continuous scapular cape with gold hem",
+    "Small open raised back collar",
+    "Broad compact knot binding"
+  ],
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "geometry_rig_uv_weights_current_motion_exact_source_to_runtime": true,
+  "active_channels": 708,
+  "sampler_rows_including8_historical_inactive": 716,
+  "controller_proof_basis": "Fresh exact current-source CPU routes and independent poses, cancel/decode/retry/shared-cancel/disposal; no browser/GPU claim",
+  "remaining_contact_cautions": "Inherited native sole/blend/tile-floor dips and intentional source-approved layer interfaces remain; finite tests do not establish global collision freedom",
+  "full_cast_complete": false
+}

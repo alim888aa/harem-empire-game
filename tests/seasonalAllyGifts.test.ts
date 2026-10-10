@@ -1,4 +1,5 @@
 import test,{beforeEach,type TestContext} from 'node:test';import assert from 'node:assert/strict';import {createActor} from 'xstate';
+import {assignCharacterFaction} from '../src/lib/factionSystem';
 import {gameMachine} from '../src/state-machines/game-machine';import {captureCampaign,createCampaignPresentation,campaignActorOptions,parseCampaignSave} from '../src/persistence/campaignSave';import {PLAYER_NODE,courtRelation,reduceCourtRelation,updateCourtNode} from '../src/lib/courtGraph';import {seasonalGiftGrant,courtierGiftAmount} from '../src/lib/campaignBalance';
 const machine=gameMachine.provide({guards:{emperor_encountered:()=>false,shouldOfferEmperorAudience:()=>false}});
 beforeEach(t=>{t.mock.method(console,'log',()=>{});Object.defineProperty(globalThis,'alert',{configurable:true,value:()=>{}})});
@@ -16,7 +17,27 @@ test('all living pledged tiers receive 1/5/10 every season despite zero support,
 test('new courtship pledge pays once immediately and cannot double-pay with seasonal renewal or repeated reports',t=>{const g=fresh(t),a=g.getSnapshot().context.characters['Maid Ling'];a.send({type:'ACTIVATE'});const before=g.getSnapshot().context.giftsRemaining;a.send({type:'APPLY_FACTION_BONUS',supportBonus:100});assert.equal(g.getSnapshot().context.giftsRemaining,before+1);assert.equal(g.getSnapshot().context.courtGiftSeasons?.['Maid Ling'],1);g.send({type:'CHARACTER_GAVE_GIFTS',name:'Maid Ling',characterType:'major'});assert.equal(g.getSnapshot().context.giftsRemaining,before+1);
  for(let season=2;season<=4;season++){const prior=g.getSnapshot().context.giftsRemaining;g.send({type:'NEXT_SEASON'});assert.equal(g.getSnapshot().context.giftsRemaining,prior+25+1);g.getSnapshot().context.characters['Maid Ling'].send({type:'ACTIVATE'});assert.equal(g.getSnapshot().context.giftsRemaining,prior+26);}const r=restore(t,capture(g));assert.equal(r.getSnapshot().context.giftsRemaining,g.getSnapshot().context.giftsRemaining);
 });
-test('a casualty at the new-season boundary cannot pay income for the season they die',t=>{const s=pledgeFixture(t,['Maid Ling']),c=s.snapshot.context,p=s.snapshot.children[c.characters['General Zhao'].id].snapshot.context;p.personalityVectors.influence=.7;c.relationshipGraph=reduceCourtRelation(c.relationshipGraph,'General Zhao',PLAYER_NODE,{kind:'hate',amount:100},1).graph;p.hate=courtRelation(c.relationshipGraph,'General Zhao',PLAYER_NODE).hate;c.courtPlots.pending['General Zhao']={attacker:'General Zhao',warnedSeason:1,dueSeason:2};const g=restore(t,s);g.send({type:'NEXT_SEASON'});assert.equal(g.getSnapshot().context.giftsRemaining,145);assert.ok(g.getSnapshot().context.deceasedCourtiers?.['Maid Ling']);assert.equal(g.getSnapshot().context.courtGiftSeasons?.['Maid Ling'],1);});
+test('a casualty at the new-season boundary cannot pay income for the season they die', t => {
+  const save = pledgeFixture(t, ['Maid Ling']);
+  const context = save.snapshot.context;
+  const plotter = save.snapshot.children[context.characters['General Zhao'].id].snapshot.context;
+  // Keep the fixture's graph faction in sync with its changed influence.
+  // The gameplay faction rule is derived; a fabricated formalFaction is ignored.
+  plotter.personalityVectors.influence = .7;
+  context.relationshipGraph = updateCourtNode(context.relationshipGraph, 'General Zhao', {
+    faction: assignCharacterFaction(plotter),
+  });
+  context.relationshipGraph = reduceCourtRelation(
+    context.relationshipGraph, 'General Zhao', PLAYER_NODE, {kind: 'hate', amount: 100}, 1,
+  ).graph;
+  plotter.hate = courtRelation(context.relationshipGraph, 'General Zhao', PLAYER_NODE).hate;
+  context.courtPlots.pending['General Zhao'] = {attacker: 'General Zhao', warnedSeason: 1, dueSeason: 2};
+  const game = restore(t, save);
+  game.send({type: 'NEXT_SEASON'});
+  assert.equal(game.getSnapshot().context.giftsRemaining, 145);
+  assert.ok(game.getSnapshot().context.deceasedCourtiers?.['Maid Ling']);
+  assert.equal(game.getSnapshot().context.courtGiftSeasons?.['Maid Ling'], 1);
+});
 test('v5 migration pays no income on load, preserves balances, and pays every existing pledge at next boundary',t=>{const s=pledgeFixture(t);s.version=5;delete s.snapshot.context.courtGiftSeasons;const parsed=parseCampaignSave(JSON.stringify(s));assert.equal(parsed.save.snapshot.context.giftsRemaining,100);assert.deepEqual(parsed.save.snapshot.context.relationshipGraph,s.snapshot.context.relationshipGraph);const g=restore(t,parsed.save);assert.equal(g.getSnapshot().context.giftsRemaining,100);g.send({type:'NEXT_SEASON'});assert.equal(g.getSnapshot().context.giftsRemaining,161);});
 test('legacy nonpledged love gifts due during settlement are queued and credited after survival',t=>{t.mock.method(Math,'random',()=>.424242);const g=fresh(t),s:any=capture(g),c=s.snapshot.context,name='Crown Prince',p=s.snapshot.children[c.characters[name].id].snapshot.context;Object.assign(p,{hasGivenGifts:true,giftCooldownUntil:2});p.relationshipVectors.loveForPlayer=1;p.legacyCourtshipGiftEligible=true;c.relationshipGraph.edges[name][PLAYER_NODE].affection=100;c.courtGiftSeasons[name]=1;const r=restore(t,s),before=r.getSnapshot().context.giftsRemaining;r.send({type:'NEXT_SEASON'});assert.equal(r.getSnapshot().context.giftsRemaining,before+25+10);assert.equal(r.getSnapshot().context.courtGiftSeasons?.[name],2);assert.deepEqual(r.getSnapshot().context.pendingCourtGifts,[]);assert.ok(capture(r));});
 test('terminal deadline clears queued courtship gifts and remains saveable without a final payout',t=>{t.mock.method(Math,'random',()=>.424242);const g=fresh(t),s:any=capture(g),c=s.snapshot.context;Object.assign(c,{season:20,rankEnteredSeason:1});s.presentation.clock.season=20;c.courtPlots.lastProcessedSeason=20;for(const ref of Object.values(c.characters) as any[])s.snapshot.children[ref.id].snapshot.context.currentSeason=20;for(const name of ['Crown Prince','Empress Dowager']){const p=s.snapshot.children[c.characters[name].id].snapshot.context;p.relationshipVectors.loveForPlayer=1;p.legacyCourtshipGiftEligible=true;c.relationshipGraph.edges[name][PLAYER_NODE].affection=100;Object.assign(p,{hasGivenGifts:true,giftCooldownUntil:21});}const r=restore(t,s);r.send({type:'NEXT_SEASON'});assert.equal(r.getSnapshot().value,'game_over');assert.deepEqual(r.getSnapshot().context.pendingCourtGifts,[]);assert.ok(capture(r));});

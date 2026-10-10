@@ -1,9 +1,78 @@
-// Generated exact-name reviewed subset only. Unlisted court actors retain v32 authored fallback.
-// A scoped pass is never full-cast completion. Do not hand-register unreviewed fitting candidates.
-export interface ScopedCourtSpec { readonly file:string; readonly labelHeight:number; readonly walkSpeed:number; readonly normalizeClipOrigin?:boolean }
-export const SCOPED_COURT_MODELS:Readonly<Record<string,ScopedCourtSpec>> = Object.freeze({
+// Reviewed exact-name courtier assets. Unknown names retain the legacy fallback path.
+// The Emperor and player rank outfits are separate assets.
+export interface ScopedCourtSpec {
+  readonly file: string;
+  readonly labelHeight: number;
+  readonly walkSpeed: number;
+  readonly normalizeClipOrigin?: boolean;
+  readonly runSpeed?: number;
+  readonly controlWalk?: number;
+  readonly bodyRadius?: number;
+  readonly height?: number;
+}
+
+export const SCOPED_COURT_MODELS: Readonly<Record<string, ScopedCourtSpec>> = Object.freeze({
+  "Prince Feng": {
+    "file": "/models/scoped-t3/anime-prince-feng-90440f404f28f764.glb?v=90440f404f28f764",
+    "labelHeight": 2.08,
+    "walkSpeed": 1.2,
+    "runSpeed": 3.8,
+    "controlWalk": 1.35,
+    "bodyRadius": 0.36,
+    "height": 1.9
+  },
+  "Prince Han": {
+    "file": "/models/scoped-t3/anime-prince-han-30fe380214c9b797.glb?v=30fe380214c9b797",
+    "labelHeight": 2.08,
+    "walkSpeed": 1.2,
+    "runSpeed": 3.8,
+    "controlWalk": 1.35,
+    "bodyRadius": 0.36,
+    "height": 1.9
+  },
+  "Prince Jun": {
+    "file": "/models/scoped-t3/anime-prince-jun-bf2ca995541e47dd.glb?v=bf2ca995541e47dd",
+    "labelHeight": 2.08,
+    "walkSpeed": 1.2,
+    "runSpeed": 3.8,
+    "controlWalk": 1.35,
+    "bodyRadius": 0.36,
+    "height": 1.9
+  },
+  "Prince Lei": {
+    "file": "/models/scoped-t3/anime-prince-lei-88ba5f4bcc1d6adb.glb?v=88ba5f4bcc1d6adb",
+    "labelHeight": 2.08,
+    "walkSpeed": 1.2,
+    "runSpeed": 3.8,
+    "controlWalk": 1.35,
+    "bodyRadius": 0.36,
+    "height": 1.9
+  },
+  "Minister Chen": {
+    "file": "/models/scoped-t3/anime-minister-chen-60ee0f25d0f0e554.glb?v=60ee0f25d0f0e554",
+    "labelHeight": 2.1,
+    "walkSpeed": 1.2
+  },
   "Concubine Mei": {
     "file": "/models/scoped-t2/anime-concubine-mei-d0c39967a8b1b807.glb?v=d0c39967a8b1b807",
+    "labelHeight": 2.1,
+    "walkSpeed": 0.902234637,
+    "normalizeClipOrigin": true
+  },
+  "Concubine Lin": {
+    "file": "/models/scoped-t2/anime-concubine-lin-simple-492fbb821f4e8488.glb?v=492fbb821f4e8488",
+    "labelHeight": 2.1,
+    "walkSpeed": 0.902234637,
+    "normalizeClipOrigin": true
+  },
+  "Concubine Xia": {
+    "file": "/models/scoped-t2/anime-concubine-xia-simple-e9dfe7a779b25fb7.glb?v=e9dfe7a779b25fb7",
+    "labelHeight": 2.1,
+    "walkSpeed": 0.902234637,
+    "normalizeClipOrigin": true
+  },
+  "Concubine Yun": {
+    "file": "/models/scoped-t2/anime-concubine-yun-simple-794373daf5827ed4.glb?v=794373daf5827ed4",
     "labelHeight": 2.1,
     "walkSpeed": 0.902234637,
     "normalizeClipOrigin": true
@@ -96,6 +165,18 @@ export const SCOPED_COURT_MODELS:Readonly<Record<string,ScopedCourtSpec>> = Obje
     "labelHeight": 2.1,
     "walkSpeed": 1.2
   },
+  "Concubine An": {
+    "file": "/models/scoped-t2/anime-concubine-an-simple-23868f6495d257b2.glb?v=23868f6495d257b2",
+    "labelHeight": 2.1,
+    "walkSpeed": 0.902234637,
+    "normalizeClipOrigin": true
+  },
+  "Concubine Qiao": {
+    "file": "/models/scoped-t2/anime-concubine-qiao-simple-765cee9cbec853bc.glb?v=765cee9cbec853bc",
+    "labelHeight": 2.1,
+    "walkSpeed": 0.902234637,
+    "normalizeClipOrigin": true
+  },
   "Scholar Qin": {
     "file": "/models/scoped-t2/anime-scholar-qin-3a1b0f4504044de5.glb?v=3a1b0f4504044de5",
     "labelHeight": 2.1,
@@ -125,6 +206,88 @@ export const SCOPED_COURT_MODELS:Readonly<Record<string,ScopedCourtSpec>> = Obje
     "file": "/models/scoped-t2/anime-scholar-yu-d95e37117c5d88e8.glb?v=d95e37117c5d88e8",
     "labelHeight": 2.1,
     "walkSpeed": 1.2
+  },
+  "Consort Hua": {
+    "file": "/models/scoped-t3/anime-consort-hua-4c654c8f5ebceba5.glb?v=4c654c8f5ebceba5",
+    "labelHeight": 2.1,
+    "walkSpeed": 0.902234637,
+    "normalizeClipOrigin": true
+  },
+  "Consort Zhen": {
+    "file": "/models/scoped-t3/anime-consort-zhen-956777ba55d373d1.glb?v=956777ba55d373d1",
+    "labelHeight": 2.1,
+    "walkSpeed": 0.902234637,
+    "normalizeClipOrigin": true
+  },
+  "Consort Rong": {
+    "file": "/models/scoped-t3/anime-consort-rong-df8e2d4bf8f18a67.glb?v=df8e2d4bf8f18a67",
+    "labelHeight": 2.1,
+    "walkSpeed": 0.902234637,
+    "normalizeClipOrigin": true
+  },
+  "Consort Yue": {
+    "file": "/models/scoped-t3/anime-consort-yue-38a35c66f0c11f8c.glb?v=38a35c66f0c11f8c",
+    "labelHeight": 2.1,
+    "walkSpeed": 0.902234637,
+    "normalizeClipOrigin": true
+  },
+  "General Zhao": {
+    "file": "/models/scoped-t3/anime-general-zhao-e30c036ff3ff257b.glb?v=e30c036ff3ff257b",
+    "labelHeight": 2.1,
+    "walkSpeed": 1.2
+  },
+  "Minister Wang": {
+    "file": "/models/scoped-t3/anime-minister-wang-b06d43ea1c6466d2.glb?v=b06d43ea1c6466d2",
+    "labelHeight": 2.1,
+    "walkSpeed": 1.2
+  },
+  "Minister Liu": {
+    "file": "/models/scoped-t3/anime-minister-liu-7ca6f02e202892a9.glb?v=7ca6f02e202892a9",
+    "labelHeight": 2.1,
+    "walkSpeed": 1.2
+  },
+  "Minister Zhang": {
+    "file": "/models/scoped-t3/anime-minister-zhang-273d89d123d593c5.glb?v=273d89d123d593c5",
+    "labelHeight": 2.1,
+    "walkSpeed": 1.2
+  },
+  "General Shen": {
+    "file": "/models/scoped-t3/anime-general-shen-5566ee5e1495ffdb.glb?v=5566ee5e1495ffdb",
+    "labelHeight": 2.1,
+    "walkSpeed": 1.2
+  },
+  "General Wei": {
+    "file": "/models/scoped-t3/anime-general-wei-5322d95d64d408af.glb?v=5322d95d64d408af",
+    "labelHeight": 2.1,
+    "walkSpeed": 1.2
+  },
+  "General Luo": {
+    "file": "/models/scoped-t3/anime-general-luo-3d49ad5601d425ef.glb?v=3d49ad5601d425ef",
+    "labelHeight": 2.1,
+    "walkSpeed": 1.2
+  },
+  "Crown Prince": {
+    "file": "/models/scoped-t4/anime-crown-prince-00197e287f3a8520.glb?v=00197e287f3a8520",
+    "labelHeight": 2.12,
+    "walkSpeed": 1.2
+  },
+  "Prime Minister": {
+    "file": "/models/scoped-t4/anime-prime-minister-fcefcf10118cc65b.glb?v=fcefcf10118cc65b",
+    "labelHeight": 2.12,
+    "walkSpeed": 1.2
+  },
+  "Empress Consort": {
+    "file": "/models/scoped-t4/anime-empress-consort-3bd570bc62a2895e.glb?v=3bd570bc62a2895e",
+    "labelHeight": 2.24,
+    "walkSpeed": 1.2
+  },
+  "Empress Dowager": {
+    "file": "/models/scoped-t4/anime-empress-dowager-5beb1638297e4ff1.glb?v=5beb1638297e4ff1",
+    "labelHeight": 2.04,
+    "walkSpeed": 1.2
   }
 } as const);
-export const scopedCourtModelSpec=(name:string):ScopedCourtSpec|undefined=>Object.hasOwn(SCOPED_COURT_MODELS,name)?SCOPED_COURT_MODELS[name]:undefined;
+
+export function scopedCourtModelSpec(name: string): ScopedCourtSpec | undefined {
+  return Object.hasOwn(SCOPED_COURT_MODELS, name) ? SCOPED_COURT_MODELS[name] : undefined;
+}

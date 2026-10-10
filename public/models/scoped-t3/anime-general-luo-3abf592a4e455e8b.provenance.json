@@ -1,0 +1,25 @@
+{
+  "name": "General Luo",
+  "sha256": "3abf592a4e455e8b154697e794deb55a9ef4576058407f1cacd1b3394e07fc51",
+  "source_glb_sha256": "14ccd28b71141ed55d2b33783e2759457b3fd15cd035b4f9cb5e5a3131f36580",
+  "editable_source_sha256": "4048f6d730c45cdcc682629f157dd2971577a9679ca460261a4ee8639ba41e13",
+  "anatomy_source": "Own59 accepted generic adult legacy VRoid CC0 Minister/General foundation",
+  "hair_source": "Licensed source-authored native hair geometry and UVs, retained from accepted Chen/Zhao",
+  "license": "CC0-1.0 plus original project-authored garments",
+  "selected_design": "Plum long cape, flat dark breastplate, compact paired shoulders, diagonal waist wrap and fitted boots",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "geometry_rig_uv_weights_current_motion_exact_source_to_runtime": true,
+  "all708_current_foundation_motion_channels_exact": true,
+  "visual_review": "Actual source and exact compact runtime front, side, back, focused Idle/Walk/Run/Gift and cuff views inspected",
+  "limits": [
+    "Finite CPU-rendered poses, not continuous collision-free cloth or target-device GPU performance.",
+    "Inherited nonzero local interfaces and spatial floor bob remain; no global zero-contact claim."
+  ],
+  "full_cast_complete": false
+}

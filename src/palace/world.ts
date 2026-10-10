@@ -5,6 +5,7 @@ import { addHallDetails } from './hallDetails';
 import { addPalaceCraft } from './palaceCraft';
 import { addPalaceRoomFocals } from './palaceRoomFocals';
 import { ZONES, zoneGates, zoneSpawn, type PlayableZone, type NpcVisitPose } from './zones';
+import { runtimeAssetUrl } from './runtimeAssetUrl';
 
 export type CourtPerson = { name: string; displayName?: string; type: 'major' | 'side' | 'minor' };
 export type Collider = { x: number; z: number; w: number; d: number; height: number; minY: number };
@@ -35,8 +36,16 @@ export function createPalaceWorld(people: CourtPerson[], _playerType: string, so
   const textured = (m: THREE.MeshStandardMaterial, name: string, base: string, normal: string, rough: string, repeat = 1) => {
     m.name=name;
     if(typeof document==='undefined'||software)return;
-    const loader=new THREE.TextureLoader();
-    const get=(path:string,color=false)=>{const t=loader.load('/materials/'+path);t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(repeat,repeat);if(color)t.colorSpace=THREE.SRGBColorSpace;textures.push(t);return t;};
+    const loader = new THREE.TextureLoader();
+    loader.setCrossOrigin('anonymous');
+    const get = (path: string, color = false) => {
+      const texture = loader.load(runtimeAssetUrl('/materials/' + path));
+      texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+      texture.repeat.set(repeat, repeat);
+      if (color) texture.colorSpace = THREE.SRGBColorSpace;
+      textures.push(texture);
+      return texture;
+    };
     m.map=get(base,true);m.normalMap=get(normal);m.roughnessMap=get(rough);m.normalScale.set(.22,.22);m.needsUpdate=true;
   };
   textured(red,'Vermilion lacquer','dark_wood_diff_1k.jpg','dark_wood_nor_gl_1k.jpg','dark_wood_rough_1k.jpg',2);

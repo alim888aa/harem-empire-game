@@ -1,0 +1,79 @@
+{
+  "name": "Minister Chen",
+  "sha256": "60ee0f25d0f0e554e65113a52efabcb0feaa204dc5871d07546f610027f3f6ce",
+  "baseline_asset": "npc-minister.glb",
+  "source_review_record": "retarget-minister-chen-exact-60ee0f25d0f0e554-acceptance.json",
+  "source_review_record_sha256": "d242e0ba702b6d23353ddc4400c89ca124aea7b56e47ffabb0a00e8d3ce31a78",
+  "identity_key": "npc-minister-chen-adult-identity-v1",
+  "identity_fingerprint_sha256": "7d812eecc42daae6a5fc18df2f948fdf2f25fab0eec246069f2c6bbc93dad288",
+  "anatomy_source": "Original generic adult legacy VRoid0.14 CC0 body/head/native facial UVs with accepted own59 anatomical foundation",
+  "hair_source": "Licensed source-authored legacy CC0 topology/native UVs, fitted to the source head; no donor body/persona",
+  "license": "CC0-1.0 plus original project-authored garments",
+  "license_primary_url": "https://vroid.pixiv.help/hc/en-us/articles/4402614652569-Do-VRoid-Studio-s-sample-models-come-with-conditions-of-use",
+  "selected_design": "Accepted mature clean-shaven face, plum closed robe, cream yoke, narrow collar, winged cap and native authored hair",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "geometry_rig_uv_weights_current_motion_exact_source_to_runtime": true,
+  "controller_proof_basis": "Fresh exact current-core detailed frames/lifecycle with two-name overlay/spec preservation; no browser/GPU claim",
+  "recorded_nonzero_contacts_and_interfaces": {
+    "runtime": {
+      "lowestRelative": {
+        "minimum_m": -0.0172253926838441,
+        "max_penetration_mm": 17.2253926838441,
+        "worst_phase": "real-world-walk",
+        "worst_frame": 6
+      },
+      "lowestFloor": {
+        "minimum_m": -0.02196494765469111,
+        "max_penetration_mm": 21.96494765469111,
+        "worst_phase": "walk-to-gift",
+        "worst_frame": 312
+      },
+      "lowestGeometryFloor": {
+        "minimum_m": -0.04946494765469111,
+        "max_penetration_mm": 49.46494765469111,
+        "worst_phase": "walk-to-gift",
+        "worst_frame": 312
+      }
+    },
+    "published_baseline": {
+      "lowestRelative": {
+        "minimum_m": -0.01670348580725102,
+        "max_penetration_mm": 16.70348580725102,
+        "worst_phase": "controller-speed-065-walk",
+        "worst_frame": 6
+      },
+      "lowestFloor": {
+        "minimum_m": -0.021935036645996935,
+        "max_penetration_mm": 21.935036645996934,
+        "worst_phase": "walk-to-gift",
+        "worst_frame": 313
+      },
+      "lowestGeometryFloor": {
+        "minimum_m": -0.04943503664599694,
+        "max_penetration_mm": 49.43503664599694,
+        "worst_phase": "walk-to-gift",
+        "worst_frame": 313
+      }
+    },
+    "garment_interfaces": {
+      "body_robe_remaining_pair_sets_exact_subset_frozen_source_all36poses": true,
+      "new_body_robe_pairs_all36poses": 0,
+      "lower_leg_knee_thigh_body_robe_pairs_all18_Walk_Run_poses": 0,
+      "remaining_waist_arm_body_contact_pairs_not_zero": true,
+      "new_nonadjacent_self_pairs_peak_Walk": 347,
+      "new_nonadjacent_self_pairs_peak_Run": 525,
+      "new_self_region": "Mainly front ivory tab, gold edge and underlying plum interfaces; exact material pairs/triangle IDs/world bounds retained in localization report",
+      "shoe_native_body_surface_pairs_remain": true,
+      "continuous_collision_certification": false
+    }
+  },
+  "all_time_collision_free_or_foot_lock_claimed": false,
+  "GPU_FPS_measured": false,
+  "full_cast_complete": false
+}

@@ -1,0 +1,33 @@
+{
+  "character": "Player Empress",
+  "change": "Phoenix headdress only",
+  "baseline_runtime_sha256": "e230b7b7bd4bf525b56f3510a3e743c6e659395a3b66a9bd7eacf8cc022976c3",
+  "runtime_sha256": "c4351ca3937016092c65d5cf21dae96b4b3b61bf065a205ce301ae231257246e",
+  "construction": "Adapted original project-authored accepted Dowager phoenix ornament; joined side pins and threaded pearl strands authored for this player bun",
+  "preservation": {
+    "scope": "Only tiny flower removed and phoenix bun ornament/pins/beads added",
+    "protected_meshes_exact": 40,
+    "native_actions_exact": true,
+    "native_rig_rest_exact": true,
+    "headpiece_meshes": 59,
+    "old_flower_meshes_removed": 7,
+    "baseline_sha256": "ff081f4d5dab6521d0e5dfb5338010a8ec3a8c60abb7dbd6353bb5bea1afb020",
+    "donor_sha256": "95c3a161ff7a1b21c035ebaff79c2d8da54529e318f4cf5b5a5a71cd60c20993"
+  },
+  "runtime_budget": {
+    "baseline_sha256": "e230b7b7bd4bf525b56f3510a3e743c6e659395a3b66a9bd7eacf8cc022976c3",
+    "new_sha256": "c4351ca3937016092c65d5cf21dae96b4b3b61bf065a205ce301ae231257246e",
+    "bone_channels_equal_to_v53": true,
+    "inverse_binds_equal_to_v53": true,
+    "joints": 63,
+    "triangles_before": 69656,
+    "triangles_after": 73012,
+    "bytes_before": 4078548,
+    "bytes_after": 4217784,
+    "draws_before": 5,
+    "draws_after": 5,
+    "textures_decoded_rgba": 4194304,
+    "cloth_targets": 9
+  },
+  "browser_QA": "Not measured; prior environment blocks unchanged"
+}

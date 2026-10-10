@@ -1,9 +1,11 @@
+import {selectCourtier} from '../lib/courtSelection';
 import CourtSpeechBubble from './CourtSpeechBubble';
 import RomanceActions from './RomanceActions';
 import type {CourtGraph} from '../lib/courtGraph';
 import type {RomanceAction,RomanceReceipt,RomanceWitness} from '../lib/courtRomance';
 import DemotionSummary from './DemotionSummary';
 import CourtNotifications from './CourtNotifications';
+import {courtPlotNotifications, type GiftNotification} from '../lib/courtNotifications';
 import {FIRST_EMPEROR_VISIT_SECONDS,countsFreeRoamTime} from '../lib/firstEmperorVisit';
 import EmperorIntro from './EmperorIntro';
 import type {EmperorAppearanceStatus} from '../palace/emperorEntrance';
@@ -110,7 +112,7 @@ interface GameLayoutProps {
   presentation: CampaignPresentation;
   saveMenuOpen: boolean;
 }
-function CourtAudience({
+export function CourtAudience({
   actor,
   character,
   playerStats,
@@ -128,7 +130,9 @@ function CourtAudience({
   standing,
   receipt,
   graph,romanceReceipt,witnesses,zone,onRomance,speechAnchored=false,
+  palaceConversation = false,
 }: {
+  palaceConversation?: boolean;
   graph:CourtGraph;romanceReceipt?:RomanceReceipt|null;witnesses:RomanceWitness[];zone:string;onRomance:(action:RomanceAction)=>void;speechAnchored?:boolean;
   actor: ActorRefFrom<typeof characterMachine>;
   character: InitialCharacterType;
@@ -149,16 +153,23 @@ function CourtAudience({
 }) {
   const data = useSelector(actor, (snapshot) => snapshot.context);
   const currentCharacter: Character = { ...data, type: character.type,displayName:character.displayName };
+  const dossier = <CharacterInfo character={currentCharacter} personality={getPersonalityHint(data.personalityVectors)}
+    canShowStats currentSeason={season} />;
   return (
     <article className="court-audience">
-      <CharacterDisplay character={currentCharacter} onPrevious={onPrevious} onNext={onNext} onPeople={onPeople} />
+      {!palaceConversation && <CharacterDisplay character={currentCharacter}
+        onPrevious={onPrevious} onNext={onNext} onPeople={onPeople} />}
       <div className="audience-conversation">
-        <CharacterInfo character={currentCharacter} personality={getPersonalityHint(data.personalityVectors)} canShowStats currentSeason={season} />
+        {!palaceConversation && dossier}
         <CourtSpeechBubble name={displayCharacterName(currentCharacter)} response={(data.lastResponse||response.startsWith(`${character.name}:`)&&response||'').replace(`${character.name}:`,`${displayCharacterName(currentCharacter)}:`)} anchored={speechAnchored}>
           {romanceReceipt?.characterId===character.name&&data.lastResponse===`${character.name}: ${romanceReceipt.response}`?<small>{romanceReceipt.action==='gift'?`Romantic gift: +${romanceReceipt.affectionDelta} affection · ${romanceReceipt.cost} gifts`:romanceReceipt.action==='propose'?(romanceReceipt.accepted?'Romance accepted':'Proposal refused'):'Romance ended'}</small>:receipt?.characterId===character.name&&<small>Last political gift: {signed(receipt.supportDelta)} personal support · {receipt.cost} {receipt.cost===1?"gift":"gifts"}{receipt.globalRenewal>0?` · +${receipt.globalRenewal} global support`:""}</small>}
         </CourtSpeechBubble>
         <div className="audience-choices"><ActionButtons graph={graph} zone={zone} witnesses={witnesses} onRomanticGift={()=>onRomance("gift")} standing={standing} pending={giftPending} giftError={giftError} key={character.name} character={currentCharacter} onAction={onAction} gifts={gifts} playerStats={playerStats} playerType={playerType} rank={rank} />
         <RomanceActions character={currentCharacter} graph={graph} role={playerType} zone={zone} witnesses={witnesses} pending={giftPending} onAction={onRomance}/></div>
+        {palaceConversation && <details className="conversation-dossier">
+          <summary>About {displayCharacterName(currentCharacter)} · {Math.round(data.supportLevel)} support</summary>
+          {dossier}
+        </details>}
       </div>
     </article>
   );
@@ -187,6 +198,9 @@ export default function GameLayout({
   const introActiveTime=useRef(0);
   const clockState = useRef({ remaining: presentation.clock.remainingSeconds, sent: presentation.clock.expired, last: 0 });
   const context = machineState.context;
+  const plotNotifications = courtPlotNotifications(context.courtPlots, context.readCourtNotificationIds);
+  const unreadNotifications = plotNotifications.filter(note => !note.read).length +
+    (context.giftNotifications ?? []).filter((note: GiftNotification) => !note.read).length;
   const demotion=context.demotionNotice&&!context.demotionNotice.acknowledged?context.demotionNotice:null;
   const lastCommittedSeason = useRef(context.season);
   const [transitionSeason,setTransitionSeason] = useState<number|null>(null);
@@ -224,7 +238,7 @@ export default function GameLayout({
     0,
     Math.min(uiState.currentCharacterIndex, availableCharacters.length - 1),
   );
-  const currentCharacter = availableCharacters[safeIndex];
+  const currentCharacter = selectCourtier(availableCharacters, safeIndex, exploring ? conversation : null);
   const playing = machineState.matches({ playing: "in_season" }) || machineState.matches({ playing: "gift_processing" });
   const emperorEncounter = machineState.matches({ playing: "emperor_encounter" });
   const emperorIntro=machineState.matches({playing:"emperor_intro"});
@@ -382,8 +396,9 @@ export default function GameLayout({
       {recapSeason!==null && demotion?.reason!=='audience' && <SeasonTransition key={recapSeason} season={recapSeason} demotion={demotion?.reason==='deadline'?demotion:null} giftGrant={context.lastSeasonGiftGrant??seasonalGiftGrant(characterType,rank)} castCount={seasonalCharacters.length} faction={factionSystem.playerFaction} onComplete={()=>{if(demotion?.reason==='deadline')acknowledgeDemotion();setTransitionSeason(null);}} />}
       {demotion?.reason==='audience'&&<CourtDialog title="Demoted" onClose={acknowledgeDemotion}><DemotionSummary notice={demotion}/><button className="court-stats-button" onClick={acknowledgeDemotion}>Return to the court</button></CourtDialog>}
       <GameHeader
-        unreadNotifications={(context.giftNotifications??[]).filter((n:any)=>!n.read).length}
-        onNotificationsClick={()=>{setConversation(null);setUiState(previous=>({...previous,showStatsModal:false,showFactionPanel:false,showRosterPanel:false}));setNotificationsOpen(true);send({type:'READ_GIFT_NOTIFICATIONS'});}}
+        unreadNotifications={unreadNotifications}
+        urgentNotifications={plotNotifications.filter(note => note.activePlot).length}
+        onNotificationsClick={()=>{setConversation(null);setUiState(previous=>({...previous,showStatsModal:false,showFactionPanel:false,showRosterPanel:false}));setNotificationsOpen(true);send({type:'READ_COURT_NOTIFICATIONS'});}}
         gameState={gameState}
         onNextSeason={playing && !giftPending && transitionSeason===null ? () => { setConversation(null); send({ type: "NEXT_SEASON" }); } : undefined}
         onCourtClick={toggleFactions}
@@ -398,8 +413,6 @@ export default function GameLayout({
       </CourtDialog>}
 
       {exploring && suspiciousCharacters.length > 0 && <p className="palace-warning" role="status">The court is watching · {suspiciousCharacters.length}/{threshold} reports</p>}
-      {Object.keys(context.courtPlots?.pending??{}).length>0 && <button className={`intrigue-alert ${exploring?'is-palace':''}`} onClick={()=>setUiState(previous=>({...previous,showFactionPanel:true}))} aria-live="assertive">Assassination warning · {Object.keys(context.courtPlots.pending).length} {Object.keys(context.courtPlots.pending).length===1?'plot':'plots'} · Review before ending the season →</button>}
-      {Object.keys(context.courtPlots?.pending??{}).length===0&&(context.courtPlots?.events??[]).some((event:any)=>event.season===season&&event.kind==='casualty')&&<button className={`intrigue-alert ${exploring?'is-palace':''}`} onClick={()=>setUiState(previous=>({...previous,showFactionPanel:true}))}>A courtier died · Read the court report →</button>}
       {!exploring && <main className="court-main">
         <label className="classic-zone-picker">Palace area <select value={visits.current.zone} onChange={event=>{const zone=event.target.value as typeof visits.current.zone;if(careerZoneAccess(characterType,rank,zone).allowed){visits.current.zone=zone;send({type:'UPDATE_PALACE_PRESENCE',zone,names:zoneRoster(seasonalCharacters,zone,season,1-secondsLeft/(seasonMinutes*60)).map(p=>p.name)});}}}>{PLAYABLE_ZONES.map(zone=><option key={zone} value={zone} disabled={!careerZoneAccess(characterType,rank,zone).allowed}>{ZONES[zone].title}{careerZoneAccess(characterType,rank,zone).allowed?'':` · ${careerZoneAccess(characterType,rank,zone).reason}`}</option>)}</select></label>
         <CourtBriefing consolidation={consolidationProgress(characterType,rank,context.rankEnteredSeason,season,context.consolidationWaived)} role={characterType} influence={context.playerPersonality.influence} remaining={deadline?.seasonsRemaining} deferred={season < context.emperorAudienceDeferredUntilSeason} support={supportPoints} rank={rank} factionSystem={factionSystem} onFactionsClick={toggleFactions} />
@@ -436,9 +449,10 @@ export default function GameLayout({
         </div>
         <footer className="court-footer"><span>Save & game for campaign storage and recovery</span></footer>
       </main>}
-      {exploring && conversation && currentCharacter?.name === conversation && characterActors[conversation] && (
+      {exploring && conversation && currentCharacter && characterActors[conversation] && (
         <CourtDialog title="A moment at court" onClose={closeConversation}>
           <div className="palace-conversation"><CourtAudience
+            palaceConversation
             graph={context.relationshipGraph} romanceReceipt={context.lastRomanceReceipt} witnesses={romanceWitnesses} zone={context.currentZone} onRomance={handleRomance} speechAnchored={speechAnchored}
             actor={characterActors[conversation]} character={currentCharacter}
             playerStats={context.playerPersonality} playerType={characterType} rank={context.rank} gifts={giftsRemaining} season={season}
@@ -456,7 +470,13 @@ export default function GameLayout({
           onDismiss={onPromotionDismiss}
         />
       )}
-      {notificationsOpen&&<CourtNotifications notifications={context.giftNotifications??[]} onClose={()=>setNotificationsOpen(false)}/>}
+      {notificationsOpen && <CourtNotifications notifications={context.giftNotifications ?? []} plots={plotNotifications}
+        plotContext={{graph: context.relationshipGraph, influence: context.playerPersonality.influence,
+          influences: Object.fromEntries(Object.keys(characterActors).map(name =>
+            [name, characterActors[name].getSnapshot().context.personalityVectors.influence])),
+          joinableFactions: factionSystem.membershipOffers.map((offer: {faction: string}) => offer.faction)}}
+        onReviewCourt={() => {setNotificationsOpen(false); setUiState(previous => ({...previous, showFactionPanel: true}));}}
+        onClose={() => setNotificationsOpen(false)}/>}
       {uiState.showRosterPanel && (
         <CourtDialog title="People at court" onClose={() => setUiState((previous) => ({ ...previous, showRosterPanel: false }))}>
           <CourtRoster characters={availableCharacters} actors={characterActors} selectedIndex={safeIndex}

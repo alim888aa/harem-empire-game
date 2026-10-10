@@ -1,0 +1,25 @@
+{
+  "name": "Minister Liu",
+  "sha256": "7ca6f02e202892a9b5bfc8555b3f34abeb6c89336004ae5decb0b804894d5913",
+  "source_glb_sha256": "bfb810678af0986f94aee2860c4346a2223f7c84315af7331b5f0f1dc67faa4d",
+  "editable_source_sha256": "a10889b8da9a09151aa4574996117f2b927e30183519028378bcb7ba315737be",
+  "anatomy_source": "Own59 accepted generic adult legacy VRoid CC0 Minister/General foundation",
+  "hair_source": "Licensed source-authored native hair geometry and UVs, retained from accepted Chen/Zhao",
+  "license": "CC0-1.0 plus original project-authored garments",
+  "selected_design": "Teal closed robe, asymmetric ivory wrapped yoke and single offset long strip",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "geometry_rig_uv_weights_current_motion_exact_source_to_runtime": true,
+  "all708_current_foundation_motion_channels_exact": true,
+  "visual_review": "Actual source and exact compact runtime front, side, back, focused Idle/Walk/Run/Gift and cuff views inspected",
+  "limits": [
+    "Finite CPU-rendered poses, not continuous collision-free cloth or target-device GPU performance.",
+    "Inherited nonzero local interfaces and spatial floor bob remain; no global zero-contact claim."
+  ],
+  "full_cast_complete": false
+}

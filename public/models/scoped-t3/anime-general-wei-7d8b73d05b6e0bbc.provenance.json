@@ -1,0 +1,25 @@
+{
+  "name": "General Wei",
+  "sha256": "7d8b73d05b6e0bbcd32e86dddf4ae40fc6546fa9d25ea21a01efbbbb694f4424",
+  "source_glb_sha256": "ac3bee88cea98a53be3388ae8a65ad9f5df70257a195c177527eba3c5a420743",
+  "editable_source_sha256": "6fc1612076ab4aa103cbf66a160a6eccd8dbf53b76f6f0370a113e811f6ed292",
+  "anatomy_source": "Own59 accepted generic adult legacy VRoid CC0 Minister/General foundation",
+  "hair_source": "Licensed source-authored native hair geometry and UVs, retained from accepted Chen/Zhao",
+  "license": "CC0-1.0 plus original project-authored garments",
+  "selected_design": "Graphite paired compact armor, split front apron, loose trousers and close fitted boots",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "geometry_rig_uv_weights_current_motion_exact_source_to_runtime": true,
+  "all708_current_foundation_motion_channels_exact": true,
+  "visual_review": "Actual source and exact compact runtime front, side, back, focused Idle/Walk/Run/Gift and cuff views inspected",
+  "limits": [
+    "Finite CPU-rendered poses, not continuous collision-free cloth or target-device GPU performance.",
+    "Inherited nonzero local interfaces and spatial floor bob remain; no global zero-contact claim."
+  ],
+  "full_cast_complete": false
+}

@@ -57,7 +57,7 @@ test('character URLs include only present NPCs and player, with shared art dedup
   assert.equal(playerOnly.length, 1);
   assert.match(playerOnly[0], /player-prince-anime/);
   const split=characterAssetUrls([{name:'Prince Feng'},{name:'Unregistered'}],'prince');
-  assert.equal(split.length,2);assert.match(split[0],/prince-runtime/);assert.equal(split[1],playerOnly[0]);
+  assert.equal(split.length,2);assert.equal(split[0],'/models/scoped-t3/anime-prince-feng-90440f404f28f764.glb?v=90440f404f28f764');assert.equal(split[1],playerOnly[0]);
   assert.equal(characterAssetUrls([{ name: 'Maid Ling' }], 'prince').length, 2);
   assert.deepEqual(characterAssetUrls([], 'unregistered'), []);
 });

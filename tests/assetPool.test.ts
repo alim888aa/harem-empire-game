@@ -134,3 +134,31 @@ test('shared archetype palette variants own only their color materials and canno
  let ownDisposals=0;ma.addEventListener('dispose',()=>ownDisposals++);a.applyPalette({Robe_Primary:'#00aa00'});assert.equal((a.root.children[0] as THREE.Mesh).material,ma);
  a.dispose();a.dispose();assert.equal(ownDisposals,1);assert.equal(pool.stats().liveLeases,1);assert.equal(mb.color.getHexString(),'0000aa');b.dispose();assert.equal(pool.stats().decodedAssets,0);assert.equal(pool.stats().downloads,1);
 });
+
+test('zone loads decode at most two distinct assets concurrently and skip cancelled queued art', async () => {
+  const releases: Array<() => void> = [];
+  const decoded: string[] = [];
+  let active = 0, peak = 0;
+  const pool = new ModelAssetPool(1000, async () => new ArrayBuffer(20), async (_bytes, url) => {
+    active++; peak = Math.max(peak, active); decoded.push(url);
+    await new Promise<void>(resolve => releases.push(resolve));
+    active--;
+    return {scene: new THREE.Group(), animations: []} as unknown as GLTF;
+  });
+  const aborted = new AbortController();
+  const a = pool.acquire('/first'), b = pool.acquire('/second'), c = pool.acquire('/cancelled', aborted.signal);
+  const rejection = assert.rejects(c, /cancelled/);
+  const d = pool.acquire('/fourth');
+  for(let i=0;i<10;i++)await Promise.resolve();
+  assert.deepEqual(decoded, ['/first', '/second']);
+  aborted.abort();
+  await rejection;
+  releases.shift()!();
+  for(let i=0;i<10;i++)await Promise.resolve();
+  assert.deepEqual(decoded, ['/first', '/second', '/fourth']);
+  while(releases.length)releases.shift()!();
+  const leases = await Promise.all([a,b,d]);
+  assert.equal(peak, 2);
+  leases.forEach(lease => lease.release());
+  assert.equal(pool.stats().liveLeases, 0);
+});

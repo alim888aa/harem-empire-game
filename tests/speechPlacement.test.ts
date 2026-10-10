@@ -15,3 +15,10 @@ test('warning overlays exclude otherwise valid placement',()=>{
 test('oversized messages retain dialog fallback',()=>{
  assert.equal(placeSpeech({left:16,right:900,top:100,bottom:300},{left:300,right:500,top:150,bottom:500},400,500),null);
 });
+test('the player is protected as well as the speaking NPC', () => {
+ const npc={left:420,right:540,top:130,bottom:420};
+ const player={left:560,right:740,top:100,bottom:490};
+ const placement=placeSpeech({left:16,right:1000,top:90,bottom:500},npc,310,110,[player]);
+ assert.ok(placement);
+ assert.ok(placement.right<=player.left||placement.left>=player.right||placement.bottom<=player.top||placement.top>=player.bottom);
+});

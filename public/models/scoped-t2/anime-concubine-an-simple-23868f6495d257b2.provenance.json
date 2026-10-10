@@ -1,0 +1,31 @@
+{
+  "name": "Concubine An",
+  "sha256": "23868f6495d257b2c98304fe68322a175f01a8d97c2a86bc2f734bf7a686b50e",
+  "baseline_asset": "npc-concubine.glb",
+  "source_review_record": "retarget-concubine-an-simple-v1-23868f6495d257b2-acceptance.json",
+  "source_review_record_sha256": "13cd0891a3436249d7a07933fdfc65303890ff3bf5b36eb2297dc6699c784897",
+  "identity_key": "npc-concubine-an-adult-identity-v1",
+  "identity_fingerprint_sha256": "d3f19401f6c5904640e754bb81d37d2a511e21e60b2b795ca9684e31441758be",
+  "anatomy_source": "Original generic adult legacy VRoid0.14 CC0 authored anatomy/native facial UVs and accepted own63 anatomical foundation",
+  "hair_source": "Licensed source-authored legacy CC0 gathered crown and one broad long tail; no donor body/persona",
+  "license": "CC0-1.0 plus original project-authored garments",
+  "license_primary_url": "https://vroid.pixiv.help/hc/en-us/articles/4402614652569-Do-VRoid-Studio-s-sample-models-come-with-conditions-of-use",
+  "bounded_current_variation": "Only canonical colors and fitted existing sash width/placement; no body/head/hair/main-robe restyling",
+  "rig_joints": 63,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Gift_Present"
+  ],
+  "all567_current_sampler_pairs_preserved": true,
+  "all688_non_sash_accessors_preserved": true,
+  "actual_controller_rows_per_model": 2568,
+  "all_controller_rows_equal_current_clean_mei": true,
+  "recorded_controller_contact_limits": {
+    "actor_plane_penetration_mm": 12.667633584556462,
+    "palace_floor_penetration_mm": 24.495176302302163
+  },
+  "visual_cautions": "Small rear sash lip/fold shading/scalloped rim remain cosmetic; no numeric collision-free certificate",
+  "GPU_FPS_measured": false,
+  "full_cast_complete": false
+}

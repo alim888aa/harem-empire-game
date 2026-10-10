@@ -1,0 +1,24 @@
+{
+  "name": "Consort Yue",
+  "sha256": "c875f025f6358e057bb2c0d1ba34a5a793c02cfa422d1117db7a1ae004bac3b1",
+  "identity_key": "npc-consort-yue-adult-identity-v1",
+  "identity_fingerprint_sha256": "3b6df7c2c64cea6f1d0092fa510faa66dc62d9ff47415a7f12070658cabb6bbd",
+  "anatomy_source": "Original generic adult legacy VRoid0.14 CC0 body/head/native facial UVs with accepted own63 foundation",
+  "hair_source": "Licensed source-authored legacy CC0 topology and native UVs with accepted rear fit; no donor body/persona",
+  "license": "CC0-1.0 plus original project-authored garments",
+  "license_primary_url": "https://vroid.pixiv.help/hc/en-us/articles/4402614652569-Do-VRoid-Studio-s-sample-models-come-with-conditions-of-use",
+  "selected_design": "music patron: straight high-waist gown, narrow sleeves opening into long rectangular wrist drapes, short open shoulder cape and controlled rear train; three narrow sash streamers",
+  "rig_joints": 63,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Gift_Present"
+  ],
+  "geometry_rig_uv_weights_current_motion_exact_source_to_runtime": true,
+  "active_sampler_pairs": 567,
+  "embedded_images": 11,
+  "resized_source_maps": 9,
+  "controller_proof_basis": "Fresh exact current-source CPU routes, independent actor poses and cancel/decode/retry/shared-cancel/disposal; no browser/GPU claim",
+  "remaining_contact_cautions": "Source-approved folds, local interfaces and Walk skirt expansion remain; inherited actor12.669mm/physicalfloor24.496mm blend/bob dip remains, finite tests do not establish global zero contact",
+  "full_cast_complete": false
+}

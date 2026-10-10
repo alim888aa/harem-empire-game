@@ -1,0 +1,21 @@
+{
+  "name": "Empress Dowager",
+  "sha256": "5beb1638297e4ff10c28e0f733d833774ba623746d1ad3826f2153dc99623a2f",
+  "source_glb_sha256": "7717a6ee4eeeda50c719bbdcb82c737ae4d482153b4edfb582f6ad04afc5b75f",
+  "rig_joints": 59,
+  "original_bone_channels": 708,
+  "additional_costume_morph_channels": 20,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "anatomy_source": "Licensed CC0 adult foundation with original project-authored face, hair and clothing",
+  "design": "Distinct older adult face, complete layered silver updo and nape coverage, ornate gold-and-jade headpiece",
+  "source_to_runtime": "Only embedded image resolution and duplicate storage differ; all geometry, rig and motion are exact",
+  "limits": [
+    "Stylized sculpted hair sections",
+    "Discrete offline motion review, not continuous cloth simulation"
+  ]
+}

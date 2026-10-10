@@ -316,12 +316,6 @@ select {
 }
 .palace-warning { font-weight: 600; letter-spacing: 0.03em; padding: 10px 16px; }
 
-.intrigue-alert {
-  border-radius: 0; color: var(--gold-200); background: none; font-weight: 600; padding: 12px 20px;
-  border: 1px solid transparent; border-image: var(--frame-cinnabar) 12 fill / 12px stretch;
-  animation: ui-alarm 2.2s ease-in-out infinite;
-}
-@keyframes ui-alarm { 50% { filter: brightness(1.25) drop-shadow(0 0 14px rgb(184 67 47 / 0.75)); } }
 
 .palace-help {
   border-radius: 0; color: var(--silk-100); background: none; backdrop-filter: blur(10px);
@@ -363,11 +357,17 @@ select {
 /* Every CourtDialog is a silk hand-scroll between two lacquered rods. */
 .court-dialog {
   --rod: 14px;
-  border: 0; border-radius: 0; padding: 0; overflow: visible;
+  --dialog-max-height: calc(100vh - 48px);
+  --dialog-inline-padding: 34px;
+  margin: auto; width: min(550px, calc(100% - 52px)); max-width: none; max-height: none;
+  border: 0; border-radius: 0; padding: 0; overflow: visible; overscroll-behavior: contain;
   color: var(--ink-900); background: var(--surface-silk);
   box-shadow: 0 0 0 1px var(--gold-600), 0 0 0 4px var(--silk-200), 0 0 0 5px var(--gold-700), var(--shadow-float);
 }
-.court-dialog[open] { display: flex; flex-direction: column; animation: ui-unroll 0.55s var(--ease-ceremony) both; }
+@supports (height: 100dvh) {
+  .court-dialog { --dialog-max-height: calc(100dvh - 48px); }
+}
+.court-dialog[open] { display: block; animation: ui-unroll 0.55s var(--ease-ceremony) both; }
 .court-dialog::before, .court-dialog::after {
   content: ""; position: absolute; left: -16px; right: -16px; height: var(--rod); z-index: 2; pointer-events: none;
   background:
@@ -386,14 +386,26 @@ select {
 @keyframes ui-rod-bottom { from { bottom: calc(50% - var(--rod) / 2); } to { bottom: calc(var(--rod) / -2); } }
 
 .court-dialog .dialog-content {
-  flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; padding: 30px 34px 32px;
+  /* An auto-height flex dialog with a flex: 1 child can collapse to its padding
+   * in Safari. Intrinsic grid rows retain the content height until this bound,
+   * then only the body shrinks and scrolls; the title and close stay reachable. */
+  display: grid; grid-template-rows: auto minmax(0, 1fr);
+  max-height: var(--dialog-max-height); min-width: 0; padding: 0; overflow: hidden;
+}
+.dialog-body {
+  min-width: 0; min-height: 0; padding: 0 var(--dialog-inline-padding) 30px;
+  overflow: auto; overscroll-behavior: contain; overflow-wrap: anywhere;
   scrollbar-width: thin; scrollbar-color: var(--gold-600) transparent;
 }
-.dialog-heading { flex-direction: column; gap: 4px; margin-bottom: 20px; text-align: center; position: relative; }
-.dialog-heading h2 { font-size: 32px; font-weight: 600; letter-spacing: 0.02em; color: var(--ink-900); }
-.dialog-heading h2::after { content: ""; display: block; height: 12px; width: 200px; margin: 10px auto 0; background: var(--divider) center / contain no-repeat; }
+.dialog-body:focus-visible { outline-offset: -4px; }
+.dialog-heading { position: relative; padding: 26px 58px 18px; margin: 0; text-align: center; }
+.dialog-heading h2 { margin: 0; font: 600 32px/1.15 var(--font-display); letter-spacing: 0.02em; color: var(--ink-900); }
+.dialog-heading h2::after {
+  content: ""; display: block; height: 12px; width: min(200px, 100%); margin: 10px auto 0;
+  background: var(--divider) center / contain no-repeat;
+}
 .dialog-heading button {
-  position: absolute; right: -14px; top: -14px; width: 38px; height: 38px; border: 0; border-radius: 0;
+  position: absolute; right: 10px; top: 10px; width: 44px; height: 44px; border: 0; border-radius: 0;
   display: grid; place-items: center; font: 400 26px/1 var(--font-display); color: var(--gold-200);
   background: var(--cinnabar-600); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
   transition: filter 0.2s var(--ease-out), transform 0.2s var(--ease-out);
@@ -473,22 +485,29 @@ select {
 .stats-group dl > div::after { content: ""; position: absolute; left: 0; right: 0; bottom: 4px; border-bottom: 1px dotted rgb(160 127 63 / 0.5); }
 .stats-group dd { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--ink-900); }
 
-/* Notifications: folded notes that slide in, one after another. */
-.gift-notifications { gap: 10px; }
-.gift-notifications li {
-  position: relative; padding: 14px 18px 14px 20px; border: 0 !important; border-radius: 0 !important; color: var(--ink-900);
-  background: linear-gradient(225deg, var(--silk-300) 0 12px, transparent 12px), var(--silk-50) !important;
-  box-shadow: 0 2px 6px rgb(74 59 47 / 0.15), inset 3px 0 0 var(--cinnabar-600);
-  animation: ui-note-in 0.45s var(--ease-ceremony) both;
+/* Notifications share one scroll region; active warnings always stay in the inbox. */
+.court-notification-section + .court-notification-section { margin-top: 24px; }
+.court-notification-section h3 { font: 600 25px/1.2 var(--font-display); margin-bottom: 12px; }
+.gift-notifications, .plot-notifications { list-style: none; padding: 0; display: grid; gap: 12px; max-height: none; overflow: visible; }
+.gift-notifications li, .plot-notifications li {
+  position: relative; padding: 14px 18px 14px 20px; border: 0; border-radius: 0; color: var(--ink-900);
+  background: linear-gradient(225deg, var(--silk-300) 0 12px, transparent 12px), var(--silk-50);
+  box-shadow: var(--shadow-paper), inset 3px 0 0 var(--gold-600);
+  animation: ui-note-in 0.3s var(--ease-out) both;
+  overflow-wrap: anywhere;
 }
-.gift-notifications li:nth-child(2) { animation-delay: 0.05s; }
-.gift-notifications li:nth-child(3) { animation-delay: 0.1s; }
-.gift-notifications li:nth-child(4) { animation-delay: 0.15s; }
-.gift-notifications li:nth-child(5) { animation-delay: 0.2s; }
-.gift-notifications li:nth-child(n + 6) { animation-delay: 0.25s; }
-.gift-notifications strong { font-family: var(--font-display); font-size: 19px; }
-.gift-notifications span { font-family: var(--font-display); font-size: 19px; font-weight: 700; color: var(--gold-700); }
-@keyframes ui-note-in { from { opacity: 0; transform: translateX(28px) rotate(1.5deg); } to { opacity: 1; transform: none; } }
+.gift-notifications li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 15px; }
+.plot-notifications li { display: grid; gap: 8px; }
+.plot-notifications li.is-urgent { box-shadow: var(--shadow-paper), inset 3px 0 0 var(--cinnabar-600); }
+.plot-notifications p { margin: 0; line-height: 1.5; }
+.plot-notifications .ui-eyebrow { color: var(--cinnabar-700); font-size: 13px; }
+.gift-notifications strong, .plot-notifications strong { font-family: var(--font-display); font-size: 20px; }
+.gift-notifications small, .plot-notifications small { color: var(--ink-500); font-size: 13px; }
+.gift-notifications li > span { font-family: var(--font-display); font-size: 19px; font-weight: 700; color: var(--gold-700); }
+.header-actions .has-urgent-notifications { border-image-source: var(--frame-cinnabar); }
+.notification-urgency { display: inline-flex; vertical-align: middle; margin-left: 6px; color: var(--gold-200); }
+.notification-urgency .ui-emblem { width: 16px; height: 16px; }
+@keyframes ui-note-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
 /* Roster: portrait cards. */
 .roster-entry {
@@ -511,6 +530,9 @@ select {
  * page in a black lacquer rim, the courtier's name on a cinnabar plate. */
 .palace-shell .court-dialog:has(.palace-conversation) {
   --rod: 0px;
+  --dialog-max-height: min(58vh, 520px);
+  --dialog-inline-padding: 24px;
+  width: min(880px, calc(100% - 52px)); margin: auto auto max(20px, env(safe-area-inset-bottom));
   background: var(--surface-silk);
   box-shadow: 0 0 0 1px var(--gold-500), 0 0 0 7px var(--lacquer-900), 0 0 0 8px var(--gold-600), 0 26px 80px rgb(10 6 4 / 0.55);
   animation: ui-rise 0.4s var(--ease-ceremony) both;
@@ -518,11 +540,59 @@ select {
 .palace-shell .court-dialog:has(.palace-conversation)::before,
 .palace-shell .court-dialog:has(.palace-conversation)::after { display: none; }
 .palace-shell .court-dialog:has(.palace-conversation)::backdrop { background: linear-gradient(180deg, transparent 40%, rgb(17 12 10 / 0.45)); backdrop-filter: none; }
-.palace-shell .court-dialog:has(.palace-conversation) .dialog-content { padding: 22px 30px 20px; }
-.palace-shell .court-dialog:has(.palace-conversation) .dialog-heading { margin-bottom: 10px; }
-.palace-shell .court-dialog:has(.palace-conversation) .dialog-heading h2 { font: 700 11px/1 var(--font-body); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--gold-700); }
+.palace-shell .court-dialog:has(.palace-conversation) .dialog-body {
+  padding-top: 4px; padding-bottom: 20px; scroll-padding-block: 12px 24px;
+}
+.palace-shell .court-dialog:has(.palace-conversation) .dialog-heading { padding: 16px 58px 12px; min-height: 48px; }
+.palace-shell .court-dialog:has(.palace-conversation) .dialog-heading h2 {
+  font: 700 13px/1.3 var(--font-body); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--gold-700);
+}
 .palace-shell .court-dialog:has(.palace-conversation) .dialog-heading h2::after { display: none; }
-.palace-shell .court-dialog:has(.palace-conversation) .dialog-heading button { right: -24px; top: -16px; }
+.palace-shell .court-dialog:has(.palace-conversation) .dialog-heading button { right: 8px; top: 3px; }
+@supports (height: 100dvh) {
+  .palace-shell .court-dialog:has(.palace-conversation) { --dialog-max-height: min(58dvh, 520px); }
+}
+
+/* A single reading flow prevents an off-screen dossier or projected speech
+ * bubble from reserving an empty column beside the actions. The shared dialog
+ * body owns scrolling, including expanded romance and the return control. */
+.palace-conversation .court-audience { display: block; }
+.palace-conversation .audience-conversation { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.palace-conversation .audience-choices { min-width: 0; }
+.palace-conversation .action-panel { border: 0; padding-top: 0; }
+.palace-conversation .action-label { font-size: 13px; margin-bottom: 6px; }
+.palace-conversation .action-panel select { min-height: 44px; font-size: 16px; }
+.palace-conversation .send-gift { min-height: 46px; padding: 12px 16px; }
+.palace-conversation .selected-message { margin-top: 9px; line-height: 1.4; }
+.palace-conversation .selected-effect { margin: 8px 0; line-height: 1.4; }
+.palace-conversation .court-speech { margin: 0; padding: 10px 16px; font-size: 19px; line-height: 1.35; }
+.palace-conversation .court-speech > strong { margin-bottom: 4px; font-size: 13px; }
+.palace-conversation .court-speech > small { margin-top: 6px; }
+.palace-conversation .move-details,
+.palace-conversation .romance-actions,
+.palace-conversation .conversation-dossier { margin-top: 8px; font-size: 15px; line-height: 1.5; }
+.palace-conversation .romance-actions { padding-top: 8px; }
+.palace-conversation .move-details > summary,
+.palace-conversation .romance-actions > summary,
+.palace-conversation .conversation-dossier > summary {
+  min-height: 44px; padding: 11px 0; font-size: 13px; line-height: 1.5;
+  font-weight: 700; color: var(--gold-700);
+}
+.palace-conversation .romance-actions > summary { color: var(--cinnabar-600); }
+.palace-conversation .romance-actions small,
+.palace-conversation .character-dossier small { font-size: 13px; line-height: 1.5; }
+.palace-conversation .romance-risk {
+  border-radius: 0; padding: 12px 14px; background: var(--silk-200); box-shadow: inset 3px 0 0 var(--gold-500);
+}
+.palace-conversation .romance-buttons button,
+.palace-conversation .hostile-choice button { min-height: 44px; font-size: 15px; }
+.palace-conversation .conversation-dossier { border-top: 1px solid var(--gold-400); margin-top: 0; }
+.palace-conversation .character-dossier { padding: 8px 0 12px; }
+.palace-conversation .palace-leave {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  min-height: 46px; margin-top: 8px; padding: 10px 0; border: 0; border-top: 1px solid var(--gold-400);
+  background: transparent; cursor: pointer;
+}
 
 .character-dossier .section-heading h1, .palace-conversation .character-dossier h1 {
   display: inline-block; padding: 6px 18px 7px; font-size: 26px; font-weight: 700; letter-spacing: 0.03em; color: var(--gold-200);
@@ -579,7 +649,7 @@ select {
 .action-notice { font-size: 14px; color: var(--gold-700); }
 .court-message { border-left: 0; padding: 14px 18px; font-size: 18px; color: var(--ink-700); background: rgb(201 163 90 / 0.1); box-shadow: inset 3px 0 0 var(--gold-500); }
 .court-warning { border-radius: 0; color: var(--gold-200); background: none; font-size: 14px; border: 1px solid transparent; border-image: var(--frame-cinnabar) 12 fill / 12px stretch; }
-.palace-conversation .palace-leave { border-top-color: rgb(160 127 63 / 0.35); color: var(--gold-700); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 12px; }
+.palace-conversation .palace-leave { color: var(--gold-700); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 13px; }
 .palace-conversation .palace-leave span { color: var(--ink-300); }
 
 /* ───────────────────────── Ceremonies ───────────────────────── */
@@ -587,12 +657,16 @@ select {
 /* The Emperor: black lacquer, gold and a thin cinnabar rim. */
 .palace-shell .court-dialog:has(.imperial-encounter), .court-dialog:has(.imperial-encounter) {
   --rod: 0px;
+  width: min(600px, calc(100% - 52px)); margin: auto auto 25px;
   color: var(--silk-100);
   background: var(--ornament-corners), radial-gradient(ellipse at 50% 0%, var(--lacquer-700), var(--lacquer-950) 75%);
   box-shadow: 0 0 0 1px var(--gold-500), 0 0 0 5px var(--lacquer-950), 0 0 0 6px var(--cinnabar-600), 0 30px 100px rgb(0 0 0 / 0.6);
 }
 .court-dialog:has(.imperial-encounter)::before, .court-dialog:has(.imperial-encounter)::after { display: none; }
+.palace-shell .court-dialog:has(.imperial-encounter)::backdrop { background: transparent; backdrop-filter: none; }
 .court-dialog:has(.imperial-encounter) .dialog-heading { display: none; }
+.court-dialog:has(.imperial-encounter) .dialog-content { grid-template-rows: minmax(0, 1fr); }
+.court-dialog:has(.imperial-encounter) .dialog-body { padding: 22px; }
 .imperial-encounter { text-align: center; color: var(--silk-100); }
 .imperial-encounter h1, .emperor-intro h1 { font-size: 36px; font-weight: 600; letter-spacing: 0.02em; color: var(--gold-200); margin: 6px 0 14px; }
 .imperial-encounter p { font-size: 16px; line-height: 1.65; color: var(--silk-200); }
@@ -773,9 +847,10 @@ select {
   .header-resources > div + div::before { left: -9px; }
   .header-resources strong, .palace-shell .header-resources strong { font-size: 21px; }
   .palace-location h1 { font-size: 30px; }
-  .court-dialog .dialog-content { padding: 24px 20px 24px; }
+  .court-dialog { --dialog-inline-padding: 20px; }
+  .dialog-body { padding-bottom: 24px; }
+  .dialog-heading { padding: 24px 54px 16px; }
   .dialog-heading h2 { font-size: 27px; }
-  .dialog-heading button { right: -6px; top: -10px; }
   .season-transition h2 { font-size: 60px; }
   .ending-scroll, .audience-scroll { padding: 30px 22px 26px; }
   .ending-scroll h1, .audience-scroll h1 { font-size: 36px; }
@@ -786,15 +861,24 @@ select {
   .header-actions .ui-sound-toggle { width: 40px; min-height: 40px; }
   .palace-location h1 { font-size: 24px; }
   .court-speech, .palace-head-speech { font-size: 17px; }
-  .palace-shell .court-dialog:has(.palace-conversation) .dialog-content { padding: 16px 18px; }
+  .palace-shell .court-dialog:has(.palace-conversation) {
+    --dialog-inline-padding: 16px; --dialog-max-height: 64vh;
+    margin-bottom: max(16px, env(safe-area-inset-bottom));
+  }
+  @supports (height: 100dvh) {
+    .palace-shell .court-dialog:has(.palace-conversation) { --dialog-max-height: 64dvh; }
+  }
+  .palace-conversation .court-speech { font-size: 17px; }
   .ui-seal-stamp-card h2 { font-size: 34px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .court-dialog[open], .court-dialog::before, .court-dialog::after, .ui-seal-glyph, .ui-seal-stamp-card,
-  .gift-notifications li, .season-transition-content, .palace-interaction > button, .court-speech, .palace-head-speech,
-  .intrigue-alert, .notification-badge, .ui-incense::after, .ui-incense::before, .ui-pop-value, .ui-pop-delta {
+  .gift-notifications li, .plot-notifications li, .season-transition-content, .palace-interaction > button, .court-speech, .palace-head-speech,
+  .notification-badge, .ui-incense::after, .ui-incense::before, .ui-pop-value, .ui-pop-delta {
     animation: none !important;
   }
   .ui-pop-delta { display: none; }
+  .dialog-body { scroll-behavior: auto; }
+  .dialog-heading button { transition: none; }
 }

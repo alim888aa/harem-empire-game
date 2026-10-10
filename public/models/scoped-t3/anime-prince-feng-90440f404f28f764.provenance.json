@@ -1,0 +1,62 @@
+{
+  "name": "Prince Feng",
+  "sha256": "90440f404f28f764f6ef26b0068f3e63d40b8d81eb40facd3864d8acb8993126",
+  "baseline_asset": "prince-runtime.glb",
+  "source_review_record": "retarget-prince-feng-exact-90440f404f28f764-acceptance.json",
+  "source_review_record_sha256": "253b99f5dc52a94fe7f76b1cbd6ef798256fcdcde6c36e99da608325722b8243",
+  "identity_key": "npc-prince-feng-adult-identity-v1",
+  "identity_fingerprint_sha256": "609e30ca4f91d6287ee4b4257df10c9ca75a19e80fc1ab619613f7ba651c3b78",
+  "anatomy_source": "Original generic adult legacy VRoid0.14 CC0 body/head/native facial UVs with accepted own59 anatomical foundation",
+  "hair_source": "Licensed source-authored legacy CC0 topology/native UVs, fitted to the source head; no donor body/persona",
+  "license": "CC0-1.0 plus original project-authored garments",
+  "license_primary_url": "https://vroid.pixiv.help/hc/en-us/articles/4402614652569-Do-VRoid-Studio-s-sample-models-come-with-conditions-of-use",
+  "selected_design": "ELABORATE cream long sleeveless vest, blue-grey riding coat, tucked shoulder rims and broad gold knot binding; accepted source unchanged",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "geometry_rig_uv_weights_current_motion_exact_source_to_runtime": true,
+  "controller_proof_basis": "Fresh exact current-core detailed frames/lifecycle with two-name overlay/spec preservation; no browser/GPU claim",
+  "recorded_nonzero_contacts_and_interfaces": {
+    "current_runtime": {
+      "frames": 3312,
+      "evaluatedBootOrBaselineSoleRows": 724,
+      "minimumMetres": {
+        "lowestRelative": -0.006701175115900098,
+        "lowestFloor": -0.008631368554988509,
+        "lowestGeometryFloor": -0.03613136855498851
+      },
+      "negativeFrameCountsWithoutTolerance": {
+        "lowestRelative": 34,
+        "lowestFloor": 360,
+        "lowestGeometryFloor": 3310
+      },
+      "restFullSkinBoundsHeightMetres": 2.007625792804342
+    },
+    "published_baseline": {
+      "frames": 3312,
+      "evaluatedBootOrBaselineSoleRows": 518,
+      "minimumMetres": {
+        "lowestRelative": -0.019751029084260834,
+        "lowestFloor": -0.021935036645996935,
+        "lowestGeometryFloor": -0.04943503664599694
+      },
+      "negativeFrameCountsWithoutTolerance": {
+        "lowestRelative": 1530,
+        "lowestFloor": 1348,
+        "lowestGeometryFloor": 3203
+      },
+      "restFullSkinBoundsHeightMetres": 1.873110144478856
+    },
+    "remaining_run_to_idle": {
+      "runToIdleExtraActorPlaneDepthMetres": 0.0028466643653333344,
+      "explanation": "Fitted run-to-idle minimum remains2.847mm deeper than the published baseline phase, while it stays above the unchanged own native reference minimum by the requested bounded clearance. Overall actor/logical/physical floor minima improve; this is not a blanket all-phase or zero-contact pass."
+    }
+  },
+  "all_time_collision_free_or_foot_lock_claimed": false,
+  "GPU_FPS_measured": false,
+  "full_cast_complete": false
+}

@@ -459,12 +459,6 @@ select:focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; }
 .court-footer { font-size: 10px; text-align: center; color: #92917f; margin-top: 25px; }
 .empty-court { margin: 50px auto; line-height: 1.8; text-align: center; color: #757b6e; }
 /* Roster and strategy are intentional destinations, not permanent panels. */
-.court-dialog { margin: auto; padding: 0; border: 1px solid #c6caba; border-radius: 9px; width: min(550px,calc(100vw - 28px)); max-height: calc(100svh - 36px); overscroll-behavior: contain; background: var(--paper); color: var(--ink); box-shadow: 0 15px 55px #27342135; }
-.court-dialog::backdrop { background: #202c25a8; backdrop-filter: blur(3px); }
-.dialog-content { padding: 23px; }
-.dialog-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 17px; }
-.dialog-heading h2 { font: 27px Georgia,serif; }
-.dialog-heading button { width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; font-size: 24px; }
 .court-roster .section-heading { display: none; }
 .roster-list { display: grid; grid-template-columns: 1fr; gap: 7px; }
 .roster-entry { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; padding: 11px; border: 1px solid transparent; border-radius: 5px; color: #3c443a; background: #f0efe6; }
@@ -519,7 +513,6 @@ select:focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; }
  .dossier-details { margin-top: 10px; }
  .action-panel { padding-top: 15px; }
  .court-goal { font-size: 11px; margin-bottom: 15px; }
- .dialog-content { padding: 18px; }
 }
 @media (max-width: 360px) {
  .court-header-inner { padding: 14px; gap: 12px; }
@@ -734,12 +727,12 @@ button.game-brand { border:0; padding:0; background:transparent; color:inherit; 
 button.game-brand:focus-visible { outline:2px solid #dcb977; outline-offset:5px; border-radius:8px; }
 .profile-menu-button { display:none; }
 @media(max-width:540px) { .profile-menu-button { display:inline-flex; } }
-.intrigue-alert{display:block;margin:12px auto;padding:12px 18px;max-width:min(90vw,650px);border:1px solid #d38367;background:#331e2a;color:#ffdfc6;border-radius:10px;font:inherit;cursor:pointer;text-align:left}.intrigue-alert.is-palace{position:fixed;z-index:24;top:110px;left:50%;transform:translateX(-50%);margin:0;width:max-content}.court-intrigue{margin:22px 0;padding:18px;background:#201d2a;border:1px solid #63505d;border-radius:12px}.court-intrigue h3{margin:0 0 8px;color:#f3d8ad}.court-intrigue article{padding:12px;margin:10px 0;border-left:3px solid #eaa07c;background:#38222c}.court-intrigue p,.court-intrigue li{font-size:14px;line-height:1.55}.court-intrigue li{margin:8px 0}@media(max-width:600px){.intrigue-alert.is-palace{top:150px;font-size:12px;padding:9px;max-width:90vw}}
+.court-intrigue{margin:22px 0;padding:18px;background:#201d2a;border:1px solid #63505d;border-radius:12px}.court-intrigue h3{margin:0 0 8px;color:#f3d8ad}.court-intrigue article{padding:12px;margin:10px 0;border-left:3px solid #eaa07c;background:#38222c}.court-intrigue p,.court-intrigue li{font-size:14px;line-height:1.55}.court-intrigue li{margin:8px 0}
 .qa-fixture-bar{position:relative;z-index:100;display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:12px 20px;background:#fff1c7;color:#332d24;border-bottom:2px solid #986a2c;font-size:12px}.qa-fixture-bar span{flex:1}.qa-fixture-bar button,.qa-fixture-bar a{padding:7px;border:1px solid #986a2c;border-radius:5px;color:inherit}
 /* Intrigue lives inside the light court dialog: do not inherit its dark ink. */
 .court-intrigue{color:#f3eaf1}.court-intrigue .court-guide{color:#d9d0dc}.court-intrigue article strong{color:#ffe0c2}.court-intrigue summary{color:#f3eaf1;cursor:pointer}
 
-.notification-badge{display:inline-flex;align-items:center;justify-content:center;min-width:17px;height:17px;margin-left:6px;border-radius:50%;background:#b77e49;color:white;font-size:10px;padding:0 4px}.gift-notifications{list-style:none;padding:0;display:grid;gap:9px;max-height:55vh;overflow:auto}.gift-notifications li{display:grid;grid-template-columns:1fr auto;gap:4px 15px;padding:12px;border:1px solid var(--line);border-radius:5px;font-size:13px}.gift-notifications small{color:#777565}.gift-notifications li>span{color:#3e6847;font-weight:600}
+.notification-badge{display:inline-flex;align-items:center;justify-content:center;min-width:17px;height:17px;margin-left:6px;border-radius:50%;background:#b77e49;color:white;font-size:10px;padding:0 4px}
 
 .demotion-summary{margin:15px 0}.demotion-summary strong{font-size:24px;line-height:1.35}.demotion-summary p{font-size:14px;line-height:1.6;margin-top:10px}
 /* Replies belong to each courtier and stay above the next choice. */

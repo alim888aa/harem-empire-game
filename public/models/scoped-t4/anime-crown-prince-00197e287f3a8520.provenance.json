@@ -1,0 +1,26 @@
+{
+  "name": "Crown Prince",
+  "sha256": "00197e287f3a85202476c87993efba56861ea92bc846a7b74e9b4ee0f366170a",
+  "source_glb_sha256": "a9b7f275a584e563bbe1c12c4ae4f1b17f05bc74bacb79ecea4df18293826239",
+  "editable_source_sha256": "21efd9f8835ed0b97b5b101f69f0cbfa77dc47643351859734da13d0fdba1e38",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "foundation_bone_channels_preserved": 708,
+  "additional_costume_morph_channels": 16,
+  "selected_design": "Ivory/navy ceremonial ankle robe, short navy capelet with opened fitted neckline, swept topknot and restrained gold edges",
+  "anatomy_source": "Fitted own59 generic adult legacy VRoid CC0 foundation with native UVs and restrained role-specific adult identity treatment",
+  "hair_source": "Licensed source-authored native hair parts fitted to recipient; no donor body or persona",
+  "license": "CC0-1.0 plus original project-authored clothing",
+  "geometry_rig_uv_weights_material_bindings_all_bone_and_morph_data_exact_source_to_runtime": true,
+  "female_own_ancestor_x_scale": null,
+  "full_48_courtier_roster_rebuilt": true,
+  "limits": [
+    "Finite source/compact CPU material and motion proof, not continuous collision-free cloth or target-device performance.",
+    "Emperor is separate; existing inherited floor bob and local interfaces are not certified zero."
+  ]
+}

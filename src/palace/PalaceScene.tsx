@@ -1,3 +1,5 @@
+import {frameConversationCamera, type CameraPose, type ConversationCameraFrame} from './conversationCamera';
+import {PalaceRenderBudget} from './renderBudget';
 import {placeSpeech} from './speechPlacement';
 import {isTouchViewportPlaytest} from '../persistence/playtestMode';
 import {emperorEntrancePlan,type EmperorAppearanceStatus} from './emperorEntrance';
@@ -110,6 +112,7 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
   useEffect(()=>{
     const element=host.current;if(!element)return;
     let disposed=false,rendererFailed=false;
+    const renderBudget = new PalaceRenderBudget(touchMode, software);
     setReady(false);setError(false);onRenderReady(false);setNearby(null);setNearbyGate(null);
     setModelStatus({playerReady:false,pending:0,failures:[]});
     const stored=visits.playerByZone[zone]??{...zoneSpawn(zone),yaw:0,pitch:.22,distance:5.7};
@@ -117,7 +120,8 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
     if(software){renderer=new SVGRenderer();renderer.setQuality('low');renderer.setPrecision(1);renderer.sortObjects=false;}
     else{
       try{renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});}catch{setError(true);onRenderReady(false);if(live.current.emperorEncounter)live.current.onUnavailable();return;}
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.5));renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+      renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+      renderer.shadowMap.autoUpdate=false;
       renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.06;
     }
     renderer.domElement.setAttribute('aria-label',`3D ${ZONES[zone].title}. Use W A S D or arrow keys to move. Drag to look. E talks or enters a nearby gate.`);
@@ -127,20 +131,11 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
     const disposeSoftwareMaterials=software?applySoftwareMaterials(world.scene):()=>{};
     const disposePalaceAssets=software?()=>{}:loadPalaceAssets(world,zone);
     const visualBlocks=[...world.colliders,...world.viewBlockers];
-    const clearView=(from:THREE.Vector3,to:THREE.Vector3)=>{
-      const delta=to.clone().sub(from);
-      return !visualBlocks.some(c=>{
-        let lo=0,hi=1;
-        for(const axis of ['x','y','z'] as const){
-          const min=(axis==='y'?c.minY:axis==='x'?c.x-c.w/2:c.z-c.d/2)-.08,max=(axis==='y'?c.height:axis==='x'?c.x+c.w/2:c.z+c.d/2)+.08;
-          const d=delta[axis],o=from[axis];if(Math.abs(d)<.0001){if(o<min||o>max)return false;}else{let a=(min-o)/d,b=(max-o)/d;if(a>b)[a,b]=[b,a];lo=Math.max(lo,a);hi=Math.min(hi,b);}
-        }
-        return hi>lo&&hi>0&&lo<1;
-      });
-    };
+    let pendingCharacterLoads = 0;
     // Software QA has empty spatial anchors; ordinary 3D waits for the real player.
     const characterModels=software?{setPlayerRank:(_rank:string|null)=>{},react:(_name:string)=>{},reactPlayer:()=>{},reactingNames:()=>new Set<string>(),isReady:(_name?:string)=>true,retryFailed:()=>{},update:(_dt:number,_paused:boolean)=>{},dispose:()=>{}}:loadCourtCharacterModels(world,playerType,palaceAssetPool,rank,status=>{
       if(disposed||rendererFailed)return;
+      pendingCharacterLoads = status.pending;
       setModelStatus(status);setReady(status.playerReady);onRenderReady(status.playerReady);
     });
     retryModels.current=()=>{characterModels.retryFailed();setModelRetry(value=>value+1);};
@@ -155,7 +150,7 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
     let yaw=stored.yaw,pitch=stored.pitch,distance=stored.distance,last=performance.now(),elapsed=0,frame=0,firstFrame=true,telemetry=0,nearest:string|null=null,nearestGate:PlayableZone|null=null;
     let jumpQueued=false,poseSaveElapsed=0;
     const prefetchedPortals=new Set<string>();
-    let scriptedUntil=0,renderedFrames=0,frameTime=0,frameCount=0,fps=0,lastPaint=0;
+    let scriptedUntil=0,renderedFrames=0,frameTime=0,frameCount=0,fps=0;
     const position=world.player.group.position;
     const restored=stored.x>world.bounds.minX+.5&&stored.x<world.bounds.maxX-.5&&stored.z>world.bounds.minZ+.5&&stored.z<world.bounds.maxZ-.5&&
       !world.colliders.some(c=>Math.abs(stored.x-c.x)<c.w/2+.4&&Math.abs(stored.z-c.z)<c.d/2+.4)&&!world.npcs.some(n=>Math.hypot(stored.x-n.x,stored.z-n.z)<.8)?stored:world.spawn;
@@ -166,7 +161,7 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
     let emperor:THREE.Object3D|null=null,mixer:THREE.AnimationMixer|null=null,approach:THREE.AnimationAction|null=null,idle:THREE.AnimationAction|null=null,wasEncounter=false,wasIntro=false,approachTime=0,reportedArrival=false,emperorFailed=false;
     let emperorInstance:ModelInstanceLease|null=null,emperorAbort:AbortController|null=null,emperorRequested=false,emperorWarmed=false,emperorLoadFailed=false;
     let entrancePlan=emperorEntrancePlan(!emperorIntro);
-    const emperorStart=new THREE.Vector3(),emperorEnd=new THREE.Vector3();let imperialYaw=0;
+    const emperorStart=new THREE.Vector3(),emperorEnd=new THREE.Vector3();
     const normalLights: {light:THREE.Light;intensity:number}[]=[];world.scene.traverse(o=>{if(o instanceof THREE.Light)normalLights.push({light:o,intensity:o.intensity});});
     const emperorKey=new THREE.SpotLight('#f5debd',50,12,.39,.7,2);emperorKey.castShadow=true;emperorKey.shadow.mapSize.set(2048,2048);emperorKey.shadow.bias=-.0001;emperorKey.shadow.normalBias=.005;emperorKey.visible=false;world.scene.add(emperorKey,emperorKey.target);
     const robeFill=new THREE.SpotLight('#c0d5ec',12,6,.33,.65,2);robeFill.visible=false;world.scene.add(robeFill,robeFill.target);
@@ -189,20 +184,22 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
     const labels=world.npcs.map(n=>{const label=document.createElement('div');label.className='palace-person-label';label.textContent=n.displayName??n.name;element.appendChild(label);return label;});
     const speech=document.createElement('div');speech.className='palace-head-speech';speech.setAttribute('aria-hidden','true');speech.style.display='none';element.appendChild(speech);let speechProjected=false;
     const gateLabels=world.gates.map(gate=>{const label=document.createElement('div');label.className='palace-person-label palace-gate-label';label.textContent=gate.label;element.appendChild(label);return label;});
-    const resize=()=>{const w=element.clientWidth,h=element.clientHeight;renderer.setSize(w,h);camera.aspect=w/Math.max(h,1);camera.updateProjectionMatrix();};
+    let viewportWidth = 1, viewportHeight = 1;
+    let ordinaryCamera: CameraPose | null = null;
+    let dialogueCamera: ConversationCameraFrame | null = null;
+    let cameraPlanKey = '';
+    const resize = () => {
+      viewportWidth = element.clientWidth; viewportHeight = element.clientHeight;
+      if (renderer instanceof THREE.WebGLRenderer) {
+        renderer.setPixelRatio(renderBudget.pixelRatio(viewportWidth, viewportHeight, window.devicePixelRatio));
+      }
+      renderer.setSize(viewportWidth, viewportHeight);
+      camera.aspect = viewportWidth / Math.max(viewportHeight, 1); camera.updateProjectionMatrix();
+    };
     const observer=new ResizeObserver(resize);observer.observe(element);resize();
     const resetInput=()=>{input.current.clear();touchMove.current={...STOPPED_TOUCH};touchRun.current=false;resetTouch.current();resetCamera();scriptedUntil=0;jumpQueued=false;};
     resetSceneInput.current=resetInput;
     jump.current=()=>{if(!live.current.paused&&!world.player.airborne)jumpQueued=true;};
-    const chooseViewYaw=(other:THREE.Vector3,headHeight:number,focusHeight:number,viewDistance:number)=>{
-      const base=Math.atan2(position.x-other.x,position.z-other.z),center=new THREE.Vector3((position.x+other.x)*.5,position.y+focusHeight,(position.z+other.z)*.5);
-      const head=new THREE.Vector3(other.x,world.groundHeight(other.x,other.z)+headHeight,other.z),playerHead=position.clone().add(new THREE.Vector3(0,1.7,0));
-      for(const turn of [1.05,-1.05,1.65,-1.65]){
-        const angle=base+turn,point=center.clone().add(new THREE.Vector3(Math.sin(angle)*viewDistance,Math.sin(.22)*viewDistance+.6,Math.cos(angle)*viewDistance));
-        if(clearView(point,head)&&clearView(point,playerHead))return angle;
-      }
-      return base+1.05;
-    };
     travel.current=(destination=nearestGate??undefined)=>{
       if(live.current.paused||world.player.airborne)return 'Finish the conversation and land before traveling.';
       const gate=world.gates.find(g=>g.to===destination);
@@ -216,7 +213,7 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
       if(live.current.paused||world.player.airborne)return;
       if(!nearest){if(nearestGate)travel.current(nearestGate);return;}
       const npc=world.npcs.find(n=>n.name===nearest);
-      if(npc){world.player.group.rotation.y=Math.atan2(npc.x-position.x,npc.z-position.z);npc.group.rotation.y=Math.atan2(position.x-npc.x,position.z-npc.z);distance=4.5;pitch=.22;yaw=chooseViewYaw(npc.group.position,npc.labelHeight-.4,.45,distance);}
+      if(npc){world.player.group.rotation.y=Math.atan2(npc.x-position.x,npc.z-position.z);npc.group.rotation.y=Math.atan2(position.x-npc.x,position.z-npc.z);}
       resetInput();live.current.onInteract(nearest);
     };interact.current=doInteract;
     center.current=()=>{yaw=0;pitch=.22;distance=5.7;};
@@ -304,13 +301,29 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
       return true;
     };
     const animate=(now:number)=>{
-      if(!software&&!live.current.paused){
+      if (disposed || rendererFailed) return;
+      const budget = renderBudget.frame(now, {
+        hidden: document.hidden, paused: live.current.paused,
+        animated: live.current.emperorEncounter || live.current.giftReaction.sequence !== lastGift ||
+          !!giftTarget && giftTime < 1.2 || characterModels.reactingNames().size > 0,
+        view: `${live.current.conversationName ?? ''}:${live.current.emperorEncounter}`,
+      });
+      if (!budget) {
+        if (document.hidden) last = now;
+        frame = requestAnimationFrame(animate); return;
+      }
+      if(!software&&!live.current.paused&&pendingCharacterLoads===0&&elapsed>2){
         const gate=world.gates.find(g=>Math.hypot(position.x-g.x,position.z-g.z)<7&&careerZoneAccess(playerType,live.current.rank,g.to).allowed);
         if(gate&&!prefetchedPortals.has(gate.to)){
           prefetchedPortals.add(gate.to);
           const visitors=zoneRoster(live.current.people,gate.to,live.current.season,live.current.seasonProgress,playerType);
           const urls=[...palaceAssetUrls(gate.to),...characterAssetUrls(visitors,playerType,live.current.rank)];
-          for(const url of new Set(urls))void palaceAssetPool.prefetch(url).catch(()=>{});
+          void (async () => {
+            for (const url of new Set(urls)) {
+              if (disposed) return;
+              try { await palaceAssetPool.prefetch(url); } catch { /* Actual travel retains its normal retry path. */ }
+            }
+          })();
         }
       }
       const rawDelta=(now-last)/1000,dt=document.hidden?0:Math.min(rawDelta,software?.35:.15);last=now;elapsed+=dt;let moving=false;
@@ -357,7 +370,8 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
           if(clearLine(position,start)&&clearImperialPath(start,end)){emperorEnd.copy(end);emperorStart.copy(start);foundApproach=true;break approachSearch;}
         }
         if(!foundApproach){console.warn('No clear imperial approach here; continuing the encounter in the classic court.');emperorFailed=true;}
-        imperialYaw=chooseViewYaw(emperorEnd,2.2,.65,distance);
+        emperorStart.y = world.groundHeight(emperorStart.x, emperorStart.z);
+        emperorEnd.y = world.groundHeight(emperorEnd.x, emperorEnd.z);
       }
       if(live.current.emperorEncounter&&emperorFailed){live.current.onUnavailable();}
       normalLights.forEach(({light,intensity})=>light.intensity=intensity*(live.current.emperorEncounter ? (software?.65:.24) : 1));
@@ -370,10 +384,43 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
           const rimOffset=new THREE.Vector3(0,3.2,-2.2).multiplyScalar(EMPEROR_SCALE).applyAxisAngle(new THREE.Vector3(0,1,0),emperor.rotation.y);emperorRim.position.copy(emperor.position).add(rimOffset);emperorRim.target.position.copy(emperor.position).add(new THREE.Vector3(0,1.2*EMPEROR_SCALE,0));
         }
       }wasEncounter=live.current.emperorEncounter;wasIntro=live.current.emperorIntro;
+      const speakingTo = world.npcs.find(n => n.name === live.current.conversationName);
+      const cinematicSubject = live.current.emperorEncounter ? emperorEnd : speakingTo?.group.position;
+      if (cinematicSubject) {
+        if (budget.overlay || !dialogueCamera) {
+          const hostTop = element.getBoundingClientRect().top;
+          const dialog = document.querySelector<HTMLDialogElement>('dialog[open]:has(.palace-conversation), dialog[open]:has(.imperial-encounter)');
+          const header = document.querySelector<HTMLElement>('.court-header');
+          const top = Math.max(16, (header?.getBoundingClientRect().bottom ?? hostTop + 80) - hostTop + 12);
+          const bottom = Math.min(viewportHeight - 20, (dialog?.getBoundingClientRect().top ?? hostTop + viewportHeight * .5) - hostTop - 18);
+          const key = `${live.current.emperorEncounter ? '@emperor' : live.current.conversationName}:${
+            viewportWidth}:${viewportHeight}:${Math.round(top)}:${Math.round(bottom)}`;
+          if (key !== cameraPlanKey) {
+            cameraPlanKey = key;
+            const fallback = ordinaryCamera ?? {position: {x: camera.position.x, y: camera.position.y, z: camera.position.z},
+              target: {x: position.x, y: position.y + 1.35, z: position.z}};
+            dialogueCamera = frameConversationCamera({
+              player: {position, height: movementSpeeds.height, radius: movementSpeeds.radius},
+              subject: {position: cinematicSubject,
+                height: live.current.emperorEncounter ? EMPEROR_OVERHEAD : Math.max(1.8, speakingTo?.labelHeight ?? 2),
+                radius: live.current.emperorEncounter ? EMPEROR_CLEARANCE : .42},
+              viewport: {width: viewportWidth, height: viewportHeight, top, bottom},
+              blockers: visualBlocks, bounds: world.bounds, ceilingHeight: world.ceilingHeight,
+              preferredYaw: Math.atan2(position.x - cinematicSubject.x, position.z - cinematicSubject.z) + 1.05,
+              preferredDistance: 4.8, fallback,
+            });
+          }
+        }
+        if (dialogueCamera) {
+          camera.position.set(dialogueCamera.position.x, dialogueCamera.position.y, dialogueCamera.position.z);
+          target.set(dialogueCamera.target.x, dialogueCamera.target.y, dialogueCamera.target.z);
+          camera.lookAt(target);
+          world.player.group.visible = true;
+        }
+      } else {
+        if (dialogueCamera && ordinaryCamera) camera.position.set(ordinaryCamera.position.x, ordinaryCamera.position.y, ordinaryCamera.position.z);
+        dialogueCamera = null; cameraPlanKey = '';
       target.set(position.x,position.y+1.35,position.z);
-      const speakingTo=world.npcs.find(n=>n.name===live.current.conversationName);
-      if(speakingTo)target.set((position.x+speakingTo.x)*.5,position.y+.45,(position.z+speakingTo.z)*.5);
-      if(live.current.emperorEncounter){target.set((position.x+emperorEnd.x)*.5,position.y+.65,(position.z+emperorEnd.z)*.5);yaw=imperialYaw;}
       offset.set(Math.sin(yaw)*distance,Math.sin(pitch)*distance+.6,Math.cos(yaw)*distance);
       // Keep the follow camera inside the courtyard walls and in front of the hall back wall.
       offset.add(target);offset.y=Math.min(offset.y,world.ceilingHeight-.25);
@@ -389,26 +436,41 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
       camera.position.lerp(offset,1-Math.exp(-dt*9));camera.lookAt(target);
       world.player.group.visible=camera.position.distanceTo(target)>2.25;
       if(firstFrame){camera.position.copy(offset);firstFrame=false;}
+        if (camera.position.distanceTo(target) >= 2.25) {
+          ordinaryCamera = {position: {x: camera.position.x, y: camera.position.y, z: camera.position.z},
+            target: {x: target.x, y: target.y, z: target.z}};
+        }
+      }
+      if (budget.overlay) {
       let closest=2.7;nearest=null;
       let nextSpeechProjected=false;
       world.npcs.forEach((n,i)=>{const displayName=live.current.displayNames[n.name]??n.name;if(labels[i].textContent!==displayName)labels[i].textContent=displayName;const dist=Math.hypot(position.x-n.x,position.z-n.z);if(characterModels.isReady(n.name)&&dist<closest&&clearLine(position,n.group.position)){closest=dist;nearest=n.name;}
         projected.set(n.x,n.group.position.y+n.labelHeight,n.z).project(camera);const visible=characterModels.isReady(n.name)&&dist<13&&clearLine(position,n.group.position)&&projected.z<1&&Math.abs(projected.x)<1&&Math.abs(projected.y)<1;
-        labels[i].style.display=visible&&(!live.current.paused||live.current.conversationName===n.name)?'block':'none';labels[i].style.transform=`translate(-50%,-50%) translate(${(projected.x*.5+.5)*element.clientWidth}px,${(-projected.y*.5+.5)*element.clientHeight}px)`;
+        labels[i].style.display=visible&&(!live.current.paused||live.current.conversationName===n.name)?'block':'none';labels[i].style.transform=`translate(-50%,-50%) translate(${(projected.x*.5+.5)*viewportWidth}px,${(-projected.y*.5+.5)*viewportHeight}px)`;
         if(live.current.conversationName===n.name&&visible&&!software){
           const reply=live.current.conversationReply.startsWith(`${n.name}:`)?live.current.conversationReply.slice(n.name.length+1).trim():live.current.conversationReply;
           const text=`${displayName}: ${reply}`;if(speech.textContent!==text)speech.textContent=text;speech.style.display='block';
           const hostTop=element.getBoundingClientRect().top,dialog=document.querySelector<HTMLDialogElement>('dialog[open]:has(.palace-conversation)'),header=document.querySelector<HTMLElement>('.court-header');
-          const minTop=Math.max(16,(header?.getBoundingClientRect().bottom??96)-hostTop+12),maxBottom=Math.min(element.clientHeight-20,(dialog?.getBoundingClientRect().top??element.clientHeight*.5)-hostTop-24);
+          const minTop=Math.max(16,(header?.getBoundingClientRect().bottom??96)-hostTop+12),maxBottom=Math.min(viewportHeight-20,(dialog?.getBoundingClientRect().top??viewportHeight*.5)-hostTop-24);
           const w=speech.offsetWidth,h=speech.offsetHeight;
           // Project a padded full-character region, not just a single head point.
-          const headX=(projected.x*.5+.5)*element.clientWidth,headY=(-projected.y*.5+.5)*element.clientHeight;
+          const headX=(projected.x*.5+.5)*viewportWidth,headY=(-projected.y*.5+.5)*viewportHeight;
           const feet=new THREE.Vector3(n.x,n.group.position.y,n.z).project(camera);
-          const feetY=(-feet.y*.5+.5)*element.clientHeight;
+          const feetY=(-feet.y*.5+.5)*viewportHeight;
           const halfWidth=Math.max(44,Math.abs(feetY-headY)*.38);
           const actor={left:headX-halfWidth,right:headX+halfWidth,top:headY-18,bottom:Math.max(headY,feetY)+12};
-          const host=element.getBoundingClientRect();
-          const obstacles=Array.from(document.querySelectorAll<HTMLElement>('.intrigue-alert.is-palace')).map(el=>{const r=el.getBoundingClientRect();return {left:r.left-host.left-8,right:r.right-host.left+8,top:r.top-host.top-8,bottom:r.bottom-host.top+8};});
-          const placement=placeSpeech({left:16,right:element.clientWidth-16,top:minTop,bottom:maxBottom},actor,w,h,obstacles);
+          const playerHead = new THREE.Vector3(position.x, position.y + movementSpeeds.height, position.z).project(camera);
+          const playerFeet = position.clone().project(camera);
+          const playerHeadX = (playerHead.x * .5 + .5) * viewportWidth;
+          const playerHeadY = (-playerHead.y * .5 + .5) * viewportHeight;
+          const playerFeetY = (-playerFeet.y * .5 + .5) * viewportHeight;
+          const playerHalfWidth = Math.max(40, Math.abs(playerFeetY - playerHeadY) * .35);
+          const protectedPlayer = {left: playerHeadX - playerHalfWidth, right: playerHeadX + playerHalfWidth,
+            top: playerHeadY - 20, bottom: Math.max(playerHeadY, playerFeetY) + 12};
+          const placement=placeSpeech(
+            {left:16,right:viewportWidth-16,top:minTop,bottom:maxBottom}, actor, w, h,
+            world.player.group.visible && playerHead.z < 1 ? [protectedPlayer] : [],
+          );
           if(placement){
             nextSpeechProjected=true;
             speech.style.left=`${placement.left+w/2}px`;speech.style.top=`${placement.bottom}px`;
@@ -422,22 +484,30 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
         if(dist<closest&&dist<2.8&&clearInteractionPath(position,gate,world.colliders,world.bounds,movementSpeeds.radius)){closest=dist;nearestGate=gate.to;nearest=null;}
         projected.set(gate.x,3.1,gate.z).project(camera);
         const label=gateLabels[i],access=careerZoneAccess(playerType,live.current.rank,gate.to);
-        label.textContent=access.allowed?gate.label:`${gate.label} · ${access.reason}`;
+        const text=access.allowed?gate.label:`${gate.label} · ${access.reason}`;
+        if(label.textContent!==text)label.textContent=text;
         label.style.display=dist<16&&projected.z<1&&Math.abs(projected.x)<1&&Math.abs(projected.y)<1&&!live.current.paused?'block':'none';
-        label.style.transform=`translate(-50%,-50%) translate(${(projected.x*.5+.5)*element.clientWidth}px,${(-projected.y*.5+.5)*element.clientHeight}px)`;
+        label.style.transform=`translate(-50%,-50%) translate(${(projected.x*.5+.5)*viewportWidth}px,${(-projected.y*.5+.5)*viewportHeight}px)`;
         label.classList.toggle('is-locked',!access.allowed);
       });
+      if(!nextSpeechProjected)speech.style.display='none';
+      if(nextSpeechProjected!==speechProjected){speechProjected=nextSpeechProjected;live.current.onSpeechProjectionChange?.(speechProjected);}
+      }
       frameTime+=rawDelta;if(frameTime>=1){fps=Math.round(frameCount/frameTime);frameTime=0;frameCount=0;}
       poseSaveElapsed+=dt;if(poseSaveElapsed>=.25){
         visits.playerByZone[zone]={x:position.x,z:position.z,yaw,pitch,distance,y:position.y,velocity:jumpState.velocity,airborne:jumpState.airborne};
         for(const n of world.npcs)visits.npcByName[n.name]={zone,x:n.x,z:n.z,rotationY:n.group.rotation.y};poseSaveElapsed=0;
       }
-      if(!nextSpeechProjected)speech.style.display='none';if(nextSpeechProjected!==speechProjected){speechProjected=nextSpeechProjected;live.current.onSpeechProjectionChange?.(speechProjected);}
       telemetry+=dt;if(telemetry>.1){setNearby(nearest);setNearbyGate(nearestGate);setArea(ZONES[zone].title);if(mapPlayer.current){mapPlayer.current.style.left=`${(position.x-world.bounds.minX)/(world.bounds.maxX-world.bounds.minX)*100}%`;mapPlayer.current.style.top=`${(position.z-world.bounds.minZ)/(world.bounds.maxZ-world.bounds.minZ)*100}%`;mapPlayer.current.style.transform=`translate(-50%,-50%) rotate(${Math.PI-world.player.group.rotation.y}rad)`;}if(testing)setReadout(`Zone ${zone} · ${world.npcs.length} spatial courtiers\nPool ${palaceAssetPool.stats().liveLeases} leases · ${palaceAssetPool.stats().decodedAssets} decoded · ${(palaceAssetPool.stats().cachedBytes/1048576).toFixed(1)} MiB warm bytes\nFrame ${renderedFrames} · ${fps} fps\nPlayer x ${position.x.toFixed(2)}, y ${position.y.toFixed(2)}, z ${position.z.toFixed(2)}\nJump ${world.player.airborne?'airborne':'grounded'} · vertical ${world.player.jumpVelocity.toFixed(2)} m/s\nCamera ${camera.position.x.toFixed(2)}, ${camera.position.y.toFixed(2)}, ${camera.position.z.toFixed(2)}\nYaw ${THREE.MathUtils.radToDeg(yaw).toFixed(1)}° · paused ${live.current.paused}\nNearby: ${nearest||'none'}\n${world.npcs.map(n=>`${n.name}: ${n.x.toFixed(1)}, ${n.z.toFixed(1)} · ${n.activity}`).join('\n')}`);telemetry=0;}
-      if(!software||now-lastPaint>1000/12){renderer.render(world.scene,camera);lastPaint=now;renderedFrames++;frameCount++;
+      if (renderer instanceof THREE.WebGLRenderer) {
+        const ratio = renderBudget.pixelRatio(viewportWidth, viewportHeight, window.devicePixelRatio);
+        if (Math.abs(renderer.getPixelRatio() - ratio) > .01) renderer.setPixelRatio(ratio);
+        renderer.shadowMap.needsUpdate = budget.shadow;
+      }
+      {renderer.render(world.scene,camera);renderedFrames++;frameCount++;
         // Start the large first-appearance download after the playable frame,
         // without delaying character readiness or retaining a hidden Emperor rig.
-        if(!software&&!emperorWarmed&&!hasSeenEmperor.current&&characterModels.isReady()){
+        if(!software&&!emperorWarmed&&!hasSeenEmperor.current&&characterModels.isReady()&&pendingCharacterLoads===0&&elapsed>3){
           emperorWarmed=true;void palaceAssetPool.prefetch(EMPEROR_ASSET_URL).catch(()=>{});
         }
       }frame=requestAnimationFrame(animate);

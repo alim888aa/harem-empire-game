@@ -1,0 +1,29 @@
+{
+  "name": "General Zhao",
+  "url": "/models/scoped-t3/anime-general-zhao-e30c036ff3ff257b.glb?v=e30c036ff3ff257b",
+  "sha256": "e30c036ff3ff257b362da14d5f747d818f724040c5370b80dbc111700364675e",
+  "runtime": "/workspace/scratch/5e0e15dcbbf8/anime-recovery-proof/remaining-cast-checkpoints/generals-identity-runtime-v49/general-zhao-runtime.glb",
+  "source": "/workspace/scratch/5e0e15dcbbf8/anime-recovery-proof/identity-repair-generals-v1/animation-validation-v1/general-zhao-animated-source.glb",
+  "source_sha256": "270517d636b30752d2c202698dafebacf80a0e080dd0e78b8647e578c4e5e5d2",
+  "editable": "/workspace/scratch/5e0e15dcbbf8/anime-recovery-proof/identity-repair-generals-v1/general-zhao-identity-study.blend",
+  "editable_sha256": "7034c78c2f5d5c9766e79fb1950116c7ddd5927765200dbef14ed52c3153951e",
+  "bytes": 3494364,
+  "labelHeight": 2.1,
+  "walkSpeed": 1.2,
+  "previous_url": "/models/scoped-t3/anime-general-zhao-0099b844069724ed.glb?v=0099b844069724ed",
+  "previous_sha256": "0099b844069724ed2c558261144183c244c85ed102303a4e8991f19863484455",
+  "rig_joints": 59,
+  "bone_channels": 708,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "user_approved_identity_checkpoint": "checkpoint03",
+  "design": "Distinct adult faces, native layered hair, coordinated skin and individual irises",
+  "license": "CC0 native VRoid foundation and original project-authored clothing",
+  "costume_and_below_neck_positions_preserved": true,
+  "native_animation_channel_bytes_preserved": true,
+  "source_to_runtime_nonimage_accessors_and_semantics_exact": true
+}

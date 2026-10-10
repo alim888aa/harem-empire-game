@@ -48,8 +48,8 @@ export const RUNTIME_PORTRAITS:Record<string,string>={
   "General Shen": "/portraits/general-shen.webp?v=ff6691f7bc35",
   "General Wei": "/portraits/general-wei.webp?v=243248d09ee5",
   "General Luo": "/portraits/general-luo.webp?v=3b1f511c7c56",
-  "@player:prince": "/portraits/player-prince.webp?v=c5de70edb6d8",
-  "@player:minister": "/portraits/player-minister.webp?v=5dd954400c3a",
-  "@player:concubine": "/portraits/player-concubine.webp?v=0e2fca43d77a"
+  "@player:prince": "/portraits/player-prince.webp?v=5c51a98d20ef",
+  "@player:minister": "/portraits/player-minister.webp?v=cfc9cd2e474d",
+  "@player:concubine": "/portraits/player-concubine.webp?v=297b8913d28f"
 };
 export const runtimePortrait=(id:string,fallback:string)=>RUNTIME_PORTRAITS[id]??fallback;

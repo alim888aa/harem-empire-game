@@ -5,11 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && node scripts/runtime-assets.mjs prune-build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p .",
     "test": "node --import tsx --test tests/*.test.ts",
-    "check": "npm run typecheck && npm test"
+    "check": "npm run typecheck && npm test",
+    "assets:fetch": "node scripts/runtime-assets.mjs fetch",
+    "assets:verify": "node scripts/runtime-assets.mjs verify",
+    "pretest": "node scripts/runtime-assets.mjs verify"
   },
   "devDependencies": {
     "@types/three": "^0.186.0",

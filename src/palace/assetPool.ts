@@ -1,6 +1,9 @@
+import {repairVerifiedMaterialDepth} from './modelMaterialRepairs';
+// Owns bounded source caching, decoded art leases, and independent actor rigs.
 import * as THREE from 'three';
 import { GLTFLoader, type GLTF } from 'three/addons/loaders/GLTFLoader.js';
 import { clone } from 'three/addons/utils/SkeletonUtils.js';
+import { runtimeAssetUrl } from './runtimeAssetUrl';
 
 export interface ModelLease { asset: GLTF; release: () => void }
 interface DecodedEntry { refs: number; pending: Promise<GLTF>; asset?: GLTF }
@@ -33,16 +36,21 @@ export class ModelAssetPool {
   private models = new Map<string, DecodedEntry>();
   private counters = { liveLeases: 0, downloads: 0, cacheHits: 0, decodes: 0, disposals: 0 };
   private readonly byteBudget:number;
+  private activeDecodes = 0;
+  private decodeQueue: Array<() => void> = [];
   private readonly fetchBytes:(url:string)=>Promise<ArrayBuffer>;
   private readonly decode:(bytes:ArrayBuffer,url:string)=>Promise<GLTF>;
   constructor(
     byteBudget = 64 * 1024 * 1024,
     fetchBytes: (url: string) => Promise<ArrayBuffer> = async url => {
-      const response = await fetch(url, { cache: 'force-cache', signal: AbortSignal.timeout(60000) });
+      const response = await fetch(runtimeAssetUrl(url), { cache: 'force-cache', signal: AbortSignal.timeout(60000) });
       if (!response.ok) throw new Error(`Asset download failed: ${response.status}`);
       return response.arrayBuffer();
     },
-    decode: (bytes: ArrayBuffer, url: string) => Promise<GLTF> = (bytes, url) => new GLTFLoader().parseAsync(bytes, url.slice(0, url.lastIndexOf('/') + 1)),
+    decode: (bytes: ArrayBuffer, url: string) => Promise<GLTF> = (bytes, url) => {
+      const deliveryUrl = runtimeAssetUrl(url);
+      return new GLTFLoader().parseAsync(bytes, deliveryUrl.slice(0, deliveryUrl.lastIndexOf('/') + 1));
+    },
   ) {this.byteBudget=byteBudget;this.fetchBytes=fetchBytes;this.decode=decode;}
   private async source(url: string): Promise<ArrayBuffer> {
     const cached = this.bytes.get(url);
@@ -59,6 +67,29 @@ export class ModelAssetPool {
     }).finally(() => { this.downloads.delete(url); });
     this.downloads.set(url, pending); return pending;
   }
+  /** A zone can request many outfits at once; two decodes avoid a main-thread burst. */
+  private decodeInTurn(bytes: ArrayBuffer, url: string, stillNeeded: () => boolean): Promise<GLTF> {
+    return new Promise((resolve, reject) => {
+      const run = () => {
+        if (!stillNeeded()) {
+          reject(new DOMException('Model load cancelled', 'AbortError'));
+          return;
+        }
+        this.activeDecodes++;
+        this.counters.decodes++;
+        Promise.resolve().then(() => this.decode(bytes, url)).then(resolve, reject).finally(() => {
+          this.activeDecodes--;
+          this.startQueuedDecodes();
+        });
+      };
+      this.decodeQueue.push(run);
+      this.startQueuedDecodes();
+    });
+  }
+  private startQueuedDecodes() {
+    while (this.activeDecodes < 2 && this.decodeQueue.length) this.decodeQueue.shift()!();
+  }
+
   /** Cancellation relinquishes a pending lease immediately. Shared downloads may finish
    * into the bounded byte cache, but abandoned requests never keep a decoded template. */
   async acquire(url: string, signal?: AbortSignal): Promise<ModelLease> {
@@ -72,9 +103,9 @@ export class ModelAssetPool {
           if (this.models.get(url) === created) this.models.delete(url);
           throw new DOMException('Model load cancelled', 'AbortError');
         }
-        this.counters.decodes++;
-        return this.decode(bytes, url);
+        return this.decodeInTurn(bytes, url, () => created.refs > 0);
       }).then(asset => {
+        repairVerifiedMaterialDepth(url, asset.scene);
         created.asset = asset;
         if (created.refs === 0) {
           disposeTemplate(asset.scene); this.counters.disposals++;
@@ -128,6 +159,31 @@ export interface ModelInstanceLease {
   dispose: (mixer?: THREE.AnimationMixer | null) => void;
 }
 
+/** SkeletonUtils preserves private bones, but clones a shared rig once per mesh.
+ * Keep the source's rig sharing within this actor so the renderer updates and
+ * uploads each bone palette once, even for outfits with hundreds of meshes. */
+function cloneActorRoot(source: THREE.Object3D): THREE.Object3D {
+  const root = clone(source);
+  const privateSkeletons = new Map<THREE.Skeleton, THREE.Skeleton>();
+  const pending: Array<[THREE.Object3D, THREE.Object3D]> = [[source, root]];
+  while (pending.length) {
+    const [original, instance] = pending.pop()!;
+    if (original instanceof THREE.SkinnedMesh && instance instanceof THREE.SkinnedMesh) {
+      const shared = privateSkeletons.get(original.skeleton);
+      if (shared) {
+        instance.skeleton.dispose();
+        instance.skeleton = shared;
+      } else {
+        privateSkeletons.set(original.skeleton, instance.skeleton);
+      }
+    }
+    for (let index = 0; index < original.children.length; index++) {
+      pending.push([original.children[index], instance.children[index]]);
+    }
+  }
+  return root;
+}
+
 /** A private skeleton per actor; geometry, materials and textures belong to the pool.
  * Never dispose a clone's shared meshes directly. Dispose this instance instead. */
 export async function acquireModelInstance(
@@ -141,7 +197,7 @@ export async function acquireModelInstance(
     throw new DOMException('Model load cancelled', 'AbortError');
   }
   let root: THREE.Object3D;
-  try { root = clone(lease.asset.scene); }
+  try { root = cloneActorRoot(lease.asset.scene); }
   catch (error) { lease.release(); throw error; }
   let disposed = false;
   const privateMaterials=new Map<THREE.Material,THREE.Material>();

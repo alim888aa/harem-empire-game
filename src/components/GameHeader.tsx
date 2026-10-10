@@ -9,9 +9,10 @@ interface GameHeaderProps {
   onProfileClick: () => void;
   onNotificationsClick?:()=>void;
   unreadNotifications?:number;
+  urgentNotifications?:number;
   characterType?: "prince" | "minister" | "concubine" | null;
 }
-export default function GameHeader({ gameState, onNextSeason, onCourtClick, onProfileClick, characterType, onNotificationsClick, unreadNotifications=0 }: GameHeaderProps) {
+export default function GameHeader({ gameState, onNextSeason, onCourtClick, onProfileClick, characterType, onNotificationsClick, unreadNotifications=0, urgentNotifications=0 }: GameHeaderProps) {
   return <header className="court-header"><div className="court-header-inner">
     <button type="button" className="game-brand" onClick={onProfileClick} aria-label="Open your player profile"><span aria-hidden="true"><Emblem name="lattice" /></span><div>
       <strong>Harem Empire</strong>
@@ -23,7 +24,14 @@ export default function GameHeader({ gameState, onNextSeason, onCourtClick, onPr
       <div aria-label={`Gifts ${gameState.gifts}`}><span>GIFTS</span><strong><PopNumber value={gameState.gifts} /> <Emblem name="ingot" /></strong></div>
     </div>
     <nav className="header-actions" aria-label="Game controls">
-      {onNotificationsClick&&<button onClick={onNotificationsClick} aria-label={`Notifications${unreadNotifications?`, ${unreadNotifications} unread`:""}`}><span className="header-action-label">Notifications</span><span className="header-action-compact">Alerts</span>{unreadNotifications>0&&<span className="notification-badge">{unreadNotifications}</span>}</button>}
+      {onNotificationsClick && <button onClick={onNotificationsClick}
+        className={urgentNotifications ? 'has-urgent-notifications' : undefined}
+        aria-label={`Notifications${unreadNotifications ? `, ${unreadNotifications} unread` : ''}${
+          urgentNotifications ? `, ${urgentNotifications} active assassination ${urgentNotifications === 1 ? 'warning' : 'warnings'}` : ''}`}>
+        <span className="header-action-label">Notifications</span><span className="header-action-compact">Alerts</span>
+        {urgentNotifications > 0 && <span className="notification-urgency" aria-hidden="true"><Emblem name="warning"/></span>}
+        {unreadNotifications > 0 && <span className="notification-badge">{unreadNotifications}</span>}
+      </button>}
       <button className="profile-menu-button" onClick={onProfileClick}>Profile</button>
       <button onClick={onCourtClick}>Court</button>
       <SoundToggle />

@@ -1,0 +1,21 @@
+{
+  "name": "Empress Consort",
+  "sha256": "3bd570bc62a2895e3935a784ebd5d729f25f02592ef2fd8aed70e2c53b69da76",
+  "source_glb_sha256": "cbc5b01c6f12df0685102a85d7572abe11364e3fe39608b1f81a5fef1d4d11f9",
+  "rig_joints": 59,
+  "original_bone_channels": 708,
+  "additional_costume_morph_channels": 24,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "anatomy_source": "Licensed CC0 adult foundation with original project-authored face, hair and clothing",
+  "design": "Adult original face, dark bun with integrated gold ornament, fitted red dress and attached full-arm tapered sleeves",
+  "source_to_runtime": "Only embedded image resolution and duplicate storage differ; all geometry, rig and motion are exact",
+  "limits": [
+    "Stylized sculpted hair sections",
+    "Discrete offline motion review, not continuous cloth simulation"
+  ]
+}

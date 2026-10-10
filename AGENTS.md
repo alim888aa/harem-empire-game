@@ -20,6 +20,8 @@ What this means for you:
 
 ## Commands (the feedback loop)
 
+Runtime GLBs and material images are hosted externally. After `npm ci`, run `npm run assets:fetch` before full tests; `npm run assets:verify` checks their pinned SHA-256 hashes. Recovered files are ignored by Git and removed from production `dist` by the build command. Keep `runtime-assets.json`, provenance and attribution in Git. See `RUNTIME_ASSETS.md`. Do not re-add hosted binaries to Git.
+
 | What | Command | Time |
 |---|---|---|
 | Typecheck `src/` | `npm run typecheck` | ~7s |

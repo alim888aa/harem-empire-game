@@ -1,0 +1,26 @@
+{
+  "name": "Empress Consort",
+  "sha256": "628b7bdd5116071c35aa6d21416eaec8bb4633471179fc5a49a904798bfcc383",
+  "source_glb_sha256": "eb19a06e151e4e8c9224ac79d00e8760c09f5ea23e512ff1b8b9e8f433dceeb6",
+  "editable_source_sha256": "7187c2ba0b3fbec1075d2dc36aefdf84da076d6ce48ca7ec2db018e2b56e89b1",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "foundation_bone_channels_preserved": 708,
+  "additional_costume_morph_channels": 24,
+  "selected_design": "Red ceremonial gown with gold shoulder mantle, gold-edged open outer front, white collar and cuffs, high brown bun and small crown",
+  "anatomy_source": "Fitted own59 generic adult legacy VRoid CC0 foundation with native UVs and restrained role-specific adult identity treatment",
+  "hair_source": "Licensed source-authored native hair parts fitted to recipient; no donor body or persona",
+  "license": "CC0-1.0 plus original project-authored clothing",
+  "geometry_rig_uv_weights_material_bindings_all_bone_and_morph_data_exact_source_to_runtime": true,
+  "female_own_ancestor_x_scale": 0.88,
+  "full_48_courtier_roster_rebuilt": true,
+  "limits": [
+    "Finite source/compact CPU material and motion proof, not continuous collision-free cloth or target-device performance.",
+    "Emperor is separate; existing inherited floor bob and local interfaces are not certified zero."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Empress Dowager",
+  "sha256": "9eef1df26fc571a693061569fbfff0f18a8c2b0debfbcf6f42457a7a8b8858b8",
+  "source_glb_sha256": "97c9328b777b569b9834ab691e766425078f0082c1d844a12e6114cab51fb3dc",
+  "editable_source_sha256": "25b22bdf85ed970e4033ae075032dd70e9f97f508ba9a60ca6e28c829154cf1e",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "foundation_bone_channels_preserved": 708,
+  "additional_costume_morph_channels": 20,
+  "selected_design": "Mature gray gathered bun with crown, purple gown and capelet with gold border and long central gold panel",
+  "anatomy_source": "Fitted own59 generic adult legacy VRoid CC0 foundation with native UVs and restrained role-specific adult identity treatment",
+  "hair_source": "Licensed source-authored native hair parts fitted to recipient; no donor body or persona",
+  "license": "CC0-1.0 plus original project-authored clothing",
+  "geometry_rig_uv_weights_material_bindings_all_bone_and_morph_data_exact_source_to_runtime": true,
+  "female_own_ancestor_x_scale": 0.88,
+  "full_48_courtier_roster_rebuilt": true,
+  "limits": [
+    "Finite source/compact CPU material and motion proof, not continuous collision-free cloth or target-device performance.",
+    "Emperor is separate; existing inherited floor bob and local interfaces are not certified zero."
+  ]
+}

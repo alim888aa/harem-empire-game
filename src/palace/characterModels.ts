@@ -47,15 +47,15 @@ function courtModelSpec(name:string):ModelSpec|undefined {
  if(!base)return COURT_MODELS[name];
  return{...base,palette:{Robe_Primary:appearance.primary,Robe_Secondary:appearance.secondary,Armor_Primary:appearance.primary,Armor_Edge:appearance.secondary,Hair:appearance.hair}};
 }
-export const PLAYER_PRINCE_ASSET_URL='/models/player-prince-anime.glb?v=3d57abbf33a47f57';
+export const PLAYER_PRINCE_ASSET_URL='/models/player-prince-anime.glb?v=823bceeae64f7519';
 const ANIME_PLAYER:ModelSpec={file:PLAYER_PRINCE_ASSET_URL,labelHeight:1.85,walkSpeed:1.20,runSpeed:3.80,controlWalk:1.35,bodyRadius:.36,height:2.0,normalizeClipOrigin:true};
-export const PLAYER_SCHOLAR_OUTFIT_URLS={scholar:'/models/player-scholar.glb?v=b0ac55b0e090a482',minister:'/models/player-minister.glb?v=e7fd3b31bbe42684',prime_minister:'/models/player-prime-minister.glb?v=f3f2c3cdd7de9d8a'} as const;
+export const PLAYER_SCHOLAR_OUTFIT_URLS={scholar:'/models/player-scholar.glb?v=19d1f0036d96fea8',minister:'/models/player-minister.glb?v=7691943e86cb03ed',prime_minister:'/models/player-prime-minister.glb?v=6db7538e78f7c3ae'} as const;
 const SCHOLAR_PLAYER:ModelSpec={file:PLAYER_SCHOLAR_OUTFIT_URLS.scholar,labelHeight:2.10,walkSpeed:1.278,runSpeed:4.047,controlWalk:1.35,controlRun:3.8,bodyRadius:.36,height:2.05,normalizeClipOrigin:true};
-export const PLAYER_CONCUBINE_OUTFIT_URLS={concubine:'/models/player-concubine.glb?v=d8cbf6330102ee0b',consort:'/models/player-consort.glb?v=9bb666fbd5877dcd',empress:'/models/player-empress.glb?v=7a44b977ddea0e03'} as const;
+export const PLAYER_CONCUBINE_OUTFIT_URLS={concubine:'/models/player-concubine.glb?v=e63077a89151d523',consort:'/models/player-consort.glb?v=554a98dc055f5514',empress:'/models/player-empress.glb?v=4dc2bc145556352c'} as const;
 const CONCUBINE_PLAYER:ModelSpec={file:PLAYER_CONCUBINE_OUTFIT_URLS.concubine,labelHeight:2.16,walkSpeed:1.340782123,runSpeed:4.245810056,controlWalk:1.35,controlRun:3.8,bodyRadius:.36,height:2.05,normalizeClipOrigin:true};
 const PLAYER_MODELS: Record<string, ModelSpec | undefined> = {prince:ANIME_PLAYER,minister:SCHOLAR_PLAYER,scholar:SCHOLAR_PLAYER,concubine:CONCUBINE_PLAYER};
 // Register a rank file here only after its exported proof and hash are inspected.
-export const PLAYER_PRINCE_OUTFIT_URLS={grand_prince:'/models/player-grand-prince-anime.glb?v=7913e120f746e756',crown_prince:'/models/player-crown-prince-anime.glb?v=14f4cc9c979e8781'} as const;
+export const PLAYER_PRINCE_OUTFIT_URLS={grand_prince:'/models/player-grand-prince-anime.glb?v=6bb9d31e35c9a057',crown_prince:'/models/player-crown-prince-anime.glb?v=a44eee13f591c0e1'} as const;
 const PLAYER_PRINCE_OUTFITS:Record<string,ModelSpec|undefined>={
   grand_prince:{...ANIME_PLAYER,file:PLAYER_PRINCE_OUTFIT_URLS.grand_prince},
   crown_prince:{...ANIME_PLAYER,file:PLAYER_PRINCE_OUTFIT_URLS.crown_prince,labelHeight:2.0},
@@ -189,8 +189,9 @@ export function loadCourtCharacterModels(world: PalaceWorld, playerType: string,
       // Keep an existing authored outfit; an initial failure stays body-free.
     });
   };
-  for(const target of targets)loadTarget(target,target.spec);
   const playerTarget=targets.find(target=>target.key===PLAYER_KEY)!;
+  loadTarget(playerTarget, playerTarget.spec);
+  for(const target of targets)if(target!==playerTarget)loadTarget(target,target.spec);
   const change = (model: AnimatedPerson, action: THREE.AnimationAction | undefined, fade=.12) => {
     if (!action || model.active === action) return;
     model.active?.fadeOut(fade);action.reset().setEffectiveWeight(1).fadeIn(fade).play();model.active=action;

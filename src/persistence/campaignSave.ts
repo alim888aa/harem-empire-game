@@ -1,5 +1,5 @@
 import {createDemotionNotice} from '../lib/demotionNotice';
-import {MAX_GIFT_NOTIFICATIONS} from '../lib/courtNotifications';
+import {MAX_GIFT_NOTIFICATIONS,MAX_COURT_READ_RECEIPTS} from '../lib/courtNotifications';
 import {FIRST_EMPEROR_VISIT_SECONDS} from '../lib/firstEmperorVisit';
 import {emptyCourtPlots,canContinuePlot,DEATH_METHODS,courtPlotKey} from '../lib/courtPlots';
 import {createCourtGraph,migrateGraphRomance,assertCourtGraph,courtRelation,updateCourtNode,PLAYER_NODE,EMPEROR_NODE,type GraphPerson} from '../lib/courtGraph';
@@ -103,6 +103,11 @@ function validateAudience(child: RecordValue) {
 export function validateCampaignSnapshot(value: unknown, legacyInfluence = false, legacyGraph = false, legacyPlots = false, legacyGifts = false, legacyRomance = false): asserts value is CampaignSave['snapshot'] {
   assertSave(record(value) && value.status === 'active' && emptyObject(value.historyValue) && record(value.context) && record(value.children), 'Invalid campaign snapshot');
   const c = value.context, state = value.value;
+  assertSave(c.readCourtNotificationIds === undefined || (
+    stringList(c.readCourtNotificationIds) && c.readCourtNotificationIds.length <= MAX_COURT_READ_RECEIPTS &&
+    new Set(c.readCourtNotificationIds).size === c.readCourtNotificationIds.length &&
+    c.readCourtNotificationIds.every((id: string) => id.length <= 512)
+  ), 'Invalid court notification read receipts');
   if(!legacyRomance){
     assertSave(stringList(c.processedRomanceRequests)&&new Set(c.processedRomanceRequests).size===c.processedRomanceRequests.length,'Invalid romance request ledger');
     const r=c.lastRomanceReceipt;assertSave(r===null||record(r)&&c.processedRomanceRequests.includes(r.requestId)&&NAMES.has(r.characterId)&&['gift','propose','end'].includes(r.action)&&integer(r.season,1,c.season)&&integer(r.cost,0,20)&&finite(r.affectionDelta,0,100)&&typeof r.accepted==='boolean'&&typeof r.response==='string'&&names(r.witnesses)&&names(r.reportingWitnesses)&&r.reportingWitnesses.every((name:string)=>r.witnesses.includes(name)),'Invalid romance receipt');

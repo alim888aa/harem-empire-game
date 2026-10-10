@@ -6,4 +6,15 @@ import {readFileSync} from 'node:fs';
 test('dark intrigue panel explicitly supplies readable foreground colors inside light dialog',()=>{const css=readFileSync('src/style.css','utf8');assert.match(css,/\.court-intrigue\{color:#f3eaf1\}/);assert.match(css,/\.court-intrigue \.court-guide\{color:#d9d0dc\}/);});
 import GameOverScreen from '../src/components/GameOverScreen';
 test('assassination defeat formats rank title without raw identifiers',()=>{const html=renderToStaticMarkup(createElement(GameOverScreen,{careerEnding:{title:'Assassinated at court',description:'No allies remain.'},gameEndReason:'defeat',finalStats:{supportPoints:0,rank:'grand_prince',season:5},onRestart:()=>{}}));assert.match(html,/Grand Prince/);assert.doesNotMatch(html,/grand_prince/);});
-test('active plots have a proactive main HUD banner outside the court dialog',()=>{const source=readFileSync('src/components/GameLayout.tsx','utf8');assert.match(source,/className=\{`intrigue-alert/);assert.match(source,/aria-live="assertive"/);assert.match(source,/Assassination warning/);assert.match(source,/Review before ending the season/);});
+import GameHeader from '../src/components/GameHeader';
+test('active plots signal urgency inside Notifications even after their unread badge is cleared', () => {
+  const html = renderToStaticMarkup(createElement(GameHeader, {
+    gameState: {rank: null, season: 3, systemSupport: 0, gifts: 25},
+    onCourtClick: () => {}, onProfileClick: () => {}, onNotificationsClick: () => {},
+    unreadNotifications: 0, urgentNotifications: 2,
+  }));
+  assert.match(html, /Notifications, 2 active assassination warnings/);
+  assert.match(html, /has-urgent-notifications/);
+  assert.doesNotMatch(html, /notification-badge/);
+  assert.doesNotMatch(html, /intrigue-alert/);
+});

@@ -1,9 +1,11 @@
 # Harem Empire beta
 
-A browser court-politics game with three careers, persistent relationships, five connected 3D palaces, and a 2D fallback. This repository contains reproducible source and runtime assets. Large validation archives and editable Blender workbenches are preserved separately. The current checkpoint is the published v40 runtime, including 23 rebuilt lower-court models: eight Maids, eight Eunuchs with authored temple/nape hair, six Scholars with raised natural-waist sashes and attached tails, and Concubine Mei. Version39 speech placement and romantic messages remain intact. The remaining cast and higher-rank outfits are still in progress. See `SCOPED_CHARACTER_UPDATE.md` for the precise art and verification limits.
+A browser court-politics game with three careers, persistent relationships, five connected 3D palaces, and a 2D fallback. This repository contains reproducible source and runtime-asset metadata; large 3D models and material maps are hosted separately. Large validation archives and editable Blender workbenches are preserved separately. The current checkpoint is the published V55 runtime, including the expanded named cast, rebuilt player wardrobe, tailored Empress garment and phoenix headpiece, plus dialog, camera and rendering-performance improvements. See the V51–V55 release notes and `SCOPED_CHARACTER_UPDATE.md` for scope and verification limits.
 
 ## Run
 - Node 22+; `npm ci`
+- `npm run assets:fetch` once before the full tests (downloads and verifies hosted art); `npm run assets:verify` checks existing local copies
+- Browser dev/build uses hosted art by default; see `RUNTIME_ASSETS.md` for offline mode, checksums and CORS
 - `npm run dev`
 - `npm run build`
 - `node --import tsx --test tests/*.test.ts`
@@ -81,3 +83,13 @@ The Git repository removes one obsolete machine-local authoring path from Mei’
 ### v40 sync
 
 The v40 update adds exactly 14 content-addressed runtime GLBs and their matching license/provenance: eight corrected Eunuch hairstyles and six corrected Scholar sashes/tails. The selected registry and golden tests match the published source snapshot. All eight Maids, clean Mei, 25 fallback courtiers, and v39 UI behavior remain unchanged. Older checked-in assets are retained for history and recovery. Private workbenches, validation archives, source ZIPs, generated output, dependencies, and machine-specific hosting configuration are excluded. Existing material-source path sanitation is preserved. This sync does not deploy the public Site.
+
+
+### V55 sync
+
+The 2026-10-09 sync brings source, tests, runtime assets and release notes up to the published V55 snapshot. It preserves the existing main-branch UI theme, speech anchors, resource-feedback cleanup and touch targets, along with the repository's portable material-source metadata and sanitized Mei model. Existing history and older runtime assets are retained. Editable workbenches, proof archives, machine-specific render scripts, source ZIPs, generated output and dependencies remain excluded. This repository sync does not deploy the public Site.
+
+
+### Cloud-hosted runtime assets
+
+The follow-on sync keeps the exact V55 GLB and material bytes in the `empire-game` Cloudflare R2 bucket and removes 129 large binary files from the Git tip. Runtime URLs keep their original paths and cache keys; portraits, model provenance, attribution and release notes remain in Git. `runtime-assets.json` pins all 131 uploaded files by SHA-256 and byte length. Local test art can be recovered using `npm run assets:fetch`; production builds omit those recovered binary copies. See `RUNTIME_ASSETS.md` for verification and delivery limitations. The public game Site is not redeployed by this repository sync.

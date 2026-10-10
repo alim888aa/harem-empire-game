@@ -35,9 +35,9 @@ async function fixture(){
   return{world,models,pool,raw,urls};
 }
 
-test('distinct anime model is assigned only to player; Feng and private animation clips remain separate',async()=>{
+test('distinct player asset and reviewed Feng keep private models and animation clips separate',async()=>{
   const {world,models,pool,raw,urls}=await fixture();
-  assert.equal(urls.length,2);assert.ok(urls.includes(PLAYER_PRINCE_ASSET_URL));assert.ok(urls.some(url=>url.includes('/prince-runtime.glb')));
+  assert.equal(urls.length,2);assert.ok(urls.includes(PLAYER_PRINCE_ASSET_URL));assert.ok(urls.includes('/models/scoped-t3/anime-prince-feng-90440f404f28f764.glb?v=90440f404f28f764'));
   assert.ok(world.player.group.getObjectByName('DistinctAnimePlayer'));assert.ok(!world.player.group.getObjectByName('ExistingFeng'));
   assert.ok(world.npcs[0].group.getObjectByName('ExistingFeng'));assert.ok(!world.npcs[0].group.getObjectByName('DistinctAnimePlayer'));
   close(raw.get(PLAYER_PRINCE_ASSET_URL)!.animations.find(clip=>clip.name==='Jump_Start')!.tracks[0].times[0],1/30);
@@ -79,7 +79,7 @@ test('landing can finish into queued gift dialogue while paused; takeoff interru
 
 test('copied actual GLB matches checkpoint hash and loads exact normalized jump phases without network',async()=>{
   const bytes=await readFile(new URL('../public/models/player-prince-anime.glb',import.meta.url));
-  assert.equal(createHash('sha256').update(bytes).digest('hex'),'3d57abbf33a47f5765e6606de7ef2a1d8fbc21fb51b6940e5919f91c90d245d1');
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),'823bceeae64f751951d36fefecd5b9718c6111832cfa8d8334db19a253215861');
   const data=bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength) as ArrayBuffer;
   const asset=await new GLTFLoader().parseAsync(data,'');
   assert.deepEqual(asset.animations.map(clip=>clip.name),['Idle','Walk','Run','Gift_Present','Jump_Start','Jump_Air','Land']);
@@ -154,8 +154,8 @@ test('superseded late outfit cannot replace the current rank; load failure leave
 });
 
 for(const [rank,file,hash] of [
-  ['grand_prince','player-grand-prince-anime.glb','7913e120f746e756ca74f184e10a712d948a0c358f1d49532af4fb73ae0de440'],
-  ['crown_prince','player-crown-prince-anime.glb','14f4cc9c979e87817b2f3a2b2651de3257b2ff7fc23ad930093d60c463d1ef50'],
+  ['grand_prince','player-grand-prince-anime.glb','6bb9d31e35c9a057fa138f683295603e1e9377e233cd5e681c2bcf9434c313df'],
+  ['crown_prince','player-crown-prince-anime.glb','a44eee13f591c0e1ce2d453a8b5cbe450ab0072f230e857954ff61ecd735a9e9'],
 ] as const){
   test(`${rank}: inspected checkpoint hash and seven clips parse and initialize at the correct outfit`,async()=>{
     const bytes=await readFile(new URL(`../public/models/${file}`,import.meta.url));assert.equal(createHash('sha256').update(bytes).digest('hex'),hash);

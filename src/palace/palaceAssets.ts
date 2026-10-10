@@ -3,7 +3,7 @@ import { acquireModelInstance, palaceAssetPool, type ModelAssetPool, type ModelI
 import type { PalaceWorld } from './world';
 export const THRONE_ASSET_URL='/models/imperial-throne.glb?v=c2bee21c';
 export const BED_ASSET_URL='/models/silk-chamber-canopy-bed.glb?v=0fd10fa5e7fccb7b';
-export const EMPEROR_ASSET_URL='/models/emperor-runtime.glb?v=bcf33aafd2c8ab83';
+export const EMPEROR_ASSET_URL='/models/emperor-runtime.glb?v=b0abb24f3496b9e0';
 export const palaceAssetUrls=(zone:string)=>zone==='emperor'?[THRONE_ASSET_URL]:zone==='ladies'?[BED_ASSET_URL]:[];
 /** Dispose the returned instance with its mixer when the encounter ends. */
 export function acquireEmperorModel(pool:ModelAssetPool=palaceAssetPool,signal?:AbortSignal){return acquireModelInstance(EMPEROR_ASSET_URL,pool,signal);}

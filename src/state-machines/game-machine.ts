@@ -1,6 +1,6 @@
 import {giveRomanticGift,proposeRomance,endRomance,seasonalRomanceJealousy,romancePairEligibility,romanceWitnessRisk,type RomanceAction,type RomanceReceipt} from '../lib/courtRomance';
 import {createDemotionNotice,type DemotionNotice} from '../lib/demotionNotice';
-import {recordGiftNotification,type GiftNotification} from '../lib/courtNotifications';
+import {recordGiftNotification,readCourtNotificationIds,type GiftNotification} from '../lib/courtNotifications';
 import {FIRST_EMPEROR_VISIT_SECONDS,validFirstVisitTick} from '../lib/firstEmperorVisit';
 import {emptyCourtPlots,defusedPlotNames,cancelDefusedPlots,resolveCourtSeason,type CourtPlots,type DeceasedCourtier,type PlotSituation,type PlotEvent} from '../lib/courtPlots';
 import {clampCourtInfluence} from '../lib/courtHierarchy';
@@ -131,7 +131,7 @@ export const gameMachine = setup({
       season: 1,
       seasonAdvancePending: false,
       giftsRemaining: B.startingGifts,
-      courtGiftSeasons:{},giftNotifications:[],pendingCourtGifts:[],demotionNotice:null,processedRomanceRequests:[],lastRomanceReceipt:null,
+      courtGiftSeasons:{},giftNotifications:[],readCourtNotificationIds:[],pendingCourtGifts:[],demotionNotice:null,processedRomanceRequests:[],lastRomanceReceipt:null,
       giftSessionId: 1,
       firstEmperorVisitDone:false,firstEmperorVisitElapsed:0,
       rngState: 0,
@@ -204,6 +204,7 @@ export const gameMachine = setup({
         seasonSettlementPending?:boolean;
         courtGiftSeasons?:Record<string,number>;
         giftNotifications?:GiftNotification[];
+        readCourtNotificationIds?:string[];
         processedRomanceRequests?:string[];
         lastRomanceReceipt?:RomanceReceipt|null;
         pendingCourtGifts?:string[];
@@ -280,6 +281,7 @@ export const gameMachine = setup({
       | { type: "GAME_COMPLETED" }
       | { type: "RESTART_GAME" }
       | { type: "READ_GIFT_NOTIFICATIONS" }
+      | { type: "READ_COURT_NOTIFICATIONS" }
       | { type: "ACKNOWLEDGE_DEMOTION"; id:string }
       | { type: "JOIN_FACTION", faction: FactionType }
       | { type: "FACTION_MEMBERSHIP_OFFERED", faction: FactionType }
@@ -337,7 +339,7 @@ export const gameMachine = setup({
     season: 1,
     seasonAdvancePending: false,
     giftsRemaining: B.startingGifts,
-      courtGiftSeasons:{},giftNotifications:[],pendingCourtGifts:[],demotionNotice:null,processedRomanceRequests:[],lastRomanceReceipt:null,
+      courtGiftSeasons:{},giftNotifications:[],readCourtNotificationIds:[],pendingCourtGifts:[],demotionNotice:null,processedRomanceRequests:[],lastRomanceReceipt:null,
     giftSessionId: 1,
       firstEmperorVisitDone:false,firstEmperorVisitElapsed:0,
     rngState: 0,
@@ -400,6 +402,10 @@ export const gameMachine = setup({
   on: {
     ACKNOWLEDGE_DEMOTION:{guard:({context,event})=>context.demotionNotice?.id===event.id,actions:assign(({context})=>({demotionNotice:{...context.demotionNotice!,acknowledged:true}}))},
     READ_GIFT_NOTIFICATIONS:{actions:assign(({context})=>({giftNotifications:(context.giftNotifications??[]).map(n=>({...n,read:true}))}))},
+    READ_COURT_NOTIFICATIONS: {actions: assign(({context}) => ({
+      giftNotifications: (context.giftNotifications ?? []).map(notification => ({...notification, read: true})),
+      readCourtNotificationIds: readCourtNotificationIds(context.courtPlots),
+    }))},
     RESOLVE_COURT_SEASON:[
       {guard:({context,event})=>event.stage===1&&context.pendingIntrigueSeason===event.season&&context.gameEndReason===null,actions:sendTo(({self})=>self,({event})=>({...event,stage:2 as const}))},
       {guard:({context,event})=>event.stage===2&&context.pendingIntrigueSeason===event.season&&context.gameEndReason===null,target:'.resolving_court_season'}
@@ -1099,7 +1105,7 @@ export const gameMachine = setup({
               season: 1,
               seasonAdvancePending: false,
               giftsRemaining: B.startingGifts,
-      courtGiftSeasons:{},giftNotifications:[],pendingCourtGifts:[],demotionNotice:null,processedRomanceRequests:[],lastRomanceReceipt:null,
+      courtGiftSeasons:{},giftNotifications:[],readCourtNotificationIds:[],pendingCourtGifts:[],demotionNotice:null,processedRomanceRequests:[],lastRomanceReceipt:null,
               giftSessionId: ({ context }) => context.giftSessionId + 1,
               firstEmperorVisitDone:false,firstEmperorVisitElapsed:0,
               rngState: 0,

@@ -1,0 +1,30 @@
+{
+  "name": "General Zhao",
+  "sha256": "0099b844069724ed2c558261144183c244c85ed102303a4e8991f19863484455",
+  "source_glb_sha256": "722853cdb39157126c9a8c4cf87dfebab7742f7d8055e9e133cf8240b16aceb0",
+  "editable_source_sha256": "709e1ac7ab6b64158b60ade804c72a54349a79766e07d07070c69573567af46e",
+  "identity_key": "npc-general-zhao-adult-identity-v1",
+  "identity_fingerprint_sha256": "c27b2c3aaa7f0a5114d059d98a41c23b7cbbc6be5dbf435c2bc2f2f8e2998f56",
+  "anatomy_source": "Original generic adult legacy VRoid0.14 CC0 body/head/native facial UVs with accepted own anatomical foundation",
+  "hair_source": "Licensed source-authored legacy CC0 topology/native UVs with accepted posterior fit; no donor body/persona",
+  "license": "CC0-1.0 plus original project-authored garments",
+  "license_primary_url": "https://vroid.pixiv.help/hc/en-us/articles/4402614652569-Do-VRoid-Studio-s-sample-models-come-with-conditions-of-use",
+  "selected_design": "Approved mature alert adult face, source own59 body, selected armor/tunic/loose trousers/cape retained; ipsilateral pants/cuffs bridges repaired; licensed rear hair fitted",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "geometry_rig_uv_weights_current_motion_exact_source_to_runtime": true,
+  "controller_proof_basis": "Fresh current-source CPU routes and independent actor poses, cancel/decode/retry/shared-cancel/disposal cases; no browser/GPU claim",
+  "sampled_contact_caution": {
+    "minimumActorRelativeFootMetres": -0.015528613999641765,
+    "minimumWorldFloorRelativeFootMetres": -0.020266899659064516,
+    "sampledFootReferenceVertices": 212,
+    "note": "Finite CPU samples only; existing blends/spatial bob can dip. No zero-contact certificate."
+  },
+  "remaining_interface_cautions": "Inherited nonzero blend/floor contacts and source-approved local clothing/hair interfaces remain; sampled proof does not certify globally zero collision",
+  "full_cast_complete": false
+}

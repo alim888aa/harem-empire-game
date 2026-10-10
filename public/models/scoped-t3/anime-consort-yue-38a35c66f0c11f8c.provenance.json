@@ -1,0 +1,27 @@
+{
+  "name": "Consort Yue",
+  "sha256": "38a35c66f0c11f8c5574c6bb15fb84c6f72e98a11d8538ec7bbb809871a18f07",
+  "identity_key": "npc-consort-yue-adult-identity-v1",
+  "identity_fingerprint_sha256": "3b6df7c2c64cea6f1d0092fa510faa66dc62d9ff47415a7f12070658cabb6bbd",
+  "anatomy_source": "Original generic adult legacy VRoid0.14 CC0 body/head/native facial UVs with accepted own63 foundation",
+  "hair_source": "Licensed source-authored legacy CC0 topology and native UVs with accepted rear fit; no donor body/persona",
+  "license": "CC0-1.0 plus original project-authored garments",
+  "license_primary_url": "https://vroid.pixiv.help/hc/en-us/articles/4402614652569-Do-VRoid-Studio-s-sample-models-come-with-conditions-of-use",
+  "selected_design": "Narrow purple sleeves with coherent pale cuffs and small curved hanging under-cuff folds; accepted shoulder layers, bodice bands, skirt and three front trim panels",
+  "rig_joints": 63,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Gift_Present"
+  ],
+  "geometry_rig_uv_weights_current_motion_exact_source_to_runtime": true,
+  "active_sampler_pairs": 567,
+  "embedded_images": 11,
+  "resized_source_maps": 9,
+  "controller_proof_basis": "Fresh exact current-source CPU routes, independent actor poses and cancel/decode/retry/shared-cancel/disposal; no browser/GPU claim",
+  "remaining_contact_cautions": "Source-approved folds, local interfaces and Walk skirt expansion remain; inherited actor12.669mm/physicalfloor24.496mm blend/bob dip remains, finite tests do not establish global zero contact",
+  "full_cast_complete": false,
+  "bounded_correction": "Sleeve silhouettes narrowed and softened; inherited fingertip-driven cuff weights replaced with coherent same-side forearm/hand fields",
+  "rig_rest_body_face_hair_and_all_current_animation_arrays_preserved": true,
+  "correction_source_sha256": "e200663bce20282c2300d503c6c4ff210a63bda83f2d9d04b14ea010736e8b10"
+}

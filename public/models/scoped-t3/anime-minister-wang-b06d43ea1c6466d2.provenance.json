@@ -1,0 +1,25 @@
+{
+  "name": "Minister Wang",
+  "sha256": "b06d43ea1c6466d2c711a2fa34b9f429b09004e80877643fbacadd8c4f48b39c",
+  "source_glb_sha256": "66de5141662493fd1fd2f0e21ca93bab0eefbf242d4fabdf5e16185d1e4ebca9",
+  "editable_source_sha256": "ec7854e5d801a9d0e5a87a4f31db4519d7d7b496f12b474214f28d64cbee330a",
+  "anatomy_source": "Own59 accepted generic adult legacy VRoid CC0 Minister/General foundation",
+  "hair_source": "Licensed source-authored native hair geometry and UVs, retained from accepted Chen/Zhao",
+  "license": "CC0-1.0 plus original project-authored garments",
+  "selected_design": "Warm brown closed robe, rounded shoulder mantle, broad draped ivory front panel and separated double sash",
+  "rig_joints": 59,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "geometry_rig_uv_weights_current_motion_exact_source_to_runtime": true,
+  "all708_current_foundation_motion_channels_exact": true,
+  "visual_review": "Actual source and exact compact runtime front, side, back, focused Idle/Walk/Run/Gift and cuff views inspected",
+  "limits": [
+    "Finite CPU-rendered poses, not continuous collision-free cloth or target-device GPU performance.",
+    "Inherited nonzero local interfaces and spatial floor bob remain; no global zero-contact claim."
+  ],
+  "full_cast_complete": false
+}

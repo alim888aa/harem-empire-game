@@ -1,0 +1,216 @@
+{
+  "project": "Harem Empire",
+  "scope": "Nine player rank outfits and three actual-model selection portraits",
+  "anatomy": "Original generic adult legacy VRoid Studio0.14 CC0 foundations, project sculpted identity changes, separately licensed legacy hair components",
+  "clothing": "Original project-authored accepted court garment construction fitted to the existing player rigs; new player-specific styling",
+  "license": "CC0-1.0 foundation plus project authored adaptation; existing source credits retained",
+  "license_primary_url": "https://vroid.pixiv.help/hc/en-us/articles/4402614652569-Do-VRoid-Studio-s-sample-models-come-with-conditions-of-use",
+  "runtime": "One shared1024px atlas per outfit; compatible material/skin batches;9 cloth-only run-corrective targets; bounded Empress upper-cloth/detail runtime LOD. Faces/body/hair remain unsimplified.",
+  "motion": "All original57/63 joints, inverse binds, root scale and seven bone animation payloads preserved",
+  "outfits": [
+    {
+      "role": "prince",
+      "runtime_sha256": "823bceeae64f751951d36fefecd5b9718c6111832cfa8d8334db19a253215861",
+      "native_sha256": "3d57abbf33a47f5765e6606de7ef2a1d8fbc21fb51b6940e5919f91c90d245d1",
+      "joints": 57,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "Gift_Present",
+        "Jump_Start",
+        "Jump_Air",
+        "Land"
+      ],
+      "bone_animation_channels_exact": true,
+      "inverse_bind_matrices_exact": true,
+      "bytes": 2490188,
+      "filename": "player-prince-anime.glb",
+      "sha256": "823bceeae64f751951d36fefecd5b9718c6111832cfa8d8334db19a253215861"
+    },
+    {
+      "role": "grand-prince",
+      "runtime_sha256": "6bb9d31e35c9a057fa138f683295603e1e9377e233cd5e681c2bcf9434c313df",
+      "native_sha256": "7913e120f746e756ca74f184e10a712d948a0c358f1d49532af4fb73ae0de440",
+      "joints": 57,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "Gift_Present",
+        "Jump_Start",
+        "Jump_Air",
+        "Land"
+      ],
+      "bone_animation_channels_exact": true,
+      "inverse_bind_matrices_exact": true,
+      "bytes": 3024880,
+      "filename": "player-grand-prince-anime.glb",
+      "sha256": "6bb9d31e35c9a057fa138f683295603e1e9377e233cd5e681c2bcf9434c313df"
+    },
+    {
+      "role": "crown-prince",
+      "runtime_sha256": "a44eee13f591c0e1ce2d453a8b5cbe450ab0072f230e857954ff61ecd735a9e9",
+      "native_sha256": "14f4cc9c979e87817b2f3a2b2651de3257b2ff7fc23ad930093d60c463d1ef50",
+      "joints": 57,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "Gift_Present",
+        "Jump_Start",
+        "Jump_Air",
+        "Land"
+      ],
+      "bone_animation_channels_exact": true,
+      "inverse_bind_matrices_exact": true,
+      "bytes": 3673708,
+      "filename": "player-crown-prince-anime.glb",
+      "sha256": "a44eee13f591c0e1ce2d453a8b5cbe450ab0072f230e857954ff61ecd735a9e9"
+    },
+    {
+      "role": "scholar",
+      "runtime_sha256": "19d1f0036d96fea8b70dfc1aed325c25b07824feaf59a512c2d9b1c353839333",
+      "native_sha256": "b0ac55b0e090a482d32097379cd9e9ed6129e0580952dccf24cd44da2b7a397f",
+      "joints": 57,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "Gift_Present",
+        "Jump_Start",
+        "Jump_Air",
+        "Land"
+      ],
+      "bone_animation_channels_exact": true,
+      "inverse_bind_matrices_exact": true,
+      "bytes": 1975816,
+      "filename": "player-scholar.glb",
+      "sha256": "19d1f0036d96fea8b70dfc1aed325c25b07824feaf59a512c2d9b1c353839333"
+    },
+    {
+      "role": "minister",
+      "runtime_sha256": "7691943e86cb03eded252d4bbe112eef889ce94f672a59d02b7f9782f269dd61",
+      "native_sha256": "e7fd3b31bbe426843e267c31cd541b742a9783ce143fc5b25abffbc93bcbf573",
+      "joints": 57,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "Gift_Present",
+        "Jump_Start",
+        "Jump_Air",
+        "Land"
+      ],
+      "bone_animation_channels_exact": true,
+      "inverse_bind_matrices_exact": true,
+      "bytes": 2438928,
+      "filename": "player-minister.glb",
+      "sha256": "7691943e86cb03eded252d4bbe112eef889ce94f672a59d02b7f9782f269dd61"
+    },
+    {
+      "role": "prime-minister",
+      "runtime_sha256": "6db7538e78f7c3ae5f57fececf437522e1a26cbea3df53d51fb1f4be982973d5",
+      "native_sha256": "f3f2c3cdd7de9d8a9e1076349ae5e863cbabaadc689f8658ec5ac4a94cf8eeb9",
+      "joints": 57,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run",
+        "Gift_Present",
+        "Jump_Start",
+        "Jump_Air",
+        "Land"
+      ],
+      "bone_animation_channels_exact": true,
+      "inverse_bind_matrices_exact": true,
+      "bytes": 2971616,
+      "filename": "player-prime-minister.glb",
+      "sha256": "6db7538e78f7c3ae5f57fececf437522e1a26cbea3df53d51fb1f4be982973d5"
+    },
+    {
+      "role": "concubine",
+      "runtime_sha256": "e63077a89151d523a2b9cc0f4e5d000f07fc50e8c540396a5a960a9c51eefc11",
+      "native_sha256": "d8cbf6330102ee0b83f35e94df03f708ebf5e9dbfa2f3fff43665ec079942506",
+      "joints": 63,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Gift_Present",
+        "Run",
+        "Jump_Start",
+        "Jump_Air",
+        "Land"
+      ],
+      "bone_animation_channels_exact": true,
+      "inverse_bind_matrices_exact": true,
+      "bytes": 2364932,
+      "filename": "player-concubine.glb",
+      "sha256": "e63077a89151d523a2b9cc0f4e5d000f07fc50e8c540396a5a960a9c51eefc11"
+    },
+    {
+      "role": "consort",
+      "runtime_sha256": "554a98dc055f55148307253facef994ddb2be6821940be87d50aebe65bd89339",
+      "native_sha256": "9bb666fbd5877dcd5f2283854465df3e58a000f6b3bdef887ff9e1b823fdbe6c",
+      "joints": 63,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Gift_Present",
+        "Run",
+        "Jump_Start",
+        "Jump_Air",
+        "Land"
+      ],
+      "bone_animation_channels_exact": true,
+      "inverse_bind_matrices_exact": true,
+      "bytes": 3953816,
+      "filename": "player-consort.glb",
+      "sha256": "554a98dc055f55148307253facef994ddb2be6821940be87d50aebe65bd89339"
+    },
+    {
+      "role": "empress",
+      "runtime_sha256": "4dc2bc145556352cd7d5c497a851e550c52acc1acb866a6d99f58ee85ca43c99",
+      "native_sha256": "7a44b977ddea0e038289e3b8292605939278d146a66a449b151c22154942bb74",
+      "joints": 63,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Gift_Present",
+        "Run",
+        "Jump_Start",
+        "Jump_Air",
+        "Land"
+      ],
+      "bone_animation_channels_exact": true,
+      "inverse_bind_matrices_exact": true,
+      "bytes": 4217432,
+      "filename": "player-empress.glb",
+      "sha256": "4dc2bc145556352cd7d5c497a851e550c52acc1acb866a6d99f58ee85ca43c99",
+      "headpiece": "Bun-seated gold phoenix comb, joined garnet side pins and hanging pearl strands, adapted from accepted court ornament construction",
+      "headpiece_scope": "Existing face, hair, dress, cloth shapes, native rig and bone clips preserved",
+      "silhouette": "Tailored garment waist, hips, robe depth and excess sleeve volume; original adult body anatomy unchanged",
+      "silhouette_scope": "Face, hair, fitted phoenix headpiece, native rig and seven bone clips preserved; original additive run-clearance deltas retained"
+    }
+  ],
+  "portraits": [
+    {
+      "filename": "player-prince.webp",
+      "sha256": "5c51a98d20ef687252397143082f536e9fc36f480f5323f1b288781e13a05da8",
+      "rendered_from": "823bceeae64f751951d36fefecd5b9718c6111832cfa8d8334db19a253215861",
+      "method": "Actual exported GLB, original Idle clip, fixed studio lighting; no image generation"
+    },
+    {
+      "filename": "player-minister.webp",
+      "sha256": "cfc9cd2e474df7041edfa9a7e0cd6ef1148ae5ab7e985ae73ca5f1da9a8d01b1",
+      "rendered_from": "19d1f0036d96fea8b70dfc1aed325c25b07824feaf59a512c2d9b1c353839333",
+      "method": "Actual exported GLB, original Idle clip, fixed studio lighting; no image generation"
+    },
+    {
+      "filename": "player-concubine.webp",
+      "sha256": "297b8913d28f1300507937884a2df32fdeed92b88fee80a20755b58986d1fb5c",
+      "rendered_from": "e63077a89151d523a2b9cc0f4e5d000f07fc50e8c540396a5a960a9c51eefc11",
+      "method": "Actual exported GLB, original Idle clip, fixed studio lighting; no image generation"
+    }
+  ]
+}

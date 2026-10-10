@@ -1,0 +1,29 @@
+{
+  "name": "General Shen",
+  "url": "/models/scoped-t3/anime-general-shen-5566ee5e1495ffdb.glb?v=5566ee5e1495ffdb",
+  "sha256": "5566ee5e1495ffdbac797e5db93607940c70d6d8db0f7877686ee14f1dfe13d0",
+  "runtime": "/workspace/scratch/5e0e15dcbbf8/anime-recovery-proof/remaining-cast-checkpoints/generals-identity-runtime-v49/general-shen-runtime.glb",
+  "source": "/workspace/scratch/5e0e15dcbbf8/anime-recovery-proof/identity-repair-generals-v1/animation-validation-v1/general-shen-animated-source.glb",
+  "source_sha256": "29fb56cdd140eae95ccd97dcca57677d703c1ea894fcb7aedb2ed304c407898d",
+  "editable": "/workspace/scratch/5e0e15dcbbf8/anime-recovery-proof/identity-repair-generals-v1/general-shen-identity-study.blend",
+  "editable_sha256": "874196aa63e240b2fe5930aa810d534ef1d3224e6b2c7afb0591ed478616e7c3",
+  "bytes": 3649876,
+  "labelHeight": 2.1,
+  "walkSpeed": 1.2,
+  "previous_url": "/models/scoped-t3/anime-general-shen-e860cab313ddc7b3.glb?v=e860cab313ddc7b3",
+  "previous_sha256": "e860cab313ddc7b39cafb4e403013f6826e26bf712e5ef298b4cb2bae7918788",
+  "rig_joints": 59,
+  "bone_channels": 708,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Gift_Present"
+  ],
+  "user_approved_identity_checkpoint": "checkpoint03",
+  "design": "Distinct adult faces, native layered hair, coordinated skin and individual irises",
+  "license": "CC0 native VRoid foundation and original project-authored clothing",
+  "costume_and_below_neck_positions_preserved": true,
+  "native_animation_channel_bytes_preserved": true,
+  "source_to_runtime_nonimage_accessors_and_semantics_exact": true
+}
