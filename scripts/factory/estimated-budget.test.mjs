@@ -15,14 +15,14 @@ test('today is the Ulaanbaatar calendar day, not a UTC day or cumulative pot', (
 test('existing reservations are not double charged and leave stated headroom', () => {
   const result = assessEstimatedJob(config, ledger, { id: 'career-build', estimateUsd: 25 }, today);
   assert.equal(result.allowed, true);
-  assert.equal(result.plannedUsd, 80);
-  assert.equal(result.headroomUsd, 20);
+  assert.equal(result.plannedUsd, 85);
+  assert.equal(result.headroomUsd, 15);
   assert.equal(result.estimateOnly, true);
 });
 
 test('estimated ceiling stops new work regardless of priority; active reservations can finish', () => {
-  assert.equal(assessEstimatedJob(config, ledger, { id: 'fix', estimateUsd: 20 }, today).allowed, true);
-  assert.equal(assessEstimatedJob(config, ledger, { id: 'urgent', estimateUsd: 21, priority: 'p0' }, today).allowed, false);
+  assert.equal(assessEstimatedJob(config, ledger, { id: 'fix', estimateUsd: 15 }, today).allowed, true);
+  assert.equal(assessEstimatedJob(config, ledger, { id: 'urgent', estimateUsd: 16, priority: 'p0' }, today).allowed, false);
 });
 
 test('maintenance uses a fresh $30 local-day ledger only when needed', () => {

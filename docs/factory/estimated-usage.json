@@ -22,7 +22,9 @@
       "id": "career-build",
       "role": "build/fix",
       "estimateUsd": 25,
-      "status": "reserved"
+      "status": "reserved",
+      "agentTask": "/root/inspect_empire_factory_migration",
+      "issue": "https://github.com/alim888aa/harem-empire-game/issues/33"
     },
     {
       "id": "career-boundaries",
@@ -47,9 +49,17 @@
       "role": "verifier",
       "estimateUsd": 10,
       "status": "reserved"
+    },
+    {
+      "id": "setup-policy-review",
+      "role": "review",
+      "estimateUsd": 5,
+      "status": "recorded",
+      "agentTask": "/root/review_empire_factory_policy",
+      "note": "Independent exact-head review of estimated manual dispatch policy"
     }
   ],
-  "unallocatedHeadroomUsd": 20,
+  "unallocatedHeadroomUsd": 15,
   "notes": [
     "All roles, retries, hunt and further research must be recorded or reserved before launch",
     "Flat estimates can differ from actual billing; exact token counts are not available",
