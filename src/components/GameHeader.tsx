@@ -10,9 +10,13 @@ interface GameHeaderProps {
   onNotificationsClick?:()=>void;
   unreadNotifications?:number;
   urgentNotifications?:number;
+  tributeResult?:string;
   characterType?: "prince" | "minister" | "concubine" | null;
 }
-export default function GameHeader({ gameState, onNextSeason, onCourtClick, onProfileClick, characterType, onNotificationsClick, unreadNotifications=0, urgentNotifications=0 }: GameHeaderProps) {
+export default function GameHeader({
+  gameState, onNextSeason, onCourtClick, onProfileClick, characterType,
+  onNotificationsClick, unreadNotifications=0, urgentNotifications=0, tributeResult=""
+}: GameHeaderProps) {
   return <header className="court-header"><div className="court-header-inner">
     <button type="button" className="game-brand" onClick={onProfileClick} aria-label="Open your player profile"><span aria-hidden="true"><Emblem name="lattice" /></span><div>
       <strong>Harem Empire</strong>
@@ -37,5 +41,7 @@ export default function GameHeader({ gameState, onNextSeason, onCourtClick, onPr
       <SoundToggle />
       {onNextSeason && <button className="season-button" onClick={onNextSeason}><span className="header-action-label">Next season <span aria-hidden="true">→</span></span><span className="header-action-compact">Next</span></button>}
     </nav>
-  </div></header>;
+  </div>
+    {tributeResult && <p className="court-guide" role="status">{tributeResult}</p>}
+  </header>;
 }

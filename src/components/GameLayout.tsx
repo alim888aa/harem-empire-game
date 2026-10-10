@@ -399,7 +399,7 @@ export default function GameLayout({
         unreadNotifications={unreadNotifications}
         urgentNotifications={plotNotifications.filter(note => note.activePlot).length}
         onNotificationsClick={()=>{setConversation(null);setUiState(previous=>({...previous,showStatsModal:false,showFactionPanel:false,showRosterPanel:false}));setNotificationsOpen(true);send({type:'READ_COURT_NOTIFICATIONS'});}}
-        gameState={gameState}
+        gameState={gameState} tributeResult={context.tributeResult}
         onNextSeason={playing && !giftPending && transitionSeason===null ? () => { setConversation(null); send({ type: "NEXT_SEASON" }); } : undefined}
         onCourtClick={toggleFactions}
         onProfileClick={() => { setConversation(null); setUiState(previous => ({ ...previous, showFactionPanel:false, showRosterPanel:false, showStatsModal:true })); }}
