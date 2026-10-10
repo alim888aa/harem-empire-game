@@ -1,0 +1,132 @@
+{
+  "owner": "agent",
+  "jobs": {
+    "owner": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "build": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "review-*": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "verifier": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "hunt": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "dispatch": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "triage": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "manager": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "watch": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "research": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "scout": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "upkeep": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "audit": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    }
+  },
+  "council": {
+    "client": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "maintainer": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    }
+  },
+  "smallChangeMaxFiles": 10,
+  "protected": [
+    "feature:saves",
+    "feature:campaign"
+  ],
+  "paths": {
+    "schema": [
+      "src/persistence/**"
+    ],
+    "ui": [
+      "src/components/**",
+      "src/ui/**",
+      "src/palace/**/*.tsx"
+    ]
+  },
+  "maxParallel": 1,
+  "upkeep": {
+    "keepDays": 14
+  },
+  "upstream": {
+    "repository": "alim888aa/agent-org",
+    "commit": "974e9d78a29466de9edf1144a3a27aedea491eb8"
+  },
+  "execution": {
+    "location": "cloud",
+    "enabled": false,
+    "owner": "parent-assistant",
+    "reason": "No supported cost-bounded cloud launcher and exact-head browser fixture yet"
+  },
+  "budgetPolicy": {
+    "refactor": {
+      "limitUsd": 100,
+      "period": "total"
+    },
+    "ongoing": {
+      "limitUsd": 30,
+      "period": "day",
+      "timezone": "UTC"
+    },
+    "activePhase": "refactor",
+    "priorityBypass": false,
+    "onUnknownUsage": "hold-all",
+    "accounting": "unavailable"
+  },
+  "verification": {
+    "command": "npm run factory:check",
+    "browserProofRequired": true,
+    "fixture": "base",
+    "ready": false
+  }
+}

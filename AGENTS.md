@@ -98,3 +98,13 @@ Owner's direction: **elegant**, a Qing-palace drama. Never generic web boxes. Th
 - `tsconfig.json` covers only `src/`, so `tests/` and `scripts/` are not typechecked.
 - The main JS bundle is about 1.25 MB, which triggers Vite's chunk warning. `public/` is about 244 MB of runtime art.
 - `.gitignore` lists files that are actually tracked, such as `src/main.tsx` and `src/style.css`. Check `git status` after creating files.
+
+## Cloud factory setup
+
+Read CODING_STANDARDS.md, ERRORS.md, DESIGN.md and CONTEXT.md before factory work. Upstream contracts are pinned in factory.json; see docs/factory/READINESS.md. Owner is the parent assistant. Every role uses GPT-6.1 Sol and every build stays in cloud execution. No T3/laptop dispatch, webhook secret, schedule or new persistent credential is created by this setup.
+
+The $100 total refactor allowance and subsequent $30 UTC-day allowance are separate phases. The stock upstream p0 budget exception does not apply. Unknown accounting holds all jobs. `npm run factory:guard` intentionally returns a held result and exits nonzero; a passing factory:check does not activate dispatch.
+
+Job contracts: owner follows owner; dispatcher follows dispatch; manager follows manager; issue writing follows issue-maker; build/fix follows worker; review follows its lens plus code-review; verifier follows verifier; triage follows triage. Source: alim888aa/agent-org at the factory.json pin. Runtime-dependent upstream instructions are blocked until a supported cloud adapter exists.
+
+Keep source-only setup edits separate from product slices. Existing user gameplay decisions and #31 remain binding; this setup does not implement them. Remove only obsolete instructions already superseded by this file, preserving their history in Git.
