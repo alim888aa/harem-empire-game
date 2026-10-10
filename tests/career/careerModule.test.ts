@@ -2,14 +2,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import * as career from '../src/lib/career';
-import * as accessContract from '../src/lib/careerAccess';
-import * as deadlineContract from '../src/lib/careerDeadline';
-import * as noticeContract from '../src/lib/demotionNotice';
-import * as balanceContract from '../src/lib/campaignBalance';
-import * as standingContract from '../src/lib/campaignStanding';
-import * as identityContract from '../src/lib/courtIdentity';
-import * as intrigueContract from '../src/lib/courtIntrigue';
+import * as career from '../../src/lib/career';
+import * as accessContract from '../../src/lib/careerAccess';
+import * as deadlineContract from '../../src/lib/careerDeadline';
+import * as noticeContract from '../../src/lib/demotionNotice';
+import * as balanceContract from '../../src/lib/campaignBalance';
+import * as standingContract from '../../src/lib/campaignStanding';
+import * as identityContract from '../../src/lib/courtIdentity';
+import * as intrigueContract from '../../src/lib/courtIntrigue';
 
 const roles = [null, 'unknown', 'prince', 'scholar', 'minister', 'concubine'];
 const ranks = [
@@ -48,7 +48,7 @@ function characterize(role: string | null, rank: string | null) {
 }
 
 test('all role/rank/access/deadline/finance/office decisions match pre-refactor public outputs', () => {
-  const expected = JSON.parse(readFileSync(new URL('./fixtures/career-rules-v7.json', import.meta.url), 'utf8'));
+  const expected = JSON.parse(readFileSync(new URL('./fixtures/rules-v7.json', import.meta.url), 'utf8'));
   const actual = roles.flatMap(role => ranks.map(rank => characterize(role, rank)));
   assert.deepEqual(JSON.parse(JSON.stringify(actual)), expected);
 });
@@ -83,4 +83,10 @@ test('middle-office deadlines and audience demotion preserve their intentionally
   assert.equal(career.standingAfterDemotion('prince', 'unknown'), 80);
   assert.equal(career.resolveCareer(undefined), null);
   assert.equal(career.startingCareerTitle(undefined), 'Courtier');
+});
+
+test('legacy undefined-rank callers keep their original runtime fallback without changing typed saves', () => {
+  assert.equal(career.rankIndex('prince', undefined), -1);
+  assert.equal(Reflect.apply(career.standingAfterDemotion, undefined, ['prince', undefined]), 80);
+  assert.equal(Reflect.apply(career.seasonalGiftGrant, undefined, ['prince', undefined]), 25);
 });

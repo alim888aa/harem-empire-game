@@ -3,7 +3,9 @@ import { careerPosition, resolveCareer, type CareerRank } from './identity';
 import { CAREER_RULES } from './policy';
 
 /** Returns the existing ladder index, or -1 when the role/rank does not belong to a career. */
-export function rankIndex(role: string | null, rank: string | null): number {
+export function rankIndex(role: string | null, rank: string | null | undefined): number {
+  // Historical callers distinguish undefined from the explicitly unpromoted null rank.
+  if (rank === undefined) return -1;
   return careerPosition(role, rank)?.index ?? -1;
 }
 
