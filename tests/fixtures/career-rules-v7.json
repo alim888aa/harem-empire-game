@@ -1,0 +1,8314 @@
+[
+  {
+    "role": null,
+    "rank": null,
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": null,
+    "rank": "unknown",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": null,
+    "rank": "prince",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": null,
+    "rank": "grand_prince",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": null,
+    "rank": "crown_prince",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Crown Prince",
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": null,
+    "rank": "scholar",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": null,
+    "rank": "minister",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": null,
+    "rank": "prime_minister",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Prime Minister",
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": null,
+    "rank": "concubine",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": null,
+    "rank": "consort",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": null,
+    "rank": "empress",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Empress Consort",
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": null,
+    "rank": "empress_consort",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Empress Consort",
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": "unknown",
+    "rank": null,
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": "unknown",
+    "rank": "unknown",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": "unknown",
+    "rank": "prince",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": "unknown",
+    "rank": "grand_prince",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": "unknown",
+    "rank": "crown_prince",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Crown Prince",
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": "unknown",
+    "rank": "scholar",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": "unknown",
+    "rank": "minister",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": "unknown",
+    "rank": "prime_minister",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Prime Minister",
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": "unknown",
+    "rank": "concubine",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": "unknown",
+    "rank": "consort",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": "unknown",
+    "rank": "empress",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Empress Consort",
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": "unknown",
+    "rank": "empress_consort",
+    "career": null,
+    "title": "Courtier",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "Choose a career first."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 0,
+    "next": null,
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Empress Consort",
+    "senior": null,
+    "eligibility": []
+  },
+  {
+    "role": "prince",
+    "rank": null,
+    "career": "prince",
+    "title": "Prince",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "requiredRank": "grand_prince",
+          "reason": "Requires Grand Prince rank."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "requiredRank": "crown_prince",
+          "reason": "Requires Crown Prince rank."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": true
+        }
+      }
+    ],
+    "rankIndex": 0,
+    "tribute": 10,
+    "grant": 25,
+    "promotionHate": 20,
+    "next": {
+      "rank": "grand_prince",
+      "globalSupport": 80,
+      "influence": 0.7
+    },
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 20,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "A lord beyond the palace",
+          "description": "You are sent out of the palace to become a lord. Your struggle for power in this court is over."
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 20,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "A lord beyond the palace",
+          "description": "You are sent out of the palace to become a lord. Your struggle for power in this court is over."
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 9,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "A lord beyond the palace",
+          "description": "You are sent out of the palace to become a lord. Your struggle for power in this court is over."
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 5,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "A lord beyond the palace",
+          "description": "You are sent out of the palace to become a lord. Your struggle for power in this court is over."
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "A lord beyond the palace",
+          "description": "You are sent out of the palace to become a lord. Your struggle for power in this court is over."
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 21,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "A lord beyond the palace",
+          "description": "You are sent out of the palace to become a lord. Your struggle for power in this court is over."
+        }
+      }
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Crown Prince",
+    "eligibility": [
+      {
+        "supportDelta": -1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 0,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      }
+    ]
+  },
+  {
+    "role": "prince",
+    "rank": "unknown",
+    "career": "prince",
+    "title": "Prince",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 20,
+    "next": null,
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Crown Prince",
+    "eligibility": []
+  },
+  {
+    "role": "prince",
+    "rank": "prince",
+    "career": "prince",
+    "title": "Prince",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "requiredRank": "grand_prince",
+          "reason": "Requires Grand Prince rank."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "requiredRank": "crown_prince",
+          "reason": "Requires Crown Prince rank."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": true
+        }
+      }
+    ],
+    "rankIndex": 0,
+    "tribute": 10,
+    "grant": 25,
+    "promotionHate": 20,
+    "next": {
+      "rank": "grand_prince",
+      "globalSupport": 80,
+      "influence": 0.7
+    },
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 20,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "A lord beyond the palace",
+          "description": "You are sent out of the palace to become a lord. Your struggle for power in this court is over."
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 20,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "A lord beyond the palace",
+          "description": "You are sent out of the palace to become a lord. Your struggle for power in this court is over."
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 9,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "A lord beyond the palace",
+          "description": "You are sent out of the palace to become a lord. Your struggle for power in this court is over."
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 5,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "A lord beyond the palace",
+          "description": "You are sent out of the palace to become a lord. Your struggle for power in this court is over."
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "A lord beyond the palace",
+          "description": "You are sent out of the palace to become a lord. Your struggle for power in this court is over."
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 21,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "A lord beyond the palace",
+          "description": "You are sent out of the palace to become a lord. Your struggle for power in this court is over."
+        }
+      }
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Crown Prince",
+    "eligibility": [
+      {
+        "supportDelta": -1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 0,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      }
+    ]
+  },
+  {
+    "role": "prince",
+    "rank": "grand_prince",
+    "career": "prince",
+    "title": "Prince",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "requiredRank": "crown_prince",
+          "reason": "Requires Crown Prince rank."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": true
+        }
+      }
+    ],
+    "rankIndex": 1,
+    "tribute": 20,
+    "grant": 45,
+    "promotionHate": 20,
+    "next": {
+      "rank": "crown_prince",
+      "globalSupport": 160,
+      "influence": 0.78
+    },
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 20,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "prince"
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 20,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "prince"
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 9,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "prince"
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 5,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "prince"
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "prince"
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 21,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "prince"
+        }
+      }
+    ],
+    "notice": {
+      "id": "9:grand_prince:prince:deadline",
+      "season": 9,
+      "fromRank": "grand_prince",
+      "toRank": "prince",
+      "reason": "deadline",
+      "acknowledged": false
+    },
+    "reason": "Your rank deadline passed.",
+    "audienceNotice": {
+      "id": "9:grand_prince:prince:audience",
+      "season": 9,
+      "fromRank": "grand_prince",
+      "toRank": "prince",
+      "reason": "audience",
+      "acknowledged": false
+    },
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Crown Prince",
+    "eligibility": [
+      {
+        "supportDelta": -1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 0,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      }
+    ]
+  },
+  {
+    "role": "prince",
+    "rank": "crown_prince",
+    "career": "prince",
+    "title": "Prince",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": true
+        }
+      }
+    ],
+    "rankIndex": 2,
+    "tribute": 40,
+    "grant": 65,
+    "promotionHate": 20,
+    "next": null,
+    "demoted": "grand_prince",
+    "standing": 80,
+    "deadlines": [
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 20,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "grand_prince"
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 20,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "grand_prince"
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 9,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "grand_prince"
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 5,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "grand_prince"
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 21,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "grand_prince"
+        }
+      },
+      {
+        "career": "prince",
+        "window": 20,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 21,
+        "expired": true,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "grand_prince"
+        }
+      }
+    ],
+    "notice": {
+      "id": "9:crown_prince:grand_prince:deadline",
+      "season": 9,
+      "fromRank": "crown_prince",
+      "toRank": "grand_prince",
+      "reason": "deadline",
+      "acknowledged": false
+    },
+    "reason": "Your rank deadline passed.",
+    "audienceNotice": {
+      "id": "9:crown_prince:grand_prince:audience",
+      "season": 9,
+      "fromRank": "crown_prince",
+      "toRank": "grand_prince",
+      "reason": "audience",
+      "acknowledged": false
+    },
+    "consolidation": [
+      [
+        {
+          "completed": 0,
+          "total": 3,
+          "remaining": 3
+        },
+        {
+          "completed": 0,
+          "total": 3,
+          "remaining": 3
+        },
+        {
+          "completed": 2,
+          "total": 3,
+          "remaining": 1
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        }
+      ],
+      [
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        }
+      ]
+    ],
+    "displaced": "Crown Prince",
+    "senior": "Crown Prince",
+    "eligibility": []
+  },
+  {
+    "role": "prince",
+    "rank": "scholar",
+    "career": "prince",
+    "title": "Prince",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 20,
+    "next": null,
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Crown Prince",
+    "eligibility": []
+  },
+  {
+    "role": "prince",
+    "rank": "minister",
+    "career": "prince",
+    "title": "Prince",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 20,
+    "next": null,
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Crown Prince",
+    "eligibility": []
+  },
+  {
+    "role": "prince",
+    "rank": "prime_minister",
+    "career": "prince",
+    "title": "Prince",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 20,
+    "next": null,
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Prime Minister",
+    "senior": "Crown Prince",
+    "eligibility": []
+  },
+  {
+    "role": "prince",
+    "rank": "concubine",
+    "career": "prince",
+    "title": "Prince",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 20,
+    "next": null,
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Crown Prince",
+    "eligibility": []
+  },
+  {
+    "role": "prince",
+    "rank": "consort",
+    "career": "prince",
+    "title": "Prince",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 20,
+    "next": null,
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Crown Prince",
+    "eligibility": []
+  },
+  {
+    "role": "prince",
+    "rank": "empress",
+    "career": "prince",
+    "title": "Prince",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 20,
+    "next": null,
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Empress Consort",
+    "senior": "Crown Prince",
+    "eligibility": []
+  },
+  {
+    "role": "prince",
+    "rank": "empress_consort",
+    "career": "prince",
+    "title": "Prince",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 20,
+    "next": null,
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Empress Consort",
+    "senior": "Crown Prince",
+    "eligibility": []
+  },
+  {
+    "role": "scholar",
+    "rank": null,
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "requiredRank": "minister",
+          "reason": "Requires Minister rank."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "requiredRank": "prime_minister",
+          "reason": "Requires Prime Minister rank."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "requiredRank": "minister",
+          "reason": "Requires Minister rank."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": true
+        }
+      }
+    ],
+    "rankIndex": 0,
+    "tribute": 10,
+    "grant": 20,
+    "promotionHate": 30,
+    "next": {
+      "rank": "minister",
+      "globalSupport": 90,
+      "influence": 0.55
+    },
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 5,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      }
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": [
+      {
+        "supportDelta": -1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 0,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      }
+    ]
+  },
+  {
+    "role": "scholar",
+    "rank": "unknown",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "scholar",
+    "rank": "prince",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "scholar",
+    "rank": "grand_prince",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "scholar",
+    "rank": "crown_prince",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Crown Prince",
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "scholar",
+    "rank": "scholar",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "requiredRank": "minister",
+          "reason": "Requires Minister rank."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "requiredRank": "prime_minister",
+          "reason": "Requires Prime Minister rank."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "requiredRank": "minister",
+          "reason": "Requires Minister rank."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": true
+        }
+      }
+    ],
+    "rankIndex": 0,
+    "tribute": 10,
+    "grant": 20,
+    "promotionHate": 30,
+    "next": {
+      "rank": "minister",
+      "globalSupport": 90,
+      "influence": 0.55
+    },
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 5,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      }
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": [
+      {
+        "supportDelta": -1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 0,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      }
+    ]
+  },
+  {
+    "role": "scholar",
+    "rank": "minister",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "requiredRank": "prime_minister",
+          "reason": "Requires Prime Minister rank."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": true
+        }
+      }
+    ],
+    "rankIndex": 1,
+    "tribute": 20,
+    "grant": 30,
+    "promotionHate": 30,
+    "next": {
+      "rank": "prime_minister",
+      "globalSupport": 180,
+      "influence": 0.72
+    },
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "scholar"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "scholar"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 5,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "scholar"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "scholar"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "scholar"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "scholar"
+        }
+      }
+    ],
+    "notice": {
+      "id": "9:minister:scholar:deadline",
+      "season": 9,
+      "fromRank": "minister",
+      "toRank": "scholar",
+      "reason": "deadline",
+      "acknowledged": false
+    },
+    "reason": "Your rank deadline passed.",
+    "audienceNotice": {
+      "id": "9:minister:scholar:audience",
+      "season": 9,
+      "fromRank": "minister",
+      "toRank": "scholar",
+      "reason": "audience",
+      "acknowledged": false
+    },
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": [
+      {
+        "supportDelta": -1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 0,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      }
+    ]
+  },
+  {
+    "role": "scholar",
+    "rank": "prime_minister",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": true
+        }
+      }
+    ],
+    "rankIndex": 2,
+    "tribute": 40,
+    "grant": 45,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": "minister",
+    "standing": 90,
+    "deadlines": [
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "minister"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "minister"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 5,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "minister"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "minister"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "minister"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "minister"
+        }
+      }
+    ],
+    "notice": {
+      "id": "9:prime_minister:minister:deadline",
+      "season": 9,
+      "fromRank": "prime_minister",
+      "toRank": "minister",
+      "reason": "deadline",
+      "acknowledged": false
+    },
+    "reason": "Your rank deadline passed.",
+    "audienceNotice": {
+      "id": "9:prime_minister:minister:audience",
+      "season": 9,
+      "fromRank": "prime_minister",
+      "toRank": "minister",
+      "reason": "audience",
+      "acknowledged": false
+    },
+    "consolidation": [
+      [
+        {
+          "completed": 0,
+          "total": 3,
+          "remaining": 3
+        },
+        {
+          "completed": 0,
+          "total": 3,
+          "remaining": 3
+        },
+        {
+          "completed": 2,
+          "total": 3,
+          "remaining": 1
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        }
+      ],
+      [
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        }
+      ]
+    ],
+    "displaced": "Prime Minister",
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "scholar",
+    "rank": "concubine",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "scholar",
+    "rank": "consort",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "scholar",
+    "rank": "empress",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Empress Consort",
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "scholar",
+    "rank": "empress_consort",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Empress Consort",
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "minister",
+    "rank": null,
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "requiredRank": "minister",
+          "reason": "Requires Minister rank."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "requiredRank": "prime_minister",
+          "reason": "Requires Prime Minister rank."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "requiredRank": "minister",
+          "reason": "Requires Minister rank."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": true
+        }
+      }
+    ],
+    "rankIndex": 0,
+    "tribute": 10,
+    "grant": 20,
+    "promotionHate": 30,
+    "next": {
+      "rank": "minister",
+      "globalSupport": 90,
+      "influence": 0.55
+    },
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 5,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      }
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": [
+      {
+        "supportDelta": -1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 0,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      }
+    ]
+  },
+  {
+    "role": "minister",
+    "rank": "unknown",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "minister",
+    "rank": "prince",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "minister",
+    "rank": "grand_prince",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "minister",
+    "rank": "crown_prince",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Crown Prince",
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "minister",
+    "rank": "scholar",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "requiredRank": "minister",
+          "reason": "Requires Minister rank."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "requiredRank": "prime_minister",
+          "reason": "Requires Prime Minister rank."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "requiredRank": "minister",
+          "reason": "Requires Minister rank."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": true
+        }
+      }
+    ],
+    "rankIndex": 0,
+    "tribute": 10,
+    "grant": 20,
+    "promotionHate": 30,
+    "next": {
+      "rank": "minister",
+      "globalSupport": 90,
+      "influence": 0.55
+    },
+    "demoted": null,
+    "standing": 0,
+    "deadlines": [
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 5,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Returned to common life",
+          "description": "The court closes its doors to you. Your official career ends, and you return to life as a peasant."
+        }
+      }
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": [
+      {
+        "supportDelta": -1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 0,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      }
+    ]
+  },
+  {
+    "role": "minister",
+    "rank": "minister",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "requiredRank": "prime_minister",
+          "reason": "Requires Prime Minister rank."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": true
+        }
+      }
+    ],
+    "rankIndex": 1,
+    "tribute": 20,
+    "grant": 30,
+    "promotionHate": 30,
+    "next": {
+      "rank": "prime_minister",
+      "globalSupport": 180,
+      "influence": 0.72
+    },
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "scholar"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "scholar"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 5,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "scholar"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "scholar"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "scholar"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "scholar"
+        }
+      }
+    ],
+    "notice": {
+      "id": "9:minister:scholar:deadline",
+      "season": 9,
+      "fromRank": "minister",
+      "toRank": "scholar",
+      "reason": "deadline",
+      "acknowledged": false
+    },
+    "reason": "Your rank deadline passed.",
+    "audienceNotice": {
+      "id": "9:minister:scholar:audience",
+      "season": 9,
+      "fromRank": "minister",
+      "toRank": "scholar",
+      "reason": "audience",
+      "acknowledged": false
+    },
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": [
+      {
+        "supportDelta": -1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 0,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      }
+    ]
+  },
+  {
+    "role": "minister",
+    "rank": "prime_minister",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": true
+        }
+      }
+    ],
+    "rankIndex": 2,
+    "tribute": 40,
+    "grant": 45,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": "minister",
+    "standing": 90,
+    "deadlines": [
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "minister"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 16,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "minister"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 5,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "minister"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 17,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "minister"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "minister"
+        }
+      },
+      {
+        "career": "scholar",
+        "window": 16,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 17,
+        "expired": true,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "minister"
+        }
+      }
+    ],
+    "notice": {
+      "id": "9:prime_minister:minister:deadline",
+      "season": 9,
+      "fromRank": "prime_minister",
+      "toRank": "minister",
+      "reason": "deadline",
+      "acknowledged": false
+    },
+    "reason": "Your rank deadline passed.",
+    "audienceNotice": {
+      "id": "9:prime_minister:minister:audience",
+      "season": 9,
+      "fromRank": "prime_minister",
+      "toRank": "minister",
+      "reason": "audience",
+      "acknowledged": false
+    },
+    "consolidation": [
+      [
+        {
+          "completed": 0,
+          "total": 3,
+          "remaining": 3
+        },
+        {
+          "completed": 0,
+          "total": 3,
+          "remaining": 3
+        },
+        {
+          "completed": 2,
+          "total": 3,
+          "remaining": 1
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        }
+      ],
+      [
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        }
+      ]
+    ],
+    "displaced": "Prime Minister",
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "minister",
+    "rank": "concubine",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "minister",
+    "rank": "consort",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "minister",
+    "rank": "empress",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Empress Consort",
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "minister",
+    "rank": "empress_consort",
+    "career": "scholar",
+    "title": "Scholar",
+    "entry": "library",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 30,
+    "next": null,
+    "demoted": null,
+    "standing": 90,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Empress Consort",
+    "senior": "Prime Minister",
+    "eligibility": []
+  },
+  {
+    "role": "concubine",
+    "rank": null,
+    "career": "concubine",
+    "title": "Concubine",
+    "entry": "ladies",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "requiredRank": "empress",
+          "reason": "Requires Empress rank."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "requiredRank": "consort",
+          "reason": "Requires Consort rank."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "requiredRank": "consort",
+          "reason": "Requires Consort rank."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "requiredRank": "empress",
+          "reason": "Requires Empress rank."
+        }
+      }
+    ],
+    "rankIndex": 0,
+    "tribute": 10,
+    "grant": 20,
+    "promotionHate": 40,
+    "next": {
+      "rank": "consort",
+      "globalSupport": 80,
+      "influence": 0.3
+    },
+    "demoted": null,
+    "standing": 10,
+    "deadlines": [
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 12,
+        "expiresAtSeason": 13,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Sent to the servants’ quarters",
+          "description": "Your chance to rise has passed. You lose your place at court and are sent to serve as a maid."
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 12,
+        "expiresAtSeason": 13,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Sent to the servants’ quarters",
+          "description": "Your chance to rise has passed. You lose your place at court and are sent to serve as a maid."
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 13,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Sent to the servants’ quarters",
+          "description": "Your chance to rise has passed. You lose your place at court and are sent to serve as a maid."
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 13,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Sent to the servants’ quarters",
+          "description": "Your chance to rise has passed. You lose your place at court and are sent to serve as a maid."
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 13,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Sent to the servants’ quarters",
+          "description": "Your chance to rise has passed. You lose your place at court and are sent to serve as a maid."
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 13,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Sent to the servants’ quarters",
+          "description": "Your chance to rise has passed. You lose your place at court and are sent to serve as a maid."
+        }
+      }
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Empress Dowager",
+    "eligibility": [
+      {
+        "supportDelta": -1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 0,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      }
+    ]
+  },
+  {
+    "role": "concubine",
+    "rank": "unknown",
+    "career": "concubine",
+    "title": "Concubine",
+    "entry": "ladies",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 40,
+    "next": null,
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Empress Dowager",
+    "eligibility": []
+  },
+  {
+    "role": "concubine",
+    "rank": "prince",
+    "career": "concubine",
+    "title": "Concubine",
+    "entry": "ladies",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 40,
+    "next": null,
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Empress Dowager",
+    "eligibility": []
+  },
+  {
+    "role": "concubine",
+    "rank": "grand_prince",
+    "career": "concubine",
+    "title": "Concubine",
+    "entry": "ladies",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 40,
+    "next": null,
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Empress Dowager",
+    "eligibility": []
+  },
+  {
+    "role": "concubine",
+    "rank": "crown_prince",
+    "career": "concubine",
+    "title": "Concubine",
+    "entry": "ladies",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 40,
+    "next": null,
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Crown Prince",
+    "senior": "Empress Dowager",
+    "eligibility": []
+  },
+  {
+    "role": "concubine",
+    "rank": "scholar",
+    "career": "concubine",
+    "title": "Concubine",
+    "entry": "ladies",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 40,
+    "next": null,
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Empress Dowager",
+    "eligibility": []
+  },
+  {
+    "role": "concubine",
+    "rank": "minister",
+    "career": "concubine",
+    "title": "Concubine",
+    "entry": "ladies",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 40,
+    "next": null,
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Empress Dowager",
+    "eligibility": []
+  },
+  {
+    "role": "concubine",
+    "rank": "prime_minister",
+    "career": "concubine",
+    "title": "Concubine",
+    "entry": "ladies",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "reason": "This rank does not belong to your career."
+        }
+      }
+    ],
+    "rankIndex": -1,
+    "tribute": 10,
+    "grant": 0,
+    "promotionHate": 40,
+    "next": null,
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": "Prime Minister",
+    "senior": "Empress Dowager",
+    "eligibility": []
+  },
+  {
+    "role": "concubine",
+    "rank": "concubine",
+    "career": "concubine",
+    "title": "Concubine",
+    "entry": "ladies",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "requiredRank": "empress",
+          "reason": "Requires Empress rank."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": false,
+          "requiredRank": "consort",
+          "reason": "Requires Consort rank."
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": false,
+          "requiredRank": "consort",
+          "reason": "Requires Consort rank."
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "requiredRank": "empress",
+          "reason": "Requires Empress rank."
+        }
+      }
+    ],
+    "rankIndex": 0,
+    "tribute": 10,
+    "grant": 20,
+    "promotionHate": 40,
+    "next": {
+      "rank": "consort",
+      "globalSupport": 80,
+      "influence": 0.3
+    },
+    "demoted": null,
+    "standing": 10,
+    "deadlines": [
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 12,
+        "expiresAtSeason": 13,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Sent to the servants’ quarters",
+          "description": "Your chance to rise has passed. You lose your place at court and are sent to serve as a maid."
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 12,
+        "expiresAtSeason": 13,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Sent to the servants’ quarters",
+          "description": "Your chance to rise has passed. You lose your place at court and are sent to serve as a maid."
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 13,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Sent to the servants’ quarters",
+          "description": "Your chance to rise has passed. You lose your place at court and are sent to serve as a maid."
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 13,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Sent to the servants’ quarters",
+          "description": "Your chance to rise has passed. You lose your place at court and are sent to serve as a maid."
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 13,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Sent to the servants’ quarters",
+          "description": "Your chance to rise has passed. You lose your place at court and are sent to serve as a maid."
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 13,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "career_ending",
+          "title": "Sent to the servants’ quarters",
+          "description": "Your chance to rise has passed. You lose your place at court and are sent to serve as a maid."
+        }
+      }
+    ],
+    "notice": null,
+    "reason": null,
+    "audienceNotice": null,
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Empress Dowager",
+    "eligibility": [
+      {
+        "supportDelta": -1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 0,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      }
+    ]
+  },
+  {
+    "role": "concubine",
+    "rank": "consort",
+    "career": "concubine",
+    "title": "Concubine",
+    "entry": "ladies",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": false,
+          "requiredRank": "empress",
+          "reason": "Requires Empress rank."
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": false,
+          "requiredRank": "empress",
+          "reason": "Requires Empress rank."
+        }
+      }
+    ],
+    "rankIndex": 1,
+    "tribute": 20,
+    "grant": 25,
+    "promotionHate": 40,
+    "next": {
+      "rank": "empress",
+      "globalSupport": 200,
+      "influence": 0.6
+    },
+    "demoted": null,
+    "standing": 80,
+    "deadlines": [
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 12,
+        "expiresAtSeason": 13,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "concubine"
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 12,
+        "expiresAtSeason": 13,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "concubine"
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 13,
+        "expired": false,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "concubine"
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 13,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "concubine"
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 13,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "concubine"
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 13,
+        "expired": true,
+        "goal": "promotion",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "concubine"
+        }
+      }
+    ],
+    "notice": {
+      "id": "9:consort:concubine:deadline",
+      "season": 9,
+      "fromRank": "consort",
+      "toRank": "concubine",
+      "reason": "deadline",
+      "acknowledged": false
+    },
+    "reason": "Your rank deadline passed.",
+    "audienceNotice": {
+      "id": "9:consort:concubine:audience",
+      "season": 9,
+      "fromRank": "consort",
+      "toRank": "concubine",
+      "reason": "audience",
+      "acknowledged": false
+    },
+    "consolidation": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "displaced": null,
+    "senior": "Empress Dowager",
+    "eligibility": [
+      {
+        "supportDelta": -1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 0,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": -1,
+        "influenceDelta": 1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 0,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": -1e-8,
+        "allowed": false,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 0,
+        "allowed": true,
+        "onProbation": false
+      },
+      {
+        "supportDelta": 1,
+        "influenceDelta": 1e-8,
+        "allowed": true,
+        "onProbation": false
+      }
+    ]
+  },
+  {
+    "role": "concubine",
+    "rank": "empress",
+    "career": "concubine",
+    "title": "Concubine",
+    "entry": "ladies",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": true
+        }
+      }
+    ],
+    "rankIndex": 2,
+    "tribute": 40,
+    "grant": 30,
+    "promotionHate": 40,
+    "next": null,
+    "demoted": "consort",
+    "standing": 80,
+    "deadlines": [
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 12,
+        "expiresAtSeason": 13,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "consort"
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 12,
+        "expiresAtSeason": 13,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "consort"
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 13,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "consort"
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 13,
+        "expired": true,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "consort"
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 13,
+        "expired": true,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "consort"
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 13,
+        "expired": true,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "consort"
+        }
+      }
+    ],
+    "notice": {
+      "id": "9:empress:consort:deadline",
+      "season": 9,
+      "fromRank": "empress",
+      "toRank": "consort",
+      "reason": "deadline",
+      "acknowledged": false
+    },
+    "reason": "Your rank deadline passed.",
+    "audienceNotice": {
+      "id": "9:empress:consort:audience",
+      "season": 9,
+      "fromRank": "empress",
+      "toRank": "consort",
+      "reason": "audience",
+      "acknowledged": false
+    },
+    "consolidation": [
+      [
+        {
+          "completed": 0,
+          "total": 3,
+          "remaining": 3
+        },
+        {
+          "completed": 0,
+          "total": 3,
+          "remaining": 3
+        },
+        {
+          "completed": 2,
+          "total": 3,
+          "remaining": 1
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        }
+      ],
+      [
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        }
+      ]
+    ],
+    "displaced": "Empress Consort",
+    "senior": "Empress Dowager",
+    "eligibility": []
+  },
+  {
+    "role": "concubine",
+    "rank": "empress_consort",
+    "career": "concubine",
+    "title": "Concubine",
+    "entry": "ladies",
+    "access": [
+      {
+        "zone": "common",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "emperor",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "empress",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "ladies",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "dowager",
+        "result": {
+          "allowed": true
+        }
+      },
+      {
+        "zone": "library",
+        "result": {
+          "allowed": true
+        }
+      }
+    ],
+    "rankIndex": 2,
+    "tribute": 40,
+    "grant": 30,
+    "promotionHate": 40,
+    "next": null,
+    "demoted": "consort",
+    "standing": 80,
+    "deadlines": [
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 12,
+        "expiresAtSeason": 13,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "consort"
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 12,
+        "expiresAtSeason": 13,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "consort"
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 1,
+        "expiresAtSeason": 13,
+        "expired": false,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "consort"
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 13,
+        "expired": true,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "consort"
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 13,
+        "expired": true,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "consort"
+        }
+      },
+      {
+        "career": "concubine",
+        "window": 12,
+        "seasonsRemaining": 0,
+        "expiresAtSeason": 13,
+        "expired": true,
+        "goal": "faction_victory",
+        "outcome": {
+          "kind": "demotion",
+          "rank": "consort"
+        }
+      }
+    ],
+    "notice": {
+      "id": "9:empress:consort:deadline",
+      "season": 9,
+      "fromRank": "empress",
+      "toRank": "consort",
+      "reason": "deadline",
+      "acknowledged": false
+    },
+    "reason": "Your rank deadline passed.",
+    "audienceNotice": {
+      "id": "9:empress:consort:audience",
+      "season": 9,
+      "fromRank": "empress",
+      "toRank": "consort",
+      "reason": "audience",
+      "acknowledged": false
+    },
+    "consolidation": [
+      [
+        {
+          "completed": 0,
+          "total": 3,
+          "remaining": 3
+        },
+        {
+          "completed": 0,
+          "total": 3,
+          "remaining": 3
+        },
+        {
+          "completed": 2,
+          "total": 3,
+          "remaining": 1
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        }
+      ],
+      [
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        },
+        {
+          "completed": 3,
+          "total": 3,
+          "remaining": 0
+        }
+      ]
+    ],
+    "displaced": "Empress Consort",
+    "senior": "Empress Dowager",
+    "eligibility": []
+  }
+]

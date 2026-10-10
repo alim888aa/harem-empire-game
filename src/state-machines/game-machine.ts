@@ -1,5 +1,9 @@
 import {giveRomanticGift,proposeRomance,endRomance,seasonalRomanceJealousy,romancePairEligibility,romanceWitnessRisk,type RomanceAction,type RomanceReceipt} from '../lib/courtRomance';
-import {createDemotionNotice,type DemotionNotice} from '../lib/demotionNotice';
+import {
+  createDemotionNotice, type DemotionNotice, standingAfterDemotion, displacedOfficeForRank, mayPromote, promotionRequirement,
+  demotedRank, seasonalGiftGrant, rankIndex, promotionHate, tributeCost, promotionDeadline, careerEntryZone, careerZoneAccess,
+  resolveCareer, type CareerRank, type PalaceZone, careerSeniorRival
+} from '../lib/career';
 import {recordGiftNotification,readCourtNotificationIds,type GiftNotification} from '../lib/courtNotifications';
 import {FIRST_EMPEROR_VISIT_SECONDS,validFirstVisitTick} from '../lib/firstEmperorVisit';
 import {emptyCourtPlots,defusedPlotNames,cancelDefusedPlots,resolveCourtSeason,type CourtPlots,type DeceasedCourtier,type PlotSituation,type PlotEvent} from '../lib/courtPlots';
@@ -7,8 +11,7 @@ import {clampCourtInfluence} from '../lib/courtHierarchy';
 import {createCourtGraph,reduceCourtRelation,courtRelation,setPlayerGraphFaction,updateCourtNode,PLAYER_NODE,type CourtGraph,type RelationshipCommand} from '../lib/courtGraph';
 import type {RelationshipOrigin} from './character-machine';
 import {campaignRandom,nextCampaignRandom,freshCampaignSeed} from '../lib/campaignRandom';
-import {standingAfterDemotion,endorsementRenewal} from '../lib/campaignStanding';
-import {displacedOfficeForRank} from '../lib/courtIdentity';
+import { endorsementRenewal } from '../lib/campaignStanding';
 import { setup, sendTo, stopChild, enqueueActions, fromPromise } from "xstate";
 import type { ActorRefFrom } from "xstate";
 import { assign } from "xstate";
@@ -30,11 +33,8 @@ import { giftMessage, validGiftRequestId, validGiftResult, type MessageChoice } 
 import { processGiftWithMessage, type GiftWithMessageResult } from '../lib/checkMessage.ts';
 import { getInfluenceGating } from '../lib/influenceGating.ts';
 import { giftCost } from '../lib/courtStrategy.ts';
-import { CAMPAIGN_BALANCE as B, earnedInfluence, mayPromote, promotionRequirement, globalSupportReward, giftPositiveScale, emperorEncounterChance, demotedRank, seasonalGiftGrant, rankIndex, promotionHate, tributeCost, courtierGiftAmount } from '../lib/campaignBalance';
-import { promotionDeadline } from '../lib/careerDeadline';
-import { careerEntryZone, careerZoneAccess, resolveCareer, type CareerRank, type PalaceZone } from '../lib/careerAccess';
-import { witnessedRebelGift, isPromotionRival, careerSeniorRival, opposingFactions, type CourtWitness } from '../lib/courtIntrigue';
-
+import { CAMPAIGN_BALANCE as B, earnedInfluence, globalSupportReward, giftPositiveScale, emperorEncounterChance, courtierGiftAmount } from '../lib/campaignBalance';
+import { witnessedRebelGift, isPromotionRival, opposingFactions, type CourtWitness } from '../lib/courtIntrigue';
 
 // Helper functions for character pool selection
 function randInt(min: number, max: number, random:()=>number): number {

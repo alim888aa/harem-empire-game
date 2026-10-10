@@ -1,4 +1,4 @@
-import { promotionRequirement } from '../lib/campaignBalance';
+import { promotionRequirement } from '../lib/career';
 import type { FactionSystem } from "../lib/factionSystem";
 interface CourtBriefingProps {
   role:string|null; influence:number; remaining?:number; support: number;

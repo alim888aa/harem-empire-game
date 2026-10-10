@@ -1,5 +1,5 @@
 import {campaignRandom} from './campaignRandom';
-import {rankIndex} from './campaignBalance';
+import { rankIndex } from './career';
 import {PLAYER_NODE,courtRelation,graphLovers,graphPledgedTo,hateIsBlocked,scheduledOverlap,updateCourtNode,type CourtGraph} from './courtGraph';
 import {romancePairEligibility} from './courtRomance';
 /** Missing target is the legacy player-directed plot. Player plots retain their old shape. */

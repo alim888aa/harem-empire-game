@@ -13,7 +13,7 @@ import PlaytestConsole, { playtestEnabled } from './PlaytestConsole';
 import { applySoftwareMaterials } from './softwareMaterials';
 import { loadPalaceAssets, acquireEmperorModel, palaceAssetUrls, EMPEROR_ASSET_URL } from './palaceAssets';
 import { palaceAssetPool, type ModelInstanceLease, type ModelLease } from './assetPool';
-import { careerZoneAccess, type PalaceZone } from '../lib/careerAccess';
+import { careerZoneAccess, type PalaceZone } from '../lib/career';
 import { createPalaceVisitState, zoneRoster, zoneSpawn, zoneGates, ZONES, PLAYABLE_ZONES, type PalaceVisitState, type PlayableZone } from './zones';
 import {requestJump,stepJump,type JumpState} from './jumpPhysics';
 import PalaceTouchControls, { useTouchControls } from './PalaceTouchControls';

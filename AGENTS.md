@@ -41,6 +41,7 @@ Runtime GLBs and material images are hosted externally. After `npm ci`, run `npm
 | `src/state-machines/game-machine.ts` | The campaign: seasons, gifts, factions, promotion, plots, romance, Emperor. It is too big; see the deepening roadmap. |
 | `src/state-machines/character-machine.ts` | One actor per courtier. It mirrors the relationship graph. |
 | `src/lib/` | Game rules. Pure functions, mostly. |
+| `src/lib/career/` | Career identity/access/progression/deadline/income/office rules behind one public `index.ts`. |
 | `src/persistence/` | Save/load, schema migration, autosave. |
 | `src/palace/` | The three.js 3D palace: world, zones, navigation, models, touch controls. |
 | `src/components/` | React screens and panels. `GameLayout.tsx` is the god view. |
