@@ -104,29 +104,28 @@
   },
   "execution": {
     "location": "cloud",
-    "enabled": false,
+    "mode": "parent-manual",
+    "enabled": true,
+    "automatic": false,
     "owner": "parent-assistant",
-    "reason": "No supported cost-bounded cloud launcher and exact-head browser fixture yet"
+    "reason": "Parent dispatches native Sol workers by hand; stock T3 CLI is unsupported"
   },
   "budgetPolicy": {
-    "refactor": {
-      "limitUsd": 100,
-      "period": "total"
-    },
-    "ongoing": {
-      "limitUsd": 30,
-      "period": "day",
-      "timezone": "UTC"
-    },
-    "activePhase": "refactor",
+    "timezone": "Asia/Ulaanbaatar",
+    "accounting": "flat-job-estimates",
+    "refactorDate": "2026-10-10",
+    "refactorDayLimitUsd": 100,
+    "maintenanceDailyLimitUsd": 30,
+    "maintenanceWhenNeeded": true,
     "priorityBypass": false,
-    "onUnknownUsage": "hold-all",
-    "accounting": "unavailable"
+    "atEstimatedLimit": "stop-new-work-running-work-finishes",
+    "ledger": "docs/factory/estimated-usage.json"
   },
   "verification": {
     "command": "npm run factory:check",
     "browserProofRequired": true,
     "fixture": "base",
     "ready": false
-  }
+  },
+  "budgetUsd": 100
 }

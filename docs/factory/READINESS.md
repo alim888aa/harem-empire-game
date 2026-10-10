@@ -1,31 +1,24 @@
 # Factory readiness
 
-Status: setup only; autonomous dispatch disabled. No scheduled or paid jobs were launched, webhook secrets installed, or public deployment changed.
+Status: parent manual cloud dispatch is supported. Stock T3/laptop CLI dispatch and local session-log accounting remain unsupported; no launcher platform is being built. No schedules, webhook secrets or new persistent credentials were installed. Public deployment is unchanged.
 
-## Available
-- Existing npm typecheck/tests/build and pinned asset recovery.
-- All-Sol roles, parent assistant ownership, factory issue/PR contracts and preserved game rules.
-- Pure activation guard and behavior tests, which hold dispatch even if enabled is accidentally toggled. Vendored dispatcher --apply/--ack and usage-meter CLI/imported entrypoints stop before any upstream action/session-log read.
-- Source hygiene ratchet for selected measurable debt; it is not full ESLint, formatting or dead-export coverage. Counts are aggregate: removals can offset additions, and oversized-file growth, scripts/tests, folder limits and per-file debt are not measured.
+## Daily estimated budget
+The user's latest decision: “$100 for today for the refactor then $30 a day for maintainance if necessary. use estimates if you don't have exact token count.” Today is October 10, 2026 in Asia/Ulaanbaatar. This replaces the previous cumulative-refactor-pot/exact-meter assumptions.
 
-Upstream cloud coordination issue: https://github.com/alim888aa/agent-org/issues/17 .
-
-## Activation blockers
-1. Cloud launcher supporting lifecycle, deduplication and cancellation, without laptop/T3 assumptions. Existing native-agent tools have no verified USD usage or max-cost control.
-2. Supported per-request cost accounting and reservations across owner, workers, lenses, verifier, research, retries and tool charges. Preserve $100 total refactor phase separately from $30 UTC-day ongoing phase. Unknown usage holds every job; no p0 exception. Do not read denied local session logs. A JSON limit is not enforcement.
-3. Exact-head cloud browser fixture accessible to the independent verifier. Local Chrome socket access and cloud-to-executor reachability are currently blocked.
-4. Full formatter, ESLint, dead-code and expanded test/script typechecks with honest committed debt baselines. No new dependency installation was necessary for this draft.
-5. A supported publishing command for the existing site, verified rollback and live asset CORS/GLTF proof. Existing public URL is fixed; no preview site elsewhere is authorized.
+The parent records conservative flat job estimates in estimated-usage.json for owner/dispatch, build/fix, every review lens, verification, hunt, research and retries. Estimates are planning allowances, not fees or actual billing. Initial recorded/reserved estimates total $80, leaving $20 headroom. Stop new work when recorded plus reserved estimates reach $100 today (then $30 on a maintenance day); let active work finish and record revised estimates. No overrun authority is assumed. Maintenance happens only when useful; it is not an automatic daily charge.
 
 ## Manual parent dispatch
+The parent follows factory labels/dependencies and job contracts, launches cloud-native Sol workers itself, tracks estimates, deduplicates jobs, and records exact-head checks/reviews. Reviewers and verifier remain independent from the writer. Parent owns product decisions and release approval. Exact token measurement is not required.
 
-The parent assistant can coordinate already-authorized issue writing and draft PR preparation using GitHub connectors and this cloud workspace. Manual coordination preserves owner/manager/worker separation and reports exact-head checks. It does not create a real USD meter, waive the ceilings, or authorize unmetered ongoing autonomous execution. No scheduler is installed.
+Upstream parked coordination issue: https://github.com/alim888aa/agent-org/issues/17 and https://github.com/alim888aa/agent-org/issues/17#issuecomment-6094157627 . The upstream comment's p0 bypass does not itself grant this project permission to exceed the user's estimate allowance.
 
-## Minimal adapter
-Keep upstream GitHub labels, machine-readable links, exact-head factory/check status, review lenses and product owner decisions. Adapt only launch/list/resume/settle, fixture startup/browser reachability, and cost admission. Do not port the entire T3 runtime or install stock webhook secrets. No persistent scheduler starts while any blocker remains.
+## Available checks
+Existing npm typecheck/tests/build, SHA-256 asset recovery and selected source hygiene ratchet. The ratchet is not full ESLint, formatting or dead-export coverage: aggregate removals can offset additions; scripts/tests, folder limits, per-file debt and oversized-file growth remain unmeasured. These limitations are recorded technical debt, not a requirement to build a dispatch platform before refactoring.
 
-## Check command
-`npm run factory:check` runs hygiene, factory guard tests, existing application check and production build. It reports implemented checks only. A green result does not enable dispatch.
+`npm run factory:check` runs implemented hygiene, factory policy tests, application check and build. `npm run factory:guard` stops unsupported stock T3 entrypoints. Parent manual dispatch remains supported.
+
+## Verification and publication
+Use an exact-head independent verifier and public-interface/replay tests for behavior-preserving changes. Visible changes require browser screenshots. Exact-head cloud browser-to-executor reachability is currently limited; disclose a missing browser run rather than claiming it passed. No publication until the required review/verifier gates are complete. Publish only to the existing game site and keep rollback assets/source available.
 
 ## Base fixture
-`npm ci`, `npm run assets:fetch`, `npm run dev -- --host 0.0.0.0`. The base is a fresh browser profile with no campaign and offline audience behavior. Existing public/qa v7 saves provide romance, jealousy, intrigue and demotion states. No accounts or secrets are required. Fixture browser readiness remains false until the verifier can actually reach this process on its exact commit.
+`npm ci`, `npm run assets:fetch`, `npm run dev -- --host 0.0.0.0`. Fresh browser profile, offline audience behavior, no account or secret. public/qa v7 saves provide romance, jealousy, intrigue and demotion states. Hosted art recovery remains mandatory.

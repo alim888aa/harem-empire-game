@@ -5,16 +5,16 @@ import { assessActivation } from './activation.mjs';
 
 const config = JSON.parse(await readFile(new URL('../../factory.json', import.meta.url), 'utf8'));
 
-test('committed setup configuration is valid but never admits an autonomous job', () => {
+test('manual configuration is valid while stock T3 CLI remains held', () => {
   const result = assessActivation(config);
   assert.equal(result.configurationValid, true);
   assert.equal(result.allowed, false);
 });
 
-test('declared accounting or enabled flags cannot bypass absent adapters', () => {
+test('automatic T3 configuration is rejected without blocking manual dispatch', () => {
   const changed = structuredClone(config);
-  changed.execution.enabled = true;
-  changed.budgetPolicy.accounting = 'verified';
+  changed.execution.automatic = true;
+  changed.budgetPolicy.accounting = 'exact-meter-required';
   const result = assessActivation(changed);
   assert.equal(result.configurationValid, false);
   assert.equal(result.allowed, false);
@@ -23,7 +23,7 @@ test('declared accounting or enabled flags cannot bypass absent adapters', () =>
 test('priority bypass, changed budgets and non-Sol jobs are rejected', () => {
   const changed = structuredClone(config);
   changed.budgetPolicy.priorityBypass = true;
-  changed.budgetPolicy.refactor.period = 'day';
+  changed.budgetPolicy.refactorDayLimitUsd = 200;
   changed.jobs.owner.model = 'claude-opus-5-5';
   const result = assessActivation(changed);
   assert.equal(result.configurationValid, false);
@@ -35,7 +35,7 @@ test('absent configuration holds dispatch', () => {
   assert.equal(assessActivation(null).allowed, false);
 });
 
-test('missing role maps, role masking and unknown phase are invalid', () => {
+test('missing role maps, role masking and unsupported accounting are invalid', () => {
   for (const missing of [null, {}, []]) {
     const changed = structuredClone(config);
     changed.jobs = missing;
@@ -46,6 +46,6 @@ test('missing role maps, role masking and unknown phase are invalid', () => {
   changed.council.owner = structuredClone(config.jobs.owner);
   assert.equal(assessActivation(changed).configurationValid, false);
   changed.jobs.owner.model = 'gpt-6.1-sol';
-  changed.budgetPolicy.activePhase = 'unknown';
+  changed.budgetPolicy.accounting = 'unknown';
   assert.equal(assessActivation(changed).configurationValid, false);
 });

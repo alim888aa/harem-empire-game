@@ -9,7 +9,7 @@ There is no unified error class hierarchy. Pure validation throws Error; persist
 - Asset missing/hash mismatch: assets:verify fails; do not substitute unverified art or disable verification.
 - Gameplay decision rejected: return the existing typed outcome/receipt to the owning UI. It is not a transport error.
 - Unexpected runtime failure: stop only the affected operation, retain safe state, disclose the failed step. No empty-success catch.
-- Factory environment/accounting unavailable: hold all dispatch, record the precise blocker, preserve work for retry. No p0 budget exemption.
+- Factory job cannot execute or has no planning estimate: stop that launch, record the precise blocker or estimate, preserve work for retry. Exact token metering is not required. Stop new jobs at the estimated daily ceiling; already-running work finishes and is recorded.
 
 ## Alert channel
 Persistence already uses its status interface. Campaign alert()/console.log behavior is legacy debt tracked by #6/#19 and remains unchanged by setup. The notices slice owns removing it. Console diagnostics are not a player notification channel. Never expose credentials or private save contents in logs.

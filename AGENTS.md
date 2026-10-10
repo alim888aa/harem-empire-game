@@ -101,9 +101,9 @@ Owner's direction: **elegant**, a Qing-palace drama. Never generic web boxes. Th
 
 ## Cloud factory setup
 
-Read CODING_STANDARDS.md, ERRORS.md, DESIGN.md and CONTEXT.md before factory work. Upstream contracts are pinned in factory.json; see docs/factory/READINESS.md. Owner is the parent assistant. Every role uses GPT-6.1 Sol and every build stays in cloud execution. No T3/laptop dispatch, webhook secret, schedule or new persistent credential is created by this setup.
+Read CODING_STANDARDS.md, ERRORS.md, DESIGN.md and CONTEXT.md before factory work. Upstream contracts are pinned in factory.json; see docs/factory/READINESS.md. Owner is the parent assistant. Every role uses GPT-6.1 Sol and every build stays in cloud execution. No T3/laptop dispatch, webhook secret, schedule or new persistent credential is created by this setup. Parent dispatches native cloud Sol jobs manually under the estimated ledger.
 
-The $100 total refactor allowance and subsequent $30 UTC-day allowance are separate phases. The stock upstream p0 budget exception does not apply. Unknown accounting holds all jobs. `npm run factory:guard` intentionally returns a held result and exits nonzero; a passing factory:check does not activate dispatch.
+Budget uses conservative flat job estimates: $100 for October 10, 2026 in Asia/Ulaanbaatar, then $30 per local day for maintenance when needed. Exact token counts are not required. Parent manual native-Sol dispatch is enabled with the recorded estimated ledger; stop new work at the estimated ceiling and let running work finish/record. No budget-overrun exception is assumed. `npm run factory:guard` holds only the unsupported stock T3 CLI; it does not block parent manual dispatch.
 
 Job contracts: owner follows owner; dispatcher follows dispatch; manager follows manager; issue writing follows issue-maker; build/fix follows worker; review follows its lens plus code-review; verifier follows verifier; triage follows triage. Source: alim888aa/agent-org at the factory.json pin. Runtime-dependent upstream instructions are blocked until a supported cloud adapter exists.
 

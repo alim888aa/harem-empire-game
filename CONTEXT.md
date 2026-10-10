@@ -26,4 +26,4 @@ Refactor work must not silently implement the reimagining's product features.
 - Deadly court, full scheming and 2D removal: https://github.com/alim888aa/harem-empire-game/issues/2#issuecomment-6093158163
 - Latest visibility decision supersedes hidden-number toggle: https://github.com/alim888aa/harem-empire-game/issues/2#issuecomment-6093840216 and issue #31.
 - Cloud only. All factory jobs and council angles use GPT-6.1 Sol. Parent assistant remains owner.
-- Budget: $100 total for refactor, then $30 per UTC day ongoing. These are separate phases; no priority bypass. Actual accounting/launcher support is missing, so autonomous dispatch is held.
+- Budget: $100 for the October 10, 2026 refactor day in Asia/Ulaanbaatar, then $30 per local day for maintenance when needed. Parent manually dispatches native Sol workers and records conservative flat job estimates; exact token accounting is not required. Stop new work at the estimated ceiling; running work finishes and is recorded.

@@ -1,12 +1,13 @@
-// Owns factory admission while supported cloud accounting and execution are absent.
+// Validates manual factory configuration and holds unsupported stock T3 execution.
 import { readFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 
-/** Reports activation blockers without launching a job or reading session logs. */
+/** Reports why stock T3 CLI execution is unsupported; parent manual dispatch is separate. */
 export function assessActivation(config) {
   const reasons = [];
-  if (config?.execution?.enabled !== false) {
-    reasons.push('Dispatch must remain disabled until the cloud adapter is implemented.');
+  if (config?.execution?.mode !== 'parent-manual' || config?.execution?.enabled !== true ||
+      config?.execution?.automatic !== false) {
+    reasons.push('Use parent manual cloud dispatch; stock automatic T3 dispatch is unsupported.');
   }
   if (config?.execution?.location !== 'cloud') reasons.push('Cloud-only execution is required.');
   const roles = {
@@ -29,18 +30,15 @@ export function assessActivation(config) {
     }
   }
   const budget = config?.budgetPolicy;
-  if (!['refactor', 'ongoing'].includes(budget?.activePhase)) reasons.push('Budget phase is unknown.');
-  if (budget?.refactor?.limitUsd !== 100 || budget?.refactor?.period !== 'total' ||
-      budget?.ongoing?.limitUsd !== 30 || budget?.ongoing?.period !== 'day' ||
-      budget?.ongoing?.timezone !== 'UTC' || budget?.priorityBypass !== false ||
-      budget?.onUnknownUsage !== 'hold-all') {
-    reasons.push('The separate refactor and daily budgets must fail closed without priority bypass.');
+  if (budget?.accounting !== 'flat-job-estimates' || budget?.timezone !== 'Asia/Ulaanbaatar' ||
+      budget?.refactorDate !== '2026-10-10' || budget?.refactorDayLimitUsd !== 100 ||
+      budget?.maintenanceDailyLimitUsd !== 30 || budget?.maintenanceWhenNeeded !== true ||
+      budget?.priorityBypass !== false || budget?.atEstimatedLimit !== 'stop-new-work-running-work-finishes') {
+    reasons.push('Record conservative daily estimates under the approved refactor/maintenance policy.');
   }
-  // Configuration cannot supply an accounting adapter or turn a declared limit into enforcement.
   return { allowed: false, configurationValid: reasons.length === 0, reasons: [
     ...reasons,
-    'Supported cost-bounded cloud launcher and actual accounting are unavailable.',
-    'Exact-head independent cloud browser proof is unavailable.'
+    'Stock T3 CLI dispatch is unsupported; parent manual native-Sol dispatch uses estimated job accounting.'
   ] };
 }
 

@@ -320,7 +320,7 @@ async function recentLogs(dir, since) {
 
 // Project override: neither imported nor CLI callers may use local session accounting.
 export async function spentToday() {
-  throw new Error("Local session accounting is unavailable; autonomous dispatch remains held.");
+  throw new Error("Local session accounting is unavailable; use the parent estimated daily ledger.");
 }
 
 function main() {
@@ -341,6 +341,6 @@ function main() {
 
 // Project override: unavailable local session accounting must not inspect denied logs.
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  process.stdout.write('Accounting unavailable in this cloud project; all autonomous dispatch is held.\n');
+  process.stdout.write('Accounting unavailable from local sessions; parent manual dispatch uses the estimated daily ledger.\n');
   process.exitCode = 1;
 }

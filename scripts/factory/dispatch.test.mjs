@@ -13,7 +13,7 @@ test('upstream dispatch apply and acknowledgement are held before external actio
     assert.equal(result.status, 1);
     const outcome = JSON.parse(result.stdout);
     assert.deepEqual(outcome.t3, []);
-    assert.match(outcome.stop, /actual accounting are unavailable/);
+    assert.match(outcome.stop, /Stock T3 CLI dispatch is unsupported/);
     assert.equal(result.stderr, '');
   }
 });
