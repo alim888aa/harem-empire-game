@@ -1,4 +1,4 @@
-import {tributeCost} from '../lib/campaignBalance';
+import { tributeCost } from '../lib/career';
 
 interface EmperorEncounterProps {
   onGiveGift: () => void;

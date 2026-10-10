@@ -47,7 +47,8 @@ Follow `improve-codebase-architecture`:
 |---|---|---|
 | `state-machines/game-machine.ts` (~1,400 lines) | XState machine; ~80 event types | **Shallow and tangled.** It owns everything: seasons, gifts, factions, promotion, plots, romance and the Emperor. It reads child actor snapshots 36 times. |
 | `state-machines/character-machine.ts` | One actor per courtier, ~25 events | Mirrors the canonical court graph. Kept in sync with serials and projection events. |
-| `lib/*` (26 files) | Pure-ish functions | Many fail the deletion test. They are 4–40-line fragments that take `role: string \| null, rank: string \| null` and re-resolve the career themselves. |
+| `lib/career/` | One public entrypoint for career identity, access, progression, deadline, money and office rules | **Deep.** Legacy inputs normalize at the boundary; original import paths are tested compatibility exports only. |
+| `lib/*` | Pure-ish functions | Many fail the deletion test. They are 4–40-line fragments that take `role: string \| null, rank: string \| null` and re-resolve the career themselves. |
 | `components/GameLayout.tsx` | `machineState: any; send: any` | A god component. It owns the season clock, presence, rule derivations and every dialog. |
 | `palace/PalaceScene.tsx` | React props plus ref callbacks | One very large `useEffect` closure. `palace/world.ts` is already deep and node-testable. |
 | `persistence/campaignSave.ts` | save, parse, migrate | Validates **raw XState snapshot internals**, so renaming a machine state can break saves. |
@@ -55,9 +56,8 @@ Follow `improve-codebase-architecture`:
 
 ## Deepening roadmap
 
-These candidates come from an audit done on 2026-10-04. They are ordered by value against effort. Each one should land as its own PR. Remove an entry when it is done, and add new ones as you find them.
+The Career candidate is implemented on this refactor branch (see docs/factory/career-refactor.md); the remaining candidates come from an audit done on 2026-10-04. They are ordered by value against effort. Each one should land as its own PR. Remove an entry when it is done, and add new ones as you find them.
 
-1. **Career module** (Strong, low effort). Career rules are scattered across `careerAccess`, `careerDeadline`, `campaignStanding`, `courtIdentity`, `demotionNotice`, parts of `courtIntrigue`, `campaignBalance` and `helpers`. One career has three names: role `minister`, career `scholar`, and the legacy rank `empress_consort` for `empress` (see `docs/GLOSSARY.md`). Normalize once, at the edge, into a `Career = { role, rank }` value. Expose `career()`, `access()`, `nextStep()`, `promote()`, `demote()`, `seasonGrant()` and `tribute()`. Test with table tests over role × rank. They replace several per-file tests.
 2. **Gift transaction module** (Strong, medium effort). One gift currently touches about 10 modules plus three machine handlers. Preview and commit each patch `suspicion` by hand. Proposed: `giftOptions(court, player, target, zone)` returns each choice with its allowed flag, cost and preview. `resolveGift(court, player, request)` returns the new court, the outcome and a receipt. Then "preview equals receipt" holds by construction and needs just one test.
 3. **Side effects out of the machine** (Strong, very low effort). `game-machine.ts` calls `alert()` and `console.log`. Emit notices into context instead, and let the UI render them.
 4. **Campaign view-model** (Strong, medium effort). Add `selectCourtView(snapshot, ui): CourtView` and a typed `CampaignCommands` object. Then `GameLayout` stops reading actors and recomputing rules. UI tests render `CourtView` fixtures, which replaces the source-grep tests.
@@ -75,3 +75,11 @@ These candidates come from an audit done on 2026-10-04. They are ordered by valu
 - Fix `.gitignore` so it stops listing tracked files.
 - Move `Math.random` defaults in `data/characters.ts` and `lib/getResponse.ts` onto the seeded RNG.
 - Code-split the 3D palace so the first screen loads fast.
+
+## Career module
+
+`src/lib/career/index.ts` is the sole runtime entrypoint for career rules. It owns legacy minister/Scholar and final Empress aliases, cumulative zone access, rank progression, allowances/tribute, deadlines, demotion receipts/standing and office identity. Pure complete operations preserve the existing actor/event/save shapes; internal files are grouped by owned behavior.
+
+The public `CAREER_RULES` table owns career-specific tuning. `CAMPAIGN_BALANCE` keeps its supported configuration shape by referencing those same objects, not duplicating them. Relationship endorsement renewal, gift effects and faction rivalry remain with their existing owners. Existing careerAccess/careerDeadline/demotionNotice and exported career operations on balance/standing/identity/intrigue remain import-only compatibility contracts, with identity and behavior tests; no second rule implementation runs.
+
+Do not merge the distinct audience and deadline demotion semantics during cleanup. Golden v7 public-operation tables and the unchanged seeded simulator capture these distinctions.

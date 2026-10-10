@@ -1,5 +1,5 @@
 import {isIntriguePlaytest,isTouchViewportPlaytest,playtestSaveStorage} from './persistence/playtestMode';
-import { rankIndex } from './lib/campaignBalance';
+import { rankIndex } from './lib/career';
 import React, { useState, useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom/client'
 import '@fontsource/cormorant-garamond/500.css'

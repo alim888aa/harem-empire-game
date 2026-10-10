@@ -15,10 +15,11 @@ import {signed} from '../lib/courtStrategy';
 import type {StandingRecovery} from '../lib/campaignStanding';
 import {displayCharacterName} from '../lib/courtIdentity';
 import {createPalaceVisitState,zoneRoster,PLAYABLE_ZONES,ZONES} from '../palace/zones';
-import {careerZoneAccess} from '../lib/careerAccess';
+import {
+  careerZoneAccess, tributeCost, seasonalGiftGrant, promotionRequirement, consolidationProgress, promotionDeadline
+} from '../lib/career';
 import SeasonTransition from '../palace/SeasonTransition';
-import { CAMPAIGN_BALANCE as B, tributeCost, seasonalGiftGrant, promotionRequirement, consolidationProgress } from '../lib/campaignBalance';
-import { promotionDeadline } from '../lib/careerDeadline';
+import { CAMPAIGN_BALANCE as B } from '../lib/campaignBalance';
 import { useEffect, useState, useRef } from "react";
 import type { CSSProperties, Dispatch, SetStateAction } from "react";
 import { useSelector } from "@xstate/react";
@@ -63,7 +64,6 @@ function EmperorAudienceHandler({ machineState }: { machineState: any }) {
 
 function ActiveEmperorAudience({ audienceActor }: { audienceActor: any }) {
   const audienceState = useSelector(audienceActor, (state: any) => state);
-
   const victoryPath = audienceState.context?.victoryPath;
   const questions = audienceState.context?.questions || [];
   const currentQuestionIndex = audienceState.context?.currentQuestionIndex || 0;

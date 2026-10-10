@@ -1,11 +1,8 @@
 import type { Character } from '../types/character';
-import { CAMPAIGN_BALANCE as B,globalSupportReward,isEnemy,rankIndex } from './campaignBalance';
-import { resolveCareer } from './careerAccess';
-/** Destination-rank standing, separate from retained personal relationships. */
-export function standingAfterDemotion(role:string|null,destinationRank:string|null){
- const career=resolveCareer(role);if(!career)return 0;
- return rankIndex(role,destinationRank)===0?(career==='concubine'?10:0):B.roles[career].globalTargets[0];
-}
+import { CAMPAIGN_BALANCE as B,globalSupportReward,isEnemy } from './campaignBalance';
+import { resolveCareer } from './career';
+// Preserve the existing standing import contract without another career-rule implementation.
+export { standingAfterDemotion } from './career';
 export type StandingRecovery={recovery:boolean;season:number;support:number;renewals:Record<string,number>};
 /** Positive message evaluation, current backing and a new season are all needed.
  * This is a small paid renewal, not an automatic regrant of historical milestones. */

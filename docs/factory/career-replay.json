@@ -1,0 +1,25 @@
+{
+  "base": "main @ 66ab9cb9483e0ec5e336ad3a64b876fd5ba08282",
+  "command": "SIM_REPORT_PATH=/tmp/career-simulation.json node --import tsx scripts/simulate-campaign.ts 3 1 30",
+  "seeds": 3,
+  "seedStart": 1,
+  "horizonSeasons": 30,
+  "roles": [
+    "prince",
+    "minister",
+    "concubine"
+  ],
+  "policies": [
+    "strategic",
+    "casual",
+    "focused",
+    "bad"
+  ],
+  "runs": 36,
+  "comparison": "Full JSON byte-for-byte; no field exclusions",
+  "baselineSha256": "28e961f1b8797f229199d83e356e7ae0b37c8e8ec2f418946bf9c858226570d2",
+  "refactorSha256": "28e961f1b8797f229199d83e356e7ae0b37c8e8ec2f418946bf9c858226570d2",
+  "matched": true,
+  "runErrors": 0,
+  "careerGoldenSha256": "7a97a55055d4b82c3b23e7dd90c00fc61b8213ffddcf756fe39d06e4095a5174"
+}
