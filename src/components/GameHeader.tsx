@@ -42,6 +42,6 @@ export default function GameHeader({
       {onNextSeason && <button className="season-button" onClick={onNextSeason}><span className="header-action-label">Next season <span aria-hidden="true">→</span></span><span className="header-action-compact">Next</span></button>}
     </nav>
   </div>
-    {tributeResult && <p className="court-guide" role="status">{tributeResult}</p>}
+    {tributeResult && <p className="emperor-silence" role="status">{tributeResult}</p>}
   </header>;
 }
