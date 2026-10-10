@@ -1,0 +1,131 @@
+{
+  "owner": "agent",
+  "jobs": {
+    "owner": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "build": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "review-*": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "verifier": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "hunt": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "dispatch": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "triage": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "manager": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "watch": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "research": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "scout": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "upkeep": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "audit": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    }
+  },
+  "council": {
+    "client": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    },
+    "maintainer": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    }
+  },
+  "smallChangeMaxFiles": 10,
+  "protected": [
+    "feature:saves",
+    "feature:campaign"
+  ],
+  "paths": {
+    "schema": [
+      "src/persistence/**"
+    ],
+    "ui": [
+      "src/components/**",
+      "src/ui/**",
+      "src/palace/**/*.tsx"
+    ]
+  },
+  "maxParallel": 1,
+  "upkeep": {
+    "keepDays": 14
+  },
+  "upstream": {
+    "repository": "alim888aa/agent-org",
+    "commit": "974e9d78a29466de9edf1144a3a27aedea491eb8"
+  },
+  "execution": {
+    "location": "cloud",
+    "mode": "parent-manual",
+    "enabled": true,
+    "automatic": false,
+    "owner": "parent-assistant",
+    "reason": "Parent dispatches native Sol workers by hand; stock T3 CLI is unsupported"
+  },
+  "budgetPolicy": {
+    "timezone": "Asia/Ulaanbaatar",
+    "accounting": "flat-job-estimates",
+    "refactorDate": "2026-10-10",
+    "refactorDayLimitUsd": 100,
+    "maintenanceDailyLimitUsd": 30,
+    "maintenanceWhenNeeded": true,
+    "priorityBypass": false,
+    "atEstimatedLimit": "stop-new-work-running-work-finishes",
+    "ledger": "docs/factory/estimated-usage.json"
+  },
+  "verification": {
+    "command": "npm run factory:check",
+    "browserProofRequired": true,
+    "fixture": "base",
+    "ready": false
+  },
+  "budgetUsd": 100
+}

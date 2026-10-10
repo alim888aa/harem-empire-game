@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-10",
+  "timezone": "Asia/Ulaanbaatar",
+  "limitUsd": 100,
+  "currency": "USD",
+  "method": "Conservative flat planning estimates, not actual billing or token measurements",
+  "entries": [
+    {
+      "id": "setup",
+      "role": "setup/inspection/issue-maker/review",
+      "estimateUsd": 25,
+      "status": "recorded",
+      "note": "Conservative estimate for work already completed today; includes setup review"
+    },
+    {
+      "id": "parent",
+      "role": "owner/dispatch",
+      "estimateUsd": 5,
+      "status": "reserved"
+    },
+    {
+      "id": "career-build",
+      "role": "build/fix",
+      "estimateUsd": 25,
+      "status": "reserved",
+      "agentTask": "/root/inspect_empire_factory_migration",
+      "issue": "https://github.com/alim888aa/harem-empire-game/issues/33"
+    },
+    {
+      "id": "career-boundaries",
+      "role": "review-boundaries",
+      "estimateUsd": 5,
+      "status": "reserved"
+    },
+    {
+      "id": "career-regressions",
+      "role": "review-regressions",
+      "estimateUsd": 5,
+      "status": "reserved"
+    },
+    {
+      "id": "career-frontend",
+      "role": "review-frontend",
+      "estimateUsd": 5,
+      "status": "reserved"
+    },
+    {
+      "id": "career-verifier",
+      "role": "verifier",
+      "estimateUsd": 10,
+      "status": "reserved"
+    },
+    {
+      "id": "setup-policy-review",
+      "role": "review",
+      "estimateUsd": 5,
+      "status": "recorded",
+      "agentTask": "/root/review_empire_factory_policy",
+      "note": "Independent exact-head review of estimated manual dispatch policy"
+    }
+  ],
+  "unallocatedHeadroomUsd": 15,
+  "notes": [
+    "All roles, retries, hunt and further research must be recorded or reserved before launch",
+    "Flat estimates can differ from actual billing; exact token counts are not available",
+    "Do not launch new work when recorded plus reserved estimates reach the daily ceiling; finish already-running work and record its revised estimate",
+    "After October 10, maintenance runs only if needed with a fresh $30 local-day allowance, not a recurring automatic charge"
+  ]
+}

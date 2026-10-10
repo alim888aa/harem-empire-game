@@ -1,0 +1,8 @@
+{
+  "explicitAny": 31,
+  "alerts": 5,
+  "consoleLogs": 49,
+  "unseededRandom": 6,
+  "longLines": 725,
+  "oversizedFiles": 7
+}

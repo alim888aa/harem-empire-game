@@ -12,7 +12,11 @@
     "check": "npm run typecheck && npm test",
     "assets:fetch": "node scripts/runtime-assets.mjs fetch",
     "assets:verify": "node scripts/runtime-assets.mjs verify",
-    "pretest": "node scripts/runtime-assets.mjs verify"
+    "pretest": "node scripts/runtime-assets.mjs verify",
+    "factory:guard": "node scripts/factory/activation.mjs",
+    "factory:test": "node --test scripts/factory/*.test.mjs",
+    "factory:hygiene": "node scripts/factory/hygiene.mjs",
+    "factory:check": "npm run factory:hygiene && npm run factory:test && npm run check && npm run build"
   },
   "devDependencies": {
     "@types/three": "^0.186.0",
