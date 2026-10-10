@@ -16,6 +16,7 @@
 // Run it from the project's main checkout. The decisions live in plan(), which
 // is pure so they can be tested against made-up label states.
 
+import { assessActivation } from "../../../scripts/factory/activation.mjs";
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
@@ -594,8 +595,11 @@ async function main() {
   console.log(JSON.stringify(out, null, 2));
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url))
-  main().catch((e) => {
-    console.error(e);
-    process.exit(1);
-  });
+// Project override: never enter upstream main(), even with --apply or --ack.
+// It assumes T3/local logs and ignores this project's separate budget phases.
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const config = JSON.parse(readFileSync(new URL("../../../factory.json", import.meta.url), "utf8"));
+  const admission = assessActivation(config);
+  console.log(JSON.stringify({ stop: admission.reasons.join(" "), t3: [] }, null, 2));
+  process.exitCode = 1;
+}

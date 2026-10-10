@@ -342,4 +342,8 @@ function main() {
   spentToday({ root: resolve(opt("root")), now }).then((r) => console.log(JSON.stringify(r, null, 2)));
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) main();
+// Project override: unavailable local session accounting must not inspect denied logs.
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  process.stdout.write('Accounting unavailable in this cloud project; all autonomous dispatch is held.\n');
+  process.exitCode = 1;
+}

@@ -5,7 +5,7 @@ Status: setup only; autonomous dispatch disabled. No scheduled or paid jobs were
 ## Available
 - Existing npm typecheck/tests/build and pinned asset recovery.
 - All-Sol roles, parent assistant ownership, factory issue/PR contracts and preserved game rules.
-- Pure activation guard and behavior tests, which hold dispatch even if enabled is accidentally toggled.
+- Pure activation guard and behavior tests, which hold dispatch even if enabled is accidentally toggled. Vendored dispatcher --apply/--ack and usage-meter CLI entrypoints stop before any upstream action/session-log read.
 - Source hygiene ratchet for selected measurable debt; it is not full ESLint, formatting or dead-export coverage. Counts are aggregate: removals can offset additions, and oversized-file growth, scripts/tests, folder limits and per-file debt are not measured.
 
 Upstream cloud coordination issue: https://github.com/alim888aa/agent-org/issues/17 .
