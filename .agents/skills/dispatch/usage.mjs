@@ -318,12 +318,9 @@ async function recentLogs(dir, since) {
   return found.sort();
 }
 
-export async function spentToday({ root, home = homedir(), now = new Date(), prices }) {
-  const { start, end } = dayBounds(now);
-  const ctx = { start, end, belongs: projectMatcher(root, home, canonicalizer()) };
-  const charges = await claudeCharges(await recentLogs(join(home, ".claude", "projects"), start), ctx);
-  for (const file of await recentLogs(join(home, ".codex", "sessions"), start)) charges.push(...(await codexCharges(file, ctx)));
-  return summarize(charges, prices ?? loadPrices());
+// Project override: neither imported nor CLI callers may use local session accounting.
+export async function spentToday() {
+  throw new Error("Local session accounting is unavailable; autonomous dispatch remains held.");
 }
 
 function main() {

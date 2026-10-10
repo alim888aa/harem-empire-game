@@ -24,3 +24,8 @@ test('upstream local usage CLI stops without inspecting a session directory', ()
   assert.match(result.stdout, /Accounting unavailable/);
   assert.equal(result.stderr, '');
 });
+
+test('imported usage admission rejects before local-log accounting', async () => {
+  const { spentToday } = await import('../../.agents/skills/dispatch/usage.mjs');
+  await assert.rejects(spentToday(), /Local session accounting is unavailable/);
+});
