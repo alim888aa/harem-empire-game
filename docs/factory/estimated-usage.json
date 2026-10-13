@@ -28,9 +28,25 @@
       "role": "review",
       "estimateUsd": 5,
       "status": "reserved"
+    },
+    {
+      "id": "ui-layout-fix",
+      "role": "build/fix",
+      "estimateUsd": 6,
+      "status": "reserved",
+      "agentTask": "/root/resume_empire_v3_development/fix_court_mobile_layout",
+      "note": "Bounded mobile court picker and in-flow imperial summons layout repair"
+    },
+    {
+      "id": "ui-layout-review",
+      "role": "review",
+      "estimateUsd": 4,
+      "status": "reserved",
+      "agentTask": "/root/resume_empire_v3_development/review_court_layout_fix",
+      "note": "Independent exact-head review of the bounded layout repair"
     }
   ],
-  "unallocatedHeadroomUsd": 10,
+  "unallocatedHeadroomUsd": 0,
   "notes": [
     "Reservations approved for the current resumption; no other Harem work was reported for this local day.",
     "Keep the October 10 ledger as historical evidence, not current-day admission.",

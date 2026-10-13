@@ -386,9 +386,8 @@ select {
 @keyframes ui-rod-bottom { from { bottom: calc(50% - var(--rod) / 2); } to { bottom: calc(var(--rod) / -2); } }
 
 .court-dialog .dialog-content {
-  /* An auto-height flex dialog with a flex: 1 child can collapse to its padding
-   * in Safari. Intrinsic grid rows retain the content height until this bound,
-   * then only the body shrinks and scrolls; the title and close stay reachable. */
+  /* Intrinsic grid rows retain the body's height in Safari. At this bound,
+   * only the body shrinks and scrolls; the title and close stay reachable. */
   display: grid; grid-template-rows: auto minmax(0, 1fr);
   max-height: var(--dialog-max-height); min-width: 0; padding: 0; overflow: hidden;
 }
@@ -653,9 +652,8 @@ select {
 .palace-conversation .palace-leave span { color: var(--ink-300); }
 
 /* ───────────────────────── Ceremonies ───────────────────────── */
-
 /* The Emperor: black lacquer, gold and a thin cinnabar rim. */
-.palace-shell .court-dialog:has(.imperial-encounter), .court-dialog:has(.imperial-encounter) {
+.court-dialog:has(.imperial-encounter) {
   --rod: 0px;
   width: min(600px, calc(100% - 52px)); margin: auto auto 25px;
   color: var(--silk-100);
@@ -786,7 +784,9 @@ select {
 .portrait-stage { border-radius: 0; box-shadow: 0 0 0 1px var(--gold-600), 0 0 0 5px var(--lacquer-900), 0 0 0 6px var(--gold-700), 0 14px 40px rgb(37 27 21 / 0.35); }
 .portrait-navigation button { border-radius: 0; color: var(--gold-200); background: none; border: 1px solid transparent; border-image: var(--frame-lacquer) 12 fill / 12px stretch; }
 .portrait-navigation button:hover { background: none; filter: brightness(1.25); }
-.classic-zone-picker select { min-height: 42px; padding: 8px 12px; letter-spacing: normal; text-transform: none; }
+.classic-zone-picker select { flex: 1; min-width: 0; max-width: 100%;
+  min-height: 42px; padding: 8px 12px; letter-spacing: normal; text-transform: none;
+}
 .relationship-meter small { font-size: 12px; color: var(--ink-500); }
 .faction-badge { border-radius: 0 !important; clip-path: polygon(6px 0, calc(100% - 6px) 0, 100% 50%, calc(100% - 6px) 100%, 6px 100%, 0 50%); padding-left: 10px !important; padding-right: 10px !important; font-weight: 700; letter-spacing: 0.04em; }
 .classic-zone-picker { display: flex; align-items: center; gap: 12px; font: 700 12px/1 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-700); margin-bottom: 18px; }
