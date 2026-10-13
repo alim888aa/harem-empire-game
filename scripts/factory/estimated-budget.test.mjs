@@ -42,11 +42,23 @@ test('missing estimates and duplicate ledger jobs stop only their new admission'
 
 test('the active maintenance ledger reserves each current role once on the local day', async () => {
   const current = JSON.parse(await readFile(new URL('../../docs/factory/estimated-usage.json', import.meta.url), 'utf8'));
-  const instant = new Date('2026-10-13T19:30:00Z');
-  const result = assessEstimatedJob(config, current, { id: 'v3-integration', estimateUsd: 6 }, instant);
-  assert.equal(result.day, '2026-10-14');
+  assert.equal(current.timezone, 'Asia/Ulaanbaatar');
+  assert.equal(current.limitUsd, 30);
+  const instant = new Date(`${current.date}T12:00:00Z`);
+  assert.equal(instant.toISOString().slice(0, 10), current.date);
+  assert.equal(projectDay(instant, current.timezone), current.date);
+  const existing = current.entries.find(entry => entry.status === 'reserved');
+  assert.ok(existing, 'the active ledger has an admitted job');
+  const plannedUsd = current.entries.reduce((sum, entry) => sum + entry.estimateUsd, 0);
+  assert.ok(plannedUsd <= current.limitUsd, 'recorded and reserved estimates stay within the daily cap');
+  const headroomUsd = current.limitUsd - plannedUsd;
+  assert.ok(headroomUsd >= 0, 'remaining allowance cannot be negative');
+  const result = assessEstimatedJob(config, current, existing, instant);
+  assert.equal(result.day, current.date);
   assert.equal(result.allowed, true);
-  assert.equal(result.plannedUsd, 20);
-  assert.equal(result.headroomUsd, 10);
-  assert.equal(assessEstimatedJob(config, current, { id: 'p0-extra', estimateUsd: 11, priority: 'p0' }, instant).allowed, false);
+  assert.equal(result.plannedUsd, plannedUsd);
+  assert.equal(result.headroomUsd, headroomUsd);
+  assert.equal(current.unallocatedHeadroomUsd, headroomUsd);
+  const extra = { id: 'p0-extra', estimateUsd: headroomUsd + 1, priority: 'p0' };
+  assert.equal(assessEstimatedJob(config, current, extra, instant).allowed, false);
 });
