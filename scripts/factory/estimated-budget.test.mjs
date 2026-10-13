@@ -40,25 +40,39 @@ test('missing estimates and duplicate ledger jobs stop only their new admission'
 });
 
 
-test('the active maintenance ledger reserves each current role once on the local day', async () => {
+test('the active maintenance ledger admits only reserved or affordable new jobs', async () => {
   const current = JSON.parse(await readFile(new URL('../../docs/factory/estimated-usage.json', import.meta.url), 'utf8'));
   assert.equal(current.timezone, 'Asia/Ulaanbaatar');
   assert.equal(current.limitUsd, 30);
   const instant = new Date(`${current.date}T12:00:00Z`);
   assert.equal(instant.toISOString().slice(0, 10), current.date);
   assert.equal(projectDay(instant, current.timezone), current.date);
-  const existing = current.entries.find(entry => entry.status === 'reserved');
-  assert.ok(existing, 'the active ledger has an admitted job');
+  assert.ok(Array.isArray(current.entries));
+  assert.ok(current.entries.every(entry => typeof entry.id === 'string' && entry.id.length > 0 &&
+    Number.isFinite(entry.estimateUsd) && entry.estimateUsd >= 0 && ['recorded', 'reserved'].includes(entry.status)));
+  assert.equal(new Set(current.entries.map(entry => entry.id)).size, current.entries.length);
   const plannedUsd = current.entries.reduce((sum, entry) => sum + entry.estimateUsd, 0);
   assert.ok(plannedUsd <= current.limitUsd, 'recorded and reserved estimates stay within the daily cap');
   const headroomUsd = current.limitUsd - plannedUsd;
   assert.ok(headroomUsd >= 0, 'remaining allowance cannot be negative');
-  const result = assessEstimatedJob(config, current, existing, instant);
-  assert.equal(result.day, current.date);
-  assert.equal(result.allowed, true);
-  assert.equal(result.plannedUsd, plannedUsd);
-  assert.equal(result.headroomUsd, headroomUsd);
   assert.equal(current.unallocatedHeadroomUsd, headroomUsd);
+  const existing = current.entries.find(entry => entry.status === 'reserved');
+  const newJob = { id: 'ledger-admission-probe', estimateUsd: headroomUsd > 0 ? headroomUsd : 1 };
+  const result = assessEstimatedJob(config, current, existing ?? newJob, instant);
+  assert.equal(result.day, current.date);
+  assert.equal(result.allowed, Boolean(existing) || headroomUsd > 0);
+  if (result.allowed) {
+    assert.equal(result.plannedUsd, plannedUsd + (existing ? 0 : newJob.estimateUsd));
+    assert.equal(result.headroomUsd, headroomUsd - (existing ? 0 : newJob.estimateUsd));
+  }
   const extra = { id: 'p0-extra', estimateUsd: headroomUsd + 1, priority: 'p0' };
   assert.equal(assessEstimatedJob(config, current, extra, instant).allowed, false);
+
+  const recorded = { ...current, entries: current.entries.map(entry => ({ ...entry, status: 'recorded' })) };
+  assert.equal(assessEstimatedJob(config, recorded, newJob, instant).allowed, headroomUsd > 0);
+  if (recorded.entries.length > 0) {
+    const repeated = assessEstimatedJob(config, recorded, recorded.entries[0], instant);
+    assert.equal(repeated.allowed, false, 'recorded jobs cannot be admitted again');
+    assert.equal(repeated.reason, 'Completed work or a changed estimate needs a separate explicit reservation.');
+  }
 });
