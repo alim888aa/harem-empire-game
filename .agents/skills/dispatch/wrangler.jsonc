@@ -1,0 +1,11 @@
+{
+  "name": "factory-metrics",
+  "account_id": "c784378411c8708150c239f973a2ec00",
+  "compatibility_date": "2026-10-10",
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "factory-metrics",
+    "database_id": "e570969e-ca90-438c-8a8a-cf9ec8cd543d",
+    "migrations_dir": "../../db/migrations"
+  }]
+}

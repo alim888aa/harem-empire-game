@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { projectDay, assessEstimatedJob } from './estimated-budget.mjs';
 const config = JSON.parse(await readFile(new URL('../../factory.json', import.meta.url), 'utf8'));
-const ledger = JSON.parse(await readFile(new URL('../../docs/factory/estimated-usage.json', import.meta.url), 'utf8'));
+const ledger = JSON.parse(await readFile(new URL('../../docs/factory/estimated-usage-2026-10-10.json', import.meta.url), 'utf8'));
 const today = new Date('2026-10-10T05:30:00Z');
 
 test('today is the Ulaanbaatar calendar day, not a UTC day or cumulative pot', () => {
@@ -37,4 +37,16 @@ test('missing estimates and duplicate ledger jobs stop only their new admission'
   assert.equal(assessEstimatedJob(config, ledger, { id: 'unpriced' }, today).allowed, false);
   const duplicate = { ...ledger, entries: [...ledger.entries, ledger.entries[0]] };
   assert.equal(assessEstimatedJob(config, duplicate, { id: 'new', estimateUsd: 1 }, today).allowed, false);
+});
+
+
+test('the active maintenance ledger reserves each current role once on the local day', async () => {
+  const current = JSON.parse(await readFile(new URL('../../docs/factory/estimated-usage.json', import.meta.url), 'utf8'));
+  const instant = new Date('2026-10-13T19:30:00Z');
+  const result = assessEstimatedJob(config, current, { id: 'v3-integration', estimateUsd: 6 }, instant);
+  assert.equal(result.day, '2026-10-14');
+  assert.equal(result.allowed, true);
+  assert.equal(result.plannedUsd, 20);
+  assert.equal(result.headroomUsd, 10);
+  assert.equal(assessEstimatedJob(config, current, { id: 'p0-extra', estimateUsd: 11, priority: 'p0' }, instant).allowed, false);
 });

@@ -1,80 +1,49 @@
 ---
 name: triage
-description: Turn new issues into ready work and clear out stale ones, without a human. Use when started on issues with no status, or for the daily pass.
+description: "Sorts new issues into one-line cards the human decides on and keeps the backlog honest. Use when started on issues with no status, or for the Daily pass."
 ---
 
 # Triage
 
-You are the job that turns new issues into work a build job can start, and
-keeps the backlog from rotting. `factory-workflow` defines the words,
-labels and who decides what; don't restate them. You label, link, close and
-bundle. You don't build, review, rule on disputes or talk to the human;
-anything that needs a person gets `needs-human` and the manager takes it.
+Get new issues ready for a one-line human call. `factory-workflow` has
+the labels and **Realism**.
 
-Two runs, told to you at start:
-
-- **New issues.** The dispatcher saw issues with no status. Triage them.
-- **Daily pass.** Everything open, for what's gone stale or drifted.
+You're told which run: **New issues** (below) or **Daily pass**
+([DAILY.md](DAILY.md)). Read every comment and linked PR before changing
+an item. A later decision may already settle it.
 
 ## New issues
 
-For every issue with no status, in priority order:
+For each issue with no status, highest priority first:
 
-1. **Dedupe.** Search open issues by title, files and symptoms. A duplicate
-   closes as such with a link to the one that stays.
-2. **Bundle.** Several small issues that one job would fix together (three
-   typos on one page, two cleanups in one module) become one issue; close
-   the rest as duplicates pointing at it.
-3. **Close** what isn't worth doing, with one line of why. A cleanup nobody
-   will notice, a bug in code that's being replaced, a monitor false alarm.
-4. **Check the shape.** Mid-size, one slice checkable in the browser, clear
-   acceptance criteria, base branch named, `Depends on` and `Part of` links
-   right, an `In plain words` section as `factory-workflow` says. If
-   something's missing and you can supply it, do; if it needs the
-   human, say what and set `needs-human`.
-5. **Label.** `feature:*`, `type:*`, `source:*` if the opener left one off,
-   and priority: `p0` only for live breakage, data loss, or a client
-   that's blocked, `p1` for what the human asked for next or what
-   unblocks other work, `p2` otherwise. A `source:feedback` issue that
-   asks for new behaviour is a product call: `needs-human`.
-6. **Set status**, unless an earlier step set `needs-human`; that one
-   stands. `agent-ready` when a job could start now, `blocked` with
-   the link when it can't, `backlog` when it's real but not soon.
+1. Unlikely by **Realism**: `backlog`, with one line why.
+2. Tooling or environment problem: request it with the shared tool's
+   feedback command, then close the issue linking the request. If only
+   the human can fix it, post the exact steps, then set `needs-human`.
+3. Small annoyance like a typo or a stray log: close it with one line.
+4. An "investigate X" that only serves another issue: fold it into that
+   issue and close it.
+5. Same root cause: keep the clearest, fold in the others' evidence and
+   close them as duplicates.
+6. Shape the body: acceptance items, `Base:`, `Depends on`, `Part of`,
+   **In plain words**, and settled comments written in. A refactor needs
+   an item proving behaviour didn't change.
+7. Label it `feature:*`, `type:*`, `source:*` and a priority. `p0` is
+   only for live breakage, data loss or a blocked client. Add `ui` only
+   when it has UI work.
+8. Regression of a PR that's still open: post the bug on the PR, set
+   `fixing` and close the issue. Of a merged PR: add `Regression of
+   #<PR>`, at least `p1`, or `p0` if it's been deployed since the merge.
+9. Plan children, and issues quoting a human decision for exactly this
+   work, go `agent-ready`, or `blocked` if their links say so. Everything
+   else gets a card.
 
-A **blocker** (`type:maintenance` + `source:worker`) gets the same pass,
-plus: `p1` by default since it's holding work, and `agent-ready` when a
-job could plausibly fix it; the build job on it runs in investigate mode
-because of those two labels. Only when no job could (a secret, an
-account, a purchase) does it go to the human.
+## Cards
 
-## Daily pass
-
-Only what needs judgement; branch, worktree and session cleanup is the
-dispatcher's and happens on the event, not here.
-
-- Close issues the human said no to on a `needs-human` thread and nobody
-  closed.
-- `backlog` anything open with no activity for 30 days (or the config's
-  `staleDays`), unless it's `p0` or `p1`.
-- Add the `In plain words` section to any open issue or PR missing it,
-  touching nothing else in the body.
-- Re-triage anything whose labels no longer match its body: a `bug` that
-  turned into a `refactor` in the comments, a `Depends on` that merged, a
-  `blocked` whose blocker closed but didn't flip.
-- Flag a pattern: three or more open issues from different sources on the
-  same feature in the window is one `needs-human` note on the newest,
-  saying which, so the manager can bring it to the human as a possible plan.
-
-One line per action, in a single comment on the project's triage log
-issue. Nothing to the human.
-
-## Return
-
-Last line of output, one JSON object, nothing after it:
+Post one comment, then set `needs-human`:
 
 ```
-{"job":"triage","pass":"new","ready":3,"blocked":1,"closed":2,"for_human":1}
+Card: <plain name> · <type> · <p0–p3> · <build now | backlog | close> — <one line why, and anything the human must answer>
 ```
 
-The dispatcher starts build jobs from `agent-ready` and pings the manager
-when `for_human` is non-zero.
+Log one line per action in a single comment on the `Triage log` issue.

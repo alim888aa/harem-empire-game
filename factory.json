@@ -11,16 +11,6 @@
       "model": "gpt-6.1-sol",
       "effort": "high"
     },
-    "review-*": {
-      "provider": "codex",
-      "model": "gpt-6.1-sol",
-      "effort": "high"
-    },
-    "verifier": {
-      "provider": "codex",
-      "model": "gpt-6.1-sol",
-      "effort": "high"
-    },
     "hunt": {
       "provider": "codex",
       "model": "gpt-6.1-sol",
@@ -65,6 +55,11 @@
       "provider": "codex",
       "model": "gpt-6.1-sol",
       "effort": "high"
+    },
+    "review": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
     }
   },
   "council": {
@@ -100,7 +95,7 @@
   },
   "upstream": {
     "repository": "alim888aa/agent-org",
-    "commit": "974e9d78a29466de9edf1144a3a27aedea491eb8"
+    "commit": "7d756086b9938635e0cd11064a4d337eae747326"
   },
   "execution": {
     "location": "cloud",
@@ -127,5 +122,9 @@
     "fixture": "base",
     "ready": false
   },
-  "budgetUsd": 100
+  "budgetUsd": 30,
+  "metrics": {
+    "enabled": false,
+    "reason": "Source-only upstream contract; no D1 sync, local-session reads or credential access."
+  }
 }

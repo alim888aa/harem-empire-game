@@ -1,0 +1,168 @@
+{
+  "repository": "alim888aa/agent-org",
+  "commit": "7d756086b9938635e0cd11064a4d337eae747326",
+  "normalization": "Trim trailing line whitespace; one final newline",
+  "overrides": {
+    "dispatch/dispatch-plan.mjs": "Hold stock CLI, apply, recordSettleResult and mutating readSettleFailures before GitHub/git or T3-state writes; preserve pure exports.",
+    "dispatch/usage.mjs": "Hold spentToday, claudeCharges, codexCharges, readLines, recentLogs and local CLI before session reads; preserve pure exports.",
+    "dispatch/metrics.mjs": "Hold live readT3, collectCharges, d1Client, sync and CLI before local access or D1 writes; preserve pure exports."
+  },
+  "skills": {
+    "browser/SKILL.md": {
+      "upstreamBlob": "90d7161e53b3a740310ab3ec2649bf0702d62b47",
+      "installedSha256": "337dd6b98285c6044cf8880778aafb865a84459061fb3be03f33211527102abd"
+    },
+    "browser/touch.mjs": {
+      "upstreamBlob": "5dc753872dfce2af11f5bbf8aa37df16a8378c02",
+      "installedSha256": "bf053874405044b6c1ee5a7fc9fcbafad98e5015b9475c24b71cc577c3360cd0"
+    },
+    "council/SKILL.md": {
+      "upstreamBlob": "df180d8200ff894d9a858d49555a9199d008c99d",
+      "installedSha256": "6cc469c2464a2f232184905506db93c16cf94c108cbc53fdc43046a4c5d3f19b"
+    },
+    "dispatch/SKILL.md": {
+      "upstreamBlob": "f6768b7c68c812657619bde38444c72a39828f9a",
+      "installedSha256": "f84bce400efab0e0f74a3795d14bab36e3f11eba69bf7a0e2b0dbcbc1775ddd2"
+    },
+    "dispatch/dispatch-plan.mjs": {
+      "upstreamBlob": "3d9dcad7c348dbb2c23753d4efd4f0147e307054",
+      "installedSha256": "a2f293e46c8074a50f8664b0f066eb445a84b2f078c949dd36822a5c22620bde"
+    },
+    "dispatch/metrics.mjs": {
+      "upstreamBlob": "3eef7b38f40be125d99e9c37db5454927ab3db75",
+      "installedSha256": "4b20a13ff8e66df606e6571ba0bb13156b103ffb35630ce9a24a240250a4ef3f"
+    },
+    "dispatch/prices.json": {
+      "upstreamBlob": "bdba240f0dd5b371d4d79dabdd4bca00b7c77ecb",
+      "installedSha256": "7a14d3ac45a88a3b4993bc334773637d16ab74a9b2af952e9a9d5ca933a03654"
+    },
+    "dispatch/usage.mjs": {
+      "upstreamBlob": "5e351755a2f57b8aec7758733352538ae0ec5d43",
+      "installedSha256": "34f37a25ebe29bd3cd400a8fb18205d2bdc9591a9a29785208830eab0f1b0e1d"
+    },
+    "dispatch/wrangler.jsonc": {
+      "upstreamBlob": "eacda760712c8904a6a44f341568d880763dc3ef",
+      "installedSha256": "43dd093e95081706bab7c9942f18671f74d101232b83bf7e4a428558463c3654"
+    },
+    "edge-case-hunter/SKILL.md": {
+      "upstreamBlob": "2c14133477abb268136c2d1315ff647856bb79ed",
+      "installedSha256": "ee43ee389c3f8e6f95739f4bbbfd680909c2d52f187fdf007ddc29d6be2f56a5"
+    },
+    "factory-audit/METRICS.md": {
+      "upstreamBlob": "f72200b265e34898dae22af8eb1a24e192ec946f",
+      "installedSha256": "97592fcde07b1c2c2271e7f23e08b04e93d774f442e9035a363f84ad5d7f5ea2"
+    },
+    "factory-audit/SKILL.md": {
+      "upstreamBlob": "a6ad0ebf1959d8402c4836734a666a30e86bf01d",
+      "installedSha256": "d8645324c4c826dfa4aa38754aa158a1f9b86d78d1d3750db90bd1dd2684d268"
+    },
+    "factory-workflow/DARK.md": {
+      "upstreamBlob": "e681d4426513a37598236454a736b0febed1d47b",
+      "installedSha256": "06b21d6251064bd61a31077036ef4e693441745740106aa0ac09f534ac502626"
+    },
+    "factory-workflow/SKILL.md": {
+      "upstreamBlob": "c2e3297cc0e1f008a6f0c801ea45ffbce8e75d38",
+      "installedSha256": "5fd0e95568513dbe11229a84646464979d66bc9f4aa3b05a62c38b45b2bca529"
+    },
+    "issue-maker/SKILL.md": {
+      "upstreamBlob": "d175db41db46b217cafb84a66285b290c5147e87",
+      "installedSha256": "faa8e2a7e41b930e1d14e522a6d54df86b6f2f38be9f8c5fe9ad3a06b317748c"
+    },
+    "issue-maker/TEMPLATE.md": {
+      "upstreamBlob": "14d62529d58b2f7b70c06b5c57b74167a6d70eaa",
+      "installedSha256": "4cd526da7b56cd7f897599d7e506a39109ea439dedb74b0c08c55b479ef2066d"
+    },
+    "manager/COMMENTS.md": {
+      "upstreamBlob": "5f8890830cb097df9db810c773777eb184aa5e25",
+      "installedSha256": "246510ccde8f2acc3d1ffff9ad30f80f91df3c001d566ddc7b2b9c5bc277f7b0"
+    },
+    "manager/DARK.md": {
+      "upstreamBlob": "66fd1f5f1b817068ccf56f55b9251daeadedb307",
+      "installedSha256": "13cab08ceadbd6acf020554bc62075dc27eee18c7af88d4c7e96e364c0899ff3"
+    },
+    "manager/DEPLOYS.md": {
+      "upstreamBlob": "4827f6fff35d1f03f7e25f0502be6019884c6558",
+      "installedSha256": "a90fe3b34a5e42fc87fd3b4db82001b9aaa9c02c67b3632097e61fe309afd515"
+    },
+    "manager/SKILL.md": {
+      "upstreamBlob": "dd0a1bf73913775f72357d22699194eecb162326",
+      "installedSha256": "d79e09ddb47a3ad1668acc7fbdff7a1da51333c3ad32a8a6f350b823af3371a9"
+    },
+    "owner/CLIENTS.md": {
+      "upstreamBlob": "c43fc8d6372b6998edb4d3322f5faf914e4ac536",
+      "installedSha256": "872395ce83fa12018cee6e981c7bf0fea657ebaf7a42d0e52a27046576b70048"
+    },
+    "owner/RESEARCH.md": {
+      "upstreamBlob": "b4db72db469e122742b35b9dbc5ec8ac76d862e4",
+      "installedSha256": "91d8e55fd6b2eb4723c68ef6a2542f612b1b712ec228e3d34ee0d0df3bf69f25"
+    },
+    "owner/SIGN-OFF.md": {
+      "upstreamBlob": "10785402dddf80c1b7005d440b04e4d2ef9d7a84",
+      "installedSha256": "7e4aa405ce27f3bb664e82b2703c300895b64cb337a6a3ca78461a6d5d066111"
+    },
+    "owner/SKILL.md": {
+      "upstreamBlob": "890d84aecbd5dd2d246ae2b23b53ec794bdb02a0",
+      "installedSha256": "3fe021c498ca27445e3d06d641a8e939377757bedad6aa447ccea730666156a5"
+    },
+    "researcher/SKILL.md": {
+      "upstreamBlob": "8476453c00fb2f8a2fc414bccce590df10c45334",
+      "installedSha256": "21ed09cc684e5c3aacb8ead7a7bc0d75bc0125e45127626762d6ca250b973073"
+    },
+    "researcher/SPIKE.md": {
+      "upstreamBlob": "6520017b398c227437efd0c7c2dd65063367ba16",
+      "installedSha256": "49cd78354a196ea6827e0588dcbac6e3222785cbda92089cfe8726c5ceec57ae"
+    },
+    "review/SKILL.md": {
+      "upstreamBlob": "d87286c44fbd941e7aec9798268fba531109e509",
+      "installedSha256": "5c80a55a82e4648fd47e8366e1e554733fc44b8b3658471387acf0979709128c"
+    },
+    "setup-factory/DARK.md": {
+      "upstreamBlob": "0187556c4acd5d0ab9617a039e8ccccf546d48dc",
+      "installedSha256": "05b5ecc43c32766ab39ef85e39db9c6e37e86af1175e1999cbb64ed8a5d5b988"
+    },
+    "setup-factory/DOCS.md": {
+      "upstreamBlob": "e6b99af84645b156cdf2d9ceed1b1413d95e169e",
+      "installedSha256": "a78d719937c727b8c14a774d754407da42d8808db92239ce92741fddb23a8b9d"
+    },
+    "setup-factory/RERUN.md": {
+      "upstreamBlob": "c6fb67079d59ddebc372a57c23b648c198973168",
+      "installedSha256": "71e35d63c36b996fad265f24ddd0e7d0c275dd94ec5a37b7d393010809d086a4"
+    },
+    "setup-factory/SKILL.md": {
+      "upstreamBlob": "c954e4233d32d5e4d9eaf11cb9e51682bcb1da6d",
+      "installedSha256": "c97100a245b2ee51d564f98f8bf7e080a03a11be71bf91f2d9ae554fbe8e6f1f"
+    },
+    "skill-maker/SKILL.md": {
+      "upstreamBlob": "07f9970a61e1f9a401df417d954febe13a54424d",
+      "installedSha256": "4c9a742c60659588faf4ac16ffacb5d6f41502ff5a090437958d6173a8df440e"
+    },
+    "triage/DAILY.md": {
+      "upstreamBlob": "e357f1f6bc507c3e222b0c73f1c420395d3bc785",
+      "installedSha256": "32552a6df9dfb044169a46d5590132259705fe8c2dcf75270254c12c8ea2f4a3"
+    },
+    "triage/SKILL.md": {
+      "upstreamBlob": "4b524a902a6b87dab75f89ff694e354be4c0f4eb",
+      "installedSha256": "5bd96e7cc6925d5c1b8c56ab10baa78bc11a2efb1f13e536b2d9b18c0e6b4880"
+    },
+    "upkeep/SKILL.md": {
+      "upstreamBlob": "4b8f715829ac75379b85493df00bcb15783e6ecc",
+      "installedSha256": "3d53badb3f88ef7e3aca0d25f8bfe5e6a34dac3bb8239b206c5c61c5783977d6"
+    },
+    "watch/SKILL.md": {
+      "upstreamBlob": "f96a3850e0a08650d11206d2b9f8f6596d3a8075",
+      "installedSha256": "c8ff91dd80fa7a04b5436b241236dca096fe0349008559ca48d3267d40d46a6a"
+    },
+    "worker/PARENT.md": {
+      "upstreamBlob": "bf3e3367304ba357d9a76e78c4441a7a98d571f3",
+      "installedSha256": "8f72f8189e1027eb7ebbd9ffa35f89aac612b6105e8beb032b5008acc45dcf6c"
+    },
+    "worker/PR-BODY.md": {
+      "upstreamBlob": "6e07baaf1a9c60f5941f293973da991f298abbaf",
+      "installedSha256": "e62c77dfb1721f97683dc14545db20109d637cc9d87053b112c1fe7d9c97e099"
+    },
+    "worker/SKILL.md": {
+      "upstreamBlob": "8304fe39cda6062f1fc3de82cc0569b3e18c19a4",
+      "installedSha256": "e4afc8d6426cce89b080ab73b4e3e7823e72128e16a2f5c57c1bdccd3c3914ce"
+    }
+  }
+}

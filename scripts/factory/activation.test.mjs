@@ -49,3 +49,12 @@ test('missing role maps, role masking and unsupported accounting are invalid', (
   changed.budgetPolicy.accounting = 'unknown';
   assert.equal(assessActivation(changed).configurationValid, false);
 });
+
+test('v3 review is required and metrics activation or a stale maintenance default is rejected', () => {
+  for (const update of [value => delete value.jobs.review, value => value.metrics.enabled = true,
+    value => value.budgetUsd = 100]) {
+    const changed = structuredClone(config);
+    update(changed);
+    assert.equal(assessActivation(changed).configurationValid, false);
+  }
+});
