@@ -1,64 +1,61 @@
 ---
 name: dispatch
-description: Start the factory's jobs from what the dispatch-plan script prints. Use when you're woken in a project's dispatch thread.
+description: Starts the factory's jobs from what the dispatch-plan script prints. Use when woken in a project's dispatch thread.
 ---
 
 # Dispatch
 
-You are the project's dispatch thread, titled `Factory · dispatch`. You
-don't decide anything. `dispatch-plan.mjs`, next to this file, reads
-GitHub, git and the thread list and decides; you run it and make the T3
-calls it prints, exactly as printed. `factory-workflow` defines the words
-and labels.
+You are `Factory · dispatch`. `dispatch-plan.mjs`, next to this file,
+decides everything. You run it and make the T3 calls it prints.
 
 ## Every wake
 
-1. List this project's threads with `t3_thread_list`, twice, every page
-   of each, `includeSubagents: true` both times: once with
-   `titleContains: "Factory ·"`, once with `statuses: ["preparing",
-   "queued", "starting", "running", "waiting"]`. Merge them, one entry
-   per `threadId`, keeping only `threadId`, `title`, `status`,
-   `settled`, `parentThreadId` and `createdAt`.
-2. Run, from the project's main checkout, with that list as JSON on
-   stdin:
-
+1. **List threads.** Call `t3_thread_list` twice, every page,
+   `includeSubagents: true`. Once with `titleContains: "Factory ·"`, once
+   with `statuses: ["preparing", "queued", "starting", "running",
+   "waiting"]`. Merge by `threadId`, keeping `threadId`, `title`,
+   `status`, `settled`, `parentThreadId` and `createdAt`.
+2. **Plan.** From the main checkout, pipe that list as JSON to:
    ```
    node <this skill's folder>/dispatch-plan.mjs --repo <owner>/<repo> --apply [--finished <n>] [--tick]
    ```
-
-   `--finished <n>` when a worker woke you with `finished #<n>`.
-   `--tick` when the hourly schedule woke you. Any other wake, neither.
-3. If the output has `stop`, do nothing else; your return line says why.
-   Entries under `held` wait because a GitHub step for the same issue
-   failed; don't make them, the next wake retries.
-4. Make each `t3` entry's call, in order:
+   Add `--finished <n>` when a worker sent `finished #<n>`, and `--tick`
+   when the 10-minute schedule woke you.
+3. **Make the calls.** On `stop`, skip to step 4. Leave `held` entries
+   alone. Make each `t3` entry's call, in order:
    - `launch`: `t3_thread_launch` with this project and the entry's
      `title`, `workspaceStrategy`, `modelSelection`, `runtimeMode` and
-     `message`. If the call errors or its answer is lost, look for the
-     title in `t3_thread_list` before trying again; two workers on one
-     issue is the one mistake that really costs.
-   - `resume`: `t3_thread_send` to `threadId` with `message`.
-   - `settle`: `t3_thread_organize`, action `settle`, on `threadId`.
-   - `triage`: `delegate_task`, async, with `title`, `task` and the
-     entry's model as `target` (`providerInstanceId` is `instanceId`),
-     `runtimeMode: full-access`.
-   - `research`: like `triage`. Once it's started, run `--ack <ack>`
-     as for `tell-manager`, so it starts once a day.
-   - `tell-manager`: `t3_thread_send` to `threadId` with `message`.
-     Once it's sent, run `node <this skill's folder>/dispatch-plan.mjs
-     --ack <ack>` so the next tick doesn't send it again.
+     `message`.
+   - `resume`, `tell-manager`: `t3_thread_send` to `threadId` with
+     `message`.
+   - `settle`: `t3_thread_organize` with action `settle` on `threadId`.
+     Then run `dispatch-plan.mjs --settle-result <threadId>` with
+     `{"ok":true}` or `{"error":"<exact T3 error message>"}` on stdin.
+   - `triage`, `research`: `delegate_task`, async, with `title`, `task`,
+     the entry's model as `target` (`providerInstanceId` is
+     `instanceId`) and `runtimeMode: full-access`.
+   - An entry with an `ack`: after its call succeeds, run
+     `dispatch-plan.mjs --ack <ack>`.
+4. **Metrics.** Run `node <this skill's folder>/metrics.mjs --repo
+   <owner>/<repo> --root <main checkout>`, even after `stop`. Carry on if
+   it fails.
 
-Never add a call the script didn't print, skip one it did, or change an
-argument. If the output looks wrong, make no calls
-and say so in your return line; the human fixes the script, not you.
+Make exactly the calls the script printed, with its arguments. If an
+entry looks wrong, skip it, tell the manager which entry and why, and
+make the other calls.
 
-## Return
+## Budget
 
-Last line of output, one JSON object, nothing after it:
+- `budgetUsd` in `factory.json` caps daily spend. Once it's reached,
+  only `p0` starts.
+- Run the planner on the live `factory.json`, never a copy.
+- The usage guard never overrides `budgetUsd`. Only the human changes
+  it.
+- Keep costs out of repos, PRs, issues and comments.
 
-```
-{"job":"dispatch","started":[221],"resumed":[118],"settled":[112],"triage":true,"research":false,"notes":["#220 is blocked with no Blocked by line"]}
-```
+## Gotchas
 
-Copy `notes` from the script. Nothing to do is `{"job":"dispatch"}`.
-This thread wakes many times a day; one line per wake keeps it readable.
+- If a `launch` errors or loses its answer, look for its title in
+  `t3_thread_list` before retrying. Two workers on one issue is the
+  costly mistake.
+- A lost `settle` answer counts as an error.

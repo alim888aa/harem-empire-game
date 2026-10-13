@@ -115,8 +115,13 @@ Keep feature rules in the owning module and have components call it.
 
 ## UI and styling
 
-Follow [DESIGN.md](DESIGN.md). It describes the tokens, page patterns,
-components, loading and feedback the app already uses.
+For each UI file you change, follow the nearest `DESIGN.md`, walking up from
+its folder to the repo root. It describes the tokens, page patterns,
+components, loading and feedback that app already uses.
+If the nearest doc is the root index, trace imports through shared modules
+to each app that uses the file, follow the index to those apps' design docs,
+and check against each one. Raise conflicting rules as a finding; don't
+silently pick one app's rules.
 
 Build only the UI the task asks for. Never add buttons, banners, badges, helper
 text or sections nobody requested. Reuse existing components and patterns before
@@ -151,7 +156,7 @@ success or an empty result.
 
 A failure stops only the smallest piece it breaks: one bad item skips that item
 and the rest keep going. Make sure the human hears about anything skipped or
-stopped. Follow the `error-handling` skill for which response fits.
+stopped. `ERRORS.md` says which response fits.
 
 Every fallback, retry or compatibility path needs a stated reason. Check
 untrusted input where it enters the system, then stop re-checking cases that can
@@ -192,13 +197,12 @@ The complexity and cleanup rules borrow from
 and [Cursor's deslop](https://github.com/cursor/plugins/blob/main/cursor-team-kit/skills/deslop/SKILL.md),
 by way of kpop-city-connect's standards.
 
-
 ### Harem Empire project rules
 
 - This is a browser-only Vite game, not a Next.js app. `src/components` owns screens; `src/lib` owns game rules; `src/state-machines` owns orchestration; `src/persistence` owns saves; `src/palace` owns three.js runtime; `src/ui` owns themed primitives and sound. Existing names remain until a cohesive deep-module refactor earns a move. No Server Components or shadcn migration is implied.
 - AGENTS.md's specific rules and the latest product decisions in CONTEXT.md apply. New code has no `any`; seeded campaign randomness stays deterministic.
 - Existing hooks are grandfathered for unchanged behavior, not retroactively represented as human-approved. New hooks need a recorded Owner decision with the concrete purpose and hook-free alternative. No blanket approval is created by this setup.
-- Pinned upstream `.agents/skills` files are vendored contracts, exempt from handwritten size/style limits. Trailing whitespace/EOF blank lines are normalized. Only the unsupported stock T3 dispatch planner and local usage-meter entrypoints are held before external actions or local session-log reads; parent manual native-Sol dispatch uses the estimated ledger. pure upstream exports are retained. Runtime instructions remain subordinate to this project’s cloud/permission/budget rules.
+- Pinned upstream `.agents/skills` and `.agents/db` files are vendored contracts, exempt from handwritten size/style limits. Trailing whitespace/EOF blank lines are normalized. Only unsupported stock T3 dispatch, local usage accounting, and live metrics collection/write entrypoints are held before external actions, local session/credential reads or D1 writes; parent manual native-Sol dispatch uses the estimated ledger. Pure upstream exports are retained. Runtime instructions remain subordinate to this project’s cloud/permission/budget rules.
 - Existing large files/folders are ratcheted, not split into pass-through helpers. A touched area must become clearer without increasing its violations.
 - Check command: `npm run factory:check`. `pnpm check` is the upstream factory name; this project deliberately retains npm and its committed lockfile.
 - This setup does not certify lint/dead-code completeness. See docs/factory/READINESS.md for activation blockers.

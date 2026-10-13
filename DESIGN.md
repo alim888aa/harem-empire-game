@@ -13,4 +13,4 @@ Issue #31 is the future UI specification, not a claim this setup implemented it.
 Preserve existing model-loading curtain and paused clock, save recovery messages and accessible dialogue until their owning slice changes them. Momentous events use ceremony; ordinary notices become short-lived toasts under the approved notices slice. Do not hide information before its menu replacement exists.
 
 ## Verification
-Visible changes need browser proof on the exact head at desktop and touch widths. Factory verifier follows upstream browser-use instructions; scripted Playwright smoke tests may supplement existing repo tests but do not replace its independent browser proof. Current cloud browser reachability remains an activation blocker.
+Visible changes need browser proof on the exact head at desktop and touch widths. The independent hunt follows the upstream browser contract using available cloud tools or headless Playwright with SwiftShader. Scripted smoke tests supplement interface/replay checks; screenshots must show the exact head at 390x844 and 1440x900. Source-only contract updates have no visible game change and need source review plus aggregate checks.

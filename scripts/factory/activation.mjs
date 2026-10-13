@@ -11,7 +11,7 @@ export function assessActivation(config) {
   }
   if (config?.execution?.location !== 'cloud') reasons.push('Cloud-only execution is required.');
   const roles = {
-    jobs: ['owner', 'build', 'review-*', 'verifier', 'hunt', 'dispatch', 'triage', 'manager', 'watch', 'research', 'scout', 'upkeep', 'audit'],
+    jobs: ['owner', 'build', 'review', 'hunt', 'dispatch', 'triage', 'manager', 'watch', 'research', 'scout', 'upkeep', 'audit'],
     council: ['client', 'maintainer']
   };
   for (const [group, required] of Object.entries(roles)) {
@@ -36,6 +36,8 @@ export function assessActivation(config) {
       budget?.priorityBypass !== false || budget?.atEstimatedLimit !== 'stop-new-work-running-work-finishes') {
     reasons.push('Record conservative daily estimates under the approved refactor/maintenance policy.');
   }
+  if (config?.budgetUsd !== 30) reasons.push('The stock maintenance default must remain $30; dated estimates are authoritative.');
+  if (config?.metrics?.enabled !== false) reasons.push('Metrics sync is source-only; D1 writes and local session collection are disabled.');
   return { allowed: false, configurationValid: reasons.length === 0, reasons: [
     ...reasons,
     'Stock T3 CLI dispatch is unsupported; parent manual native-Sol dispatch uses estimated job accounting.'

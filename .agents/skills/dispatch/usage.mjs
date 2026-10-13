@@ -190,20 +190,30 @@ export function claudeLine(o, { start, end, belongs }) {
   return CLAUDE_FIELDS.some((f) => rec[f] > 0) ? rec : null;
 }
 
-async function claudeCharges(files, ctx) {
+export async function claudeCharges(files, ctx) {
+  // This cloud project never collects local session logs, including through imported readers.
+  throw new Error("Local session accounting is unavailable; use the parent estimated daily ledger.");
   const byKey = new Map();
   let loose = 0;
   for (const file of files) {
+    let turn = null;
     for await (const line of readLines(file)) {
-      if (!line.includes('"usage"')) continue;
+      if (!line.includes('"usage"') && !(ctx.details && line.includes('"user"'))) continue;
       const o = parseLine(line);
+      // Human/dispatch prompts start turns; tool-result user messages continue them.
+      if (ctx.details && o?.type === 'user' && !o.isMeta && !(Array.isArray(o.message?.content) && o.message.content.some(c => c.type === 'tool_result'))) {
+        turn = o.uuid ?? o.timestamp;
+      }
       const rec = o && claudeLine(o, ctx);
       if (!rec) continue;
       rec.session = `claude:${o.sessionId ?? file}`;
+      // Subagents share sessionId with the parent but own a separate log.
+      if (ctx.details && /\/subagents\//.test(file)) rec.session += `:agent:${basename(file, ".jsonl")}`;
       // Claude writes one line per content block, all with the same message id.
       // The first carries a partial output_tokens count, so keep the largest of each field.
       const ids = [o.message.id, o.requestId].filter(Boolean);
       const key = ids.length ? ids.join("|") : `line:${loose++}`;
+      if (ctx.details) Object.assign(rec, { at: o.timestamp, cwd: o.cwd, eventKey: `claude:${key}`, file, turn });
       const seen = byKey.get(key);
       if (!seen) byKey.set(key, rec);
       else {
@@ -212,7 +222,7 @@ async function claudeCharges(files, ctx) {
       }
     }
   }
-  return [...byKey.values()].map(({ model, session, ...claude }) => ({ model, session, claude }));
+  return [...byKey.values()].map(({ model, session, at, cwd, eventKey, file, turn, ...claude }) => ({ model, session, claude, ...(ctx.details ? { at, cwd, eventKey, file, turn } : {}) }));
 }
 
 // ---- Codex: ~/.codex/sessions/YYYY/MM/DD/rollout-*.jsonl ----
@@ -237,15 +247,55 @@ function codexTokens(t) {
 // is unusable is skipped without touching the baseline; a total that went down
 // means the counter was reset, so only that event's own last_token_usage is
 // charged and the new total becomes the baseline.
-async function codexCharges(file, { start, end, belongs }) {
+export async function codexCharges(file, { start, end, belongs, details = false }) {
+  // This cloud project never collects local session logs, including through imported readers.
+  throw new Error("Local session accounting is unavailable; use the parent estimated daily ledger.");
+  // Metrics can supply continuation files together: cumulative counters then
+  // share a baseline even when the later file omits the earlier history.
+  if (Array.isArray(file)) {
+    const sessions = new Map();
+    for (const path of file) {
+      const entries = [];
+      let id = path;
+      for await (const line of readLines(path)) {
+        if (!/session_meta|turn_context|token_count|task_started|task_complete|turn_aborted/.test(line)) continue;
+        const o = parseLine(line);
+        if (!o?.payload) continue;
+        if (o.type === "session_meta" && o.payload.id) id = o.payload.id;
+        // Never retain response messages or prompts in the merged history.
+        const p = o.payload;
+        if (o.type === "session_meta") entries.push({ type:o.type, timestamp:o.timestamp, payload:{ id:p.id, cwd:p.cwd } });
+        else if (o.type === "turn_context") entries.push({ type:o.type, timestamp:o.timestamp, payload:{ cwd:p.cwd, model:p.model } });
+        else if (o.type === "event_msg" && ["token_count", "task_started", "task_complete", "turn_aborted"].includes(p.type)) entries.push({ type:o.type, timestamp:o.timestamp, payload:{ type:p.type, turn_id:p.turn_id, started_at:p.started_at, completed_at:p.completed_at, info:p.info } });
+      }
+      const existing = sessions.get(id) ?? [];
+      existing.push(...entries); sessions.set(id, existing);
+    }
+    const result = [];
+    for (const [id, entries] of sessions) {
+      entries.sort((a,b) => Date.parse(a.timestamp)-Date.parse(b.timestamp));
+      result.push(...await codexRecords(entries, id, { start, end, belongs, details }));
+    }
+    return result;
+  }
+  const records = (async function* () {
+    for await (const line of readLines(file)) {
+      if (!/session_meta|turn_context|token_count|task_started|task_complete|turn_aborted/.test(line)) continue;
+      const o = parseLine(line); if (o) yield o;
+    }
+  })();
+  return codexRecords(records,file,{ start, end, belongs, details });
+}
+
+async function codexRecords(records, file, {start,end,belongs,details}) {
   const charges = [];
+  const turns = new Map();
+  let turn = null;
   let session = `codex:${file}`;
   let cwd = null;
   let model = "unknown";
   let prev = zeroCodex();
-  for await (const line of readLines(file)) {
-    if (!/session_meta|turn_context|token_count/.test(line)) continue;
-    const o = parseLine(line);
+  for await (const o of records) {
     const p = o?.payload;
     if (!p) continue;
     if (o.type === "session_meta") {
@@ -254,6 +304,12 @@ async function codexCharges(file, { start, end, belongs }) {
     } else if (o.type === "turn_context") {
       if (typeof p.cwd === "string") cwd = p.cwd;
       if (typeof p.model === "string" && p.model) model = p.model;
+    } else if (o.type === "event_msg" && p.type === "task_started" && p.turn_id) {
+      turn = p.turn_id;
+      if (!turns.has(turn)) turns.set(turn,{ id:turn, started:p.started_at ?? o.timestamp, ended:null, status:"running" });
+    } else if (o.type === "event_msg" && ["task_complete","turn_aborted"].includes(p.type)) {
+      const id = p.turn_id ?? turn;
+      if (id && turns.has(id)) Object.assign(turns.get(id),{ ended:p.completed_at ?? o.timestamp, status:p.type === "task_complete" ? "completed" : "interrupted" });
     } else if (o.type === "event_msg" && p.type === "token_count") {
       const total = codexTokens(p.info?.total_token_usage);
       if (!total) continue;
@@ -261,15 +317,18 @@ async function codexCharges(file, { start, end, belongs }) {
       const delta = reset ? codexTokens(p.info.last_token_usage) : Object.fromEntries(CODEX_FIELDS.map((f) => [f, total[f] - prev[f]]));
       prev = total;
       const at = Date.parse(o.timestamp);
-      if (delta && at >= start && at < end && belongs(cwd) && CODEX_FIELDS.some((f) => delta[f] > 0)) charges.push({ model, session, codex: delta });
+      if (delta && at >= start && at < end && belongs(cwd) && CODEX_FIELDS.some((f) => delta[f] > 0)) charges.push({ model, session, codex: delta, ...(details ? { at: o.timestamp, cwd, file, turn, eventKey: `${session}:${o.timestamp}:${JSON.stringify(total)}` } : {}) });
     }
   }
+  if (details) for (const c of charges) c.nativeRun = turns.get(c.turn) ?? null;
   return charges;
 }
 
 // ---- files ----
 
-async function* readLines(file) {
+export async function* readLines(file) {
+  // This cloud project never collects local session logs, including through imported readers.
+  throw new Error("Local session accounting is unavailable; use the parent estimated daily ledger.");
   const rl = createInterface({ input: createReadStream(file, { encoding: "utf8" }), crlfDelay: Infinity });
   try {
     for await (const line of rl) yield line;
@@ -290,7 +349,9 @@ function parseLine(line) {
 }
 
 // Every .jsonl under dir (any depth) modified at or after `since`.
-async function recentLogs(dir, since) {
+export async function recentLogs(dir, since) {
+  // This cloud project never collects local session logs, including through imported readers.
+  throw new Error("Local session accounting is unavailable; use the parent estimated daily ledger.");
   const found = [];
   const walk = async (d) => {
     let entries;
@@ -318,7 +379,7 @@ async function recentLogs(dir, since) {
   return found.sort();
 }
 
-// Project override: neither imported nor CLI callers may use local session accounting.
+// Native cloud work uses estimates; importing this edge must not inspect local session logs.
 export async function spentToday() {
   throw new Error("Local session accounting is unavailable; use the parent estimated daily ledger.");
 }
@@ -339,8 +400,13 @@ function main() {
   spentToday({ root: resolve(opt("root")), now }).then((r) => console.log(JSON.stringify(r, null, 2)));
 }
 
-// Project override: unavailable local session accounting must not inspect denied logs.
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+let entryPath;
+try {
+  entryPath = process.argv[1] && realpathSync(process.argv[1]);
+} catch {
+  // A non-file entry argument means this module is being imported.
+}
+if (entryPath === realpathSync(fileURLToPath(import.meta.url))) {
   process.stdout.write('Accounting unavailable from local sessions; parent manual dispatch uses the estimated daily ledger.\n');
   process.exitCode = 1;
 }
