@@ -1,6 +1,7 @@
 import type { FactionType } from './factionSystem';
-import type { PalaceZone } from './careerAccess';
-import { CAMPAIGN_BALANCE as B, promotionHate } from './campaignBalance';
+import { promotionHate, type PalaceZone } from './career';
+export { careerSeniorRival } from './career';
+import { CAMPAIGN_BALANCE as B } from './campaignBalance';
 export type CourtWitness={name:string;faction:FactionType;pledged:boolean;hate:number;zone:PalaceZone};
 /** Capture on submission. No later movement, conversion or off-zone actor can be
  * retroactively added to a completed interaction. */
@@ -23,5 +24,3 @@ export function isPromotionRival(name:string,rank:string):boolean {
 export function opposingFactions(a:FactionType,b:FactionType):boolean {
  return (a==='Rebel'&&(b==='Imperial'||b==='Loyalist'))||(b==='Rebel'&&(a==='Imperial'||a==='Loyalist'));
 }
-
-export function careerSeniorRival(role:string|null){return role==='concubine'?'Empress Dowager':role==='prince'?'Crown Prince':role==='minister'||role==='scholar'?'Prime Minister':null;}

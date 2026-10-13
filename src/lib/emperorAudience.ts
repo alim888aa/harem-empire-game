@@ -1,4 +1,4 @@
-import { rankIndex } from './campaignBalance';
+import { rankIndex } from './career';
 import type { 
   VictoryPath, 
   GameContextData, 

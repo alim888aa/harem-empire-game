@@ -1,4 +1,4 @@
-import { careerEntryZone, PALACE_ZONE_TITLES, type PalaceZone } from '../lib/careerAccess';
+import { careerEntryZone, PALACE_ZONE_TITLES, type PalaceZone } from '../lib/career';
 
 export type PlayableZone = Exclude<PalaceZone, 'common'>;
 export type ZoneBounds = { minX:number; maxX:number; minZ:number; maxZ:number };

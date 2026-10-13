@@ -1,4 +1,4 @@
-import {createDemotionNotice} from '../lib/demotionNotice';
+import { createDemotionNotice, careerSeniorRival, CAREER_LADDERS, careerZoneAccess, resolveCareer } from '../lib/career';
 import {MAX_GIFT_NOTIFICATIONS,MAX_COURT_READ_RECEIPTS} from '../lib/courtNotifications';
 import {FIRST_EMPEROR_VISIT_SECONDS} from '../lib/firstEmperorVisit';
 import {emptyCourtPlots,canContinuePlot,DEATH_METHODS,courtPlotKey} from '../lib/courtPlots';
@@ -8,9 +8,8 @@ import { gameMachine } from '../state-machines/game-machine';
 import { initialCharacters } from '../data/characters';
 import { courtInfluenceCap, clampCourtInfluence } from '../lib/courtHierarchy';
 import { assignCharacterFaction, checkFactionMembershipOffers, type FactionSystem } from '../lib/factionSystem';
-import { isPromotionRival, careerSeniorRival } from '../lib/courtIntrigue';
+import { isPromotionRival } from '../lib/courtIntrigue';
 import { getSupportThreshold } from '../lib/helpers';
-import { CAREER_LADDERS, careerZoneAccess, resolveCareer } from '../lib/careerAccess';
 import { createPalaceVisitState, isPlayableZone, type PalaceVisitState } from '../palace/zones';
 
 export const SAVE_VERSION = 7;

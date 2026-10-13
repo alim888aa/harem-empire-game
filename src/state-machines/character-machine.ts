@@ -1,5 +1,5 @@
 import {getResponseByType} from '../lib/getResponse';
-import {promotionHate} from '../lib/campaignBalance';
+import { promotionHate } from '../lib/career';
 import {assign,sendParent,setup,enqueueActions} from 'xstate';
 import {clampCourtInfluence} from '../lib/courtHierarchy';
 import {withoutRetiredRelationships,type GiftWithMessageResult} from '../lib/checkMessage';

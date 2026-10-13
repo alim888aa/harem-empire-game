@@ -1,4 +1,4 @@
-import { startingCareerTitle } from "../lib/careerAccess";
+import { startingCareerTitle } from "../lib/career";
 import type { GameState } from "../types/game";
 import { formatRank } from "../lib/courtStrategy";
 import { Emblem, PopNumber, SoundToggle } from "../ui";

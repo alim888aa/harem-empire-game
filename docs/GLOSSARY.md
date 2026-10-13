@@ -44,3 +44,7 @@ These are the domain words of Harem Empire. Use them in code, tests, docs and PR
 
 - **Plot**: an enemy's assassination plan. A plot starts with a full season of **warning**. After that it kills one pledged ally every season until the player out-influences the attacker. If no ally is left, the player dies.
 - **Casualty**: a courtier killed by a plot. Casualties are permanent.
+
+## Career rule ownership
+
+The Career module at `src/lib/career/index.ts` resolves existing legacy role/rank identities without renaming saved fields. A Career is still the Prince, Scholar or Concubine route; a CareerRank is a held office. A missing/null rank uses the route's starting office for its public rules. Cross-career or unknown ranks remain invalid. Deadline demotion notices may describe middle-to-starting office, while the audience `demotedRank` operation preserves its existing top-office-only contract.

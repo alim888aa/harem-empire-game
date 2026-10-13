@@ -1,7 +1,7 @@
 import { useState, useSyncExternalStore } from 'react';
 import CourtDialog from './CourtDialog';
 import type { CampaignSaveStore } from '../persistence/campaignSave';
-import {startingCareerTitle} from '../lib/careerAccess';
+import { startingCareerTitle } from '../lib/career';
 import {formatRank} from '../lib/courtStrategy';
 
 export default function CampaignSaveControls({ store, onNewGame, onRecover, paused, onPauseChange, role=null, rank=null, season=1 }: {

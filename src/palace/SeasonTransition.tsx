@@ -1,5 +1,5 @@
 import DemotionSummary from '../components/DemotionSummary';
-import type {DemotionNotice} from '../lib/demotionNotice';
+import type {DemotionNotice} from '../lib/career';
 import { useEffect, useRef, useState } from 'react';
 import { playCue } from '../ui';
 
