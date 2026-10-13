@@ -765,11 +765,11 @@ export const gameMachine = setup({
               {guard:({context,event})=>context.firstEmperorVisitDone===false&&validFirstVisitTick(event.seconds),
                 actions:assign({firstEmperorVisitElapsed:({context,event})=>(context.firstEmperorVisitElapsed??0)+event.seconds})},
             ],
-            SEASON_EXPIRED: { target: "checking_encounters", actions: assign({ seasonAdvancePending: true }) },
+            SEASON_EXPIRED: { target: "checking_encounters", actions: assign({ seasonAdvancePending: true, tributeResult: "" }) },
             NEXT_SEASON: [
               {
                 target: "checking_encounters",
-                actions: assign({ seasonAdvancePending: true }),
+                actions: assign({ seasonAdvancePending: true, tributeResult: "" }),
               }],
             ROMANCE_ACTION:{
               guard:({context,event})=>{
@@ -794,7 +794,7 @@ export const gameMachine = setup({
                     const p=context.characters[name]?.getSnapshot().context;return p?[{name,pledged:p.hasGivenAllegiance,suspicion:p.suspicion,suspicionThreshold:p.suspicionThreshold,zone:context.currentZone}]:[];
                   }));
                   const receipt:RomanceReceipt={requestId:event.requestId,characterId:event.characterId,action:event.action,season:context.season,cost,affectionDelta,accepted,response,witnesses:witnesses.map(w=>w.name),reportingWitnesses:witnesses.filter(w=>w.reports).map(w=>w.name)};
-                  return{relationshipGraph:graph,giftsRemaining:context.giftsRemaining-cost,processedRomanceRequests:[...(context.processedRomanceRequests??[]),event.requestId],lastRomanceReceipt:receipt,lastCharacterResponse:`${event.characterId}: ${response}`};
+                  return{tributeResult:"",relationshipGraph:graph,giftsRemaining:context.giftsRemaining-cost,processedRomanceRequests:[...(context.processedRomanceRequests??[]),event.requestId],lastRomanceReceipt:receipt,lastCharacterResponse:`${event.characterId}: ${response}`};
                 }),
                 ({context,event})=>{
                   context.characters[event.characterId]?.send({type:'SYNC_ROMANCE_PROJECTION',relation:courtRelation(context.relationshipGraph!,event.characterId,PLAYER_NODE),response:`${event.characterId}: ${context.lastRomanceReceipt!.response}`});
@@ -821,7 +821,7 @@ export const gameMachine = setup({
                   },
                   giftsRemaining: context.giftsRemaining - cost,
                   processedGiftRequests: [...context.processedGiftRequests, event.requestId],
-                  giftError: '',
+                  giftError: '', tributeResult: '',
                 };
               }),
             },
@@ -833,7 +833,7 @@ export const gameMachine = setup({
                 return getInfluenceGating({...snap.context,type:snap.context.type},context.playerPersonality,context.rank).canSpitInFace.allowed;
               },
               actions: [
-                assign({ lastCharacterResponse: "" }),
+                assign({ lastCharacterResponse: "", tributeResult: "" }),
                 sendTo(
                   ({ context, event }) => context.characters[event.characterId],
                   { type: 'SPIT_IN_FACE' }
