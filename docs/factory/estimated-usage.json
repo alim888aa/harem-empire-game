@@ -9,25 +9,29 @@
       "id": "speak-stability-build",
       "role": "build/fix",
       "estimateUsd": 6,
-      "status": "reserved"
+      "status": "recorded",
+      "note": "Work completed within the original conservative flat estimate."
     },
     {
       "id": "speak-stability-owner",
       "role": "owner/release",
       "estimateUsd": 4,
-      "status": "reserved"
+      "status": "reserved",
+      "note": "Release pending parent publication; estimate remains held."
     },
     {
       "id": "speak-stability-review",
       "role": "review",
       "estimateUsd": 5,
-      "status": "reserved"
+      "status": "recorded",
+      "note": "Work completed within the original conservative flat estimate."
     },
     {
       "id": "speak-stability-verification",
       "role": "hunt/browser-proof",
       "estimateUsd": 7,
-      "status": "reserved"
+      "status": "recorded",
+      "note": "Work completed within the original conservative flat estimate."
     }
   ],
   "unallocatedHeadroomUsd": 8,
