@@ -25,8 +25,8 @@ export default function CharacterInfo({ character, personality, canShowStats = f
       {character.hasGivenAllegiance ? "Allegiance pledged · No suspicion" : <>Suspicion {suspicionPercent}%{danger ? ` · Near the ${threshold}% reporting limit` : ""}</>}
     </p>
     {!character.hasGivenAllegiance && (character.hate??0)>0 && <p className="danger-text">Hate {character.hate}/100 · {character.hate!>=60?"Enemy gifts earn only 10% of positive gains.":"Rivalry is growing; hostility begins at 60."} Bad messages add hate equal to their support loss.</p>}
-    {canShowStats && <details className="dossier-details">
-      <summary>About {displayCharacterName(character)}</summary>
+    {canShowStats && <section className="dossier-details">
+      <h3>About {displayCharacterName(character)}</h3>
       <p className="personality-hint">{personality}</p>
       <p>At {character.supportThreshold ?? 80} support, their backing grants +{supportReward(character)} global support. At 100, their allegiance grants it once more. Pledged allies do not gain suspicion and follow your faction.</p>
       {character.hasGivenAllegiance && <p>Binding allegiance: pledged to you. Personal fear is separate from that commitment.</p>}
@@ -37,6 +37,6 @@ export default function CharacterInfo({ character, personality, canShowStats = f
         ["Influence", character.personalityVectors.influence],
       ].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{Math.round(Number(value) * 100)}%</dd></div>)}</dl>
       {character.hasGivenAllegiance?<p className="gift-status">Sends {courtierGiftAmount(character.type)} gifts each season, even in another palace.</p>:character.hasGivenGifts && <p className="gift-status">{character.giftCooldownUntil > currentSeason ? `Their next gift can arrive in ${character.giftCooldownUntil - currentSeason} seasons.` : "Their gift cooldown has ended."}</p>}
-    </details>}
+    </section>}
   </section>;
 }

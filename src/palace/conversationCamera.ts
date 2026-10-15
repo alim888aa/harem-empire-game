@@ -168,3 +168,46 @@ export function frameConversationCamera(input: ConversationCameraInput): Convers
   }
   return best?.frame ?? fallback();
 }
+
+/** Caches one shot per subject/viewport and eases entry without content-driven recuts. */
+export class ConversationCameraTransition {
+  private key = '';
+  private destination: ConversationCameraFrame | null = null;
+  private origin: CameraPose | null = null;
+  private elapsed = 0;
+
+  /** Layout is read only when the subject or actual viewport changes. */
+  step(key: string, input: () => ConversationCameraInput, current: CameraPose, dt: number, reducedMotion: boolean): CameraPose {
+    if (key !== this.key) {
+      const request = input();
+      const planned = frameConversationCamera(request);
+      const from = new THREE.Vector3(current.position.x, current.position.y, current.position.z);
+      const to = new THREE.Vector3(planned.position.x, planned.position.y, planned.position.z);
+      // A clear endpoint is insufficient: the camera must not ease through a wall on its way there.
+      const blocked = request.blockers.some(blocker => intersects(from, to, blocker, CAMERA_CLEARANCE));
+      this.destination = blocked ? { ...current, framed: false } : planned;
+      this.origin = current;
+      this.elapsed = 0;
+      this.key = key;
+    }
+    this.elapsed += Math.max(0, dt);
+    const progress = reducedMotion ? 1 : Math.min(1, this.elapsed / 0.45);
+    const blend = progress * progress * (3 - 2 * progress);
+    const interpolate = (from: Point3, to: Point3): Point3 => ({
+      x: from.x + (to.x - from.x) * blend,
+      y: from.y + (to.y - from.y) * blend,
+      z: from.z + (to.z - from.z) * blend,
+    });
+    const origin = this.origin!;
+    const destination = this.destination!;
+    return { position: interpolate(origin.position, destination.position), target: interpolate(origin.target, destination.target) };
+  }
+
+  /** Leaving the scene allows the same courtier to receive a fresh entry shot. */
+  clear() {
+    this.key = '';
+    this.destination = null;
+    this.origin = null;
+    this.elapsed = 0;
+  }
+}

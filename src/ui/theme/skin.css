@@ -534,12 +534,15 @@ select {
   width: min(880px, calc(100% - 52px)); margin: auto auto max(20px, env(safe-area-inset-bottom));
   background: var(--surface-silk);
   box-shadow: 0 0 0 1px var(--gold-500), 0 0 0 7px var(--lacquer-900), 0 0 0 8px var(--gold-600), 0 26px 80px rgb(10 6 4 / 0.55);
-  animation: ui-rise 0.4s var(--ease-ceremony) both;
+  animation: ui-fade-in 0.25s var(--ease-out) both;
+  height: var(--dialog-max-height);
 }
 .palace-shell .court-dialog:has(.palace-conversation)::before,
 .palace-shell .court-dialog:has(.palace-conversation)::after { display: none; }
 .palace-shell .court-dialog:has(.palace-conversation)::backdrop { background: linear-gradient(180deg, transparent 40%, rgb(17 12 10 / 0.45)); backdrop-filter: none; }
+.palace-shell .court-dialog:has(.palace-conversation) .dialog-content { height: 100%; }
 .palace-shell .court-dialog:has(.palace-conversation) .dialog-body {
+  overflow-x: hidden; overflow-y: auto;
   padding-top: 4px; padding-bottom: 20px; scroll-padding-block: 12px 24px;
 }
 .palace-shell .court-dialog:has(.palace-conversation) .dialog-heading { padding: 16px 58px 12px; min-height: 48px; }
@@ -552,41 +555,48 @@ select {
   .palace-shell .court-dialog:has(.palace-conversation) { --dialog-max-height: min(58dvh, 520px); }
 }
 
-/* A single reading flow prevents an off-screen dossier or projected speech
- * bubble from reserving an empty column beside the actions. The shared dialog
- * body owns scrolling, including expanded romance and the return control. */
+/* The dossier and gifts share a fixed scroll page; content cannot resize its frame. */
 .palace-conversation .court-audience { display: block; }
-.palace-conversation .audience-conversation { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
-.palace-conversation .audience-choices { min-width: 0; }
+.palace-conversation .audience-conversation {
+  display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 12px 24px;
+}
+.palace-conversation .character-dossier { grid-column: 1; grid-row: 1 / span 2; padding: 0; min-width: 0; }
+.palace-conversation .court-speech { grid-column: 2; margin: 0; padding: 8px 0; font-size: 19px; line-height: 1.35; }
+.palace-conversation .audience-choices { grid-column: 2; min-width: 0; }
+.palace-conversation .section-heading { flex-wrap: wrap; }
+.palace-conversation .section-heading h1 { font-size: clamp(23px, 3vw, 34px); }
 .palace-conversation .action-panel { border: 0; padding-top: 0; }
-.palace-conversation .action-label { font-size: 13px; margin-bottom: 6px; }
-.palace-conversation .action-panel select { min-height: 44px; font-size: 16px; }
-.palace-conversation .send-gift { min-height: 46px; padding: 12px 16px; }
+.gift-choices { border: 0; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; min-width: 0; }
+.gift-choices legend { font: 600 18px var(--font-display); margin-bottom: 8px; }
+.gift-choice {
+  display: flex; flex-direction: column; align-items: center; min-width: 0; padding: 8px;
+  color: var(--ink-900); background: var(--silk-100); border: 1px solid var(--gold-400);
+  font: 600 16px var(--font-display); overflow-wrap: anywhere; cursor: pointer;
+}
+.gift-choice img { width: 100%; max-width: 100px; height: 76px; object-fit: contain; }
+.gift-choice[aria-pressed="true"] { background: var(--silk-200); outline: 2px solid var(--cinnabar-600); outline-offset: -3px; }
+.gift-choice:disabled { cursor: default; opacity: 0.55; }
+.gift-choice small { font: 13px/1.3 var(--font-body); }
+.palace-conversation .send-gift {
+  width: fit-content; max-width: 100%; min-height: 46px; padding: 8px 12px;
+  justify-content: center; gap: 8px; flex-wrap: wrap; line-height: 1.3;
+}
+.send-gift > img { flex-shrink: 0; object-fit: contain; }
 .palace-conversation .selected-message { margin-top: 9px; line-height: 1.4; }
 .palace-conversation .selected-effect { margin: 8px 0; line-height: 1.4; }
-.palace-conversation .court-speech { margin: 0; padding: 10px 16px; font-size: 19px; line-height: 1.35; }
 .palace-conversation .court-speech > strong { margin-bottom: 4px; font-size: 13px; }
 .palace-conversation .court-speech > small { margin-top: 6px; }
-.palace-conversation .move-details,
-.palace-conversation .romance-actions,
-.palace-conversation .conversation-dossier { margin-top: 8px; font-size: 15px; line-height: 1.5; }
-.palace-conversation .romance-actions { padding-top: 8px; }
-.palace-conversation .move-details > summary,
-.palace-conversation .romance-actions > summary,
-.palace-conversation .conversation-dossier > summary {
-  min-height: 44px; padding: 11px 0; font-size: 13px; line-height: 1.5;
-  font-weight: 700; color: var(--gold-700);
+.palace-conversation .move-details, .palace-conversation .romance-actions { margin-top: 8px; font-size: 15px; line-height: 1.5; }
+.palace-conversation h3 { font: 600 18px var(--font-display); margin: 12px 0 6px; }
+.palace-conversation .romance-actions small, .palace-conversation .character-dossier small { font-size: 13px; line-height: 1.5; }
+.palace-conversation .romance-risk { padding: 8px; background: var(--silk-200); box-shadow: inset 3px 0 0 var(--gold-500); }
+.palace-conversation .romance-buttons button, .palace-conversation .hostile-choice button { min-height: 44px; font-size: 15px; max-width: 100%; }
+@media (max-width: 540px) {
+  .palace-conversation .audience-conversation { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr); gap: 10px; }
+  .palace-conversation .gift-choices { grid-template-columns: minmax(0, 1fr); }
+  .palace-conversation .relationship-meter > div { flex-wrap: wrap; gap: 2px; }
+  .palace-conversation .character-dossier dl > div { flex-wrap: wrap; }
 }
-.palace-conversation .romance-actions > summary { color: var(--cinnabar-600); }
-.palace-conversation .romance-actions small,
-.palace-conversation .character-dossier small { font-size: 13px; line-height: 1.5; }
-.palace-conversation .romance-risk {
-  border-radius: 0; padding: 12px 14px; background: var(--silk-200); box-shadow: inset 3px 0 0 var(--gold-500);
-}
-.palace-conversation .romance-buttons button,
-.palace-conversation .hostile-choice button { min-height: 44px; font-size: 15px; }
-.palace-conversation .conversation-dossier { border-top: 1px solid var(--gold-400); margin-top: 0; }
-.palace-conversation .character-dossier { padding: 8px 0 12px; }
 .palace-conversation .palace-leave {
   width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px;
   min-height: 46px; margin-top: 8px; padding: 10px 0; border: 0; border-top: 1px solid var(--gold-400);
