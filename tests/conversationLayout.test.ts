@@ -32,15 +32,19 @@ function audience(palaceConversation: boolean, speechAnchored = false) {
   return { element, actor, before, actionCount: () => actions };
 }
 
-test('palace conversation presents speech and actions before a collapsed courtier dossier', () => {
+test('palace conversation keeps a fully visible dossier beside illustrated gift choices', () => {
   const { element, actor, before, actionCount } = audience(true);
   const html = renderToStaticMarkup(element);
   assert.doesNotMatch(html, /class="portrait-stage"/);
-  assert.match(html, /<details class="conversation-dossier"><summary>About Maid Ling · 0 support<\/summary>/);
-  assert.ok(html.indexOf('Your kindness will not be forgotten.') < html.indexOf('Choose your message'));
-  assert.ok(html.indexOf('Choose your message') < html.indexOf('Send gift'));
+  assert.doesNotMatch(html, /<details|<summary|<select/);
+  for (const text of ['Independent', 'Support', 'Affection', 'Suspicion 0%', 'Backing at 80 · Allegiance at 100']) {
+    assert.ok(html.includes(text), text);
+  }
+  assert.match(html, /<img src="\/gifts\/neutral.svg"/);
+  assert.ok(html.indexOf('Your kindness will not be forgotten.') < html.indexOf('Choose a gift message'));
+  assert.ok(html.indexOf('Choose a gift message') < html.indexOf('Send gift'));
   assert.ok(html.indexOf('Send gift') < html.indexOf('Ask to be lovers'));
-  assert.ok(html.indexOf('Ask to be lovers') < html.indexOf('class="conversation-dossier"'));
+  assert.ok(html.indexOf('aria-label="Maid Ling dossier"') < html.indexOf('class="audience-choices"'));
   for (const action of ['Romantic message', 'Effects &amp; other actions', 'Spit in Face', 'Romance ·']) {
     assert.ok(html.includes(action), action);
   }
@@ -56,7 +60,7 @@ test('classic court retains its portrait and visible dossier before message acti
   const html = renderToStaticMarkup(element);
   assert.match(html, /class="portrait-stage"/);
   assert.doesNotMatch(html, /class="conversation-dossier"/);
-  assert.ok(html.indexOf('aria-label="Maid Ling dossier"') < html.indexOf('Choose your message'));
+  assert.ok(html.indexOf('aria-label="Maid Ling dossier"') < html.indexOf('Choose a gift message'));
   assert.match(html, /Send gift/);
   assert.match(html, /Ask to be lovers/);
 });

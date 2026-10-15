@@ -160,16 +160,13 @@ export function CourtAudience({
       {!palaceConversation && <CharacterDisplay character={currentCharacter}
         onPrevious={onPrevious} onNext={onNext} onPeople={onPeople} />}
       <div className="audience-conversation">
-        {!palaceConversation && dossier}
+        {dossier}
         <CourtSpeechBubble name={displayCharacterName(currentCharacter)} response={(data.lastResponse||response.startsWith(`${character.name}:`)&&response||'').replace(`${character.name}:`,`${displayCharacterName(currentCharacter)}:`)} anchored={speechAnchored}>
           {romanceReceipt?.characterId===character.name&&data.lastResponse===`${character.name}: ${romanceReceipt.response}`?<small>{romanceReceipt.action==='gift'?`Romantic gift: +${romanceReceipt.affectionDelta} affection · ${romanceReceipt.cost} gifts`:romanceReceipt.action==='propose'?(romanceReceipt.accepted?'Romance accepted':'Proposal refused'):'Romance ended'}</small>:receipt?.characterId===character.name&&<small>Last political gift: {signed(receipt.supportDelta)} personal support · {receipt.cost} {receipt.cost===1?"gift":"gifts"}{receipt.globalRenewal>0?` · +${receipt.globalRenewal} global support`:""}</small>}
         </CourtSpeechBubble>
         <div className="audience-choices"><ActionButtons graph={graph} zone={zone} witnesses={witnesses} onRomanticGift={()=>onRomance("gift")} standing={standing} pending={giftPending} giftError={giftError} key={character.name} character={currentCharacter} onAction={onAction} gifts={gifts} playerStats={playerStats} playerType={playerType} rank={rank} />
         <RomanceActions character={currentCharacter} graph={graph} role={playerType} zone={zone} witnesses={witnesses} pending={giftPending} onAction={onRomance}/></div>
-        {palaceConversation && <details className="conversation-dossier">
-          <summary>About {displayCharacterName(currentCharacter)} · {Math.round(data.supportLevel)} support</summary>
-          {dossier}
-        </details>}
+
       </div>
     </article>
   );

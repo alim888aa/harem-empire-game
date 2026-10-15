@@ -58,14 +58,22 @@ export default function ActionButtons({graph,zone,witnesses,onRomanticGift,stand
         else if(message) onAction("message", message.type);
       }
     }}>
-      <label className="action-label" htmlFor="gift-tone">Choose your message</label>
-      <select id="gift-tone" value={choice} disabled={pending} onChange={(event) => setChoice(event.target.value as typeof choice)}>
-        <option value="" disabled>Choose a message…</option>
-        <option value="romantic" disabled={!romanceGate.allowed}>Romantic message{!romanceGate.allowed ? " · unavailable" : ""}</option>
-        {GIFT_MESSAGES.map((item) => <option key={item.type} value={item.type} disabled={!availability[item.type].allowed}>
-          {item.title}{!availability[item.type].allowed ? " · locked" : ""}
-        </option>)}
-      </select>
+      <fieldset className="gift-choices" disabled={pending}>
+        <legend>Choose a gift message</legend>
+        <button type="button" className="gift-choice" aria-pressed={romantic}
+          disabled={!romanceGate.allowed} onClick={() => setChoice("romantic")}>
+          <img src="/gifts/romantic.svg" alt="" width="100" height="76" />
+          <span>Romantic message</span>
+          {!romanceGate.allowed && <small>{romanceGate.reason}</small>}
+        </button>
+        {GIFT_MESSAGES.map((item) => <button key={item.type} type="button" className="gift-choice"
+          aria-pressed={choice === item.type} disabled={!availability[item.type].allowed}
+          onClick={() => setChoice(item.type)}>
+          <img src={`/gifts/${item.type}.svg`} alt="" width="100" height="76" />
+          <span>{item.title}</span>
+          {!availability[item.type].allowed && <small>{availability[item.type].reason}</small>}
+        </button>)}
+      </fieldset>
       {romantic && <p className="selected-message">“I chose this just for you. You’ve been on my mind.”</p>}
       {romantic && <RomanceRisk role={playerType} zone={zone} witnesses={witnesses}/>}
       {message && <p className="selected-message">“{message.text}”</p>}
@@ -81,14 +89,14 @@ export default function ActionButtons({graph,zone,witnesses,onRomanticGift,stand
       {message && !allowed && <p className="action-notice">{availability[message.type].reason}</p>}
       {giftError && <p className="action-notice" role="status">{giftError}</p>}
     </form>
-    <details className="move-details">
-      <summary>Effects & other actions</summary>
+    <section className="move-details">
+      <h3>Effects & other actions</h3>
       <p>{preview ? "The response adds to or subtracts from existing support." : "Choose a message to preview its evaluated response."} Message fit, your role, relative influence and hostility determine support. A more influential recipient gains less from a positive gift; bad messages keep their full penalty. Previews show direct effects; nearby courtiers may react.</p>
       <div className="hostile-choice">
         <p>Insult: lose up to 20 support, gain {character.supportLevel === 0 ? "50" : "30"} suspicion. Costs no gifts.</p>
         <button type="button" disabled={pending || !gating.canSpitInFace.allowed} onClick={() => { if (!pending && gating.canSpitInFace.allowed) onAction("spit"); }}>Spit in Face</button>
         {!gating.canSpitInFace.allowed && <p>{gating.canSpitInFace.reason}</p>}
       </div>
-    </details>
+    </section>
   </section>;
 }

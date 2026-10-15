@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import * as THREE from 'three';
 import {
   frameConversationCamera,
+  ConversationCameraTransition,
   type ConversationCameraInput,
   type ConversationCameraFrame,
 } from '../src/palace/conversationCamera';
@@ -105,4 +106,46 @@ test('planning is deterministic and does not mutate the retained ordinary view',
   const original = structuredClone(options);
   assert.deepEqual(frameConversationCamera(options), frameConversationCamera(options));
   assert.deepEqual(options, original);
+});
+
+test('one subject and viewport plan once despite changed dialog content and scrolling', () => {
+  const transition = new ConversationCameraTransition();
+  const options = input();
+  let plans = 0;
+  const request = () => { plans++; return options; };
+  let camera = options.fallback;
+  camera = transition.step('Hua:1440:900', request, camera, 0, false);
+  assert.deepEqual(camera, options.fallback);
+  for (let frame = 0; frame < 60; frame++) camera = transition.step('Hua:1440:900', request, camera, 1 / 60, false);
+  assert.equal(plans, 1);
+  const destination = frameConversationCamera(options);
+  assert.deepEqual(camera, { position: destination.position, target: destination.target });
+  transition.step('Hua:390:844', request, camera, 1 / 60, false);
+  transition.step('@emperor:390:844', request, camera, 1 / 60, false);
+  assert.equal(plans, 3);
+  transition.clear();
+  transition.step('@emperor:390:844', request, camera, 1 / 60, false);
+  assert.equal(plans, 4);
+});
+
+test('entry moves continuously and reduced motion goes straight to the safe planned pose', () => {
+  const options = input();
+  const transition = new ConversationCameraTransition();
+  const initial = options.fallback;
+  const midpoint = transition.step('Hua:1440:900', () => options, initial, .225, false);
+  const expected = frameConversationCamera(options);
+  for (const axis of ['x', 'y', 'z'] as const) {
+    assert.ok(Math.abs(midpoint.position[axis] - (initial.position[axis] + expected.position[axis]) / 2) < 1e-8);
+  }
+  const settled = transition.step('Hua:1440:900', () => options, midpoint, 0, true);
+  assert.deepEqual(settled, { position: expected.position, target: expected.target });
+});
+
+test('an obstructed transition holds its current pose instead of cutting across a wall', () => {
+  const options = input();
+  const current = options.fallback;
+  const blocked = input({ blockers: [{ x: current.position.x, z: current.position.z,
+    w: .1, d: .1, minY: 0, height: 6 }] });
+  const result = new ConversationCameraTransition().step('Hua:1440:900', () => blocked, current, 1, false);
+  assert.deepEqual(result, current);
 });

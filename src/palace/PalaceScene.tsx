@@ -1,4 +1,4 @@
-import {frameConversationCamera, type CameraPose, type ConversationCameraFrame} from './conversationCamera';
+import {ConversationCameraTransition, type CameraPose} from './conversationCamera';
 import {PalaceRenderBudget} from './renderBudget';
 import {placeSpeech} from './speechPlacement';
 import {isTouchViewportPlaytest} from '../persistence/playtestMode';
@@ -186,8 +186,9 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
     const gateLabels=world.gates.map(gate=>{const label=document.createElement('div');label.className='palace-person-label palace-gate-label';label.textContent=gate.label;element.appendChild(label);return label;});
     let viewportWidth = 1, viewportHeight = 1;
     let ordinaryCamera: CameraPose | null = null;
-    let dialogueCamera: ConversationCameraFrame | null = null;
-    let cameraPlanKey = '';
+    let dialogueCamera: CameraPose | null = null;
+    const conversationTransition = new ConversationCameraTransition();
+
     const resize = () => {
       viewportWidth = element.clientWidth; viewportHeight = element.clientHeight;
       if (renderer instanceof THREE.WebGLRenderer) {
@@ -387,30 +388,27 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
       const speakingTo = world.npcs.find(n => n.name === live.current.conversationName);
       const cinematicSubject = live.current.emperorEncounter ? emperorEnd : speakingTo?.group.position;
       if (cinematicSubject) {
-        if (budget.overlay || !dialogueCamera) {
+        const key = `${live.current.emperorEncounter ? '@emperor' : live.current.conversationName}:${viewportWidth}:${viewportHeight}`;
+        const current = {position: {x: camera.position.x, y: camera.position.y, z: camera.position.z},
+          target: {x: target.x, y: target.y, z: target.z}};
+        dialogueCamera = conversationTransition.step(key, () => {
           const hostTop = element.getBoundingClientRect().top;
           const dialog = document.querySelector<HTMLDialogElement>('dialog[open]:has(.palace-conversation), dialog[open]:has(.imperial-encounter)');
           const header = document.querySelector<HTMLElement>('.court-header');
           const top = Math.max(16, (header?.getBoundingClientRect().bottom ?? hostTop + 80) - hostTop + 12);
-          const bottom = Math.min(viewportHeight - 20, (dialog?.getBoundingClientRect().top ?? hostTop + viewportHeight * .5) - hostTop - 18);
-          const key = `${live.current.emperorEncounter ? '@emperor' : live.current.conversationName}:${
-            viewportWidth}:${viewportHeight}:${Math.round(top)}:${Math.round(bottom)}`;
-          if (key !== cameraPlanKey) {
-            cameraPlanKey = key;
-            const fallback = ordinaryCamera ?? {position: {x: camera.position.x, y: camera.position.y, z: camera.position.z},
-              target: {x: position.x, y: position.y + 1.35, z: position.z}};
-            dialogueCamera = frameConversationCamera({
-              player: {position, height: movementSpeeds.height, radius: movementSpeeds.radius},
-              subject: {position: cinematicSubject,
-                height: live.current.emperorEncounter ? EMPEROR_OVERHEAD : Math.max(1.8, speakingTo?.labelHeight ?? 2),
-                radius: live.current.emperorEncounter ? EMPEROR_CLEARANCE : .42},
-              viewport: {width: viewportWidth, height: viewportHeight, top, bottom},
-              blockers: visualBlocks, bounds: world.bounds, ceilingHeight: world.ceilingHeight,
-              preferredYaw: Math.atan2(position.x - cinematicSubject.x, position.z - cinematicSubject.z) + 1.05,
-              preferredDistance: 4.8, fallback,
-            });
-          }
-        }
+          const bottom = Math.min(viewportHeight - 20,
+            (dialog?.getBoundingClientRect().top ?? hostTop + viewportHeight * .5) - hostTop - 18);
+          return {
+            player: {position, height: movementSpeeds.height, radius: movementSpeeds.radius},
+            subject: {position: cinematicSubject,
+              height: live.current.emperorEncounter ? EMPEROR_OVERHEAD : Math.max(1.8, speakingTo?.labelHeight ?? 2),
+              radius: live.current.emperorEncounter ? EMPEROR_CLEARANCE : .42},
+            viewport: {width: viewportWidth, height: viewportHeight, top, bottom},
+            blockers: visualBlocks, bounds: world.bounds, ceilingHeight: world.ceilingHeight,
+            preferredYaw: Math.atan2(position.x - cinematicSubject.x, position.z - cinematicSubject.z) + 1.05,
+            preferredDistance: 4.8, fallback: ordinaryCamera ?? current,
+          };
+        }, current, dt, window.matchMedia('(prefers-reduced-motion: reduce)').matches);
         if (dialogueCamera) {
           camera.position.set(dialogueCamera.position.x, dialogueCamera.position.y, dialogueCamera.position.z);
           target.set(dialogueCamera.target.x, dialogueCamera.target.y, dialogueCamera.target.z);
@@ -419,7 +417,7 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
         }
       } else {
         if (dialogueCamera && ordinaryCamera) camera.position.set(ordinaryCamera.position.x, ordinaryCamera.position.y, ordinaryCamera.position.z);
-        dialogueCamera = null; cameraPlanKey = '';
+        dialogueCamera = null; conversationTransition.clear();
       target.set(position.x,position.y+1.35,position.z);
       offset.set(Math.sin(yaw)*distance,Math.sin(pitch)*distance+.6,Math.cos(yaw)*distance);
       // Keep the follow camera inside the courtyard walls and in front of the hall back wall.

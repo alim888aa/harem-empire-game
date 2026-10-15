@@ -291,14 +291,15 @@ test('shared2D/3D gift form starts blank and disabled, exposes only authored mes
   const data=target.getSnapshot().context;
   const props={graph:game.getSnapshot().context.relationshipGraph,zone:"ladies",witnesses:[],onRomanticGift:()=>{},character:{...data,type:data.type!},gifts:15,playerStats:game.getSnapshot().context.playerPersonality,playerType:'concubine' as const,onAction:()=>{}};
   const markup=renderToStaticMarkup(createElement(ActionButtons,props));
-  assert.match(markup,/Choose your message/);
-  assert.match(markup,/value="romantic"/);
-  assert.match(markup,/Choose a message/);
+  assert.match(markup,/Choose a gift message/);
+  assert.match(markup,/src="\/gifts\/romantic.svg"/);
+  assert.match(markup,/aria-pressed="false"/);
+  assert.doesNotMatch(markup, /<select|<details/);
   assert.doesNotMatch(markup,/A gift, no words|value="simple"/);
   for(const message of GIFT_MESSAGES)assert.ok(markup.includes(message.title));
   assert.match(markup,/<button[^>]+class="send-gift"[^>]+disabled=""/);
   const pending=renderToStaticMarkup(createElement(ActionButtons,{...props,pending:true}));
-  assert.match(pending,/<select[^>]+disabled=""/);
+  assert.match(pending,/<fieldset[^>]+disabled=""/);
   assert.match(pending,/Evaluating message/);
 });
 
