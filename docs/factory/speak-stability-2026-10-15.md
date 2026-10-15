@@ -30,10 +30,10 @@ Runtime bytes:
 ## Explicit limitations
 Cloud browser WebGL was disabled. Software screenshots/projected-camera telemetry are not WebGL material, model-motion, fidelity or performance proof.
 Animation frame-by-frame/video, physical mobile gestures and an exact simultaneous Emperor/social-event overlap were not run.
-This is a bounded #40 improvement, not full visual certification or a fix for #41/#42. No publication is claimed by this source receipt.
+This is a bounded #40 improvement, not full visual certification or a fix for #41/#42. Publication is recorded below without expanding those verification claims.
 
 ## Estimated allowance
-October 15 Asia/Ulaanbaatar: USD22 recorded/reserved across build6, owner/release4, review5 and browser7; USD8 remains.
+October 15 Asia/Ulaanbaatar: USD22 recorded across build6, owner/release4, review5 and browser7; USD8 remains.
 These are conservative flat planning estimates, not actual billing or token counts. All four estimates are recorded after publication; the total remains USD22 and headroom remains USD8.
 
 ## Publication
@@ -45,8 +45,8 @@ https://harem-empire-3d-development.alimar55555.chatgpt.site
 - Version: `appgprj_6abddaa19b848191b6c0fa773aa8f0b5~appgver_927be9fb96ec81919acd875a5f310f0e`
 - Deployment: `appgdep_6ad032c454448191ba166663b39693ee`
 - Environment revision: 0
-- Published runtime hashes match the reviewed and browser-tested product head8dd570c above
-- Owner/release USD4 is now recorded complete; all October15 entries totalUSD22 with USD8 headroom
+- Published runtime hashes match the reviewed and browser-tested product head 8dd570c above
+- Owner/release USD4 is now recorded complete; all October 15 entries total USD22 with USD8 headroom
 - No new engineering admissions are started by this documentation-only closure
 
 The verification limitations above remain; publication does not claim WebGL certification or completion of #41/#42.
