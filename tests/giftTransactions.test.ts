@@ -297,7 +297,7 @@ test('shared2D/3D gift form starts blank and disabled, exposes only authored mes
   assert.doesNotMatch(markup, /<select|<details/);
   assert.doesNotMatch(markup,/A gift, no words|value="simple"/);
   for(const message of GIFT_MESSAGES)assert.ok(markup.includes(message.title));
-  assert.match(markup,/<button[^>]+class="send-gift"[^>]+disabled=""/);
+  assert.match(markup,/<button[^>]+class="send-gift"[^>]+disabled=""><img src="\/gifts\/neutral.svg"/);
   const pending=renderToStaticMarkup(createElement(ActionButtons,{...props,pending:true}));
   assert.match(pending,/<fieldset[^>]+disabled=""/);
   assert.match(pending,/Evaluating message/);

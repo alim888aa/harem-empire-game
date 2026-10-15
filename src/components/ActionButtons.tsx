@@ -83,6 +83,7 @@ export default function ActionButtons({graph,zone,witnesses,onRomanticGift,stand
         {preview && preview.suspicion !== 0 ? ` · ${signed(preview.suspicion)} suspicion` : ""}
       </p>
       <button className="send-gift" type="submit" disabled={pending || !canAfford || !allowed}>
+        <img src={`/gifts/${choice || "neutral"}.svg`} alt="" width="44" height="36" />
         <span>{pending ? "Evaluating message…" : romantic ? "Send romantic gift" : "Send gift"}</span><span>{cost} <Emblem name="ingot" /></span>
       </button>
       {!canAfford && <p className="action-notice" role="status">Not enough gifts. {gifts ? "Choose a cheaper courtier or start the next season." : "Start the next season to replenish them."}</p>}
