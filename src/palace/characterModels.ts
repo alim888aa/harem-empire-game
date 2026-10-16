@@ -1,3 +1,4 @@
+// Owns character art, private animation state and measured-speed gait selection.
 import {courtAppearance} from './courtAppearance';
 import {scopedCourtModelSpec} from './scopedCourtRegistry';
 import type {CourtArchetype} from '../lib/courtHierarchy';
@@ -94,11 +95,28 @@ type AnimatedPerson = {
   pendingReaction: boolean;
   gift?: THREE.AnimationAction;
   active?: THREE.AnimationAction;
+  gait?: 'walk' | 'run';
   reactionRemaining: number;
   spec: ModelSpec;
   speed: () => number;
   airborne: () => boolean;
 };
+
+function groundedGait(model: AnimatedPerson, speed: number) {
+  if (speed <= .03) {
+    model.gait = undefined;
+    return model.idle;
+  }
+  const runSpeed = model.spec.runSpeed;
+  if (model.run && runSpeed) {
+    const midpoint = (model.spec.walkSpeed + runSpeed) / 2;
+    // Retain the selected gait near its boundary so analog/collision noise cannot restart it every frame.
+    const margin = (runSpeed - model.spec.walkSpeed) * .05;
+    const threshold = midpoint + (model.gait === 'walk' ? margin : model.gait === 'run' ? -margin : 0);
+    model.gait = speed > threshold ? 'run' : 'walk';
+  } else model.gait = 'walk';
+  return model.gait === 'run' ? model.run : model.walk;
+}
 
 export type CharacterModelStatus={playerReady:boolean;pending:number;failures:string[]};
 export function loadCourtCharacterModels(world: PalaceWorld, playerType: string, pool: ModelAssetPool = palaceAssetPool, initialRank:string|null=null,onStateChange?:(status:CharacterModelStatus)=>void) {
@@ -164,6 +182,7 @@ export function loadCourtCharacterModels(world: PalaceWorld, playerType: string,
         if (model.gift) { model.gift.setLoop(THREE.LoopOnce, 1); model.gift.clampWhenFinished = true; }
         const previous=models.get(target.key);
         if(previous){
+          model.gait = previous.gait;
           model.jumpPhase=previous.jumpPhase;model.jumpRemaining=previous.jumpRemaining;model.wasAirborne=previous.wasAirborne;
           model.reactionRemaining=Math.min(previous.reactionRemaining,model.gift?.getClip().duration??0);model.pendingReaction=previous.pendingReaction;
           const activeName=previous.active?.getClip().name;
@@ -235,8 +254,7 @@ export function loadCourtCharacterModels(world: PalaceWorld, playerType: string,
         // movement immediately responsive and blend into its measured gait.
         if(model.jumpPhase==='land'&&!paused&&speed>.03){
           model.jumpPhase='grounded';model.jumpRemaining=0;
-          const running=model.run&&model.spec.runSpeed&&speed>(model.spec.walkSpeed+model.spec.runSpeed)/2;
-          change(model,running?model.run:model.walk??model.idle,.06);
+          change(model, groundedGait(model, speed) ?? model.idle, .06);
         }
         if(!paused||!airborne)model.wasAirborne=airborne;
         // Menus freeze locomotion/jump phase clocks. An accepted gift remains
@@ -258,8 +276,7 @@ export function loadCourtCharacterModels(world: PalaceWorld, playerType: string,
               const step=Math.min(remaining,model.reactionRemaining);model.mixer.update(step);remaining-=step;model.reactionRemaining-=step;
               if(model.reactionRemaining<=1e-7){model.reactionRemaining=0;if(paused){change(model,model.idle,0);model.mixer.update(0);}}
             }else{
-              const running=model.run&&model.spec.runSpeed&&speed>(model.spec.walkSpeed+model.spec.runSpeed)/2;
-              change(model,!paused&&speed>.03?(running?model.run:model.walk):model.idle);
+              change(model, paused ? model.idle : groundedGait(model, speed));
               model.mixer.update(remaining);remaining=0;
             }
           }
