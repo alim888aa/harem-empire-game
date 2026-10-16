@@ -1,43 +1,55 @@
 {
-  "date": "2026-10-15",
+  "date": "2026-10-16",
   "timezone": "Asia/Ulaanbaatar",
   "limitUsd": 30,
   "currency": "USD",
   "method": "Conservative flat planning estimates, not actual billing or token measurements",
   "entries": [
     {
-      "id": "speak-stability-build",
+      "id": "movement-stability-preflight",
+      "role": "preflight/admission",
+      "estimateUsd": 2,
+      "status": "recorded",
+      "note": "Bounded read-only inspection and admission bookkeeping completed; no implementation, tests or browser proof claimed."
+    },
+    {
+      "id": "movement-stability-build",
       "role": "build/fix",
-      "estimateUsd": 6,
-      "status": "recorded",
-      "note": "Work completed within the original conservative flat estimate."
+      "estimateUsd": 7,
+      "status": "reserved",
+      "note": "Reserved for one bounded #41 gait-transition diagnosis and correction with public-interface regressions; not started at admission."
     },
     {
-      "id": "speak-stability-owner",
-      "role": "owner/release",
-      "estimateUsd": 4,
-      "status": "recorded",
-      "note": "Owner/release completed with existing-site V57 publication on 2026-10-15T01:56:30.264162Z; original conservative estimate unchanged."
-    },
-    {
-      "id": "speak-stability-review",
+      "id": "movement-stability-review",
       "role": "review",
       "estimateUsd": 5,
-      "status": "recorded",
-      "note": "Work completed within the original conservative flat estimate."
+      "status": "reserved",
+      "note": "Reserved for independent exact-head source review and interface/replay verification; not started at admission."
     },
     {
-      "id": "speak-stability-verification",
+      "id": "movement-stability-verification",
       "role": "hunt/browser-proof",
-      "estimateUsd": 7,
-      "status": "recorded",
-      "note": "Work completed within the original conservative flat estimate."
+      "estimateUsd": 10,
+      "status": "reserved",
+      "note": "Reserved for baseline cloud WebGL capability/reproduction and final exact-head keyboard/touch QA by the same hunt role; not started at admission."
+    },
+    {
+      "id": "movement-stability-owner",
+      "role": "owner/integration/release",
+      "estimateUsd": 4,
+      "status": "reserved",
+      "note": "Reserved for parent coordination, integration and existing-site publication only after all gates; not started at admission."
     }
   ],
-  "unallocatedHeadroomUsd": 8,
+  "unallocatedHeadroomUsd": 2,
   "notes": [
-    "Owner admitted this bounded #40 maintenance slice on October 15; no other October 15 work reported.",
-    "October 14 ledger preserved at estimated-usage-2026-10-14.json.",
-    "No priority bypass, paid services, new permissions, or automatic schedules."
+    "October 15's ledger is preserved byte-for-byte at estimated-usage-2026-10-15.json with USD22 recorded and USD8 headroom; that day is not reset.",
+    "Parent admitted USD28 total for October 16 in Asia/Ulaanbaatar: USD2 recorded preflight and USD26 reserved. These are planning estimates, not actual charges.",
+    "Scope is bounded #41 gait-transition stability: prove a concrete public-interface defect before correcting it. Preserve gameplay speeds, collisions, controls, camera, assets, saves and seeded campaign behavior. #42 remains separate and open.",
+    "maxParallel remains 1. Stages: admitted hunt baseline/capability check, build/fix, independent exact-head review, the same hunt's final browser proof, parent release decision.",
+    "WebGL baseline and exact-head movement/control videos for all three career player models remain binding. Software-renderer screenshots cannot prove vibration fixed. Missing WebGL proof keeps #41 open and blocks merge/publication; preserve a tested reviewed draft if blocked.",
+    "Run npm run factory:check and runtime-asset verification on the exact proposed head. Base failures and unrun stages remain explicit blockers.",
+    "Every new role, retry or changed estimate needs its own explicit admission within the remaining daily allowance. Existing reservations are counted once; there is no p0 ceiling bypass.",
+    "Cloud only and existing public game site only. No purchases, paid services, new accounts, credentials/security permissions, publishing elsewhere, schedules or live metrics."
   ]
 }

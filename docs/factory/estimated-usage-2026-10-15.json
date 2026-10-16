@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-15",
+  "timezone": "Asia/Ulaanbaatar",
+  "limitUsd": 30,
+  "currency": "USD",
+  "method": "Conservative flat planning estimates, not actual billing or token measurements",
+  "entries": [
+    {
+      "id": "speak-stability-build",
+      "role": "build/fix",
+      "estimateUsd": 6,
+      "status": "recorded",
+      "note": "Work completed within the original conservative flat estimate."
+    },
+    {
+      "id": "speak-stability-owner",
+      "role": "owner/release",
+      "estimateUsd": 4,
+      "status": "recorded",
+      "note": "Owner/release completed with existing-site V57 publication on 2026-10-15T01:56:30.264162Z; original conservative estimate unchanged."
+    },
+    {
+      "id": "speak-stability-review",
+      "role": "review",
+      "estimateUsd": 5,
+      "status": "recorded",
+      "note": "Work completed within the original conservative flat estimate."
+    },
+    {
+      "id": "speak-stability-verification",
+      "role": "hunt/browser-proof",
+      "estimateUsd": 7,
+      "status": "recorded",
+      "note": "Work completed within the original conservative flat estimate."
+    }
+  ],
+  "unallocatedHeadroomUsd": 8,
+  "notes": [
+    "Owner admitted this bounded #40 maintenance slice on October 15; no other October 15 work reported.",
+    "October 14 ledger preserved at estimated-usage-2026-10-14.json.",
+    "No priority bypass, paid services, new permissions, or automatic schedules."
+  ]
+}
