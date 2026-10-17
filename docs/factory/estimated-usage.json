@@ -23,8 +23,8 @@
       "id": "cloud-webgl-capability-probe",
       "role": "hunt/browser-capability",
       "estimateUsd": 4,
-      "status": "reserved",
-      "note": "Single supported cloud CUA capability probe on existing public game. Stop at definitive rendered scene or blocker. No product edits, aggregate tests, standalone browser, sockets, local computer or restricted-page bypass."
+      "status": "recorded",
+      "note": "Supported cloud CUA opened existing public V57 at 2026-10-17T01:58:53Z. Accessibility state and fresh screenshot both show 'The 3D palace couldn’t render here', with Continue in 2D and Open software playtest. No actual WebGL palace scene rendered. Stopped at definitive blocker; no renderer fallback/bypass, product testing or implementation. Exact-head all-career movement proof remains not run."
     }
   ],
   "unallocatedHeadroomUsd": 21,
