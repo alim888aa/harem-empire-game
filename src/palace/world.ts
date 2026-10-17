@@ -351,14 +351,14 @@ export function createPalaceWorld(people: CourtPerson[], _playerType: string, so
             if(target){
               const dx=target.x-n.x,dz=target.z-n.z,length=Math.hypot(dx,dz),step=Math.min(length,.65*dt),beforeX=n.x,beforeZ=n.z;
               const free=(x:number,z:number)=>Math.hypot(x-player.group.position.x,z-player.group.position.z)>.8&&!colliders.some(c=>Math.abs(x-c.x)<c.w/2+.4&&Math.abs(z-c.z)<c.d/2+.4)&&!npcs.some(other=>other!==n&&Math.hypot(x-other.x,z-other.z)<.8);
-              if(length>.001){
-                const nx=n.x+dx/length*step,nz=n.z+dz/length*step;
+              if(length>0){ // Finish corners exactly so the next segment cannot cut into furniture.
+                const nx=step===length?target.x:n.x+dx/length*step,nz=step===length?target.z:n.z+dz/length*step;
                 if(free(nx,n.z))n.x=nx;if(free(n.x,nz))n.z=nz;
               }
               const movedX=n.x-beforeX,movedZ=n.z-beforeZ;n.moveSpeed=dt>0?Math.hypot(movedX,movedZ)/dt:0;
               if(n.moveSpeed>.03){const wanted=Math.atan2(movedX,movedZ),difference=THREE.MathUtils.euclideanModulo(wanted-n.group.rotation.y+Math.PI,Math.PI*2)-Math.PI;n.group.rotation.y+=difference*(1-Math.exp(-dt*8));route.blocked=0;}else route.blocked+=dt;
               n.group.position.x=n.x;n.group.position.z=n.z;n.ring.position.set(n.x,groundHeight(n.x,n.z)+.07,n.z);
-              if(Math.hypot(target.x-n.x,target.z-n.z)<.055){route.path.shift();if(!route.path.length)route.wait=5+(i%4)*2;}
+              if(n.x===target.x&&n.z===target.z){route.path.shift();if(!route.path.length)route.wait=5+(i%4)*2;}
               // An occupied passage is a reason to wait or choose another destination, never teleport.
               if(route.blocked>3){route.path=[];route.wait=2;route.blocked=0;}
             }
