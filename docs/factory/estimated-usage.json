@@ -25,9 +25,23 @@
       "estimateUsd": 4,
       "status": "recorded",
       "note": "Supported cloud CUA opened existing public V57 at 2026-10-17T01:58:53Z. Accessibility state and fresh screenshot both show 'The 3D palace couldn’t render here', with Continue in 2D and Open software playtest. No actual WebGL palace scene rendered. Stopped at definitive blocker; no renderer fallback/bypass, product testing or implementation. Exact-head all-career movement proof remains not run."
+    },
+    {
+      "id": "motion-check-reliability-build",
+      "role": "build/fix",
+      "estimateUsd": 8,
+      "status": "reserved",
+      "note": "Bounded diagnosis and, only if justified, deterministic reliability correction for existing scripts/check-palace-motion.ts room-count assertion failing on baseline and gait branch. Test via public createPalaceWorld interface. Return diagnosis if actual product issue exceeds small scope. No new gait work, merge, deployment or PR action."
+    },
+    {
+      "id": "motion-check-reliability-review",
+      "role": "review",
+      "estimateUsd": 5,
+      "status": "reserved",
+      "note": "Independent exact-head review of bounded motion-check diagnosis/fix, relevant public-interface regressions and required checks. No release approval or visual gait proof implied."
     }
   ],
-  "unallocatedHeadroomUsd": 21,
+  "unallocatedHeadroomUsd": 8,
   "notes": [
     "October 16 ledger is preserved byte-for-byte at estimated-usage-2026-10-16.json with USD28 recorded and USD2 headroom; prior days are not reset.",
     "All roles, retries and parent effort count against this local-day USD30 ceiling; estimates are not actual billing. Additional work needs a specific reservation before launch. maxParallel remains 1.",
