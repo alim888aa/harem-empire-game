@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-16",
+  "timezone": "Asia/Ulaanbaatar",
+  "limitUsd": 30,
+  "currency": "USD",
+  "method": "Conservative flat planning estimates, not actual billing or token measurements",
+  "entries": [
+    {
+      "id": "movement-stability-preflight",
+      "role": "preflight/admission",
+      "estimateUsd": 2,
+      "status": "recorded",
+      "note": "Bounded read-only inspection and admission bookkeeping completed; no implementation, tests or browser proof claimed."
+    },
+    {
+      "id": "movement-stability-build",
+      "role": "build/fix",
+      "estimateUsd": 7,
+      "status": "recorded",
+      "note": "Recorded conservative completed estimate. Pushed bounded gait hysteresis and regressions to fix/gait-transition-stability-41 at 9c91aef21175cfed0e535a1ce40b316063d5d878; no merge/publication. Draft PR creation denied and not retried."
+    },
+    {
+      "id": "movement-stability-review",
+      "role": "review",
+      "estimateUsd": 5,
+      "status": "recorded",
+      "note": "Recorded conservative completed estimate. Independent exact-tree review source-clear; factory25/app506/typecheck/build/assets131 passed. WebGL release gate remains blocked."
+    },
+    {
+      "id": "movement-stability-verification",
+      "role": "hunt/browser-proof",
+      "estimateUsd": 10,
+      "status": "recorded",
+      "note": "Recorded conservative combined baseline/final disposition estimate. Supported cloud browser cannot render WebGL; capability recheck unchanged. Exact-head rendered keyboard/touch QA and all-career movement videos NOT RUN. No denied-route bypass."
+    },
+    {
+      "id": "movement-stability-owner",
+      "role": "owner/integration/release",
+      "estimateUsd": 4,
+      "status": "recorded",
+      "note": "Recorded conservative coordination and pending-state closure estimate. No integration or publication attempted because WebGL gate remains unmet; existing public V57 retained."
+    }
+  ],
+  "unallocatedHeadroomUsd": 2,
+  "notes": [
+    "October 15's ledger is preserved byte-for-byte at estimated-usage-2026-10-15.json with USD22 recorded and USD8 headroom; that day is not reset.",
+    "October 16 completed slice records USD28 conservative estimated usage total, not actual charges or measured tokens; USD2 remains unallocated. Existing reservations were counted once, not added again.",
+    "Scope is bounded #41 gait-transition stability: prove a concrete public-interface defect before correcting it. Preserve gameplay speeds, collisions, controls, camera, assets, saves and seeded campaign behavior. #42 remains separate and open.",
+    "maxParallel remains 1. Stages: admitted hunt baseline/capability check, build/fix, independent exact-head review, the same hunt's final browser proof, parent release decision.",
+    "WebGL baseline and exact-head movement/control videos for all three career player models remain binding. Software-renderer screenshots cannot prove vibration fixed. Missing WebGL proof keeps #41 open and blocks merge/publication; preserve a tested reviewed draft if blocked.",
+    "Run npm run factory:check and runtime-asset verification on the exact proposed head. Base failures and unrun stages remain explicit blockers.",
+    "Every new role, retry or changed estimate needs its own explicit admission within the remaining daily allowance. Existing reservations are counted once; there is no p0 ceiling bypass.",
+    "Cloud only and existing public game site only. No purchases, paid services, new accounts, credentials/security permissions, publishing elsewhere, schedules or live metrics.",
+    "Pending branch 9c91aef21175cfed0e535a1ce40b316063d5d878, tree246a37150858bf5750ce9e1b7e9731b41dfd52fb, based on5a839311c8462fa8512bd236d8ea0e92d6ac4875. Keep #41 and #42 open. Do not duplicate this branch on next run.",
+    "Source-level noisy-threshold chatter proved and corrected; visual user-reported vibration not proved fixed. Supplemental scripts/check-palace-motion.ts line46 fails identically on base/head (1 room versus4). PR creation separately denied for missing explicit PR authorization; not retried."
+  ]
+}
