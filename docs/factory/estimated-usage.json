@@ -16,8 +16,8 @@
       "id": "maintenance-parent-coordination",
       "role": "owner/integration/release",
       "estimateUsd": 2,
-      "status": "reserved",
-      "note": "Parent coordination and continuation decision only. Integration and release not admitted by this entry."
+      "status": "recorded",
+      "note": "Recorded conservative parent coordination and pending-state closure estimate; no PR, integration or deployment. No further admissions this run."
     },
     {
       "id": "cloud-webgl-capability-probe",
@@ -30,15 +30,15 @@
       "id": "motion-check-reliability-build",
       "role": "build/fix",
       "estimateUsd": 8,
-      "status": "reserved",
-      "note": "Bounded diagnosis and, only if justified, deterministic reliability correction for existing scripts/check-palace-motion.ts room-count assertion failing on baseline and gait branch. Test via public createPalaceWorld interface. Return diagnosis if actual product issue exceeds small scope. No new gait work, merge, deployment or PR action."
+      "status": "recorded",
+      "note": "Recorded conservative completed build estimate. Unpublished runtime/test fix pushed to fix/palace-motion-zone-check at 80013a19518f25d17cbb597b5881c0ad31457eee, tree aec8de93ff299221636c5632765a9b0b3d69c703, based on c4d1fd397f22f2714773bc3bde7df47078f8d5fd. Stale four-room fixture masked a Library corner stall; bounded exact-waypoint correction. Builder factory25/app494/typecheck/build and motion five-zones/three-rates checks passed. No new gait work, PR, integration or deployment."
     },
     {
       "id": "motion-check-reliability-review",
       "role": "review",
       "estimateUsd": 5,
-      "status": "reserved",
-      "note": "Independent exact-head review of bounded motion-check diagnosis/fix, relevant public-interface regressions and required checks. No release approval or visual gait proof implied."
+      "status": "recorded",
+      "note": "Recorded conservative completed independent review estimate. Exact remote tree/path set of 501 blobs reviewed and source-approved. Independent 494 tests, assets131 and typecheck passed, plus 600 seconds per zone mixed-dt collision/speed/bounds/pause/gift-resume checks. Baseline stalls at 60fps and 10fps confirmed. Source approval is not release approval; exact-head rendered proof remains missing."
     }
   ],
   "unallocatedHeadroomUsd": 8,
@@ -48,6 +48,8 @@
     "Pending fix/gait-transition-stability-41 at 9c91aef21175cfed0e535a1ce40b316063d5d878 must not be duplicated. Exact-head rendered WebGL all-career keyboard/touch movement/control proof remains mandatory before merge/publication. Source review and earlier test results do not establish a visual fix.",
     "Existing public game site only; cloud only. No purchases, paid services, new accounts, credentials/security permissions, publishing elsewhere, schedules or live metrics. No PR creation retry without explicit authority.",
     "Admission only at initialization. No implementation, product testing, integration or deployment launched.",
-    "Preflight confirms pending gait branch unchanged at 9c91aef21175cfed0e535a1ce40b316063d5d878 and existing public Site latest saved/live V57. Engineering/sites skills were readable during preflight; cloud skills became unavailable again afterward. Local cloud working checkout HEAD is not the remote branch head and must not be assumed exact."
+    "Preflight confirms pending gait branch unchanged at 9c91aef21175cfed0e535a1ce40b316063d5d878 and existing public Site latest saved/live V57. Engineering/sites skills were readable during preflight; cloud skills became unavailable again afterward. Local cloud working checkout HEAD is not the remote branch head and must not be assumed exact.",
+    "October 17 completed run records USD22 conservative estimated usage total, not actual charges or measured tokens; USD8 remains unallocated. Existing reservations were counted once. No more admissions this run.",
+    "Pending unpublished motion-check/runtime branch fix/palace-motion-zone-check is at 80013a19518f25d17cbb597b5881c0ad31457eee, exact reviewed tree aec8de93ff299221636c5632765a9b0b3d69c703. Fresh supported cloud public-V57 probe failed WebGL rendering; exact-head rendered browser proof remains a release blocker. No PR, integration or deployment performed. Gait branch 9c91aef21175cfed0e535a1ce40b316063d5d878 remains unchanged."
   ]
 }
