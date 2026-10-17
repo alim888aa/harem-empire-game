@@ -18,9 +18,16 @@
       "estimateUsd": 2,
       "status": "reserved",
       "note": "Parent coordination and continuation decision only. Integration and release not admitted by this entry."
+    },
+    {
+      "id": "cloud-webgl-capability-probe",
+      "role": "hunt/browser-capability",
+      "estimateUsd": 4,
+      "status": "reserved",
+      "note": "Single supported cloud CUA capability probe on existing public game. Stop at definitive rendered scene or blocker. No product edits, aggregate tests, standalone browser, sockets, local computer or restricted-page bypass."
     }
   ],
-  "unallocatedHeadroomUsd": 25,
+  "unallocatedHeadroomUsd": 21,
   "notes": [
     "October 16 ledger is preserved byte-for-byte at estimated-usage-2026-10-16.json with USD28 recorded and USD2 headroom; prior days are not reset.",
     "All roles, retries and parent effort count against this local-day USD30 ceiling; estimates are not actual billing. Additional work needs a specific reservation before launch. maxParallel remains 1.",
