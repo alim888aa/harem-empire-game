@@ -9,8 +9,8 @@
       "id": "maintenance-admission-preflight",
       "role": "preflight/admission",
       "estimateUsd": 3,
-      "status": "reserved",
-      "note": "Bounded repository/issues/live metadata and capability-admission assessment, including ledger preservation. No implementation, product tests, or deployment admitted."
+      "status": "recorded",
+      "note": "Bounded repository/issues/live metadata and capability-admission assessment completed, including ledger preservation. No implementation, product tests, or deployment run. Supported cloud CUA inventory and browser documentation are available; actual WebGL remains unverified."
     },
     {
       "id": "maintenance-parent-coordination",
@@ -26,6 +26,7 @@
     "All roles, retries and parent effort count against this local-day USD30 ceiling; estimates are not actual billing. Additional work needs a specific reservation before launch. maxParallel remains 1.",
     "Pending fix/gait-transition-stability-41 at 9c91aef21175cfed0e535a1ce40b316063d5d878 must not be duplicated. Exact-head rendered WebGL all-career keyboard/touch movement/control proof remains mandatory before merge/publication. Source review and earlier test results do not establish a visual fix.",
     "Existing public game site only; cloud only. No purchases, paid services, new accounts, credentials/security permissions, publishing elsewhere, schedules or live metrics. No PR creation retry without explicit authority.",
-    "Admission only at initialization. No implementation, product testing, integration or deployment launched."
+    "Admission only at initialization. No implementation, product testing, integration or deployment launched.",
+    "Preflight confirms pending gait branch unchanged at 9c91aef21175cfed0e535a1ce40b316063d5d878 and existing public Site latest saved/live V57. Engineering/sites skills were readable during preflight; cloud skills became unavailable again afterward. Local cloud working checkout HEAD is not the remote branch head and must not be assumed exact."
   ]
 }
