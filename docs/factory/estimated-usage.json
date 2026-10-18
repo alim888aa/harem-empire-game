@@ -94,15 +94,15 @@
       "id": "exact-intro-cloud-browser-qa",
       "role": "bounded exact-head cloud browser QA",
       "estimateUsd": 10,
-      "status": "reserved",
-      "note": "User raised October 18 total planning cap to USD100, not an additional USD100 or recurring increase. Reserve USD10 for exact reviewed intro-branch build provenance, native-terminal static serving and supported rendered browser investigation. No integration or deployment in this slice."
+      "status": "recorded",
+      "note": "Completed bounded cloud-only exact reviewed runtime source hash verification (406 materialized tracked files match base tree plus six reviewed blobs),131 runtime SHA256 checks and fresh normal/local-asset builds. Six newline-only JSON transfer differences restored;25 exact-SHA legacy public assets recovered. Private offline QA fixture uses documented VITE_RUNTIME_ASSET_BASE_URL=local and131 verified runtime copies;52 public files remain absent (51 portraits and touch-layout fixture), so full fixture completeness not certified. Native terminal Python server4185 resolves browser co-location; default CUA browser renders fallback, while installed Chromium launched through native CUA with temporary profile and only --use-gl=angle --use-angle=swiftshader successfully renders actual WebGL. No unsafe flags, sandbox/security changes, debugging/CDP workaround, source edits, PR, integration or publication."
     },
     {
       "id": "exact-intro-native-proof-continuation",
       "role": "bounded native WebGL proof continuation",
       "estimateUsd": 5,
-      "status": "reserved",
-      "note": "Reserve USD5 continuation authorized by parent within October18 USD100 total cap for native intro interaction evidence after supported route and actual WebGL world verified. No integration/deployment."
+      "status": "recorded",
+      "note": "Completed native WebGL intro checks across Concubine, Scholar and Prince: actual world/player/NPCs;75-active-second visit trigger; Emperor approach/arrival;three backdrop clicks preserve encounter; Concubine physical Escape and Scholar/Prince visible Return deliberately finish, remove Emperor and resume timer. Concubine W/camera drag outside modal and blocked background W/drag inside verified;Prince D movement observed. Found hidden-X acceptance gap: unchanged skin.css675 hides imperial dialog-heading containing labelled close;no source fix or base-runtime regression claim. Native window1196x852;exact CSS viewports390x844/1440x900,touch,video,phase/exit full matrix and production hosted delivery remain unrun. DevTools responsive UI explicitly organization-blocked;no retry or bypass. Evidence/receipt retained in cloud workspace intro-browser-qa. Browser/server kept open for parent handoff. No release clearance or issue closure."
     }
   ],
   "unallocatedHeadroomUsd": 55,
