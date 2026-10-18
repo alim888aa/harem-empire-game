@@ -11,9 +11,16 @@
       "estimateUsd": 3,
       "status": "recorded",
       "note": "Completed bounded repository/main/open-issue/pending-branch/workflow and existing-site metadata preflight. No implementation, product tests, browser execution, integration, PR or deployment. Includes ledger preservation/bookkeeping."
+    },
+    {
+      "id": "issue-35-source-browser-capability",
+      "role": "bounded cloud source/browser investigation",
+      "estimateUsd": 4,
+      "status": "reserved",
+      "note": "Reserve before source materialization and supported co-located browser route investigation for exact pending motion head 80013a19518f25d17cbb597b5881c0ad31457eee. Stop at definitive blocker; no runtime integration or deployment."
     }
   ],
-  "unallocatedHeadroomUsd": 27,
+  "unallocatedHeadroomUsd": 23,
   "notes": [
     "October 17 preserved byte-for-byte at estimated-usage-2026-10-17.json with USD22 recorded and USD8 headroom. October 16 remains USD28 recorded. Prior days are not reset.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day. maxParallel remains 1. New work requires a bounded reservation before launch.",
