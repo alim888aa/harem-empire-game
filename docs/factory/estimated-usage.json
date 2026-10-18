@@ -103,9 +103,16 @@
       "estimateUsd": 5,
       "status": "recorded",
       "note": "Completed native WebGL intro checks across Concubine, Scholar and Prince: actual world/player/NPCs;75-active-second visit trigger; Emperor approach/arrival;three backdrop clicks preserve encounter; Concubine physical Escape and Scholar/Prince visible Return deliberately finish, remove Emperor and resume timer. Concubine W/camera drag outside modal and blocked background W/drag inside verified;Prince D movement observed. Found hidden-X acceptance gap: unchanged skin.css675 hides imperial dialog-heading containing labelled close;no source fix or base-runtime regression claim. Native window1196x852;exact CSS viewports390x844/1440x900,touch,video,phase/exit full matrix and production hosted delivery remain unrun. DevTools responsive UI explicitly organization-blocked;no retry or bypass. Evidence/receipt retained in cloud workspace intro-browser-qa. Browser/server kept open for parent handoff. No release clearance or issue closure."
+    },
+    {
+      "id": "emperor-intro-visible-close-h1-fix",
+      "role": "bounded native-QA finding H1 builder",
+      "estimateUsd": 8,
+      "status": "reserved",
+      "note": "Reserve minimal intro-only visible accessible close fix across loading/approach/error/arrival, CSS-aware DOM regression and aggregate/build checks; immutable local artifact for independent review. No browser operation during build, remote product push, PR, runtime main integration or deploy."
     }
   ],
-  "unallocatedHeadroomUsd": 55,
+  "unallocatedHeadroomUsd": 47,
   "notes": [
     "October 17 preserved byte-for-byte at estimated-usage-2026-10-17.json with USD22 recorded and USD8 headroom. October 16 remains USD28 recorded. Prior days are not reset.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day. maxParallel remains 1. New work requires a bounded reservation before launch.",
