@@ -96,9 +96,16 @@
       "estimateUsd": 10,
       "status": "reserved",
       "note": "User raised October 18 total planning cap to USD100, not an additional USD100 or recurring increase. Reserve USD10 for exact reviewed intro-branch build provenance, native-terminal static serving and supported rendered browser investigation. No integration or deployment in this slice."
+    },
+    {
+      "id": "exact-intro-native-proof-continuation",
+      "role": "bounded native WebGL proof continuation",
+      "estimateUsd": 5,
+      "status": "reserved",
+      "note": "Reserve USD5 continuation authorized by parent within October18 USD100 total cap for native intro interaction evidence after supported route and actual WebGL world verified. No integration/deployment."
     }
   ],
-  "unallocatedHeadroomUsd": 60,
+  "unallocatedHeadroomUsd": 55,
   "notes": [
     "October 17 preserved byte-for-byte at estimated-usage-2026-10-17.json with USD22 recorded and USD8 headroom. October 16 remains USD28 recorded. Prior days are not reset.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day. maxParallel remains 1. New work requires a bounded reservation before launch.",
