@@ -115,8 +115,8 @@
       "id": "emperor-intro-visible-close-h1-review",
       "role": "bounded independent H1 exact-artifact review",
       "estimateUsd": 5,
-      "status": "reserved",
-      "note": "Reserved before independent source review and tests for patch d79b387c3d59a51b49309bc9fadee21cdb7097e0939542466534a3ec798128a1. No browser operations, runtime edits, product push or release."
+      "status": "recorded",
+      "note": "Independent exact-artifact source verdict clear for H1 patch d79b387c3d59a51b49309bc9fadee21cdb7097e0939542466534a3ec798128a1/tree08d7bd30b6b7de5e49a30d199da06e578afafed0. Verified both base/proposed blobs, reconstructed trees, patch dry-run; independently focused43/43 and factory:check exit0 (factory25/product511/typecheck/build/runtime131 hashes). Reviewed selector specificity, accessible hidden title, absolute header/stacking intent, unchanged labelled44px seal and nonintro policy. No source defect found; jsdom CSS tests do not prove layout/hit-testing/focus/touch/native accessibility. Independent production233 files match builder manifest; served private offline fixture restored with all362 hashes matching. Native new-tree seal/early-exit/overlap/focus and exact viewport/touch/video remain mandatory; prior browser evidence does not certify new tree. No native browser operations, runtime source edits, product push, PR, integration or release. Local independent receipt/logs retained."
     }
   ],
   "unallocatedHeadroomUsd": 42,
