@@ -9,8 +9,8 @@
       "id": "maintenance-admission-preflight",
       "role": "preflight/admission",
       "estimateUsd": 3,
-      "status": "reserved",
-      "note": "Bounded current-main, open-issue, pending-branch, workflow and existing-site metadata assessment only. No implementation, product tests, integration, PR or deployment. Reservation includes admission bookkeeping."
+      "status": "recorded",
+      "note": "Completed bounded repository/main/open-issue/pending-branch/workflow and existing-site metadata preflight. No implementation, product tests, browser execution, integration, PR or deployment. Includes ledger preservation/bookkeeping."
     }
   ],
   "unallocatedHeadroomUsd": 27,
@@ -18,6 +18,8 @@
     "October 17 preserved byte-for-byte at estimated-usage-2026-10-17.json with USD22 recorded and USD8 headroom. October 16 remains USD28 recorded. Prior days are not reset.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day. maxParallel remains 1. New work requires a bounded reservation before launch.",
     "Resume existing reviewed branches rather than duplicate. Exact-head rendered WebGL all-career keyboard/touch movement/control proof remains mandatory before merge/publication; software proof is insufficient.",
-    "Cloud only; existing public game site only. No purchases, paid services, new accounts, credentials/security permissions, publication elsewhere, telemetry or PR creation."
+    "Cloud only; existing public game site only. No purchases, paid services, new accounts, credentials/security permissions, publication elsewhere, telemetry or PR creation.",
+    "Preflight main before bookkeeping was 68791639b6afe302e955d7a136e5e54b7c610b1b. Existing unmerged gait branch remains 9c91aef21175cfed0e535a1ce40b316063d5d878 and motion branch remains 80013a19518f25d17cbb597b5881c0ad31457eee. No open PRs. #41/#42/#35 remain open. No surviving old .scratch checkout found in current workspace.",
+    "Existing public site remains V57 at source abbf403ef771569533b802a88691696db4f0ce94, successful deployment appgdep_6ad032c454448191ba166663b39693ee updated 2026-10-15T01:56:30.264162Z. Metadata verification is not rendered browser proof. Prior supported WebGL failure remains unresolved."
   ]
 }
