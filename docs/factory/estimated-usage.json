@@ -44,8 +44,44 @@
       "id": "emperor-intro-backdrop-branch-preservation",
       "role": "bounded source preservation and receipt bookkeeping",
       "estimateUsd": 2,
-      "status": "reserved",
-      "note": "Reserve for preserving independently reviewed exact six-file artifact on fix/emperor-intro-backdrop-42 from base9a8a208d, verifying remote tree/blobs/pathset, and durable review receipt in ledger only. No PR, runtime main integration or deployment."
+      "status": "recorded",
+      "note": "Preserved independently reviewed six-file source on fix/emperor-intro-backdrop-42 at remote commit947a0de6503fb8827d2cf915cc786a45b60aaa20, tree ecf983b8f64c161d2bebe35fc7fc4b40a7f5de36, sole parent9a8a208d5ae01ad9cf40adbfa01220dc5a4f1998. Connected GitHub read-back verified branch head, commit parent/tree and exactly six changed paths with artifact-matching blobs. Remote commit is not a synthetic local commit. No PR, runtime main integration or deployment. Exact-head native/browser/touch/drag/WebGL proof remains required; source-review clearance does not close issue42. Existing gait9c91aef and motion80013a1 untouched.",
+      "preservation": {
+        "branch": "fix/emperor-intro-backdrop-42",
+        "head": "947a0de6503fb8827d2cf915cc786a45b60aaa20",
+        "url": "https://github.com/alim888aa/harem-empire-game/tree/fix/emperor-intro-backdrop-42",
+        "base": "9a8a208d5ae01ad9cf40adbfa01220dc5a4f1998",
+        "tree": "ecf983b8f64c161d2bebe35fc7fc4b40a7f5de36",
+        "patchSha256": "472625ffccea6be0dfed62e5deaad9ab65ebd3b7b3a3245b1d07a4895beb06d4",
+        "changedBlobs": [
+          {
+            "path": "package-lock.json",
+            "sha": "2646ae283372559f9a662083b2e215d16d537ca9"
+          },
+          {
+            "path": "package.json",
+            "sha": "ddfa0d1eef78464eaa1197828d6671fc02606162"
+          },
+          {
+            "path": "src/components/CourtDialog.tsx",
+            "sha": "b21aa1e69680b980e83d89593e7b83add6ebd611"
+          },
+          {
+            "path": "src/components/EmperorIntro.tsx",
+            "sha": "380b75e585c8fcf8291ca858a11d5c77ccf4dfb8"
+          },
+          {
+            "path": "src/components/GameLayout.tsx",
+            "sha": "de39ed4fcaad647e29c7c3803978e81b7bbbcc8e"
+          },
+          {
+            "path": "tests/courtDialog.test.ts",
+            "sha": "e47a3c047b2584ec5cdd4ceab032706f61a986bc"
+          }
+        ],
+        "independentReviewReceipt": "Author: independent review · 2026-10-18\nSource verdict: clear; release verdict: blocked pending required browser proof\n\nReviewed immutable patch SHA256 472625ffccea6be0dfed62e5deaad9ab65ebd3b7b3a3245b1d07a4895beb06d4.\nBase 9a8a208d5ae01ad9cf40adbfa01220dc5a4f1998; independently reconstructed base tree 927eb3f74456683d0cc707011e717dd1dcc54f90 and proposed tree ecf983b8f64c161d2bebe35fc7fc4b40a7f5de36. Six base blob SHAs match supplied pinned tree; six packet and workspace files match manifest. Clean patch dry-run passes. No product files changed by review.\n\nNo blocking source defects found. CourtDialog defaults preserve existing callers. The intro owns the policy and keeps the identical dialog/content nesting, title and deliberate completion callback. The policy only suppresses target=currentTarget clicks; child interactions, X and cancel remain. No machine, palace, timer, schedule, save, tribute, RNG or other-dialog semantics changed. Existing oversized GameLayout area is clearer and total bytes shrink; no added hooks, any, styling or shallow wrapper.\n\nIndependently reran focused42/42 and factory:check exit0: factory25/25, product510/510, typecheck/build pass, runtime131 checksums verified. Hygiene longLines705, oversized7 and other baseline counters unchanged. Build warns about large1.266MB chunk and unresolved non-manifest harem-background.png; not certified browser fixture. No ESLint/full dead-code claim; tests remain outside tsconfig coverage per existing configuration.\n\nDOM fidelity: real ReactDOM mounted nodes and dispatched click/cancel events test handler routing. Actor-backed12 career/phase cases cover loading/approach/arrival/error, repeated backdrop clicks and content click, non-completing error retry, labelled X and unchanged persisted context/RNG; existing focused replay suites cover one-time75-second timing, persistence, pending plots and stale completion. Separate deliberate cancel/ack tests cover phase-specific availability; ordinary shared dialog retains backdrop dismissal. Actors are connected through an explicit callback matching GameLayout; these are not a mounted full-GameLayout or native-browser walkthrough. Builder original-handler12-case failure receipt inspected but not independently rerun, avoiding any runtime source mutation.\n\nDependency review: jsdom26.1.0 pinned as dev-only,37 added lock entries all dev, no existing package records changed except root devDependencies, no new install scripts; all added packages have registry URLs/integrities. Production imports do not reference jsdom. No independent vulnerability audit or clean npm-ci rerun claimed.\n\nRequired release gate remains open: native top-layer inertness, focus/physical Escape, camera drag/pan/zoom, touch, rendered Emperor visibility/entity lifecycle and end-to-end controls on exact proposed head at390x844 and1440x900. No browser attempt or prohibited alternative route made. This slice addresses a source-supported dismissal candidate and cannot close #42 or certify its sole cause. Existing gait/motion branches untouched; no PR/integration/deployment.\n",
+        "verification": "Independent review applies to exact source tree; independent focused42/42 and factory:check exit0 (factory25/25, product510/510, typecheck/build,131 runtime checksums). No remote CI or browser success claimed."
+      }
     }
   ],
   "unallocatedHeadroomUsd": 3,
