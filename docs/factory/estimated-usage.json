@@ -32,9 +32,16 @@
       "estimateUsd": 8,
       "status": "recorded",
       "note": "Completed bounded cloud-only six-file local fix: imperial intro suppresses backdrop dismissal while labelled X, cancel/Escape, arrived/error acknowledgment and retry remain. No machine/palace/save/schedule/tribute changes. Pinned base 9a8a208d5ae01ad9cf40adbfa01220dc5a4f1998; local patch SHA256 472625ffccea6be0dfed62e5deaad9ab65ebd3b7b3a3245b1d07a4895beb06d4; reconstructed proposed tree ecf983b8f64c161d2bebe35fc7fc4b40a7f5de36. Original shared handler event baseline failed all12 career/phase backdrop cases; fixed focused42/42 and final factory:check pass (factory25/25, product510/510, typecheck/build), runtime131 files checksum verified. jsdom is dev-only; no native browser/drag/touch/WebGL proof claimed. Immutable local patch/source/receipts retained for independent review. No product Git object/branch/PR/main integration/deploy. Existing gait and motion heads unchanged; release gates stay blocked on supported exact-head browser proof."
+    },
+    {
+      "id": "emperor-intro-backdrop-independent-review",
+      "role": "bounded independent exact-artifact reviewer",
+      "estimateUsd": 5,
+      "status": "reserved",
+      "note": "Reserved before review and tests for immutable patch SHA256 472625ffccea6be0dfed62e5deaad9ab65ebd3b7b3a3245b1d07a4895beb06d4. Cloud only; no runtime edits, integration or deployment; browser gates remain binding."
     }
   ],
-  "unallocatedHeadroomUsd": 10,
+  "unallocatedHeadroomUsd": 5,
   "notes": [
     "October 17 preserved byte-for-byte at estimated-usage-2026-10-17.json with USD22 recorded and USD8 headroom. October 16 remains USD28 recorded. Prior days are not reset.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day. maxParallel remains 1. New work requires a bounded reservation before launch.",
