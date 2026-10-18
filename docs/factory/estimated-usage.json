@@ -87,8 +87,8 @@
       "id": "cloud-computer-topology-investigation",
       "role": "bounded cloud desktop and supported preview-route investigation",
       "estimateUsd": 3,
-      "status": "reserved",
-      "note": "Reserve remaining daily headroom for tool-documentation and cloud desktop capability inspection, supported co-location route identification and final receipt. No runtime source edits, product testing, integration or deployment authorized in this slice."
+      "status": "recorded",
+      "note": "Completed bounded cloud desktop capability investigation. Read full CUA documentation, FAQ and engineering/environment guidance. Live CUA inventory exposes Linux native applications, including Xfce Terminal, File Manager and Chromium. Launched cloud Xfce Terminal window35651587 and verified shell commands via documented pressKey input: pwd=/workspace; which reports /usr/bin/python3 and /usr/local/bin/git, with node/npm absent from current PATH. Desktop terminal successfully lists /workspace/scratch/5e0e15dcbbf8/.scratch/intro-backdrop/dist containing assets, gifts, index.html, materials, models, portrait-pending.svg and qa. Therefore source/build filesystem is visible to cloud desktop; prior ordinary executor localhost refusal did not establish lack of a supported co-located desktop server route. Smallest next route is verify exact-head dist provenance, launch Python static server from this native terminal, then inspect it using documented cloud browser; no tunnel, proxy, security setting or standalone CDP required. Terminal typeText/paste return cannot identify focused text field; pressKey works and screenshot verifies output. No listener, product browser test, runtime edit, PR, integration or deployment performed in this bounded slice. USD30 total daily planning budget now fully allocated; additional implementation/testing waits for next budget admission."
     }
   ],
   "unallocatedHeadroomUsd": 0,
