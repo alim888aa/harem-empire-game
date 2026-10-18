@@ -124,9 +124,16 @@
       "estimateUsd": 8,
       "status": "reserved",
       "note": "Reserve USD8 to verify independently reviewed H1 visible-close tree08d7bd30b6b7de5e49a30d199da06e578afafed0 in existing supported native cloud WebGL fixture. No source edits, push, integration or deployment. Respect DevTools organization denial; no alternative debugging/emulation bypass."
+    },
+    {
+      "id": "emperor-intro-close-recovery-revision",
+      "role": "bounded source recovery builder",
+      "estimateUsd": 6,
+      "status": "reserved",
+      "note": "Reserve new explicit H1 recovery artifact revision from remote947a0de after environment loss. Recreate minimal CSS/actual-stylesheet DOM test, promptly preserve unfinished backup on fix/emperor-intro-close-recovery-42, then focused/aggregate checks as possible within estimate. Exact prior hashes only claimed if independently byte-verified. Original branch unchanged; new review required; no PR, integration, deployment or browser."
     }
   ],
-  "unallocatedHeadroomUsd": 34,
+  "unallocatedHeadroomUsd": 28,
   "notes": [
     "October 17 preserved byte-for-byte at estimated-usage-2026-10-17.json with USD22 recorded and USD8 headroom. October 16 remains USD28 recorded. Prior days are not reset.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day. maxParallel remains 1. New work requires a bounded reservation before launch.",
