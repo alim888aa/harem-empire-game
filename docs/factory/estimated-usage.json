@@ -25,9 +25,16 @@
       "estimateUsd": 5,
       "status": "recorded",
       "note": "Completed bounded read-only current-main source diagnosis of #42 with #35/#41/#42 and repository/factory instructions reviewed. Confirmed source event chain: first visit intentionally triggers at75 active free-roam seconds; intro CourtDialog backdrop click/X/Escape unconditionally sends EMPEROR_INTRO_FINISHED, which leaves intro and disposes Emperor, even during approach. Camera input itself is blocked while native modal is open; a user's attempted camera click/drag may instead hit the modal backdrop. This is a source-supported disappearance candidate, not WebGL reproduction or confirmed sole cause. No camera-dependent visibility flag/removal found; frustum/asset culling remains unproved. Suggested minimal next slice: suppress unintended backdrop dismissal for imperial intro while retaining deliberate accessible close/acknowledgment/retry and all schedule/save/tribute semantics; add real event-level regression plus exact-head WebGL proof once #35 is resolved. No product edits, focused runtime tests, branch edits, PR or deployment performed. Reviewed gait9c91aef and motion80013a1 unchanged."
+    },
+    {
+      "id": "emperor-intro-backdrop-source-fix",
+      "role": "bounded cloud builder",
+      "estimateUsd": 8,
+      "status": "reserved",
+      "note": "Reserved for one minimal imperial intro backdrop-dismissal fix and event-level regression tests, immutable local artifact only; no runtime main integration, PR, or deployment. Independent review/release gates remain."
     }
   ],
-  "unallocatedHeadroomUsd": 18,
+  "unallocatedHeadroomUsd": 10,
   "notes": [
     "October 17 preserved byte-for-byte at estimated-usage-2026-10-17.json with USD22 recorded and USD8 headroom. October 16 remains USD28 recorded. Prior days are not reset.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day. maxParallel remains 1. New work requires a bounded reservation before launch.",
