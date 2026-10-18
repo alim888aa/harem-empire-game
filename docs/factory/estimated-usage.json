@@ -18,9 +18,16 @@
       "estimateUsd": 4,
       "status": "recorded",
       "note": "Completed bounded current supported-route investigation. Motion target remains exact immutable 80013a19518f25d17cbb597b5881c0ad31457eee. Read repository/factory/browser instructions. CUA cloud browser exists; browser.capabilities.list returned []. An ordinary executor HTTP listener on 127.0.0.1:4184 self-checked HTTP200 for an exact-head marker in the same command; supported CUA createBrowserTab to http://127.0.0.1:4184/.scratch/issue35-capability-2026-10-18/ returned net::ERR_CONNECTION_REFUSED in tab4 at 2026-10-18T01:22Z. Earlier 4173 probe also refused and was inconclusive because cross-exec self-check refused; it is not relied on. Current blocker is preview route/co-location unavailable, not measured WebGL absence or app failure. Bulk source materialization deferred because no supported browser-consumer route exists. No standalone browser/CDP/socket alternative, proxy/tunnel, security change, credential, runtime integration, PR or deployment. Probe listeners/tabs stopped. Prior source and independent reviews remain unchanged."
+    },
+    {
+      "id": "emperor-visibility-source-diagnosis",
+      "role": "bounded independent P0 source diagnosis",
+      "estimateUsd": 5,
+      "status": "reserved",
+      "note": "Reserved before admission for current-main emperor arrival scheduling and camera/visibility diagnosis, relevant issue/instruction review and focused source tests only. No runtime edits, existing branch edits, PR, integration or deployment. Close reservation with diagnosis receipt."
     }
   ],
-  "unallocatedHeadroomUsd": 23,
+  "unallocatedHeadroomUsd": 18,
   "notes": [
     "October 17 preserved byte-for-byte at estimated-usage-2026-10-17.json with USD22 recorded and USD8 headroom. October 16 remains USD28 recorded. Prior days are not reset.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day. maxParallel remains 1. New work requires a bounded reservation before launch.",
