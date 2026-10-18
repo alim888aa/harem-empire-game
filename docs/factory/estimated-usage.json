@@ -129,8 +129,28 @@
       "id": "emperor-intro-close-recovery-revision",
       "role": "bounded source recovery builder",
       "estimateUsd": 6,
-      "status": "reserved",
-      "note": "Reserve new explicit H1 recovery artifact revision from remote947a0de after environment loss. Recreate minimal CSS/actual-stylesheet DOM test, promptly preserve unfinished backup on fix/emperor-intro-close-recovery-42, then focused/aggregate checks as possible within estimate. Exact prior hashes only claimed if independently byte-verified. Original branch unchanged; new review required; no PR, integration, deployment or browser."
+      "status": "recorded",
+      "note": "Completed recovery after environment loss. Promptly preserved remote WIP backup fix/emperor-intro-close-recovery-42 at2ce02b988d8ea3cd681d8124f8844b536ec470da, sole parent947a0de6503fb8827d2cf915cc786a45b60aaa20. Recovered exact retained edit bytes: tree08d7bd30b6b7de5e49a30d199da06e578afafed0 and regenerated patch SHA256 d79b387c3d59a51b49309bc9fadee21cdb7097e0939542466534a3ec798128a1 equal prior independently reviewed H1 content. Remote read-back verified only skin.css blob2521eab5c48900a10a5eec4bef2a35007e55cd72 and courtDialog.test.ts blob0bac5bfa069f042c5baf4c4b567d6b6cd3a519e7 differ from parent; original branch remains947a0de. Fresh recovery npm-ci,focused43/43 and factory:check exit0 (factory25/product511/typecheck/build),131 newly downloaded runtime checksums,406 materialized tracked Git blobs verified with zero mismatches. Recovered25 exact legacy assets;52 public files remain absent, not certified full fixture. Fresh distinct production233-file build and private explicit-local362-file fixture prepared; all131 offline runtime copies hash-verified. Source/default production asset configuration unchanged. Prior source verdict applies to identical content; no new independent or native-browser run claimed. Browser/touch/exact viewport/video/hosted delivery release gates remain open. No PR/main runtime integration/deployment/browser or original motion/gait branch changes.",
+      "preservation": {
+        "branch": "fix/emperor-intro-close-recovery-42",
+        "url": "https://github.com/alim888aa/harem-empire-game/tree/fix/emperor-intro-close-recovery-42",
+        "head": "2ce02b988d8ea3cd681d8124f8844b536ec470da",
+        "parent": "947a0de6503fb8827d2cf915cc786a45b60aaa20",
+        "tree": "08d7bd30b6b7de5e49a30d199da06e578afafed0",
+        "patchSha256": "d79b387c3d59a51b49309bc9fadee21cdb7097e0939542466534a3ec798128a1",
+        "changedBlobs": [
+          {
+            "path": "src/ui/theme/skin.css",
+            "sha": "2521eab5c48900a10a5eec4bef2a35007e55cd72"
+          },
+          {
+            "path": "tests/courtDialog.test.ts",
+            "sha": "0bac5bfa069f042c5baf4c4b567d6b6cd3a519e7"
+          }
+        ],
+        "freshChecks": "focused43/43; factory:check exit0, factory25/25, product511/511, typecheck/build; runtime131 SHA256; materialized406 Git blobs exact; production233/offline362 manifest counts.",
+        "release": "blocked pending remaining exact-head browser, viewport, touch/video and hosted-delivery gates"
+      }
     }
   ],
   "unallocatedHeadroomUsd": 28,
