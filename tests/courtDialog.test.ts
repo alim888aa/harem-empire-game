@@ -62,6 +62,7 @@ test('multiple dialogs have distinct title references', () => {
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { JSDOM } from 'jsdom';
+import { readFileSync } from 'node:fs';
 import { createActor } from 'xstate';
 import { gameMachine } from '../src/state-machines/game-machine';
 import EmperorIntro from '../src/components/EmperorIntro';
@@ -79,6 +80,9 @@ async function withDialogDom(run: (host: HTMLElement, dom: JSDOM) => Promise<voi
   // jsdom does not implement the native top layer. Only supply the lifecycle API React calls.
   dom.window.HTMLDialogElement.prototype.showModal = function () { this.open = true; };
   dom.window.HTMLDialogElement.prototype.close = function () { this.open = false; };
+  const skin = dom.window.document.createElement('style');
+  skin.textContent = readFileSync(new URL('../src/ui/theme/skin.css', import.meta.url), 'utf8');
+  dom.window.document.head.append(skin);
   const host = dom.window.document.querySelector('main');
   assert.ok(host);
   try { await run(host, dom); } finally {
@@ -137,6 +141,17 @@ for (const role of ['concubine', 'minister', 'prince'] as const) {
           }
           const close = host.querySelector<HTMLButtonElement>('[aria-label="Close A first imperial visit"]');
           assert.ok(close);
+          for (let element: Element | null = close; element; element = element.parentElement) {
+            const style = dom.window.getComputedStyle(element);
+            assert.notEqual(style.display, 'none', 'the styled close and its ancestors must remain displayed');
+            assert.notEqual(style.visibility, 'hidden', 'the styled close and its ancestors must remain visible');
+          }
+          const closeStyle = dom.window.getComputedStyle(close);
+          assert.equal(closeStyle.width, '44px', 'keep the existing touch-sized seal');
+          assert.equal(closeStyle.height, '44px');
+          const heading = close.parentElement;
+          assert.ok(heading);
+          assert.equal(dom.window.getComputedStyle(heading).position, 'absolute', 'close must not add a header row');
           await act(async () => close.click());
           assert.equal(completions, 1);
           assert.ok(actor.getSnapshot().matches({ playing: 'in_season' }));
@@ -191,6 +206,21 @@ test('ordinary shared dialogs retain backdrop dismissal and ignore content click
       assert.equal(closes, 0);
       await act(async () => { dialogElement(host).dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true })); });
       assert.equal(closes, 1);
+    } finally { await act(async () => root.unmount()); }
+  });
+});
+
+test('seasonal summons retains its existing hidden heading policy', async () => {
+  await withDialogDom(async (host, dom) => {
+    const root = createRoot(host);
+    try {
+      await act(async () => root.render(createElement(CourtDialog, {
+        title: 'An imperial summons', onClose: () => {},
+        children: createElement('div', { className: 'imperial-encounter' }, 'Tribute decision'),
+      })));
+      const heading = host.querySelector('.dialog-heading');
+      assert.ok(heading);
+      assert.equal(dom.window.getComputedStyle(heading).display, 'none');
     } finally { await act(async () => root.unmount()); }
   });
 });
