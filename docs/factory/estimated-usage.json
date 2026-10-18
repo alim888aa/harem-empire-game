@@ -110,9 +110,16 @@
       "estimateUsd": 8,
       "status": "recorded",
       "note": "Completed minimal two-file H1 source repair on reviewed branch base947a0de6503fb8827d2cf915cc786a45b60aaa20: intro-only CSS exposes existing44px labelled X with absolute header and visually clipped duplicate title; no extra header row. Seasonal summons header policy and all handlers/backdrop/schedule/save/tribute semantics unchanged. Actual full theme CSS is applied in DOM regression; base CSS fails all12 career/phase visibility cases, fixed focused43/43 pass. Final factory:check exit0 (factory25/25, product511/511, typecheck/build),131 runtime checksums verified. Immutable local patch SHA256 d79b387c3d59a51b49309bc9fadee21cdb7097e0939542466534a3ec798128a1, proposed tree08d7bd30b6b7de5e49a30d199da06e578afafed0, two changed blobs skin2521eab5c48900a10a5eec4bef2a35007e55cd72 and test0bac5bfa069f042c5baf4c4b567d6b6cd3a519e7. Production/default build and private local-asset offline fixture rebuilt distinctly; production asset config untouched. Native browser/server handoff preserved without browser operations. New-tree native visual/layout/focus/early-exit proof awaits independent review/QA; exact390x844/1440x900,touch/video remain unrun. No remote product push, PR, runtime main integration/deploy; existing motion/gait untouched."
+    },
+    {
+      "id": "emperor-intro-visible-close-h1-review",
+      "role": "bounded independent H1 exact-artifact review",
+      "estimateUsd": 5,
+      "status": "reserved",
+      "note": "Reserved before independent source review and tests for patch d79b387c3d59a51b49309bc9fadee21cdb7097e0939542466534a3ec798128a1. No browser operations, runtime edits, product push or release."
     }
   ],
-  "unallocatedHeadroomUsd": 47,
+  "unallocatedHeadroomUsd": 42,
   "notes": [
     "October 17 preserved byte-for-byte at estimated-usage-2026-10-17.json with USD22 recorded and USD8 headroom. October 16 remains USD28 recorded. Prior days are not reset.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day. maxParallel remains 1. New work requires a bounded reservation before launch.",
