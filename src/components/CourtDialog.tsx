@@ -6,9 +6,10 @@ type CourtDialogProps = {
   title: string;
   onClose: () => void;
   children: ReactNode;
+  closeOnBackdrop?: boolean;
 };
 
-export default function CourtDialog({ title, onClose, children }: CourtDialogProps) {
+export default function CourtDialog({ title, onClose, children, closeOnBackdrop = true }: CourtDialogProps) {
   const dialog = useRef<HTMLDialogElement>(null);
   const titleId = useId();
   // Native modal supplies focus containment, inert background, and Escape handling.
@@ -32,7 +33,7 @@ export default function CourtDialog({ title, onClose, children }: CourtDialogPro
         onClose();
       }}
       onClick={(event) => {
-        if (event.target === event.currentTarget) onClose();
+        if (closeOnBackdrop && event.target === event.currentTarget) onClose();
       }}
     >
       <div className="dialog-content">
