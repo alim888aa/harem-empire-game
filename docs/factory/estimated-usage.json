@@ -39,9 +39,16 @@
       "estimateUsd": 5,
       "status": "recorded",
       "note": "Completed independent exact-artifact review; source verdict clear for patch SHA256 472625ffccea6be0dfed62e5deaad9ab65ebd3b7b3a3245b1d07a4895beb06d4, proposed tree ecf983b8f64c161d2bebe35fc7fc4b40a7f5de36. Independently verified six source/base blobs, reconstructed trees, clean patch dry-run, focused42/42 and factory:check exit0 (factory25/25, product510/510, typecheck/build, runtime131 checksums). Lock adds37 dev-only entries with no existing dependency changes or new install scripts. Real DOM handler coverage is valid but does not prove native dialog/focus/Escape, drag/touch/camera, rendered WebGL visibility or full issue42 acceptance; release remains blocked on exact-head browser proof. No runtime source edits, PR, integration, deployment or existing branch edits; local review receipt retained."
+    },
+    {
+      "id": "emperor-intro-backdrop-branch-preservation",
+      "role": "bounded source preservation and receipt bookkeeping",
+      "estimateUsd": 2,
+      "status": "reserved",
+      "note": "Reserve for preserving independently reviewed exact six-file artifact on fix/emperor-intro-backdrop-42 from base9a8a208d, verifying remote tree/blobs/pathset, and durable review receipt in ledger only. No PR, runtime main integration or deployment."
     }
   ],
-  "unallocatedHeadroomUsd": 5,
+  "unallocatedHeadroomUsd": 3,
   "notes": [
     "October 17 preserved byte-for-byte at estimated-usage-2026-10-17.json with USD22 recorded and USD8 headroom. October 16 remains USD28 recorded. Prior days are not reset.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day. maxParallel remains 1. New work requires a bounded reservation before launch.",
