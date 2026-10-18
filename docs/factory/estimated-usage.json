@@ -1,7 +1,7 @@
 {
   "date": "2026-10-18",
   "timezone": "Asia/Ulaanbaatar",
-  "limitUsd": 30,
+  "limitUsd": 100,
   "currency": "USD",
   "method": "Conservative flat planning estimates, not actual billing or token measurements",
   "entries": [
@@ -89,15 +89,23 @@
       "estimateUsd": 3,
       "status": "recorded",
       "note": "Completed bounded cloud desktop capability investigation. Read full CUA documentation, FAQ and engineering/environment guidance. Live CUA inventory exposes Linux native applications, including Xfce Terminal, File Manager and Chromium. Launched cloud Xfce Terminal window35651587 and verified shell commands via documented pressKey input: pwd=/workspace; which reports /usr/bin/python3 and /usr/local/bin/git, with node/npm absent from current PATH. Desktop terminal successfully lists /workspace/scratch/5e0e15dcbbf8/.scratch/intro-backdrop/dist containing assets, gifts, index.html, materials, models, portrait-pending.svg and qa. Therefore source/build filesystem is visible to cloud desktop; prior ordinary executor localhost refusal did not establish lack of a supported co-located desktop server route. Smallest next route is verify exact-head dist provenance, launch Python static server from this native terminal, then inspect it using documented cloud browser; no tunnel, proxy, security setting or standalone CDP required. Terminal typeText/paste return cannot identify focused text field; pressKey works and screenshot verifies output. No listener, product browser test, runtime edit, PR, integration or deployment performed in this bounded slice. USD30 total daily planning budget now fully allocated; additional implementation/testing waits for next budget admission."
+    },
+    {
+      "id": "exact-intro-cloud-browser-qa",
+      "role": "bounded exact-head cloud browser QA",
+      "estimateUsd": 10,
+      "status": "reserved",
+      "note": "User raised October 18 total planning cap to USD100, not an additional USD100 or recurring increase. Reserve USD10 for exact reviewed intro-branch build provenance, native-terminal static serving and supported rendered browser investigation. No integration or deployment in this slice."
     }
   ],
-  "unallocatedHeadroomUsd": 0,
+  "unallocatedHeadroomUsd": 60,
   "notes": [
     "October 17 preserved byte-for-byte at estimated-usage-2026-10-17.json with USD22 recorded and USD8 headroom. October 16 remains USD28 recorded. Prior days are not reset.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day. maxParallel remains 1. New work requires a bounded reservation before launch.",
     "Resume existing reviewed branches rather than duplicate. Exact-head rendered WebGL all-career keyboard/touch movement/control proof remains mandatory before merge/publication; software proof is insufficient.",
     "Cloud only; existing public game site only. No purchases, paid services, new accounts, credentials/security permissions, publication elsewhere, telemetry or PR creation.",
     "Preflight main before bookkeeping was 68791639b6afe302e955d7a136e5e54b7c610b1b. Existing unmerged gait branch remains 9c91aef21175cfed0e535a1ce40b316063d5d878 and motion branch remains 80013a19518f25d17cbb597b5881c0ad31457eee. No open PRs. #41/#42/#35 remain open. No surviving old .scratch checkout found in current workspace.",
-    "Existing public site remains V57 at source abbf403ef771569533b802a88691696db4f0ce94, successful deployment appgdep_6ad032c454448191ba166663b39693ee updated 2026-10-15T01:56:30.264162Z. Metadata verification is not rendered browser proof. Prior supported WebGL failure remains unresolved."
+    "Existing public site remains V57 at source abbf403ef771569533b802a88691696db4f0ce94, successful deployment appgdep_6ad032c454448191ba166663b39693ee updated 2026-10-15T01:56:30.264162Z. Metadata verification is not rendered browser proof. Prior supported WebGL failure remains unresolved.",
+    "October 18 only: user approved USD100 TOTAL cap after USD30 recorded. Default future-day cap remains USD30. Preserve prior entries and maxParallel1."
   ]
 }
