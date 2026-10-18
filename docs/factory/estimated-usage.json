@@ -16,8 +16,8 @@
       "id": "issue-35-source-browser-capability",
       "role": "bounded cloud source/browser investigation",
       "estimateUsd": 4,
-      "status": "reserved",
-      "note": "Reserve before source materialization and supported co-located browser route investigation for exact pending motion head 80013a19518f25d17cbb597b5881c0ad31457eee. Stop at definitive blocker; no runtime integration or deployment."
+      "status": "recorded",
+      "note": "Completed bounded current supported-route investigation. Motion target remains exact immutable 80013a19518f25d17cbb597b5881c0ad31457eee. Read repository/factory/browser instructions. CUA cloud browser exists; browser.capabilities.list returned []. An ordinary executor HTTP listener on 127.0.0.1:4184 self-checked HTTP200 for an exact-head marker in the same command; supported CUA createBrowserTab to http://127.0.0.1:4184/.scratch/issue35-capability-2026-10-18/ returned net::ERR_CONNECTION_REFUSED in tab4 at 2026-10-18T01:22Z. Earlier 4173 probe also refused and was inconclusive because cross-exec self-check refused; it is not relied on. Current blocker is preview route/co-location unavailable, not measured WebGL absence or app failure. Bulk source materialization deferred because no supported browser-consumer route exists. No standalone browser/CDP/socket alternative, proxy/tunnel, security change, credential, runtime integration, PR or deployment. Probe listeners/tabs stopped. Prior source and independent reviews remain unchanged."
     }
   ],
   "unallocatedHeadroomUsd": 23,
