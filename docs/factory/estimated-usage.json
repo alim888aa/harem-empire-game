@@ -11,9 +11,16 @@
       "estimateUsd": 3,
       "status": "recorded",
       "note": "Completed bounded Oct 19 repository/main/open-work/pending-H1/workflow and existing-site metadata preflight, pure estimated-budget admission, and ledger rollover/bookkeeping. Connected GitHub read-back verified main reservation commit, exact Oct 18 archive blob and unchanged older histories; USD3 planning estimate recorded. Recovery branch remains exact 2ce02b988d8ea3cd681d8124f8844b536ec470da / tree 08d7bd30b6b7de5e49a30d199da06e578afafed0. Site remains public V57 / source abbf403ef771569533b802a88691696db4f0ce94 / successful Oct 15 deployment. No implementation, product tests, native/browser execution, integration, PR or deployment performed. Remaining USD27 is unallocated; recommend a separately admitted bounded native H1 proof continuation before any runtime integration."
+    },
+    {
+      "id": "emperor-intro-h1-native-proof-2026-10-19",
+      "role": "bounded exact-head native browser proof",
+      "estimateUsd": 8,
+      "status": "reserved",
+      "note": "Reserve a fresh October 19 USD8 native cloud QA continuation for exact H1 recovery head 2ce02b988d8ea3cd681d8124f8844b536ec470da / tree 08d7bd30b6b7de5e49a30d199da06e578afafed0. Resume the existing offline fixture and supported native terminal/server/Chromium workflow; investigate permitted native viewport, touch and video proof options. Full career/phase/exit/focus/backdrop/camera matrix remains required. Respect the organization DevTools denial; no CDP, headless or alternate debugging bypass. No code changes, integration, PR or publication. Includes parent admission, ledger and receipts. October 18 reservation remains historical and is not reused."
     }
   ],
-  "unallocatedHeadroomUsd": 27,
+  "unallocatedHeadroomUsd": 19,
   "notes": [
     "October 18 is preserved byte-for-byte at estimated-usage-2026-10-18.json: USD72 allocated, including the still-reserved USD8 native QA entry, and USD28 headroom under that day's one-time USD100 total cap. The override expired with October 18 in Asia/Ulaanbaatar; October 19 and later retain the normal USD30 local-day limit. Historical entries and earlier dated ledgers are unchanged.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day. maxParallel remains 1. Each new role or retry needs a bounded reservation before launch; stop new work at the estimated ceiling.",
