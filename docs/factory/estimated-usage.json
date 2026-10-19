@@ -9,8 +9,8 @@
       "id": "maintenance-admission-preflight",
       "role": "preflight/admission",
       "estimateUsd": 3,
-      "status": "reserved",
-      "note": "Reserve a bounded Oct 19 cloud-only main/open-work/workflow/pending-source and existing-site metadata preflight, admission and ledger preservation. No substantive product QA, implementation, integration, PR or deployment is admitted by this reservation."
+      "status": "recorded",
+      "note": "Completed bounded Oct 19 repository/main/open-work/pending-H1/workflow and existing-site metadata preflight, pure estimated-budget admission, and ledger rollover/bookkeeping. Connected GitHub read-back verified main reservation commit, exact Oct 18 archive blob and unchanged older histories; USD3 planning estimate recorded. Recovery branch remains exact 2ce02b988d8ea3cd681d8124f8844b536ec470da / tree 08d7bd30b6b7de5e49a30d199da06e578afafed0. Site remains public V57 / source abbf403ef771569533b802a88691696db4f0ce94 / successful Oct 15 deployment. No implementation, product tests, native/browser execution, integration, PR or deployment performed. Remaining USD27 is unallocated; recommend a separately admitted bounded native H1 proof continuation before any runtime integration."
     }
   ],
   "unallocatedHeadroomUsd": 27,
