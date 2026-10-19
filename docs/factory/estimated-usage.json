@@ -1,7 +1,7 @@
 {
-  "date": "2026-10-18",
+  "date": "2026-10-19",
   "timezone": "Asia/Ulaanbaatar",
-  "limitUsd": 100,
+  "limitUsd": 30,
   "currency": "USD",
   "method": "Conservative flat planning estimates, not actual billing or token measurements",
   "entries": [
@@ -9,158 +9,17 @@
       "id": "maintenance-admission-preflight",
       "role": "preflight/admission",
       "estimateUsd": 3,
-      "status": "recorded",
-      "note": "Completed bounded repository/main/open-issue/pending-branch/workflow and existing-site metadata preflight. No implementation, product tests, browser execution, integration, PR or deployment. Includes ledger preservation/bookkeeping."
-    },
-    {
-      "id": "issue-35-source-browser-capability",
-      "role": "bounded cloud source/browser investigation",
-      "estimateUsd": 4,
-      "status": "recorded",
-      "note": "Completed bounded current supported-route investigation. Motion target remains exact immutable 80013a19518f25d17cbb597b5881c0ad31457eee. Read repository/factory/browser instructions. CUA cloud browser exists; browser.capabilities.list returned []. An ordinary executor HTTP listener on 127.0.0.1:4184 self-checked HTTP200 for an exact-head marker in the same command; supported CUA createBrowserTab to http://127.0.0.1:4184/.scratch/issue35-capability-2026-10-18/ returned net::ERR_CONNECTION_REFUSED in tab4 at 2026-10-18T01:22Z. Earlier 4173 probe also refused and was inconclusive because cross-exec self-check refused; it is not relied on. Current blocker is preview route/co-location unavailable, not measured WebGL absence or app failure. Bulk source materialization deferred because no supported browser-consumer route exists. No standalone browser/CDP/socket alternative, proxy/tunnel, security change, credential, runtime integration, PR or deployment. Probe listeners/tabs stopped. Prior source and independent reviews remain unchanged."
-    },
-    {
-      "id": "emperor-visibility-source-diagnosis",
-      "role": "bounded independent P0 source diagnosis",
-      "estimateUsd": 5,
-      "status": "recorded",
-      "note": "Completed bounded read-only current-main source diagnosis of #42 with #35/#41/#42 and repository/factory instructions reviewed. Confirmed source event chain: first visit intentionally triggers at75 active free-roam seconds; intro CourtDialog backdrop click/X/Escape unconditionally sends EMPEROR_INTRO_FINISHED, which leaves intro and disposes Emperor, even during approach. Camera input itself is blocked while native modal is open; a user's attempted camera click/drag may instead hit the modal backdrop. This is a source-supported disappearance candidate, not WebGL reproduction or confirmed sole cause. No camera-dependent visibility flag/removal found; frustum/asset culling remains unproved. Suggested minimal next slice: suppress unintended backdrop dismissal for imperial intro while retaining deliberate accessible close/acknowledgment/retry and all schedule/save/tribute semantics; add real event-level regression plus exact-head WebGL proof once #35 is resolved. No product edits, focused runtime tests, branch edits, PR or deployment performed. Reviewed gait9c91aef and motion80013a1 unchanged."
-    },
-    {
-      "id": "emperor-intro-backdrop-source-fix",
-      "role": "bounded cloud builder",
-      "estimateUsd": 8,
-      "status": "recorded",
-      "note": "Completed bounded cloud-only six-file local fix: imperial intro suppresses backdrop dismissal while labelled X, cancel/Escape, arrived/error acknowledgment and retry remain. No machine/palace/save/schedule/tribute changes. Pinned base 9a8a208d5ae01ad9cf40adbfa01220dc5a4f1998; local patch SHA256 472625ffccea6be0dfed62e5deaad9ab65ebd3b7b3a3245b1d07a4895beb06d4; reconstructed proposed tree ecf983b8f64c161d2bebe35fc7fc4b40a7f5de36. Original shared handler event baseline failed all12 career/phase backdrop cases; fixed focused42/42 and final factory:check pass (factory25/25, product510/510, typecheck/build), runtime131 files checksum verified. jsdom is dev-only; no native browser/drag/touch/WebGL proof claimed. Immutable local patch/source/receipts retained for independent review. No product Git object/branch/PR/main integration/deploy. Existing gait and motion heads unchanged; release gates stay blocked on supported exact-head browser proof."
-    },
-    {
-      "id": "emperor-intro-backdrop-independent-review",
-      "role": "bounded independent exact-artifact reviewer",
-      "estimateUsd": 5,
-      "status": "recorded",
-      "note": "Completed independent exact-artifact review; source verdict clear for patch SHA256 472625ffccea6be0dfed62e5deaad9ab65ebd3b7b3a3245b1d07a4895beb06d4, proposed tree ecf983b8f64c161d2bebe35fc7fc4b40a7f5de36. Independently verified six source/base blobs, reconstructed trees, clean patch dry-run, focused42/42 and factory:check exit0 (factory25/25, product510/510, typecheck/build, runtime131 checksums). Lock adds37 dev-only entries with no existing dependency changes or new install scripts. Real DOM handler coverage is valid but does not prove native dialog/focus/Escape, drag/touch/camera, rendered WebGL visibility or full issue42 acceptance; release remains blocked on exact-head browser proof. No runtime source edits, PR, integration, deployment or existing branch edits; local review receipt retained."
-    },
-    {
-      "id": "emperor-intro-backdrop-branch-preservation",
-      "role": "bounded source preservation and receipt bookkeeping",
-      "estimateUsd": 2,
-      "status": "recorded",
-      "note": "Preserved independently reviewed six-file source on fix/emperor-intro-backdrop-42 at remote commit947a0de6503fb8827d2cf915cc786a45b60aaa20, tree ecf983b8f64c161d2bebe35fc7fc4b40a7f5de36, sole parent9a8a208d5ae01ad9cf40adbfa01220dc5a4f1998. Connected GitHub read-back verified branch head, commit parent/tree and exactly six changed paths with artifact-matching blobs. Remote commit is not a synthetic local commit. No PR, runtime main integration or deployment. Exact-head native/browser/touch/drag/WebGL proof remains required; source-review clearance does not close issue42. Existing gait9c91aef and motion80013a1 untouched.",
-      "preservation": {
-        "branch": "fix/emperor-intro-backdrop-42",
-        "head": "947a0de6503fb8827d2cf915cc786a45b60aaa20",
-        "url": "https://github.com/alim888aa/harem-empire-game/tree/fix/emperor-intro-backdrop-42",
-        "base": "9a8a208d5ae01ad9cf40adbfa01220dc5a4f1998",
-        "tree": "ecf983b8f64c161d2bebe35fc7fc4b40a7f5de36",
-        "patchSha256": "472625ffccea6be0dfed62e5deaad9ab65ebd3b7b3a3245b1d07a4895beb06d4",
-        "changedBlobs": [
-          {
-            "path": "package-lock.json",
-            "sha": "2646ae283372559f9a662083b2e215d16d537ca9"
-          },
-          {
-            "path": "package.json",
-            "sha": "ddfa0d1eef78464eaa1197828d6671fc02606162"
-          },
-          {
-            "path": "src/components/CourtDialog.tsx",
-            "sha": "b21aa1e69680b980e83d89593e7b83add6ebd611"
-          },
-          {
-            "path": "src/components/EmperorIntro.tsx",
-            "sha": "380b75e585c8fcf8291ca858a11d5c77ccf4dfb8"
-          },
-          {
-            "path": "src/components/GameLayout.tsx",
-            "sha": "de39ed4fcaad647e29c7c3803978e81b7bbbcc8e"
-          },
-          {
-            "path": "tests/courtDialog.test.ts",
-            "sha": "e47a3c047b2584ec5cdd4ceab032706f61a986bc"
-          }
-        ],
-        "independentReviewReceipt": "Author: independent review · 2026-10-18\nSource verdict: clear; release verdict: blocked pending required browser proof\n\nReviewed immutable patch SHA256 472625ffccea6be0dfed62e5deaad9ab65ebd3b7b3a3245b1d07a4895beb06d4.\nBase 9a8a208d5ae01ad9cf40adbfa01220dc5a4f1998; independently reconstructed base tree 927eb3f74456683d0cc707011e717dd1dcc54f90 and proposed tree ecf983b8f64c161d2bebe35fc7fc4b40a7f5de36. Six base blob SHAs match supplied pinned tree; six packet and workspace files match manifest. Clean patch dry-run passes. No product files changed by review.\n\nNo blocking source defects found. CourtDialog defaults preserve existing callers. The intro owns the policy and keeps the identical dialog/content nesting, title and deliberate completion callback. The policy only suppresses target=currentTarget clicks; child interactions, X and cancel remain. No machine, palace, timer, schedule, save, tribute, RNG or other-dialog semantics changed. Existing oversized GameLayout area is clearer and total bytes shrink; no added hooks, any, styling or shallow wrapper.\n\nIndependently reran focused42/42 and factory:check exit0: factory25/25, product510/510, typecheck/build pass, runtime131 checksums verified. Hygiene longLines705, oversized7 and other baseline counters unchanged. Build warns about large1.266MB chunk and unresolved non-manifest harem-background.png; not certified browser fixture. No ESLint/full dead-code claim; tests remain outside tsconfig coverage per existing configuration.\n\nDOM fidelity: real ReactDOM mounted nodes and dispatched click/cancel events test handler routing. Actor-backed12 career/phase cases cover loading/approach/arrival/error, repeated backdrop clicks and content click, non-completing error retry, labelled X and unchanged persisted context/RNG; existing focused replay suites cover one-time75-second timing, persistence, pending plots and stale completion. Separate deliberate cancel/ack tests cover phase-specific availability; ordinary shared dialog retains backdrop dismissal. Actors are connected through an explicit callback matching GameLayout; these are not a mounted full-GameLayout or native-browser walkthrough. Builder original-handler12-case failure receipt inspected but not independently rerun, avoiding any runtime source mutation.\n\nDependency review: jsdom26.1.0 pinned as dev-only,37 added lock entries all dev, no existing package records changed except root devDependencies, no new install scripts; all added packages have registry URLs/integrities. Production imports do not reference jsdom. No independent vulnerability audit or clean npm-ci rerun claimed.\n\nRequired release gate remains open: native top-layer inertness, focus/physical Escape, camera drag/pan/zoom, touch, rendered Emperor visibility/entity lifecycle and end-to-end controls on exact proposed head at390x844 and1440x900. No browser attempt or prohibited alternative route made. This slice addresses a source-supported dismissal candidate and cannot close #42 or certify its sole cause. Existing gait/motion branches untouched; no PR/integration/deployment.\n",
-        "verification": "Independent review applies to exact source tree; independent focused42/42 and factory:check exit0 (factory25/25, product510/510, typecheck/build,131 runtime checksums). No remote CI or browser success claimed."
-      }
-    },
-    {
-      "id": "cloud-computer-topology-investigation",
-      "role": "bounded cloud desktop and supported preview-route investigation",
-      "estimateUsd": 3,
-      "status": "recorded",
-      "note": "Completed bounded cloud desktop capability investigation. Read full CUA documentation, FAQ and engineering/environment guidance. Live CUA inventory exposes Linux native applications, including Xfce Terminal, File Manager and Chromium. Launched cloud Xfce Terminal window35651587 and verified shell commands via documented pressKey input: pwd=/workspace; which reports /usr/bin/python3 and /usr/local/bin/git, with node/npm absent from current PATH. Desktop terminal successfully lists /workspace/scratch/5e0e15dcbbf8/.scratch/intro-backdrop/dist containing assets, gifts, index.html, materials, models, portrait-pending.svg and qa. Therefore source/build filesystem is visible to cloud desktop; prior ordinary executor localhost refusal did not establish lack of a supported co-located desktop server route. Smallest next route is verify exact-head dist provenance, launch Python static server from this native terminal, then inspect it using documented cloud browser; no tunnel, proxy, security setting or standalone CDP required. Terminal typeText/paste return cannot identify focused text field; pressKey works and screenshot verifies output. No listener, product browser test, runtime edit, PR, integration or deployment performed in this bounded slice. USD30 total daily planning budget now fully allocated; additional implementation/testing waits for next budget admission."
-    },
-    {
-      "id": "exact-intro-cloud-browser-qa",
-      "role": "bounded exact-head cloud browser QA",
-      "estimateUsd": 10,
-      "status": "recorded",
-      "note": "Completed bounded cloud-only exact reviewed runtime source hash verification (406 materialized tracked files match base tree plus six reviewed blobs),131 runtime SHA256 checks and fresh normal/local-asset builds. Six newline-only JSON transfer differences restored;25 exact-SHA legacy public assets recovered. Private offline QA fixture uses documented VITE_RUNTIME_ASSET_BASE_URL=local and131 verified runtime copies;52 public files remain absent (51 portraits and touch-layout fixture), so full fixture completeness not certified. Native terminal Python server4185 resolves browser co-location; default CUA browser renders fallback, while installed Chromium launched through native CUA with temporary profile and only --use-gl=angle --use-angle=swiftshader successfully renders actual WebGL. No unsafe flags, sandbox/security changes, debugging/CDP workaround, source edits, PR, integration or publication."
-    },
-    {
-      "id": "exact-intro-native-proof-continuation",
-      "role": "bounded native WebGL proof continuation",
-      "estimateUsd": 5,
-      "status": "recorded",
-      "note": "Completed native WebGL intro checks across Concubine, Scholar and Prince: actual world/player/NPCs;75-active-second visit trigger; Emperor approach/arrival;three backdrop clicks preserve encounter; Concubine physical Escape and Scholar/Prince visible Return deliberately finish, remove Emperor and resume timer. Concubine W/camera drag outside modal and blocked background W/drag inside verified;Prince D movement observed. Found hidden-X acceptance gap: unchanged skin.css675 hides imperial dialog-heading containing labelled close;no source fix or base-runtime regression claim. Native window1196x852;exact CSS viewports390x844/1440x900,touch,video,phase/exit full matrix and production hosted delivery remain unrun. DevTools responsive UI explicitly organization-blocked;no retry or bypass. Evidence/receipt retained in cloud workspace intro-browser-qa. Browser/server kept open for parent handoff. No release clearance or issue closure."
-    },
-    {
-      "id": "emperor-intro-visible-close-h1-fix",
-      "role": "bounded native-QA finding H1 builder",
-      "estimateUsd": 8,
-      "status": "recorded",
-      "note": "Completed minimal two-file H1 source repair on reviewed branch base947a0de6503fb8827d2cf915cc786a45b60aaa20: intro-only CSS exposes existing44px labelled X with absolute header and visually clipped duplicate title; no extra header row. Seasonal summons header policy and all handlers/backdrop/schedule/save/tribute semantics unchanged. Actual full theme CSS is applied in DOM regression; base CSS fails all12 career/phase visibility cases, fixed focused43/43 pass. Final factory:check exit0 (factory25/25, product511/511, typecheck/build),131 runtime checksums verified. Immutable local patch SHA256 d79b387c3d59a51b49309bc9fadee21cdb7097e0939542466534a3ec798128a1, proposed tree08d7bd30b6b7de5e49a30d199da06e578afafed0, two changed blobs skin2521eab5c48900a10a5eec4bef2a35007e55cd72 and test0bac5bfa069f042c5baf4c4b567d6b6cd3a519e7. Production/default build and private local-asset offline fixture rebuilt distinctly; production asset config untouched. Native browser/server handoff preserved without browser operations. New-tree native visual/layout/focus/early-exit proof awaits independent review/QA; exact390x844/1440x900,touch/video remain unrun. No remote product push, PR, runtime main integration/deploy; existing motion/gait untouched."
-    },
-    {
-      "id": "emperor-intro-visible-close-h1-review",
-      "role": "bounded independent H1 exact-artifact review",
-      "estimateUsd": 5,
-      "status": "recorded",
-      "note": "Independent exact-artifact source verdict clear for H1 patch d79b387c3d59a51b49309bc9fadee21cdb7097e0939542466534a3ec798128a1/tree08d7bd30b6b7de5e49a30d199da06e578afafed0. Verified both base/proposed blobs, reconstructed trees, patch dry-run; independently focused43/43 and factory:check exit0 (factory25/product511/typecheck/build/runtime131 hashes). Reviewed selector specificity, accessible hidden title, absolute header/stacking intent, unchanged labelled44px seal and nonintro policy. No source defect found; jsdom CSS tests do not prove layout/hit-testing/focus/touch/native accessibility. Independent production233 files match builder manifest; served private offline fixture restored with all362 hashes matching. Native new-tree seal/early-exit/overlap/focus and exact viewport/touch/video remain mandatory; prior browser evidence does not certify new tree. No native browser operations, runtime source edits, product push, PR, integration or release. Local independent receipt/logs retained."
-    },
-    {
-      "id": "intro-visible-close-native-qa",
-      "role": "bounded native exact-artifact browser verification",
-      "estimateUsd": 8,
       "status": "reserved",
-      "note": "Reserve USD8 to verify independently reviewed H1 visible-close tree08d7bd30b6b7de5e49a30d199da06e578afafed0 in existing supported native cloud WebGL fixture. No source edits, push, integration or deployment. Respect DevTools organization denial; no alternative debugging/emulation bypass."
-    },
-    {
-      "id": "emperor-intro-close-recovery-revision",
-      "role": "bounded source recovery builder",
-      "estimateUsd": 6,
-      "status": "recorded",
-      "note": "Completed recovery after environment loss. Promptly preserved remote WIP backup fix/emperor-intro-close-recovery-42 at2ce02b988d8ea3cd681d8124f8844b536ec470da, sole parent947a0de6503fb8827d2cf915cc786a45b60aaa20. Recovered exact retained edit bytes: tree08d7bd30b6b7de5e49a30d199da06e578afafed0 and regenerated patch SHA256 d79b387c3d59a51b49309bc9fadee21cdb7097e0939542466534a3ec798128a1 equal prior independently reviewed H1 content. Remote read-back verified only skin.css blob2521eab5c48900a10a5eec4bef2a35007e55cd72 and courtDialog.test.ts blob0bac5bfa069f042c5baf4c4b567d6b6cd3a519e7 differ from parent; original branch remains947a0de. Fresh recovery npm-ci,focused43/43 and factory:check exit0 (factory25/product511/typecheck/build),131 newly downloaded runtime checksums,406 materialized tracked Git blobs verified with zero mismatches. Recovered25 exact legacy assets;52 public files remain absent, not certified full fixture. Fresh distinct production233-file build and private explicit-local362-file fixture prepared; all131 offline runtime copies hash-verified. Source/default production asset configuration unchanged. Prior source verdict applies to identical content; no new independent or native-browser run claimed. Browser/touch/exact viewport/video/hosted delivery release gates remain open. No PR/main runtime integration/deployment/browser or original motion/gait branch changes.",
-      "preservation": {
-        "branch": "fix/emperor-intro-close-recovery-42",
-        "url": "https://github.com/alim888aa/harem-empire-game/tree/fix/emperor-intro-close-recovery-42",
-        "head": "2ce02b988d8ea3cd681d8124f8844b536ec470da",
-        "parent": "947a0de6503fb8827d2cf915cc786a45b60aaa20",
-        "tree": "08d7bd30b6b7de5e49a30d199da06e578afafed0",
-        "patchSha256": "d79b387c3d59a51b49309bc9fadee21cdb7097e0939542466534a3ec798128a1",
-        "changedBlobs": [
-          {
-            "path": "src/ui/theme/skin.css",
-            "sha": "2521eab5c48900a10a5eec4bef2a35007e55cd72"
-          },
-          {
-            "path": "tests/courtDialog.test.ts",
-            "sha": "0bac5bfa069f042c5baf4c4b567d6b6cd3a519e7"
-          }
-        ],
-        "freshChecks": "focused43/43; factory:check exit0, factory25/25, product511/511, typecheck/build; runtime131 SHA256; materialized406 Git blobs exact; production233/offline362 manifest counts.",
-        "release": "blocked pending remaining exact-head browser, viewport, touch/video and hosted-delivery gates"
-      }
+      "note": "Reserve a bounded Oct 19 cloud-only main/open-work/workflow/pending-source and existing-site metadata preflight, admission and ledger preservation. No substantive product QA, implementation, integration, PR or deployment is admitted by this reservation."
     }
   ],
-  "unallocatedHeadroomUsd": 28,
+  "unallocatedHeadroomUsd": 27,
   "notes": [
-    "October 17 preserved byte-for-byte at estimated-usage-2026-10-17.json with USD22 recorded and USD8 headroom. October 16 remains USD28 recorded. Prior days are not reset.",
-    "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day. maxParallel remains 1. New work requires a bounded reservation before launch.",
-    "Resume existing reviewed branches rather than duplicate. Exact-head rendered WebGL all-career keyboard/touch movement/control proof remains mandatory before merge/publication; software proof is insufficient.",
-    "Cloud only; existing public game site only. No purchases, paid services, new accounts, credentials/security permissions, publication elsewhere, telemetry or PR creation.",
-    "Preflight main before bookkeeping was 68791639b6afe302e955d7a136e5e54b7c610b1b. Existing unmerged gait branch remains 9c91aef21175cfed0e535a1ce40b316063d5d878 and motion branch remains 80013a19518f25d17cbb597b5881c0ad31457eee. No open PRs. #41/#42/#35 remain open. No surviving old .scratch checkout found in current workspace.",
-    "Existing public site remains V57 at source abbf403ef771569533b802a88691696db4f0ce94, successful deployment appgdep_6ad032c454448191ba166663b39693ee updated 2026-10-15T01:56:30.264162Z. Metadata verification is not rendered browser proof. Prior supported WebGL failure remains unresolved.",
-    "October 18 only: user approved USD100 TOTAL cap after USD30 recorded. Default future-day cap remains USD30. Preserve prior entries and maxParallel1."
+    "October 18 is preserved byte-for-byte at estimated-usage-2026-10-18.json: USD72 allocated, including the still-reserved USD8 native QA entry, and USD28 headroom under that day's one-time USD100 total cap. The override expired with October 18 in Asia/Ulaanbaatar; October 19 and later retain the normal USD30 local-day limit. Historical entries and earlier dated ledgers are unchanged.",
+    "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day. maxParallel remains 1. Each new role or retry needs a bounded reservation before launch; stop new work at the estimated ceiling.",
+    "Resume existing independently reviewed H1 source only: fix/emperor-intro-close-recovery-42 at 2ce02b988d8ea3cd681d8124f8844b536ec470da, tree 08d7bd30b6b7de5e49a30d199da06e578afafed0, parent 947a0de6503fb8827d2cf915cc786a45b60aaa20. Do not duplicate implementation. Prior focused 43, factory 25, product 511, typecheck/build and runtime checksum passes are historical receipts; no fresh product check is claimed by preflight.",
+    "Required exact-head native/browser proof remains incomplete: full H1 career/phase/exit and focus controls, camera/drag, exact CSS viewports 390x844 and 1440x900, touch and video, plus hosted-delivery verification. DevTools was organization-denied; never bypass that denial through CDP, headless debugging or alternative emulation. Supported native cloud workflow remains the only recorded functioning WebGL route.",
+    "Preflight baseline main is 2e0240a278e6adfbe671590f307d88b07c89d5fb. No open PRs; 32 open issues include #35, #41 and #42. Existing public Site remains V57 at abbf403ef771569533b802a88691696db4f0ce94 with successful Oct 15 deployment appgdep_6ad032c454448191ba166663b39693ee. Metadata reads are not rendered browser proof.",
+    "Cloud only; existing public game Site only. No purchases, paid services, new accounts, credentials/security permissions, publication elsewhere, telemetry or PR creation. No substantive QA or release continuation is admitted by this preflight reservation; parent decides the next bounded slice."
   ]
 }
