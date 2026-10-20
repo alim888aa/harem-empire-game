@@ -11,9 +11,23 @@
       "estimateUsd": 7,
       "status": "reserved",
       "note": "Bounded cloud-only preflight, ledger rollover, exact H1 source provenance verification and fresh aggregate factory/product/typecheck/build/runtime-asset checks. Includes parent coordination and final bookkeeping. Do not duplicate product implementation or repeat denied browser routes. No product integration, PR or publication; browser proof gates stay blocking."
+    },
+    {
+      "id": "intro-same-mount-retry-regression-2026-10-20",
+      "role": "bounded test-only implementation",
+      "estimateUsd": 5,
+      "status": "reserved",
+      "note": "Add missing same-mounted EmperorIntro error/retry/loading/approaching/arrived public-interface regression across careers; distinct test-only branch rooted at immutable H1. No runtime changes or browser-proof substitution. Includes focused/aggregate checks and safe reviewed branch push."
+    },
+    {
+      "id": "intro-same-mount-retry-review-2026-10-20",
+      "role": "independent source review",
+      "estimateUsd": 3,
+      "status": "reserved",
+      "note": "Independent Sol review of exact test-only diff for semantic correctness, public-interface boundaries and regression sensitivity; sequential maxParallel1. No runtime changes or release waiver."
     }
   ],
-  "unallocatedHeadroomUsd": 23,
+  "unallocatedHeadroomUsd": 15,
   "notes": [
     "October 19 ledger preserved byte-for-byte at estimated-usage-2026-10-19.json: USD17 recorded / USD13 unused. All older dated ledgers remain unchanged; October 18 USD100 exception expired.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day; maxParallel 1. Every new role/retry needs a bounded reservation before launch.",
