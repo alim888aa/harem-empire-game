@@ -25,9 +25,16 @@
       "estimateUsd": 3,
       "status": "recorded",
       "note": "Independent Sol review clear for exact patch SHA256098e25c94b5d0092434fb9f4cada483dadd72f9acd2e604331d0f78b9ce95e8e and file SHA256e3cbe2a72fb2383721502d5c65ba64fed452f6a95ee4732547986c14fde3916d. Independently27/27 focused; three mutation scenarios fail each new career test, restored control3/3. No blocking finding. Manual phase props/jsdom do not prove actual asset-retry integration, native rendering or release readiness."
+    },
+    {
+      "id": "intro-native-retry-proof-2026-10-20",
+      "role": "bounded native cloud H1 error-retry proof and completion bookkeeping",
+      "estimateUsd": 8,
+      "status": "reserved",
+      "note": "Parent admitted one sole-worker native cloud continuation against unchanged H1 2ce02b9 and external localhost fixture. Actual UI input only; native error/retry and remaining arrived/focus/camera coverage where supported. Includes evidence preservation and completion bookkeeping. No product edits, integration, publication, paid services, new permissions, DevTools/CDP/headless/emulation/debugging retries or gate waivers."
     }
   ],
-  "unallocatedHeadroomUsd": 15,
+  "unallocatedHeadroomUsd": 7,
   "notes": [
     "October 19 ledger preserved byte-for-byte at estimated-usage-2026-10-19.json: USD17 recorded / USD13 unused. All older dated ledgers remain unchanged; October 18 USD100 exception expired.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day; maxParallel 1. Every new role/retry needs a bounded reservation before launch.",
