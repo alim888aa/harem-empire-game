@@ -224,3 +224,59 @@ test('seasonal summons retains its existing hidden heading policy', async () => 
     } finally { await act(async () => root.unmount()); }
   });
 });
+
+for (const role of ['concubine', 'minister', 'prince'] as const) {
+  test(`imperial ${role}: mounted retry progresses without completing or mutating the visit`, async t => {
+    t.mock.method(console, 'log', () => {});
+    const actor = createActor(gameMachine.provide({ guards: { emperor_encountered: () => false } })).start();
+    t.after(() => actor.stop());
+    actor.send({ type: 'CHOOSE_CHARACTER', payload: { type: role } });
+    actor.send({ type: 'INITIALIZE_GAME' });
+    for (let second = 0; second < 75; second++) actor.send({ type: 'FIRST_EMPEROR_VISIT_TICK', seconds: 1 });
+    assert.ok(actor.getSnapshot().matches({ playing: 'emperor_intro' }));
+    const before = JSON.parse(JSON.stringify(actor.getPersistedSnapshot()));
+    let retries = 0;
+    let completions = 0;
+    await withDialogDom(async (host, dom) => {
+      const root = createRoot(host);
+      const renderPhase = async (phase: 'error' | 'loading' | 'approaching' | 'arrived') => {
+        await act(async () => root.render(createElement(EmperorIntro, {
+          error: phase === 'error', loading: phase === 'loading', arrived: phase === 'arrived',
+          onRetry: () => { retries++; },
+          onContinue: () => { completions++; actor.send({ type: 'EMPEROR_INTRO_FINISHED' }); },
+        })));
+      };
+      const buttonNamed = (name: string) => [...host.querySelectorAll('button')].find(button => button.textContent === name);
+      try {
+        await renderPhase('error');
+        const dialog = dialogElement(host);
+        const retry = buttonNamed('Retry Emperor');
+        assert.ok(retry);
+        await act(async () => retry.click());
+        assert.equal(retries, 1);
+        const headings = {
+          loading: 'Preparing the Emperor’s arrival', approaching: 'The Emperor approaches',
+          arrived: 'The Emperor surveys the court',
+        };
+        for (const phase of ['loading', 'approaching', 'arrived'] as const) {
+          await renderPhase(phase);
+          assert.equal(dialogElement(host), dialog, 'phase updates retain the same mounted native dialog');
+          assert.equal(dialog.open, true);
+          assert.equal(host.querySelector('h1')?.textContent, headings[phase]);
+          assert.equal(buttonNamed('Retry Emperor'), undefined, 'stale error controls disappear after retry');
+          assert.equal(Boolean(buttonNamed('Return to the court')), phase === 'arrived');
+          await act(async () => dialog.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true })));
+          assert.equal(completions, 0, 'phase changes and backdrop clicks must not complete a visit');
+          assert.deepEqual(JSON.parse(JSON.stringify(actor.getPersistedSnapshot())), before);
+        }
+        const finish = buttonNamed('Return to the court');
+        assert.ok(finish);
+        await act(async () => finish.click());
+        assert.equal(completions, 1);
+        assert.equal(retries, 1);
+        assert.ok(actor.getSnapshot().matches({ playing: 'in_season' }));
+        assert.deepEqual(JSON.parse(JSON.stringify(actor.getPersistedSnapshot())).context, before.context);
+      } finally { await act(async () => root.unmount()); }
+    });
+  });
+}
