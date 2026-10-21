@@ -18,9 +18,16 @@
       "estimateUsd": 3,
       "status": "recorded",
       "note": "Independent Sol review accepts qualified partial evidence with findings, not release clearance. Exact clean H1/tree verified; all 414 offline files independently rebuilt byte-for-byte, 131 pinned runtime files verified, six archived synthetic fixtures validated/restored and 49 focused tests passed. Black saved-intro backgrounds confirmed; source camera explanation is only a hypothesis. Missing native/viewport/touch/video/hosted gates remain open."
+    },
+    {
+      "id": "saved-intro-source-base-diagnosis-2026-10-21",
+      "role": "bounded source diagnosis, deterministic base comparison and durable preservation",
+      "estimateUsd": 5,
+      "status": "reserved",
+      "note": "Reserve at most USD5 total: source-only Sol diagnosis up to USD4 plus parent coordination/preservation USD1. Compare the saved-intro black-background candidate path against pre-H1/main, ideally through deterministic public camera interfaces. No native matrix repeat, runtime fix, integration or release. Source results must not be described as rendered pixel proof."
     }
   ],
-  "unallocatedHeadroomUsd": 18,
+  "unallocatedHeadroomUsd": 13,
   "notes": [
     "October 20 ledger preserved byte-for-byte at estimated-usage-2026-10-20.json: USD23 recorded / USD7 unused. All older dated ledgers remain unchanged.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day; maxParallel 1. Every new role/retry needs a bounded reservation before launch.",
