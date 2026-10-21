@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-20",
+  "timezone": "Asia/Ulaanbaatar",
+  "limitUsd": 30,
+  "currency": "USD",
+  "method": "Conservative flat planning estimates, not actual billing or token measurements",
+  "entries": [
+    {
+      "id": "maintenance-exact-head-verification-2026-10-20",
+      "role": "bounded preflight and exact-head offline regression verification",
+      "estimateUsd": 7,
+      "status": "recorded",
+      "note": "Completed cloud-only preflight and exact-H1 provenance/aggregate verification. All406 materialized tracked source blobs match immutable H1;362 offline/233 production retained build hashes unchanged. Baseline factory25/product511/typecheck/build passed;131 runtime files verified without downloads. Existing source fixture completeness gaps disclosed. Oct19 exact archived blob preserved and older ledgers unchanged. No browser routes, runtime edits or release clearance."
+    },
+    {
+      "id": "intro-same-mount-retry-regression-2026-10-20",
+      "role": "bounded test-only implementation",
+      "estimateUsd": 5,
+      "status": "recorded",
+      "note": "Completed and pushed independently reviewed test-only same-mount error→Retry→loading→approaching→arrived regressions across three careers. Stable dialog, phase controls, harmless backdrop, full unchanged persisted campaign and deliberate completion checked. Focused27, factory25/product514/typecheck/build pass. Branch test/intro-mounted-retry-42 head cdac086a8d285e23e460d294327c185fe83cc887, tree c08512cb78eb56d1ba1b5c6ad290a5af8a14514b, parent exact H1 2ce02b9. Only tests/courtDialog.test.ts changed; no runtime integration or publication. Native/browser gates unchanged."
+    },
+    {
+      "id": "intro-same-mount-retry-review-2026-10-20",
+      "role": "independent source review",
+      "estimateUsd": 3,
+      "status": "recorded",
+      "note": "Independent Sol review clear for exact patch SHA256098e25c94b5d0092434fb9f4cada483dadd72f9acd2e604331d0f78b9ce95e8e and file SHA256e3cbe2a72fb2383721502d5c65ba64fed452f6a95ee4732547986c14fde3916d. Independently27/27 focused; three mutation scenarios fail each new career test, restored control3/3. No blocking finding. Manual phase props/jsdom do not prove actual asset-retry integration, native rendering or release readiness."
+    },
+    {
+      "id": "intro-native-retry-proof-2026-10-20",
+      "role": "bounded native cloud H1 error-retry proof and completion bookkeeping",
+      "estimateUsd": 8,
+      "status": "recorded",
+      "note": "Completed bounded unchanged-H1 native cloud asset-failure→Retry→loading→arrived proof across Concubine/Scholar/Prince, with actual localhost503 then original pinned GLB200 and native screenshots. Concubine/Scholar approach frames retained; Prince approach frame not retained. Error backdrops retained, observed exits preserved Season1 and20/20/25gifts with resumed clocks; sampled Prince post-exit camera works. All362 offline/233 production hashes unchanged. Native browser/server stopped; localhost refusal verified. Exact CSS/touch/video, exhaustive error exits/focus/camera and hosted-delivery gates remain open; no source edits, integration, publication or denied route. Evidence .scratch/harem-native-retry-2026-10-20."
+    }
+  ],
+  "unallocatedHeadroomUsd": 7,
+  "notes": [
+    "October 19 ledger preserved byte-for-byte at estimated-usage-2026-10-19.json: USD17 recorded / USD13 unused. All older dated ledgers remain unchanged; October 18 USD100 exception expired.",
+    "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day; maxParallel 1. Every new role/retry needs a bounded reservation before launch.",
+    "H1 exact head 2ce02b988d8ea3cd681d8124f8844b536ec470da, tree 08d7bd30b6b7de5e49a30d199da06e578afafed0 remains pending. Prior native early-exit loading/approach matrix passed 12/12 but exact CSS390x844/1440x900, touch/video and other full proof remain blocking. Never bypass organization DevTools denial through CDP/headless/debugging/emulation.",
+    "Existing public Site only; cloud only. No purchases/services/accounts/security grants/telemetry/new publication destinations. Preserve audience and site identity."
+  ]
+}
