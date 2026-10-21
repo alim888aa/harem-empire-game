@@ -7,7 +7,7 @@ import {
   ConversationCameraTransition,
   type ConversationCameraInput,
   type ConversationCameraFrame,
-} from '../src/palace/conversationCamera';
+} from '../../src/palace/camera';
 
 const input = (overrides: Partial<ConversationCameraInput> = {}): ConversationCameraInput => ({
   player: { position: { x: -1.1, y: 0, z: 0 }, height: 2.05 },
