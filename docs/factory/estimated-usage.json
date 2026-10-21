@@ -25,14 +25,36 @@
       "estimateUsd": 5,
       "status": "recorded",
       "note": "Completed source-only Sol diagnosis and preservation within the admitted USD5 total. Actual production-derived fixture entry inputs reproduce unsafe camera retention in 27 trials per H1/main checkout; nine safe-origin and nine blocker-free controls per checkout escape. Main/base entire src trees and all three palace subtrees match exactly, establishing pre-H1 candidate source behavior, not identical native pixels. Desired safe-entry assertion fails explicitly with exit1. Full record: docs/factory/verification/saved-intro-source-diagnosis-2026-10-21.md. No runtime fix, permanent tests, native repeat, integration or release."
+    },
+    {
+      "id": "saved-intro-camera-repair-2026-10-21",
+      "role": "isolated Sol camera repair and deterministic regression",
+      "estimateUsd": 4,
+      "status": "reserved",
+      "note": "Narrow safe ordinary bootstrap before restored-intro cinematic entry; no release. Includes failing-before/passing-after regression and focused checks."
+    },
+    {
+      "id": "saved-intro-camera-repair-review-2026-10-21",
+      "role": "independent exact-head Sol review and interface replay",
+      "estimateUsd": 2,
+      "status": "reserved",
+      "note": "Sequential independent source/regression review; no runtime editing or browser duplication."
+    },
+    {
+      "id": "saved-intro-camera-repair-native-preservation-2026-10-21",
+      "role": "parent aggregate checks, affected native reload proof, durable branch and evidence preservation",
+      "estimateUsd": 7,
+      "status": "reserved",
+      "note": "Includes parent coordination, cloud native reload verification and bookkeeping. Stop at bounded gates; no publication without all relevant acceptance."
     }
   ],
-  "unallocatedHeadroomUsd": 13,
+  "unallocatedHeadroomUsd": 0,
   "notes": [
     "October 20 ledger preserved byte-for-byte at estimated-usage-2026-10-20.json: USD23 recorded / USD7 unused. All older dated ledgers remain unchanged.",
     "All roles, retries and parent effort count against USD30 per Asia/Ulaanbaatar day; maxParallel 1. Every new role/retry needs a bounded reservation before launch.",
     "H1 exact head 2ce02b988d8ea3cd681d8124f8844b536ec470da remains pending; gait 9c91aef21175cfed0e535a1ce40b316063d5d878, motion 80013a19518f25d17cbb597b5881c0ad31457eee and test-only cdac086a8d285e23e460d294327c185fe83cc887 remain preserved. Prior 12 loading/approach exit cells and three real asset 503 → Retry → arrival paths passed. Today's partial error/focus/control evidence and a new synthetic saved-intro black-background finding are recorded; remaining exits, exact CSS 390x844/1440x900, touch/video and hosted-delivery acceptance remain open. Never bypass the organization DevTools denial through CDP/headless/debugging/emulation.",
     "Existing public Site only; cloud only. No purchases/services/accounts/security grants/telemetry/new publication destinations. Preserve audience and site identity.",
-    "October 21 source diagnosis identifies a pre-H1 unsafe cinematic bootstrap: out-of-room initial camera retained when no safe ordinary pose exists. Deterministic source evidence supports the likely native explanation; actual base rendering and R1 resolution remain unproven. Further repair needs a separate admission, independent review and affected native verification."
+    "October 21 source diagnosis identifies a pre-H1 unsafe cinematic bootstrap: out-of-room initial camera retained when no safe ordinary pose exists. Deterministic source evidence supports the likely native explanation; actual base rendering and R1 resolution remain unproven. Further repair needs a separate admission, independent review and affected native verification.",
+    "October 21 last USD13 explicitly reserved for narrow saved-intro safe-bootstrap repair (4), independent review (2), parent aggregate/native/preservation (7), maxParallel1. Existing USD17 recorded and all dated histories preserved. At USD30 allocated: stop new admissions; existing reserved work may finish. No release without all existing gates."
   ]
 }
