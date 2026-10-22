@@ -30,22 +30,22 @@
       "id": "intro-camera-isolated-integration-2026-10-22",
       "role": "isolated H1/camera/retry-test integration and exact-head aggregate",
       "estimateUsd": 5,
-      "status": "reserved",
-      "note": "Parent approved after current USD13 closure. Inputs H1 2ce02b988d8ea3cd681d8124f8844b536ec470da, camera505c94c904e678dda9b0180e6e85214ecda17287, existing retry-only testcdac086a8d285e23e460d294327c185fe83cc887. Isolated branch only; no runtime main integration or public PR retry."
+      "status": "recorded",
+      "note": "Completed isolated integration on remote branch fix/intro-camera-integrated-2026-10-22, head409e62959e4b155f17b6c31ccd766aa2b486e7f7/tree487f7ad0dc804321ff4365945b0d745567d4c4b8. Exact union H1 2ce02b98, camera505c94c9 and retry-testcdac086; local19e37eb8 tree identical, remote fetched/diff0. Aggregate25factory+546product+131assets+typecheck/build exit0. No runtime main merge or publication."
     },
     {
       "id": "intro-camera-integration-review-2026-10-22",
       "role": "independent exact integrated-head Sol source and behavior review",
       "estimateUsd": 3,
-      "status": "reserved",
-      "note": "Sequential independent review after aggregate. Review combined behavior, no source-only acceptance shortcut."
+      "status": "recorded",
+      "note": "Independent Sol exact-head source review clear, no source findings. Existing input blobs/combined package script verified, no unrelated drift. Focused71/71 pass;18 qualified synthetic replay cases pass. Initial jsdom focus assertion failure preserved separately; native focus not claimed or failed stage rewritten green."
     },
     {
       "id": "intro-camera-integration-native-2026-10-22",
       "role": "native integrated Escape/focus/camera proof and preservation",
       "estimateUsd": 4,
-      "status": "reserved",
-      "note": "Use supported cloud native route and identical-buffer image emit/save. Qualified proof only; no publication until exact CSS/touch/video/full controls/hosted and other applicable gates complete. Raw new browser PNGs local only; text/log/fixture preservation allowed."
+      "status": "recorded",
+      "note": "Native exact409e629 proof: all3 original-URL503 errors retain palace/player; Concubine Escape resumes court09:58, Scholar close seal resumes Library09:53, Prince503->Retry->200->both actors/approach->Escape resumes Library09:55, then camera drag changes view. Season1/gifts20,20,25 visible unchanged. Refreshed1180x812/DPR1/normal-motion only; exact focus origin and full controls unproved. Same-buffer native images local only, hashes retained; text/log/fixture archive libfile_7707b7ba55b08191bdc137fc5b96f611 (72232bytes,SHA25614f5596beeee9181c14eaf1d5d4d76b3e317fd8928c02be5719194ea91434b65) excludes pixels. Cleanup finalnative111/owned windows gone; Site publicV57 unchanged."
     }
   ],
   "unallocatedHeadroomUsd": 5,
@@ -55,6 +55,7 @@
     "Prior repair505c94c9 and H1 2ce02b98 remain unmerged. Exact CSS390x844/1440x900, physical touch, native reduced-motion, video, full controls/focus, integrated-head and hosted delivery gates remain open. Denied PR creation and organization DevTools route remain stopped.",
     "All roles, retries and parent effort count against USD30 Asia/Ulaanbaatar daily ceiling across runs. USD13 reserved including independent Sol reviewer; USD17 unallocated. maxParallel1. No new role launches without ledger admission.",
     "Current USD13 reservation completed/recorded; USD17 remains before any separate integration admission. Read-only H1+camera merge-tree exits0; no integrated branch or release yet. Historical Oct21 and older ledgers unchanged.",
-    "Separate USD12 isolated integration reservation admitted after fd52b99 records all current USD13. Total USD25 allocated (13 recorded/12 reserved), USD5 unallocated. maxParallel1; no duplicate worker, runtime main merge, public PR or publication. Gate incompleteness remains explicit."
+    "Separate USD12 isolated integration reservation admitted after fd52b99 records all current USD13. Total USD25 allocated (13 recorded/12 reserved), USD5 unallocated. maxParallel1; no duplicate worker, runtime main merge, public PR or publication. Gate incompleteness remains explicit.",
+    "Oct22 closure: USD25 recorded / USD0 reserved / USD5 unallocated. Do not consume remaining5 without a new bounded admission. Exact integrated candidate409e629 remains isolated and release-blocked: exact CSS390x844/1440x900, physical touch, video, comprehensive controls/focus/repeated/interrupted and save/reload matrices, nonempty poses/non-entry rooms, integrated reduced-motion and hosted delivery remain open. All historic ledger bytes retained; no denied route retry, runtime main integration, PR or Site publication."
   ]
 }
