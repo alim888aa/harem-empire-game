@@ -29,31 +29,32 @@
     {
       "id": "integrated-native-geometry-2026-10-23",
       "role": "bounded native display/window feasibility and exact CSS proof",
-      "estimateUsd": 6,
-      "status": "reserved",
-      "note": "Inspect supported cloud Display settings and ordinary window geometry only. Record/restore original1364x1024. Verify actual game viewport, not launcher alone. No DevTools/emulation/touch claim."
+      "estimateUsd": 4,
+      "status": "recorded",
+      "note": "Stopped early after native Display and ordinary window attempts did not establish required CSS sizes. Restored visible1364x1024/scale1.00. Refreshed launcher1180x812 only, no actual-game width proof. Released2 of original6 reservation; estimate not billing."
     },
     {
       "id": "integrated-native-geometry-review-2026-10-23",
       "role": "sequential independent Sol geometry evidence review",
       "estimateUsd": 3,
-      "status": "reserved",
-      "note": "Verify exact CSS/game screenshot claims or explicit unsupported outcome; no release waiver."
+      "status": "recorded",
+      "note": "Independent Sol artifact audit confirmed launcher-only measurement and restored visible settings; qualified operational claims as coordinator observations. No acceptance or release clearance."
     },
     {
       "id": "integrated-native-geometry-preservation-2026-10-23",
       "role": "bounded geometry receipt and ledger preservation",
       "estimateUsd": 1,
-      "status": "reserved",
-      "note": "Retain precise route, measurements, cleanup and open gates; images local only."
+      "status": "recorded",
+      "note": "Report integrated-native-geometry-2026-10-23.md. Text archive libfile_fcf0a30027d88191ab269a4fc18aaa41,4433bytes,SHA2564654d23dea67c717e13f5910f8822e2f1ca07a10ef61e74da694585c094b290f. Four JPEGs remain local only. Cleanup4187 refusal111,fault absent; owned windows closed per coordinator."
     }
   ],
-  "unallocatedHeadroomUsd": 8,
+  "unallocatedHeadroomUsd": 10,
   "notes": [
     "Pre-admission2026-10-23 01:29UTC: mainb6087c645ed7432fbfe0a7c86b13b49eb9906cd3, active Oct22 USD25 recorded/5 unused; no dated Oct23 ledger or branch, no other active native Harem worker. Preserve Oct22 bytes at estimated-usage-2026-10-22.json; never reset earlier-day usage.",
     "Public Site appgprj_6abddaa19b848191b6c0fa773aa8f0b5 remains public V57. Existing pending integrated branch409e629 unchanged. Cloud-only Sol maxParallel1; total USD12 reserved inclusive review/preservation and parent effort; USD18 unallocated.",
     "No new services, credentials, permissions, payments, telemetry, external publication or denied-route bypass. Release still requires exact-width/touch/video/full controls/focus/reload/integrated reduced-motion/hosted-delivery proof; this bounded slice is not release authorization.",
     "First slice closed: USD12 recorded/0reserved/18unallocated. Product409e629 remains isolated; no release. Oct22+older ledgers unchanged.",
-    "Separate USD10 geometry slice reserved only after firstUSD12 recorded at1bc1e596cdb6251d198dd8deb23388c6479b8e88. Total22allocated (12recorded+10reserved),8unallocated. Cloud display geometry is nonsecurity QA only; preserve original settings and no denied-route bypass."
+    "Separate USD10 geometry slice reserved only after firstUSD12 recorded at1bc1e596cdb6251d198dd8deb23388c6479b8e88. Total22allocated (12recorded+10reserved),8unallocated. Cloud display geometry is nonsecurity QA only; preserve original settings and no denied-route bypass.",
+    "Geometry slice closed early at USD8 recorded (coordinator4,review3,preservation1), releasing2 of10reservation. Day total20recorded/0reserved/10unallocated. No further geometry retry under unchanged capabilities. Candidate409e629 isolated, publicV57 unchanged; required acceptance remains blocking."
   ]
 }
