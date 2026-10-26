@@ -107,6 +107,30 @@ test('a moving landing blends immediately to run instead of holding the planted 
   models.dispose();
 });
 
+test('small measured-speed changes at the walk/run seam do not restart the gait every frame',async()=>{
+  const {world,models}=await fixture();
+  world.player.moveSpeed=2.45;
+  models.update(.1,false);
+  assert.equal(models.animationState()?.clip,'Walk');
+  for(const speed of [2.55,2.45,2.55,2.45]){
+    world.player.moveSpeed=speed;
+    models.update(.1,false);
+    assert.equal(models.animationState()?.clip,'Walk');
+  }
+  world.player.moveSpeed=3.8;
+  models.update(.1,false);
+  assert.equal(models.animationState()?.clip,'Run');
+  for(const speed of [2.45,2.55,2.45,2.55]){
+    world.player.moveSpeed=speed;
+    models.update(.1,false);
+    assert.equal(models.animationState()?.clip,'Run');
+  }
+  world.player.moveSpeed=1.35;
+  models.update(.1,false);
+  assert.equal(models.animationState()?.clip,'Walk');
+  models.dispose();
+});
+
 test('unregistered rank outfits preserve base art, spatial parent and NPC identities without extra leases',async()=>{
   const {world,models,pool,urls}=await fixture();
   const playerRoot=world.player.group.children[0],fengRoot=world.npcs[0].group.children[0],before=[...world.player.group.position.toArray()];
