@@ -18,13 +18,35 @@
       "estimateUsd": 2,
       "status": "recorded",
       "note": "Oct26 archived unchanged; Oct27 feasibility report and exact pending state preserved on main. No runtime or Site change."
+    },
+    {
+      "id": "gait-regression-safety-2026-10-27",
+      "role": "isolated Sol worker: extend #41 gait seam public-interface regression across three careers and outfit replacement; exact-head aggregate checks",
+      "estimateUsd": 12,
+      "status": "reserved",
+      "note": "Test-only follow-on to reviewed gait branch 8646b34; no gameplay main merge or release, no browser claim."
+    },
+    {
+      "id": "gait-regression-safety-review-2026-10-27",
+      "role": "sequential independent GPT-6.1 Sol exact-head source/test review",
+      "estimateUsd": 3,
+      "status": "reserved",
+      "note": "Review final isolated head, test behavior and regressions; no release clearance."
+    },
+    {
+      "id": "gait-regression-safety-preservation-2026-10-27",
+      "role": "durable branch, report and ledger preservation",
+      "estimateUsd": 2,
+      "status": "reserved",
+      "note": "Preserve exact checks and pending release gate."
     }
   ],
-  "unallocatedHeadroomUsd": 20,
+  "unallocatedHeadroomUsd": 3,
   "notes": [
     "October 26 USD18 recorded, zero reserved, USD12 unused archived byte-for-byte at docs/factory/estimated-usage-2026-10-26.json. No Oct27 ledger existed before this admission.",
     "Preflight: main befd5bc341f7de09b0b49caeab9db9aad4e86b1e; no open Harem PRs; reviewed source gait branch 8646b34dee194bd692ccae86314bf8ae1f3e03b8 remains isolated; public existing Site unchanged V57. Resume pending verification rather than duplicate repair.",
     "USD10 reserved including coordinator and preservation; all workers/runs share USD30 Asia/Ulaanbaatar. No new admission without ledger assessment. Cloud only, no new account/credential/security grants, purchases, telemetry or publication elsewhere. Denied PR/DevTools routes stay closed without materially new relevant evidence.",
-    "Slice closed USD10 recorded/zero reserved/USD20 unallocated. No gameplay publication; do not repeat denied or unchanged native routes. Separate source-only work requires fresh reservation."
+    "Slice closed USD10 recorded/zero reserved/USD20 unallocated. No gameplay publication; do not repeat denied or unchanged native routes. Separate source-only work requires fresh reservation.",
+    "Separate USD17 test-safety slice admitted after USD10 feasibility closure. Total USD27 allocated, USD3 unallocated; maxParallel1, review sequential."
   ]
 }
