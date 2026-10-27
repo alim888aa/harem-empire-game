@@ -1,0 +1,15 @@
+# Cloud-only browser fixture feasibility — 2026-10-27
+
+## Preflight and scope
+Latest main at admission was `befd5bc341f7de09b0b49caeab9db9aad4e86b1e`; its runtime remains report-only since the reviewed integration candidate `409e62959e4b155f17b6c31ccd766aa2b486e7f7`. No open Harem Empire PR existed. Open P0 issues #40–#42 and fixture issue #35 remain. Reviewed gait continuation branch `fix/movement-gait-stability-2026-10-26` still points to `8646b34dee194bd692ccae86314bf8ae1f3e03b8`, tree `b746014c4b4a2995df35692dbd23655415e1c468`. Existing Site `appgprj_6abddaa19b848191b6c0fa773aa8f0b5` remains active, public, V57 at https://harem-empire-3d-development.alimar55555.chatgpt.site .
+
+## Supported-route assessment
+The current runtime is a managed Linux Sites container (`SITES_MANAGED_LINUX_CONTAINER=1`). The Sites skill allows managed preview only through the provided CUA route, not an improvised browser-control path. CUA's available cloud browser identifies itself as CDP. Previous organization DevTools/CDP/headless routes were explicitly denied; rediscovering their availability is not new authorization, so this run did **not** open the game in CDP, start headless Chromium, invoke DevTools, install a browser, or substitute browser emulation. A previous native CUA Chromium launch produced no window or process; nothing new established that the native route would work, so it was not retried. The source checkout could be fetched read-only from GitHub, but this does not furnish an authorized exact-head browser fixture.
+
+Native Sites inventory provides production deployment tools and a live-site screenshot, not a pre-release runnable preview for an isolated reviewed Git tree. Save-only versions do not establish a runnable exact-head fixture. Deploying an unverified candidate to the current public Site to test it would reverse the required pre-publication browser gate. Other publication destinations, tunnels, proxies, credentials, service grants and paid services are outside scope. No saved Harem cloud environment or connected computer was available in the preflight catalog. Issue #35's prerequisite therefore remains open.
+
+## Result and next gate
+No actual-game temporal WebGL baseline/after video, mobile touch, exact CSS viewport or full controls/focus/reload proof was obtained, and none is claimed. This source/route assessment did not change runtime source, the reviewed gait branch, public main gameplay or the Site. Required next step is an existing supported cloud fixture/forwarding capability tied to the reviewed head, without overriding denied controls or publishing an unverified build. Until then, #41 full acceptance and runtime integration/publication remain blocked; source-only independent maintenance may proceed under separate daily admission.
+
+## Estimate
+Oct26 USD18 recorded was archived verbatim as `docs/factory/estimated-usage-2026-10-26.json`. Oct27 reserved USD8 for this bounded coordinator/feasibility assessment and USD2 for preservation before substantive work; conservative estimate USD10 total, not measured billing. All roles and runs share the USD30 Asia/Ulaanbaatar day limit.
