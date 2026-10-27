@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-26",
+  "timezone": "Asia/Ulaanbaatar",
+  "limitUsd": 30,
+  "currency": "USD",
+  "method": "Conservative flat planning estimates, not actual billing or token measurements",
+  "entries": [
+    {
+      "id": "movement-stability-2026-10-26",
+      "role": "bounded cloud coordinator: inspect #41 baseline, isolate concrete movement defect if reproducible, focused repair and exact-head checks/browser sampling",
+      "estimateUsd": 13,
+      "status": "recorded",
+      "note": "Deterministic public-model-interface seam failure on original 409e629 at measured speeds 2.45/2.55; isolated hysteresis repair remote8646b34 tree b746014, original candidate unchanged. Exact tree factory:check passed 25 factory/547 product/131 assets/typecheck/build. Native CUA Chromium launch yielded no window/process; no WebGL/video acceptance or publication."
+    },
+    {
+      "id": "movement-independent-review-2026-10-26",
+      "role": "sequential independent GPT-6.1 Sol source and evidence review on exact proposed head",
+      "estimateUsd": 3,
+      "status": "recorded",
+      "note": "Independent GPT-6.1 Sol exact-tree source review clear for scoped repair, not full #41/release: 11 prince tests, 185-assertion public-interface replay across three careers, typecheck and diff check. Aggregate was coordinator-run, not independently rerun."
+    },
+    {
+      "id": "movement-preservation-2026-10-26",
+      "role": "bounded report, ledger and evidence preservation",
+      "estimateUsd": 2,
+      "status": "recorded",
+      "note": "Report docs/factory/verification/movement-gait-2026-10-26.md records reproduction, remote/local exact-tree identity, review, checks, native browser limitation and unchanged release gates. Server stopped; port 4187 refusal 111. No pixels/video preserved or claimed."
+    }
+  ],
+  "unallocatedHeadroomUsd": 12,
+  "notes": [
+    "Pre-admission 2026-10-26 01:03 UTC: main63b0423171edc397353cada50ee0ebc61c67b833 was accounting/report only; isolated candidate409e62959e4b155f17b6c31ccd766aa2b486e7f7, tree487f7ad0dc804321ff4365945b0d745567d4c4b8, clean in existing cloud workspace. No open PRs. Public Site appgprj_6abddaa19b848191b6c0fa773aa8f0b5 remains public V57.",
+    "October 25 USD14 recorded/zero reserved/16 unallocated preserved verbatim as docs/factory/estimated-usage-2026-10-25.json, blob d285a0feb9327fc7c59e8bfeaae19eefc8e4bc7b; older histories unchanged.",
+    "USD18 reserved before substantive work, including coordinator, independent review, preservation. Max parallel one. Each further role/retry requires bounded admission; stop new admissions at USD30 across all runs/workers per Asia/Ulaanbaatar day.",
+    "Exact actual-game CSS390x844/1440x900, touch, temporal/video, comprehensive movement/look/run/jump/menu controls, full focus/reload/pose matrix and hosted delivery remain blocking. Preserve denied PR/DevTools boundaries and no unchanged geometry retry. No new service/account/credential/security grant, purchase, telemetry or publication elsewhere.",
+    "Slice closed: USD18 recorded, zero reserved, USD12 unallocated. No additional admission in this run. Main changed only for accounting/report; runtime branch remote8646b34 remains isolated; Site public V57 unchanged."
+  ]
+}
