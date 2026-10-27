@@ -27,11 +27,11 @@ function template(player:boolean):GLTF{
   return{scene,animations} as GLTF;
 }
 function fakeWorld(){return{player:{group:new THREE.Group(),moveSpeed:0,airborne:false,jumpVelocity:0},npcs:[{name:'Prince Feng',group:new THREE.Group(),moveSpeed:0,labelHeight:2,activity:'Waiting'}]} as unknown as PalaceWorld;}
-async function fixture(){
+async function fixture(playerType = 'prince'){
   const raw=new Map<string,GLTF>(),urls:string[]=[];
   const pool=new ModelAssetPool(100,async url=>{urls.push(url);return new ArrayBuffer(20);},async(_bytes,url)=>{const asset=template(url.includes('/player-'));raw.set(url,asset);return asset;});
   const world=fakeWorld();world.player.group.position.set(2,3,4);
-  const models=loadCourtCharacterModels(world,'prince',pool);await flush();
+  const models=loadCourtCharacterModels(world,playerType,pool);await flush();
   return{world,models,pool,raw,urls};
 }
 
@@ -130,6 +130,30 @@ test('small measured-speed changes at the walk/run seam do not restart the gait 
   assert.equal(models.animationState()?.clip,'Walk');
   models.dispose();
 });
+
+for (const [career, restartSpeed] of [
+  ['prince', 2.45],
+  ['scholar', 2.6],
+  ['concubine', 2.75],
+] as const) {
+  test(`${career}: a full stop clears run gait history before a noisy walking restart`, async () => {
+    const { world, models } = await fixture(career);
+    world.player.moveSpeed = playerMovementSpeeds(career).run;
+    models.update(.1, false);
+    assert.equal(models.animationState()?.clip, 'Run');
+
+    world.player.moveSpeed = 0;
+    models.update(.1, false);
+    assert.equal(models.animationState()?.clip, 'Idle');
+
+    for (const speed of [restartSpeed, restartSpeed + .1, restartSpeed]) {
+      world.player.moveSpeed = speed;
+      models.update(.1, false);
+      assert.equal(models.animationState()?.clip, 'Walk');
+    }
+    models.dispose();
+  });
+}
 
 test('unregistered rank outfits preserve base art, spatial parent and NPC identities without extra leases',async()=>{
   const {world,models,pool,urls}=await fixture();

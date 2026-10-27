@@ -238,6 +238,7 @@ export function loadCourtCharacterModels(world: PalaceWorld, playerType: string,
       const dt=Number.isFinite(delta)?Math.max(0,delta):0;
       for(const model of models.values()){
         const speed=model.speed(),airborne=model.airborne();
+        if (!paused && !airborne && speed <= .03) model.gaitRunning = false;
         model.walk?.setEffectiveTimeScale(THREE.MathUtils.clamp(speed/model.spec.walkSpeed,.1,1.6));
         if(model.spec.runSpeed)model.run?.setEffectiveTimeScale(THREE.MathUtils.clamp(speed/model.spec.runSpeed,.1,1.6));
         if(airborne&&!model.wasAirborne&&!paused){
