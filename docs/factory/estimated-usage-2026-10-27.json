@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-27",
+  "timezone": "Asia/Ulaanbaatar",
+  "limitUsd": 30,
+  "currency": "USD",
+  "method": "Conservative flat planning estimates, not actual billing or token measurements",
+  "entries": [
+    {
+      "id": "cloud-browser-fixture-feasibility-2026-10-27",
+      "role": "bounded Sol coordinator: supported cloud-only browser/fixture investigation for pending reviewed gait branch and existing live Site, no denied-route bypass",
+      "estimateUsd": 8,
+      "status": "recorded",
+      "note": "Supported-route assessment complete; current managed cloud browser is CDP, prior organization DevTools/CDP/headless denial remains; no equivalent approved WebGL path or immutable pre-release fixture established. No browser launch or temporal proof. See docs/factory/verification/cloud-browser-feasibility-2026-10-27.md."
+    },
+    {
+      "id": "cloud-browser-fixture-preservation-2026-10-27",
+      "role": "report and estimate-ledger preservation",
+      "estimateUsd": 2,
+      "status": "recorded",
+      "note": "Oct26 archived unchanged; Oct27 feasibility report and exact pending state preserved on main. No runtime or Site change."
+    },
+    {
+      "id": "gait-regression-safety-2026-10-27",
+      "role": "isolated Sol worker: reproduce and repair grounded stop-to-walk gait history defect across three careers, exact-head aggregate checks",
+      "estimateUsd": 12,
+      "status": "recorded",
+      "note": "Initial public animationState() Prince test red on original reviewed branch: Run after full stop rather than Walk. One-line grounded-rest reset and permanent Prince/Scholar/Concubine matrix green on exact tree 3c4495a; coordinator factory:check 25 factory/550 product/131 assets/typecheck/build passed. Remote branch fix/gait-stop-reset-2026-10-27 head a0d5229, tree identical local f0f0ea0."
+    },
+    {
+      "id": "gait-regression-safety-review-2026-10-27",
+      "role": "sequential independent GPT-6.1 Sol exact-head source/test review",
+      "estimateUsd": 3,
+      "status": "recorded",
+      "note": "Independent GPT-6.1 Sol exact-tree review clear, no findings; reviewer ran player model 14/14, jump physics 3/3 and diff check. Did not rerun aggregate or browser."
+    },
+    {
+      "id": "gait-regression-safety-preservation-2026-10-27",
+      "role": "durable branch, report and ledger preservation",
+      "estimateUsd": 2,
+      "status": "recorded",
+      "note": "Exact branch/tree and limitations preserved at docs/factory/verification/gait-stop-reset-2026-10-27.md. No runtime main merge, PR retry or Site publication. WebGL/touch/video/full control and integrated-head gates still open."
+    }
+  ],
+  "unallocatedHeadroomUsd": 3,
+  "notes": [
+    "October 26 USD18 recorded, zero reserved, USD12 unused archived byte-for-byte at docs/factory/estimated-usage-2026-10-26.json. No Oct27 ledger existed before this admission.",
+    "Preflight: main befd5bc341f7de09b0b49caeab9db9aad4e86b1e; no open Harem PRs; reviewed source gait branch 8646b34dee194bd692ccae86314bf8ae1f3e03b8 remains isolated; public existing Site unchanged V57. Resume pending verification rather than duplicate repair.",
+    "USD10 reserved including coordinator and preservation; all workers/runs share USD30 Asia/Ulaanbaatar. No new admission without ledger assessment. Cloud only, no new account/credential/security grants, purchases, telemetry or publication elsewhere. Denied PR/DevTools routes stay closed without materially new relevant evidence.",
+    "Slice closed USD10 recorded/zero reserved/USD20 unallocated. No gameplay publication; do not repeat denied or unchanged native routes. Separate source-only work requires fresh reservation.",
+    "Separate USD17 test-safety slice admitted after USD10 feasibility closure. Total USD27 allocated, USD3 unallocated; maxParallel1, review sequential.",
+    "Oct27 slice closed USD27 recorded/zero reserved/USD3 unallocated. No further admission merely to spend headroom. Current main game source and public V57 unchanged; reviewed follow-on branch a0d5229 isolated, no release clearance."
+  ]
+}
