@@ -18,7 +18,7 @@ import { careerZoneAccess, type PalaceZone } from '../lib/career';
 import { createPalaceVisitState, zoneRoster, zoneSpawn, zoneGates, ZONES, PLAYABLE_ZONES, type PalaceVisitState, type PlayableZone } from './zones';
 import {requestJump,stepJump,type JumpState} from './jumpPhysics';
 import PalaceTouchControls, { useTouchControls } from './PalaceTouchControls';
-import { CameraGesture, combineMovement, STOPPED_TOUCH, type TouchVector } from './touchGestures';
+import { CameraGesture, combineMovement, isPalaceControlTarget, STOPPED_TOUCH, type TouchVector } from './touchGestures';
 
 const EMPEROR_SCALE=1.1;
 const EMPEROR_CLEARANCE=.60*EMPEROR_SCALE;
@@ -249,7 +249,7 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
     };
     const keydown=(e:KeyboardEvent)=>{
       if(live.current.paused||document.querySelector('dialog[open]')||e.ctrlKey||e.metaKey||e.altKey)return;
-      if((e.target as HTMLElement)?.closest('input,select,textarea'))return;
+      if(isPalaceControlTarget(e.target))return;
       const key=e.key.toLowerCase();
       if(scriptedUntil){resetInput();scriptedUntil=0;}
       if(['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright','shift','e',' '].includes(key))e.preventDefault();
