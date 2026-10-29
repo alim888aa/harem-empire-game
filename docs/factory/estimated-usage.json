@@ -1,37 +1,37 @@
 {
-  "date": "2026-10-28",
+  "date": "2026-10-29",
   "timezone": "Asia/Ulaanbaatar",
   "limitUsd": 30,
   "currency": "USD",
   "method": "Conservative flat planning estimates, not actual billing or token measurements",
   "entries": [
     {
-      "id": "movement-regression-continuation-2026-10-28",
-      "role": "bounded cloud GPT-6.1 Sol coordinator/worker: inspect existing #41 gait continuation, implement one reproducible source-level movement/animation reliability improvement with exact-tree aggregate checks; no browser-route bypass or release",
+      "id": "pending-palace-verification-investigation-2026-10-29",
+      "role": "bounded cloud GPT-6.1 Sol coordinator: investigate supported exact-head cloud browser route and inspect pending P0 candidate for a concrete nonduplicative issue; run proportionate tests only if a specific question emerges",
       "estimateUsd": 18,
-      "status": "recorded",
-      "note": "Source-level focused-control Space/E bug reproduced in exact-handler JSDOM on predecessor a0d5229; isolated branch fix/palace-keyboard-focus-2026-10-28 remote head 98ce812, tree 0286605. Coordinator exact-tree factory:check passed 25 factory, 551 product, 131 assets, typecheck and build; no browser proof."
+      "status": "reserved",
+      "note": "Do not retry denied DevTools/CDP/headless or PR routes absent materially new relevant evidence. No release without required browser proof."
     },
     {
-      "id": "movement-regression-review-2026-10-28",
-      "role": "sequential independent GPT-6.1 Sol exact-tree review of the bounded source slice",
-      "estimateUsd": 4,
-      "status": "recorded",
-      "note": "Independent GPT-6.1 Sol exact-tree review clear, no findings; focused public tests 12/12, JSDOM boundary matrix, typecheck and diff check passed. Reviewer did not rerun aggregate or browser."
+      "id": "pending-palace-independent-review-2026-10-29",
+      "role": "independent GPT-6.1 Sol exact-head source/evidence review if a bounded source or verification result is produced",
+      "estimateUsd": 5,
+      "status": "reserved",
+      "note": "Sequential independent review of actual work and limitations; unused reservation is released, not spent."
     },
     {
-      "id": "movement-regression-preservation-2026-10-28",
-      "role": "durable branch/report/estimate ledger preservation",
-      "estimateUsd": 2,
-      "status": "recorded",
-      "note": "Remote branch/tree read back and evidence preserved at docs/factory/verification/palace-keyboard-focus-2026-10-28.md. No PR retry, runtime main integration or Site publication."
+      "id": "pending-palace-preservation-2026-10-29",
+      "role": "ledger reconciliation and durable pending-state evidence, including coordinator overhead",
+      "estimateUsd": 3,
+      "status": "reserved",
+      "note": "Preserve exact branch/tree and denied/pending/uncertain verification; no publication claim without native success."
     }
   ],
-  "unallocatedHeadroomUsd": 6,
+  "unallocatedHeadroomUsd": 4,
   "notes": [
-    "October 27 USD27 recorded, zero reserved, USD3 unused was archived byte-for-byte at docs/factory/estimated-usage-2026-10-27.json before this admission.",
-    "Preflight: main e102ffe9cbe5569b116253581f71d7ed322372d4 was docs/ledger-only; no open PRs; isolated reviewed #41 continuation a0d52299575d926e76af9690832bd2e4de19ee02 tree 3c4495a48cb4270d451138324ccb4c304145f8f4. Existing public Site active/public V57, unchanged.",
-    "USD24 reserved inclusive of coordinator, independent reviewer and preservation. All roles/runs share USD30 Asia/Ulaanbaatar. No new admission without ledger assessment; no work merely to exhaust headroom. Cloud only, no purchases, paid services, new account/credentials/security grants, telemetry, or publication elsewhere. Previous DevTools/CDP/headless and PR denials remain closed absent materially new evidence.",
-    "Oct28 slice closed USD24 recorded, zero reserved, USD6 unallocated. Main gameplay and public V57 unchanged; #41 full acceptance and integrated-head release gates remain pending. No admission merely to spend headroom."
+    "October 28 ledger archived byte-for-byte before admission. It recorded USD24, USD0 reserved, and USD6 unused; do not carry that USD6 into today.",
+    "Pre-admission: remote main 3cf1c6e0183b687c922924ae83f1db5897dd8017, pending fix/palace-keyboard-focus-2026-10-28 98ce8127f757e5262298f133eb409df763332af6, original integrated candidate 409e62959e4b155f17b6c31ccd766aa2b486e7f7. No open PRs. Public Harem Site active/public V57 unchanged.",
+    "Fresh cloud-environment catalog has no saved Harem environment; unrelated configs not substituted. Prior DevTools/CDP/headless/PR denials and native no-window result remain binding absent materially new evidence. No immutable Sites preview is known.",
+    "All estimates inclusive of parent/coordinator, independent reviewer, and preservation across workers. No admission beyond USD30 Asia/Ulaanbaatar. Cloud only; no paid services, accounts, credentials, security grants, telemetry, unrelated project or alternate publication."
   ]
 }
