@@ -39,6 +39,8 @@ These are the domain words of Harem Empire. Use them in code, tests, docs and PR
 - **Season**: one turn of the campaign. In 3D it runs on a timer (5–20 minutes, paused while menus are open). 2D mode is untimed.
 - **Zone** (palace area): `library`, `emperor`, `empress`, `ladies`, `dowager` and `common`. A player's rank decides which zones they may enter.
 - **Presence**: which courtiers are in which zone at the current point in the season.
+- **Ordinary follow camera**: the player's architectural-ray-shortened orbit, also used to bootstrap a restored scene before any conversation shot.
+- **Conversation shot**: a cached two-person camera composition keyed by subject and viewport; the camera retains a safe current or ordinary view when architecture prevents a safe transition.
 
 ## Intrigue
 

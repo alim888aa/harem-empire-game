@@ -672,7 +672,16 @@ select {
 }
 .court-dialog:has(.imperial-encounter)::before, .court-dialog:has(.imperial-encounter)::after { display: none; }
 .palace-shell .court-dialog:has(.imperial-encounter)::backdrop { background: transparent; backdrop-filter: none; }
-.court-dialog:has(.imperial-encounter) .dialog-heading { display: none; }
+.court-dialog:has(.imperial-encounter):not(:has(.emperor-intro)) .dialog-heading { display: none; }
+/* The first visit needs a touch exit while the Emperor is still approaching, without adding a header row. */
+.court-dialog:has(.emperor-intro) .dialog-heading {
+  position: absolute; inset: 0 0 auto; z-index: 1; padding: 0;
+}
+.court-dialog:has(.emperor-intro) .dialog-heading h2 {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+.emperor-intro .intro-eyebrow { padding-inline: 44px; }
 .court-dialog:has(.imperial-encounter) .dialog-content { grid-template-rows: minmax(0, 1fr); }
 .court-dialog:has(.imperial-encounter) .dialog-body { padding: 22px; }
 .imperial-encounter { text-align: center; color: var(--silk-100); }
