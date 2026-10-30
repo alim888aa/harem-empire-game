@@ -1,38 +1,37 @@
 {
-  "date": "2026-10-29",
+  "date": "2026-10-30",
   "timezone": "Asia/Ulaanbaatar",
   "limitUsd": 30,
   "currency": "USD",
   "method": "Conservative flat planning estimates, not actual billing or token measurements",
   "entries": [
     {
-      "id": "pending-palace-verification-investigation-2026-10-29",
-      "role": "bounded cloud GPT-6.1 Sol coordinator: investigate supported exact-head cloud browser route and inspect pending P0 candidate for a concrete nonduplicative issue; run proportionate tests only if a specific question emerges",
-      "estimateUsd": 18,
-      "status": "recorded",
-      "note": "Staged previously reviewed H1/camera, gait and keyboard source on current main in remote branch fix/palace-pending-integrated-2026-10-29 head 5fd4c643, exact tested tree 695de809. Coordinator factory:check passed 25 factory, 551 product, 131 assets, typecheck/build. Cloud catalog, CUA inventory and Sites tools provided no non-denied immutable browser path; no browser proof or release."
+      "id": "pending-palace-oct30-coordinator",
+      "role": "cloud GPT-6.1 Sol bounded investigation of staged integrated head, supported independent verification options and one concrete nonduplicative P0 regression if found",
+      "estimateUsd": 12,
+      "status": "reserved",
+      "note": "Start from remote staged branch 5fd4c643 and preserve public V57. Do not retry denied DevTools, CDP, headless, PR or unchanged native geometry routes."
     },
     {
-      "id": "pending-palace-independent-review-2026-10-29",
-      "role": "independent GPT-6.1 Sol exact-head source/evidence review if a bounded source or verification result is produced",
+      "id": "pending-palace-oct30-independent-review",
+      "role": "independent cloud GPT-6.1 Sol focused source/evidence review only if investigation yields a substantive result",
       "estimateUsd": 5,
-      "status": "recorded",
-      "note": "Independent GPT-6.1 Sol exact-tree source staging review clear: 97 focused tests, source typecheck, diff check and file equivalence. Reviewer did not rerun aggregate or browser; release gates remain blocked."
+      "status": "reserved",
+      "note": "No reviewer substitutes for exact-head WebGL, touch, temporal video or hosted proof."
     },
     {
-      "id": "pending-palace-preservation-2026-10-29",
-      "role": "ledger reconciliation and durable pending-state evidence, including coordinator overhead",
+      "id": "pending-palace-oct30-preservation",
+      "role": "daily ledger reconciliation and durable handoff, inclusive of parent and coordination overhead",
       "estimateUsd": 3,
-      "status": "recorded",
-      "note": "Staged branch read back remotely; report at docs/factory/verification/palace-staged-integration-2026-10-29.md and ledger reconciled. No main runtime merge, PR or Site save/deploy."
+      "status": "reserved",
+      "note": "Update exact pending state and ledger; release unused reservation."
     }
   ],
-  "unallocatedHeadroomUsd": 4,
+  "unallocatedHeadroomUsd": 10,
   "notes": [
-    "October 28 ledger archived byte-for-byte before admission. It recorded USD24, USD0 reserved, and USD6 unused; do not carry that USD6 into today.",
-    "Pre-admission: remote main 3cf1c6e0183b687c922924ae83f1db5897dd8017, pending fix/palace-keyboard-focus-2026-10-28 98ce8127f757e5262298f133eb409df763332af6, original integrated candidate 409e62959e4b155f17b6c31ccd766aa2b486e7f7. No open PRs. Public Harem Site active/public V57 unchanged.",
-    "Fresh cloud-environment catalog has no saved Harem environment; unrelated configs not substituted. Prior DevTools/CDP/headless/PR denials and native no-window result remain binding absent materially new evidence. No immutable Sites preview is known.",
-    "All estimates inclusive of parent/coordinator, independent reviewer, and preservation across workers. No admission beyond USD30 Asia/Ulaanbaatar. Cloud only; no paid services, accounts, credentials, security grants, telemetry, unrelated project or alternate publication.",
-    "October 29 slice closed at USD26 conservative estimate, USD0 reserved and USD4 unallocated. Staged remote branch exact head/tree and full pending gates are recorded in the verification report. Existing public Site remains active/public V57; no user update because nothing playable shipped."
+    "October 29 ledger archived byte-for-byte before October 30 admission. It recorded USD26 estimated use, USD0 reserved and USD4 unallocated; no prior-day allowance is carried forward.",
+    "Pre-admission remote main 456c92962e534c073136791dce9bed680eab7fab and staged fix/palace-pending-integrated-2026-10-29 head 5fd4c6431d1f550587371c2c7004da11d856f15b. No open PRs. Public Site remains active/public V57.",
+    "Fresh cloud environment catalog has no saved Harem environment. Unrelated environments are not substituted. Earlier denied routes remain excluded absent materially new evidence.",
+    "USD20 reserved total for all coordinator, reviewer and parent overhead; USD10 unallocated. No new admission beyond USD30 on October 30 Asia/Ulaanbaatar. Cloud only, no purchases, accounts, new credentials/security grants, telemetry, unrelated projects or alternate publication."
   ]
 }
