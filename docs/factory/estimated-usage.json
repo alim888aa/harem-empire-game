@@ -1,32 +1,37 @@
 {
-  "date": "2026-10-30",
+  "date": "2026-10-31",
   "timezone": "Asia/Ulaanbaatar",
   "limitUsd": 30,
   "currency": "USD",
   "method": "Conservative flat planning estimates, not actual billing or token measurements",
   "entries": [
     {
-      "id": "pending-palace-oct30-coordinator",
-      "role": "cloud GPT-6.1 Sol bounded investigation of staged integrated head, supported independent verification options and one concrete nonduplicative P0 regression if found",
-      "estimateUsd": 5,
-      "status": "recorded",
-      "note": "Fresh remote main, staged branch, open issues/PRs, public V57 deployment, environment catalog and available browser/preview tool names were checked. Bounded source inspection found no concrete nonduplicative P0 defect to fix. No browser/test rerun or runtime edit; prior denied routes and unchanged native no-window path were not retried."
+      "id": "pending-palace-oct31-coordinator",
+      "role": "cloud GPT-6.1 Sol bounded supported-route investigation and nonduplicative P0 source diagnosis; no redundant tests without a concrete question",
+      "estimateUsd": 8,
+      "status": "reserved",
+      "note": "Includes preflight. Resume staged integrated head 5fd4c643; no denied DevTools/CDP/headless/PR route or unchanged native no-window retry."
     },
     {
-      "id": "pending-palace-oct30-preservation",
-      "role": "daily ledger reconciliation and durable handoff, inclusive of parent and coordination overhead",
+      "id": "pending-palace-oct31-independent-review",
+      "role": "independent GPT-6.1 Sol review only if a substantive source or verification result is produced",
+      "estimateUsd": 4,
+      "status": "reserved",
+      "note": "Unused reservation will be released; source review cannot clear visual release gates."
+    },
+    {
+      "id": "pending-palace-oct31-preservation",
+      "role": "ledger reconciliation and durable exact-state handoff, inclusive of parent coordination overhead",
       "estimateUsd": 2,
-      "status": "recorded",
-      "note": "Remote ledger reservation was read back after Git contents API write. Exact pending branch and acceptance gates preserved in this ledger and shared Harem delivery note; unused reviewer and coordinator reservation released."
+      "status": "reserved",
+      "note": "All workers and runs share the USD30 local-day limit."
     }
   ],
-  "unallocatedHeadroomUsd": 23,
+  "unallocatedHeadroomUsd": 16,
   "notes": [
-    "October 29 ledger archived byte-for-byte before October 30 admission. It recorded USD26 estimated use, USD0 reserved and USD4 unallocated; no prior-day allowance is carried forward.",
-    "Pre-admission remote main 456c92962e534c073136791dce9bed680eab7fab and staged fix/palace-pending-integrated-2026-10-29 head 5fd4c6431d1f550587371c2c7004da11d856f15b. No open PRs. Public Site remains active/public V57.",
-    "Fresh cloud environment catalog has no saved Harem environment. Unrelated environments are not substituted. Earlier denied routes remain excluded absent materially new evidence.",
-    "Final October 30 estimate: USD7 recorded, USD0 reserved, USD23 unallocated. Independent review was not started because no substantive new source or proof result emerged. No gameplay main merge, PR, Site save/deploy, or user update.",
-    "Current staged runtime branch fix/palace-pending-integrated-2026-10-29 at 5fd4c6431d1f550587371c2c7004da11d856f15b, tree 695de809cd36a82bf9d420c33251368737232a58, remains isolated. Original candidate 409e62959e4b155f17b6c31ccd766aa2b486e7f7 remains preserved. Public Site V57 deployment appgdep_6ad032c454448191ba166663b39693ee was reconfirmed succeeded and public.",
-    "Pending exact integrated-head WebGL temporal/video at 1440x900 and 390x844, physical touch, native keyboard/mouse controls and focus/activation, repeated/interrupted Speak and Emperor flow, saved-pose/non-entry-room reload, reduced motion and hosted proof. Do not conflate source staging with release clearance."
+    "October 30 ledger archived byte-for-byte before admission, blob 390a0aeb42e7f10a66241ed97cf395e42dac3659. It recorded USD7 and USD23 unused; no allowance carries forward.",
+    "Pre-admission current remote main 4cc9441652710396078b2cb9223ebd9b4df6c252. Staged runtime head 5fd4c6431d1f550587371c2c7004da11d856f15b remains isolated; no open PRs. Public Site remains active/public V57 with succeeded deployment appgdep_6ad032c454448191ba166663b39693ee.",
+    "Cloud only. No purchases, paid services, accounts, new credentials/security grants, telemetry, unrelated environment substitution or alternate publication. Prior denied routes remain excluded absent materially new applicable evidence.",
+    "Pending exact integrated-head temporal WebGL/video at 1440x900 and 390x844, physical touch, native keyboard/mouse controls and focus/activation, repeated/interrupted Speak and Emperor flows, saved-pose/non-entry-room reload, reduced motion and hosted proof. No release without required acceptance."
   ]
 }
