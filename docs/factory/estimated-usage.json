@@ -25,9 +25,16 @@
       "estimateUsd": 2,
       "status": "reserved",
       "note": "All workers and runs share the USD30 local-day limit."
+    },
+    {
+      "id": "pending-palace-oct31-native-renderer",
+      "role": "cloud GPT-6.1 Sol bounded exact-staged-head native WebGL recovery and control samples after materially new running-window evidence",
+      "estimateUsd": 8,
+      "status": "reserved",
+      "note": "Managed Sites preview now loads exact staged selection screen via native ordinary keys. Default native Chromium shows WebGL failure. Inspect only prior supported non-unsafe ANGLE SwiftShader launch; no CDP, DevTools, headless, unsafe flags, geometry workaround or new services."
     }
   ],
-  "unallocatedHeadroomUsd": 16,
+  "unallocatedHeadroomUsd": 8,
   "notes": [
     "October 30 ledger archived byte-for-byte before admission, blob 390a0aeb42e7f10a66241ed97cf395e42dac3659. It recorded USD7 and USD23 unused; no allowance carries forward.",
     "Pre-admission current remote main 4cc9441652710396078b2cb9223ebd9b4df6c252. Staged runtime head 5fd4c6431d1f550587371c2c7004da11d856f15b remains isolated; no open PRs. Public Site remains active/public V57 with succeeded deployment appgdep_6ad032c454448191ba166663b39693ee.",
