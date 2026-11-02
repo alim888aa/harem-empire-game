@@ -44,7 +44,7 @@ c359d7406f219967ce8f72c376ba94a7e92f1b938836de439ce11d3ddafa71a1  .scratch/harem
 033c8b5407ad17798df6f571df2b1ca5e912c5c643e1ea1c255987bc374b2cde  .scratch/harem-nov2/independent-prince-surveys.png
 ```
 
-No supported save export exists in current Save & game controls. A click while the intro modal was open left the visit unchanged; no bytes were exported. The isolated QA profile `/tmp/harem-nov02-native` is retained with its ordinary autosaved failure state for supported native replay, but no future replay or precise stored-pose guarantee is claimed. No default-profile save was changed.
+No supported save export exists in current Save & game controls. A click while the intro modal was open left the visit unchanged; no bytes were exported. The native launch requested isolated QA profile `/tmp/harem-nov02-native`, and actual reload reproduced the failure while the browser ran. After close, that directory was not accessible from shell or CUA-file contexts. Profile retention and future replay availability are therefore unverified; this is not a durable saved-pose snapshot. No browser-storage internals were read. No default-profile save was changed.
 
 ## Remaining gates and cleanup
 
