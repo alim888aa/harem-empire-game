@@ -1,39 +1,37 @@
 {
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "timezone": "Asia/Ulaanbaatar",
   "limitUsd": 30,
   "currency": "USD",
   "method": "Conservative flat planning estimates, not actual billing or token measurements",
   "entries": [
     {
-      "id": "pending-palace-nov01-native-controls",
-      "role": "cloud GPT-6.1 Sol bounded native exact-staged-head control and interrupted interaction verification",
+      "id": "pending-palace-nov02-native-speak",
+      "role": "cloud GPT-6.1 Sol bounded native exact-staged-head repeated Speak and Emperor camera verification",
       "estimateUsd": 14,
-      "status": "recorded",
-      "note": "Fresh isolated actual Scholar native/local-asset fixture after 131 hashes. Qualified first-visit Escape, Court focus/activation and movement/reload-command samples; no source mutation or denied route. No full controls, video, touch, exact CSS or hosted pass."
+      "status": "reserved",
+      "note": "Resume unfinished acceptance on unchanged staged runtime. Native local-asset fixture only; no redundant source-only fix or repeat aggregate tests without a new source question."
     },
     {
-      "id": "pending-palace-nov01-independent-review",
-      "role": "independent GPT-6.1 Sol review of substantive native verification evidence and exact source state",
+      "id": "pending-palace-nov02-independent-review",
+      "role": "independent GPT-6.1 Sol scoped evidence and exact source review",
       "estimateUsd": 5,
-      "status": "recorded",
-      "note": "Sequential independent Sol verified exact clean source, inspected seven native JPEGs and hashes, independently sampled Court Tab/Shift+Tab, Space close/reopen and Escape with restored trigger focus. Accepted only qualified evidence; release remains blocked."
+      "status": "reserved",
+      "note": "Sequential independent review after useful substantive findings; unused reservation will be released if no review is useful."
     },
     {
-      "id": "pending-palace-nov01-preservation",
+      "id": "pending-palace-nov02-preservation",
       "role": "ledger reconciliation, durable handoff and parent coordination overhead",
       "estimateUsd": 3,
-      "status": "recorded",
-      "note": "Includes approximately USD1 parent preflight plus final report/ledger readback and cleanup. All workers recorded, no reservation outstanding; current-day USD8 remains unused. Historical ledgers preserved."
+      "status": "reserved",
+      "note": "Includes approximately USD1 parent preflight. All workers and current run share the same local-day allowance."
     }
   ],
   "unallocatedHeadroomUsd": 8,
   "notes": [
-    "October 31 ledger archived byte-for-byte before admission; it recorded USD22 used, USD0 reserved and USD8 unused. Historical ledgers are preserved, not reset.",
-    "Pre-admission remote main e46d6e133c6d21ecf7fee7ba2de691ff27cadf78; staged branch fix/palace-pending-integrated-2026-10-29 remains unchanged at 5fd4c6431d1f550587371c2c7004da11d856f15b, tree 695de809cd36a82bf9d420c33251368737232a58. No open PRs. Existing Site appgprj_6abddaa19b848191b6c0fa773aa8f0b5 is active/public V57.",
-    "Current cloud catalog has no saved Harem configuration. This already assigned cloud engineering task resumes its existing checkout; no desktop or unrelated cloud configuration is used.",
-    "Bounded outcome: broaden native control/focus and repeated or interrupted Speak/Emperor evidence where supported. Exact CSS viewport, physical touch, temporal video, reduced motion, saved pose and hosted gates stay pending unless directly established. No source-only retests without a new question, no duplicate fix, no publication without complete gates and parent release approval.",
-    "Cloud only. No purchase, paid service, account, new credential/security permission, telemetry, alternate publication or denied-route bypass. Do not admit work merely to spend the remaining estimate.",
-    "November 1 bounded native slice completed at USD22 recorded, USD0 reserved and USD8 unused. Supported preview and owned native browser/terminal stopped; temporary local-asset config removed; exact staged source remains unchanged. No runtime merge, PR, publication or routine user report."
+    "November 1 ledger archived byte-for-byte; it recorded USD22 used, USD0 reserved and USD8 unused. No historical day reset and no allowance carry-forward.",
+    "Pre-admission remote main 56290d624d186413679d4342bd2e421cc11f9134; staged branch fix/palace-pending-integrated-2026-10-29 remains unchanged at 5fd4c6431d1f550587371c2c7004da11d856f15b, tree 695de809cd36a82bf9d420c33251368737232a58. No open PRs. Existing Site appgprj_6abddaa19b848191b6c0fa773aa8f0b5 active/public V57.",
+    "Bounded scope: broaden native repeated/interrupted Speak and Emperor/camera evidence on the supported native managed-preview route. Exact CSS viewports, physical touch, temporal video, comprehensive controls, saved pose, reduced motion and hosted delivery remain pending unless established directly.",
+    "Cloud only. No paid service, purchase, account, new credential/security permission, telemetry, alternative publication or denied-route bypass. Do not admit work merely to spend remaining estimate."
   ]
 }
