@@ -18,6 +18,13 @@ function assertReadable(input: ConversationCameraInput, frame: CameraPose) {
   camera.position.set(frame.position.x, frame.position.y, frame.position.z);
   camera.lookAt(frame.target.x, frame.target.y, frame.target.z);
   camera.updateMatrixWorld(true);
+  for (const blocker of input.blockers) {
+    const expanded = new THREE.Box3(
+      new THREE.Vector3(blocker.x - blocker.w / 2 - .22, blocker.minY - .22, blocker.z - blocker.d / 2 - .22),
+      new THREE.Vector3(blocker.x + blocker.w / 2 + .22, blocker.height + .22, blocker.z + blocker.d / 2 + .22),
+    );
+    assert.equal(expanded.containsPoint(camera.position), false, 'the endpoint retains camera clearance');
+  }
   for (const actor of [input.player, input.subject]) {
     for (const height of [actor.height * .42, actor.height + .12]) {
       for (const dx of [-actor.radius!, actor.radius!]) {
@@ -84,3 +91,43 @@ for (const role of ['prince', 'minister', 'concubine'] as const) {
     }
   });
 }
+
+test('Library lantern blocks easing, not the readable imperial endpoint or return to ordinary follow', t => {
+  const world = createPalaceWorld([], 'prince', false, 'library');
+  t.after(() => world.dispose());
+  const player = { x: -6.08, y: 0, z: 7 };
+  const subject = { x: player.x, y: 0, z: 4.3 };
+  const blockers = [...world.colliders, ...world.viewBlockers];
+  const follow = { player, yaw: 0, pitch: .22, distance: 5.7, ceilingHeight: world.ceilingHeight, blockers };
+  const ordinary = pose(new PalaceCamera(follow).step(follow, null, 0, false));
+  for (const viewport of viewports) {
+    const input: ConversationCameraInput = {
+      player: { position: player, height: 2, radius: .36 },
+      subject: { position: subject, height: 2.53, radius: .66 }, viewport,
+      blockers, bounds: world.bounds, ceilingHeight: world.ceilingHeight,
+      preferredYaw: 1.05, fallback: ordinary,
+    };
+    const planned = frameConversationCamera(input);
+    assert.equal(planned.framed, true);
+    assertReadable(input, planned);
+    const lantern = blockers.find(blocker => blocker.x === -6 && blocker.z === 9)!;
+    const expanded = new THREE.Box3(
+      new THREE.Vector3(lantern.x - lantern.w / 2 - .22, lantern.minY - .22, lantern.z - lantern.d / 2 - .22),
+      new THREE.Vector3(lantern.x + lantern.w / 2 + .22, lantern.height + .22, lantern.z + lantern.d / 2 + .22),
+    );
+    assert.ok(expanded.containsPoint(new THREE.Vector3(ordinary.position.x, ordinary.position.y, ordinary.position.z)),
+      'the valid ordinary camera begins in the lantern transition-clearance buffer');
+    for (const reducedMotion of [false, true]) {
+      const camera = new PalaceCamera(follow);
+      let reads = 0;
+      const shot = { key: `@emperor:${viewport.width}`, input: () => { reads++; return input; } };
+      assert.deepEqual(pose(camera.step(follow, shot, 0, reducedMotion)), pose(planned),
+        'the first frame cuts to the clear endpoint, without an interpolated wall-crossing frame');
+      for (let frame = 0; frame < 60; frame++) {
+        assert.deepEqual(pose(camera.step(follow, shot, 1 / 60, reducedMotion)), pose(planned));
+      }
+      assert.equal(reads, 1, 'the cut is retained without content-driven replanning');
+      assert.deepEqual(pose(camera.step(follow, null, 1 / 60, reducedMotion)), ordinary);
+    }
+  }
+});

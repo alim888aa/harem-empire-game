@@ -81,19 +81,24 @@ function entry(t: TestContext, role: 'concubine' | 'minister' | 'prince') {
   return { world, follow, input };
 }
 
-function assertClearSegment(from: CameraPose['position'], to: CameraPose['position'], blockers: readonly CameraBlocker[]) {
+function assertClearSegmentOrCut(
+  from: CameraPose['position'], to: CameraPose['position'], blockers: readonly CameraBlocker[], cut?: CameraPose['position'],
+) {
   const origin = new THREE.Vector3(from.x, from.y, from.z);
   const destination = new THREE.Vector3(to.x, to.y, to.z);
   const distance = origin.distanceTo(destination);
   if (distance < 1e-10) return;
-  const ray = new THREE.Ray(origin, destination.sub(origin).normalize());
+  const ray = new THREE.Ray(origin, destination.clone().sub(origin).normalize());
   for (const blocker of blockers) {
     const box = new THREE.Box3(
       new THREE.Vector3(blocker.x - blocker.w / 2 - .22, blocker.minY - .22, blocker.z - blocker.d / 2 - .22),
       new THREE.Vector3(blocker.x + blocker.w / 2 + .22, blocker.height + .22, blocker.z + blocker.d / 2 + .22),
     );
     const hit = ray.intersectBox(box, new THREE.Vector3());
-    assert.ok(!hit || origin.distanceTo(hit) > distance + 1e-8, 'camera must not cross architecture');
+    assert.equal(box.containsPoint(destination), false, 'camera endpoint is clear');
+    if (hit && origin.distanceTo(hit) <= distance + 1e-8) {
+      assert.deepEqual(to, cut, 'obstructed travel must cut exactly to the independently framed endpoint');
+    }
   }
 }
 
@@ -110,8 +115,12 @@ for (const role of ['concubine', 'minister', 'prince'] as const) {
           let current = ordinary;
           let activeViewport = viewport;
           let plans = 0;
+          let readable = frameConversationCamera({ ...input, viewport: activeViewport, fallback: ordinary });
           for (let frame = 0; frame < 180; frame++) {
-            if (mode === 'layout-change' && frame === 90) activeViewport = { ...viewport, width: viewport.width + 1 };
+            if (mode === 'layout-change' && frame === 90) {
+              activeViewport = { ...viewport, width: viewport.width + 1 };
+              readable = frameConversationCamera({ ...input, viewport: activeViewport, fallback: ordinary });
+            }
             const shot: ConversationShot = {
               key: `@emperor:${activeViewport.width}:${activeViewport.height}`,
               input: () => { plans++; return { ...input, viewport: activeViewport }; },
@@ -119,7 +128,9 @@ for (const role of ['concubine', 'minister', 'prince'] as const) {
             const next = camera.step(follow, shot, 1 / 60, mode === 'reduced-motion');
             assert.ok(inside(next.position, world.bounds), 'restored intro must never retain the out-of-room bootstrap camera');
             assert.equal(next.playerVisible, true);
-            assertClearSegment(current.position, next.position, input.blockers);
+            assertClearSegmentOrCut(
+              current.position, next.position, input.blockers, readable.framed ? readable.position : undefined,
+            );
             current = pose(next);
           }
           assert.equal(plans, mode === 'layout-change' ? 2 : 1);
@@ -128,13 +139,16 @@ for (const role of ['concubine', 'minister', 'prince'] as const) {
           assert.deepEqual(current, pose(planned), 'safe entry must settle at the real planner’s readable shot');
           if (mode === 'layout-change') {
             const resizedViewport = viewport.width === 390 ? viewports[1] : viewports[2];
+            readable = frameConversationCamera({ ...input, viewport: resizedViewport, fallback: ordinary });
             for (let frame = 0; frame < 60; frame++) {
               const next = camera.step(follow, {
                 key: `@emperor:${resizedViewport.width}:${resizedViewport.height}`,
                 input: () => { plans++; return { ...input, viewport: resizedViewport }; },
               }, 1 / 60, false);
               assert.ok(inside(next.position, world.bounds));
-              assertClearSegment(current.position, next.position, input.blockers);
+              assertClearSegmentOrCut(
+                current.position, next.position, input.blockers, readable.framed ? readable.position : undefined,
+              );
               current = pose(next);
             }
             assert.equal(plans, 3, 'portrait/landscape layout change replans once without crossing architecture');
@@ -169,7 +183,7 @@ test('ordinary follow preserves orbit, damping, ceiling, ray shortening and prox
   assert.equal(close.playerVisible, false);
 });
 
-test('unreadable layout retains safe ordinary entry, while an obstructed cinematic transition still holds its origin', () => {
+test('unreadable layout retains ordinary entry, while obstructed easing cuts to a safe readable shot', () => {
   const follow: FollowCameraInput = {
     player: { x: 0, y: 0, z: 0 }, yaw: 0, pitch: .22, distance: 5.7, ceilingHeight: 6.4, blockers: [],
   };
@@ -184,5 +198,7 @@ test('unreadable layout retains safe ordinary entry, while an obstructed cinemat
   const blocked = { ...input, viewport: viewports[0], blockers: [
     { x: ordinary.position.x, z: ordinary.position.z, w: .1, d: .1, minY: 0, height: 6 },
   ] };
-  assert.deepEqual(pose(camera.step(follow, { key: 'blocked', input: () => blocked }, 1, true)), ordinary);
+  const planned = frameConversationCamera({ ...blocked, fallback: ordinary });
+  assert.equal(planned.framed, true);
+  assert.deepEqual(pose(camera.step(follow, { key: 'blocked', input: () => blocked }, 1, true)), pose(planned));
 });

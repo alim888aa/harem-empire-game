@@ -170,7 +170,7 @@ export function frameConversationCamera(input: ConversationCameraInput): Convers
   return best?.frame ?? fallback();
 }
 
-/** Caches one shot per subject/viewport and eases entry without content-driven recuts. */
+/** Caches one shot per subject/viewport, easing clear entry and cutting past obstructed travel. */
 export class ConversationCameraTransition {
   private key = '';
   private destination: ConversationCameraFrame | null = null;
@@ -184,10 +184,10 @@ export class ConversationCameraTransition {
       const planned = frameConversationCamera(request);
       const from = new THREE.Vector3(current.position.x, current.position.y, current.position.z);
       const to = new THREE.Vector3(planned.position.x, planned.position.y, planned.position.z);
-      // A clear endpoint is insufficient: the camera must not ease through a wall on its way there.
+      // Holding the ordinary pose can hide the Emperor indefinitely; cut to the already-clear framed endpoint.
       const blocked = request.blockers.some(blocker => intersects(from, to, blocker, CAMERA_CLEARANCE));
-      this.destination = blocked ? { ...current, framed: false } : planned;
-      this.origin = current;
+      this.destination = blocked && !planned.framed ? { ...current, framed: false } : planned;
+      this.origin = blocked && planned.framed ? planned : current;
       this.elapsed = 0;
       this.key = key;
     }
