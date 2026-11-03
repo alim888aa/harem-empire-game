@@ -138,7 +138,8 @@ export function frameConversationCamera(input: ConversationCameraInput): Convers
         continue;
       }
       if (input.blockers.some(blocker => intersects(candidate, candidate, blocker, CAMERA_CLEARANCE))) continue;
-      if (bodyPoints.some(body => input.blockers.some(blocker => intersects(candidate, body, blocker, 0.04)))) continue;
+      // Actor bounds already include their radius; padding sightlines rejects valid wall-adjacent bodies.
+      if (bodyPoints.some(body => input.blockers.some(blocker => intersects(candidate, body, blocker, 0)))) continue;
 
       camera.position.copy(candidate);
       camera.lookAt(focus);
