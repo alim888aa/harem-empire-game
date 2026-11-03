@@ -1,39 +1,44 @@
 {
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "timezone": "Asia/Ulaanbaatar",
   "limitUsd": 30,
   "currency": "USD",
   "method": "Conservative flat planning estimates, not actual billing or token measurements",
   "entries": [
     {
-      "id": "pending-palace-nov02-native-speak",
-      "role": "cloud GPT-6.1 Sol bounded native exact-staged-head repeated Speak and Emperor camera verification",
-      "estimateUsd": 14,
-      "status": "recorded",
-      "note": "Actual fresh Prince Library/bookcase first visit reached surveys with no identifiable visible Emperor; native reload passed through loading and repeated the same failure. No source mutation, release clearance or denied-route retry."
+      "id": "pending-palace-nov03-emperor-repair",
+      "role": "cloud GPT-6.1 Sol bounded H2 #42 diagnosis, cohesive source repair and aggregate checks",
+      "estimateUsd": 12,
+      "status": "reserved",
+      "note": "Resume existing integrated staged branch; preserve real Prince Library bookcase failure. Includes coordinator source diagnosis/tests. No release clearance from prior passing samples."
     },
     {
-      "id": "pending-palace-nov02-independent-review",
-      "role": "independent GPT-6.1 Sol scoped evidence and exact source review",
+      "id": "pending-palace-nov03-independent-review",
+      "role": "sequential independent GPT-6.1 Sol exact-head source and regression review",
       "estimateUsd": 5,
-      "status": "recorded",
-      "note": "Sequential independent Sol verified exact clean source, four JPG hashes/pixels and live native finding twice; retained H2 #42 acceptance failure with cause/regression unproved. Added independent screenshot; no release clearance."
+      "status": "reserved",
+      "note": "Admit after bounded source slice; correctness, boundaries, regressions and frontend rules. No PR approval implied."
     },
     {
-      "id": "pending-palace-nov02-preservation",
-      "role": "ledger reconciliation, durable handoff and parent coordination overhead",
+      "id": "pending-palace-nov03-native-hunt",
+      "role": "sequential cloud GPT-6.1 Sol native exact-head H2 recheck",
+      "estimateUsd": 7,
+      "status": "reserved",
+      "note": "Supported managed sites-preview and native Sky headed Chromium only; denied CDP/headless/DevTools routes remain excluded. No hosted claim from local assets."
+    },
+    {
+      "id": "pending-palace-nov03-preservation",
+      "role": "parent preflight, daily ledger, durable handoff and cleanup",
       "estimateUsd": 3,
-      "status": "recorded",
-      "note": "Includes parent preflight, report/ledger/issue preservation and verified cleanup. USD22 recorded, USD0 reserved and USD8 unused; prior days preserved."
+      "status": "reserved",
+      "note": "Includes all parent/root coordination and this pre-admission inspection. Total reserved USD27, headroom USD3. No further admissions merely to use allowance."
     }
   ],
-  "unallocatedHeadroomUsd": 8,
+  "unallocatedHeadroomUsd": 3,
   "notes": [
-    "November 1 ledger archived byte-for-byte; it recorded USD22 used, USD0 reserved and USD8 unused. No historical day reset and no allowance carry-forward.",
-    "Pre-admission remote main 56290d624d186413679d4342bd2e421cc11f9134; staged branch fix/palace-pending-integrated-2026-10-29 remains unchanged at 5fd4c6431d1f550587371c2c7004da11d856f15b, tree 695de809cd36a82bf9d420c33251368737232a58. No open PRs. Existing Site appgprj_6abddaa19b848191b6c0fa773aa8f0b5 active/public V57.",
-    "Bounded scope: broaden native repeated/interrupted Speak and Emperor/camera evidence on the supported native managed-preview route. Exact CSS viewports, physical touch, temporal video, comprehensive controls, saved pose, reduced motion and hosted delivery remain pending unless established directly.",
-    "Cloud only. No paid service, purchase, account, new credential/security permission, telemetry, alternative publication or denied-route bypass. Do not admit work merely to spend remaining estimate.",
-    "Bounded verification exposed new H2 #42 visibility failure at actual Prince Library bookcase pose. Native launch requested isolated QA profile /tmp/harem-nov02-native and reload repeated the failure before close, but the directory was not accessible in shell/CUA-file contexts afterward. Profile retention and future replay availability are unverified; no durable saved-pose snapshot or browser-storage internals were obtained. Independent findings retained, no fix or publication in this slice.",
-    "Owned game and launch terminal closed, browser foreground returned to shell, managed preview stopped with TCP refusal 111, temporary local-asset env removed and exact staged source clean. No new admissions merely to consume USD8."
+    "November 2 ledger archived byte-for-byte; USD22 recorded, USD0 reserved, USD8 unused. No historical reset or allowance carry-forward. November 3 has no existing dated ledger or usage at preflight.",
+    "Pre-admission current main 65550726403c123107cb1ca9fa852ca2e2897eb5; no open PRs, open P0 #41/#42 and existing staged fix/palace-pending-integrated-2026-10-29 at 5fd4c6431d1f550587371c2c7004da11d856f15b tree695de809cd36a82bf9d420c33251368737232a58. Existing Site active/public V57 source abbf403ef771569533b802a88691696db4f0ce94, deployment appgdep_6ad032c454448191ba166663b39693ee.",
+    "Bounded scope: diagnose and repair H2 #42 Emperor readability failure at ordinary Prince Library bookcase pose before first visit, preserving timing/gameplay/RNG/save rules and previous pending gates. Exact-head independent review and relevant native proof required; full release gates remain binding.",
+    "Cloud only; max one substantive worker at a time. No purchases, paid services, account/credential/security grants, telemetry, alternative publication, denied-route bypass or new hooks. Parent overhead included. No publication unless required gates actually pass."
   ]
 }
