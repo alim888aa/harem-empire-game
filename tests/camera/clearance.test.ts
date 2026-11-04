@@ -131,3 +131,43 @@ test('Library lantern blocks easing, not the readable imperial endpoint or retur
     }
   }
 });
+
+for (const role of ['prince', 'minister', 'concubine'] as const) {
+  test(`${role} at the Library shelf end uses a lower clear shot beneath the lantern`, t => {
+    const world = createPalaceWorld([], role, false, 'library');
+    t.after(() => world.dispose());
+    const movement = playerMovementSpeeds(role);
+    const player = { x: -6.88, y: 0, z: 9.18 };
+    const subject = { x: player.x + 2.7, y: 0, z: player.z };
+    const blockers = [...world.colliders, ...world.viewBlockers];
+    assert.ok(world.colliders.every(blocker =>
+      Math.abs(player.x - blocker.x) >= blocker.w / 2 + movement.radius ||
+      Math.abs(player.z - blocker.z) >= blocker.d / 2 + movement.radius), 'ordinary collision permits the endcap pose');
+    const follow = { player, yaw: 0, pitch: .22, distance: 5.7, ceilingHeight: world.ceilingHeight, blockers };
+    const ordinary = pose(new PalaceCamera(follow).step(follow, null, 0, false));
+    for (const viewport of viewports) {
+      const input: ConversationCameraInput = {
+        player: { position: player, height: movement.height, radius: movement.radius },
+        subject: { position: subject, height: 2.53, radius: .66 }, viewport,
+        blockers, bounds: world.bounds, ceilingHeight: world.ceilingHeight,
+        preferredYaw: Math.atan2(player.x - subject.x, player.z - subject.z) + 1.05,
+        fallback: ordinary,
+      };
+      const planned = frameConversationCamera(input);
+      assert.equal(planned.framed, true, `${viewport.width}: the lantern must not force the unreadable ordinary view`);
+      assert.ok(planned.position.y < 2.2, 'the fallback searches below the hanging lantern');
+      assertReadable(input, planned);
+      for (const reducedMotion of [false, true]) {
+        const camera = new PalaceCamera(follow);
+        let settled = camera.step(follow, null, 0, reducedMotion);
+        let reads = 0;
+        const shot = { key: `@emperor:${viewport.width}`, input: () => { reads++; return input; } };
+        for (let frame = 0; frame < 60; frame++) settled = camera.step(follow, shot, 1 / 60, reducedMotion);
+        assert.deepEqual(pose(settled), pose(planned));
+        assert.equal(reads, 1, 'the fallback is retained without per-frame searching');
+        assert.equal(settled.playerVisible, true);
+        assert.deepEqual(pose(camera.step(follow, null, 1 / 60, reducedMotion)), ordinary);
+      }
+    }
+  });
+}
