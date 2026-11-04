@@ -1,50 +1,44 @@
 {
-  "date": "2026-11-03",
+  "date": "2026-11-04",
   "timezone": "Asia/Ulaanbaatar",
   "limitUsd": 30,
   "currency": "USD",
   "method": "Conservative flat planning estimates, not actual billing or token measurements",
   "entries": [
     {
-      "id": "pending-palace-nov03-emperor-repair",
-      "role": "cloud GPT-6.1 Sol bounded H2 #42 diagnosis, cohesive source repair and aggregate checks",
+      "id": "pending-palace-nov04-emperor-diagnosis",
+      "role": "cloud GPT-6.1 Sol bounded H2 diagnosis, cohesive existing-camera repair and aggregate checks",
       "estimateUsd": 12,
-      "status": "recorded",
-      "note": "Completed two cohesive existing-camera corrections and exact-tree aggregate checks; staged only. H2 native acceptance still fails; no runtime merge or publication."
+      "status": "reserved",
+      "note": "Resume staged ec7e63c; distinguish actual actor transform and camera framing; no duplicate implementation."
     },
     {
-      "id": "pending-palace-nov03-independent-review",
-      "role": "sequential independent GPT-6.1 Sol exact-head source and regression review",
+      "id": "pending-palace-nov04-independent-review",
+      "role": "sequential independent cloud GPT-6.1 Sol exact-head source/regression review",
       "estimateUsd": 5,
-      "status": "recorded",
-      "note": "Same sequential independent Sol reviewer completed both exact-head rounds, 47 then 48 camera tests/typecheck/hygiene and baseline comparisons; clear bounded source only, no release clearance."
+      "status": "reserved",
+      "note": "Review bounded delta independently; no release clearance without relevant native proof."
     },
     {
-      "id": "pending-palace-nov03-native-hunt",
-      "role": "sequential cloud GPT-6.1 Sol native exact-head H2 recheck",
-      "estimateUsd": 7,
-      "status": "recorded",
-      "note": "Same native hunter completed two bounded fresh Prince shelf/reload/return rechecks. H2 remains fresh; final reload success was a changed composition. Exact source clean and owned preview/native cleanup verified."
+      "id": "pending-palace-nov04-native-hunt",
+      "role": "sequential cloud GPT-6.1 Sol exact-head native H2 acceptance recheck",
+      "estimateUsd": 8,
+      "status": "reserved",
+      "note": "Supported Sky/managed sites-preview only; prior denied routes remain denied; cleanup owned resources."
     },
     {
-      "id": "pending-palace-nov03-preservation",
-      "role": "parent preflight, daily ledger, durable handoff and cleanup",
+      "id": "pending-palace-nov04-preservation",
+      "role": "root/parent/coordinator preflight, daily ledger, durable handoff and cleanup",
       "estimateUsd": 3,
-      "status": "recorded",
-      "note": "Includes all root/parent/coordinator preflight, ledger reconciliation, durable report/issue preservation and cleanup verification. USD27 recorded, USD0 reserved and USD3 unused."
+      "status": "reserved",
+      "note": "All parent/root overhead included; no public issue-comment retry."
     }
   ],
-  "unallocatedHeadroomUsd": 3,
+  "unallocatedHeadroomUsd": 2,
   "notes": [
-    "November 2 ledger archived byte-for-byte; USD22 recorded, USD0 reserved, USD8 unused. No historical reset or allowance carry-forward. November 3 has no existing dated ledger or usage at preflight.",
-    "Pre-admission current main 65550726403c123107cb1ca9fa852ca2e2897eb5; no open PRs, open P0 #41/#42 and existing staged fix/palace-pending-integrated-2026-10-29 at 5fd4c6431d1f550587371c2c7004da11d856f15b tree695de809cd36a82bf9d420c33251368737232a58. Existing Site active/public V57 source abbf403ef771569533b802a88691696db4f0ce94, deployment appgdep_6ad032c454448191ba166663b39693ee.",
-    "Bounded scope: diagnose and repair H2 #42 Emperor readability failure at ordinary Prince Library bookcase pose before first visit, preserving timing/gameplay/RNG/save rules and previous pending gates. Exact-head independent review and relevant native proof required; full release gates remain binding.",
-    "Cloud only; max one substantive worker at a time. No purchases, paid services, account/credential/security grants, telemetry, alternative publication, denied-route bypass or new hooks. Parent overhead included. No publication unless required gates actually pass.",
-    "Source slice completed on staged ec7e63c253407e54f22f5a35ba081dbe324f557f, tree 0d4d936c4bcf3c7ee5f15492bc9d3d789172f1dc: actor sightline-padding false rejection and indefinitely held blocked entry corrected through existing camera owner. No runtime source on main or publication. Both exact-head source review rounds clear only their bounded deltas.",
-    "Same admitted reviewer and native hunter continued sequentially for a second source/recheck round; no new worker, admission or estimate increase. Exact-tree factory:check passed 25 factory and 555 product tests, typecheck, 131 asset hashes and production build. Initial incomplete cut test-update run failed six continuity assertions; final tests explicitly enforce clear endpoints and exact cuts, not a claimed pre-existing failure.",
-    "Native round 1 on 79abee4e repeated H2 fresh and after command-driven intro re-entry. Round 2 on ec7e63c2 still failed fresh shelf readability (dark fragment at right edge); explicit reload then showed readable Emperor/player in a DIFFERENT carpet composition. Same-pose repetition/persistence on round 2 is unproved. No runtime branch or historical exact-pose causality established.",
-    "All required broader release gates remain pending, including H2, exact CSS viewports, temporal WebGL/video, physical touch, complete controls/Speak/Emperor/camera and saved-pose matrices, browser reduced motion and hosted delivery. Independent source tests and native stills do not substitute.",
-    "Final cleanup verified: owned native windows/terminal absent, default browser preserved, managed preview stopped with TCP4173 refusal111, matching temporary local-asset env removed, exact staged source clean. Existing public V57 deployment freshly reconfirmed succeeded; no Site version save, deployment, PR attempt or runtime main integration.",
-    "Final estimate: USD27 recorded, USD0 reserved, USD3 unused. Includes coordinator, both review/hunt rounds within their original jobs, root/parent preflight and preservation. No new admission merely to spend unused allowance; historical ledgers unchanged."
+    "November 3 ledger archived byte-for-byte; USD27 recorded, USD0 reserved, USD3 unused. No reset or carry-forward. No existing Nov4 usage or dated ledger found at preflight.",
+    "Pre-admission current main e1ac96882376c5d53f6b7835e373a41a42e1b9ef; no open PRs; open P0 #41/#42 and pending fix/palace-pending-integrated-2026-10-29 ec7e63c253407e54f22f5a35ba081dbe324f557f tree0d4d936c4bcf3c7ee5f15492bc9d3d789172f1dc. Existing Site active/public V57 source abbf403ef771569533b802a88691696db4f0ce94.",
+    "Bounded continuation: fresh Prince Library shelf H2 remains blocking. Changed-composition reload on Nov3 did not prove same-pose persistence. Resume diagnosis and repair through existing owners, preserve timing/RNG/save/controls, require exact-head independent review, aggregate checks and relevant native gates before publication.",
+    "Cloud only; max one substantive worker at a time. USD28 total reserved across build12/review5/hunt8/all-parent3, USD2 unused. No purchases, paid services, account/credential/security grants, telemetry, alternate publication, denied-route bypass, new hooks or public issue comments."
   ]
 }
