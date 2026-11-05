@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-04",
+  "timezone": "Asia/Ulaanbaatar",
+  "limitUsd": 30,
+  "currency": "USD",
+  "method": "Conservative flat planning estimates, not actual billing or token measurements",
+  "entries": [
+    {
+      "id": "pending-palace-nov04-emperor-diagnosis",
+      "role": "cloud GPT-6.1 Sol bounded H2 diagnosis, cohesive existing-camera repair and aggregate checks",
+      "estimateUsd": 12,
+      "status": "recorded",
+      "note": "Completed bounded fresh native H2 reproduction, narrow two-pass camera fallback, three real-Library role regressions and aggregate checks. Staged head 0f565c4d33e05ea2d169a19394c1d51ea30e25ea; no runtime integration or publication."
+    },
+    {
+      "id": "pending-palace-nov04-independent-review",
+      "role": "sequential independent cloud GPT-6.1 Sol exact-head source/regression review",
+      "estimateUsd": 5,
+      "status": "recorded",
+      "note": "Completed independent exact-head source review: clear, 51 camera tests/typecheck/hygiene/diff checks independently passed; browser gates remain separate."
+    },
+    {
+      "id": "pending-palace-nov04-native-hunt",
+      "role": "sequential cloud GPT-6.1 Sol exact-head native H2 acceptance recheck",
+      "estimateUsd": 8,
+      "status": "recorded",
+      "note": "Completed independent native hunt: three actual fresh Prince visits readable; nearby (-6.31,9.25) low camera y1.94 and ordinary return/movement worked. Exact baseline (-6.88,9.18) not reached; H2 and wider issue42 release gates remain unproven. Owned resources cleaned."
+    },
+    {
+      "id": "pending-palace-nov04-preservation",
+      "role": "root/parent/coordinator preflight, daily ledger, durable handoff and cleanup",
+      "estimateUsd": 3,
+      "status": "recorded",
+      "note": "Completed all root/parent/coordinator accounting and durable pending-state preservation, including admission and final receipts. No public issue-comment retry or new admission."
+    }
+  ],
+  "unallocatedHeadroomUsd": 2,
+  "notes": [
+    "November 3 ledger archived byte-for-byte; USD27 recorded, USD0 reserved, USD3 unused. No reset or carry-forward. No existing Nov4 usage or dated ledger found at preflight.",
+    "Pre-admission current main e1ac96882376c5d53f6b7835e373a41a42e1b9ef; no open PRs; open P0 #41/#42 and pending fix/palace-pending-integrated-2026-10-29 ec7e63c253407e54f22f5a35ba081dbe324f557f tree0d4d936c4bcf3c7ee5f15492bc9d3d789172f1dc. Existing Site active/public V57 source abbf403ef771569533b802a88691696db4f0ce94.",
+    "Bounded continuation: fresh Prince Library shelf H2 remains blocking. Changed-composition reload on Nov3 did not prove same-pose persistence. Resume diagnosis and repair through existing owners, preserve timing/RNG/save/controls, require exact-head independent review, aggregate checks and relevant native gates before publication.",
+    "Cloud only; max one substantive worker at a time. USD28 total reserved across build12/review5/hunt8/all-parent3, USD2 unused. No purchases, paid services, account/credential/security grants, telemetry, alternate publication, denied-route bypass, new hooks or public issue comments.",
+    "Final Nov4 conservative estimate: USD28 recorded, USD0 reserved, USD2 unallocated. Includes all source, independent review, native hunt and parent/root work. No further job admitted; this is an estimate, not actual billing. Exact-head native baseline and broader controls/replay/viewport/touch/video/hosted gates still block publication; public V57 unchanged."
+  ]
+}
