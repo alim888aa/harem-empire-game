@@ -1,7 +1,31 @@
+// Owns player clearance and the static walk grid used by courtiers.
 import type { Collider } from './world';
 import type { ZoneBounds } from './zones';
 
 export type Waypoint = { x: number; z: number };
+
+/** Uses the same body clearance for saved standing poses and ordinary movement.
+ * Movement still lets a player escape an existing overlap with a moving courtier. */
+export function createPlayerNavigation(
+  colliders: readonly Collider[], bounds: ZoneBounds, radius: number, npcs: readonly Waypoint[],
+) {
+  const courtierClearance = .76;
+  const valid = ({ x, z }: Waypoint) =>
+    x > bounds.minX + .45 && x < bounds.maxX - .45 && z > bounds.minZ + .45 && z < bounds.maxZ - .45 &&
+    !colliders.some(c => Math.abs(x - c.x) < c.w / 2 + radius && Math.abs(z - c.z) < c.d / 2 + radius);
+  return {
+    canStand(point: Waypoint): boolean {
+      return valid(point) && !npcs.some(n => Math.hypot(point.x - n.x, point.z - n.z) < courtierClearance);
+    },
+    canMove(from: Waypoint, to: Waypoint): boolean {
+      return valid(to) && !npcs.some(n => {
+        const next = Math.hypot(to.x - n.x, to.z - n.z);
+        const current = Math.hypot(from.x - n.x, from.z - n.z);
+        return next < courtierClearance && next <= current;
+      });
+    },
+  };
+}
 
 /** Small static walk grid for courtiers. Dynamic bodies are still checked every movement step. */
 export function createPalaceNavigator(colliders: readonly Collider[], bounds:ZoneBounds={minX:-23.2,maxX:23.2,minZ:-26.2,maxZ:23.2}) {

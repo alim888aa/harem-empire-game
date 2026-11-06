@@ -5,6 +5,7 @@ import {placeSpeech} from './speechPlacement';
 import {isTouchViewportPlaytest} from '../persistence/playtestMode';
 import {emperorEntrancePlan,type EmperorAppearanceStatus} from './emperorEntrance';
 import {clearInteractionPath} from './interactionPath';
+import { createPlayerNavigation } from './navigation';
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { SVGRenderer } from 'three/addons/renderers/SVGRenderer.js';
@@ -155,8 +156,8 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
     const prefetchedPortals=new Set<string>();
     let scriptedUntil=0,renderedFrames=0,frameTime=0,frameCount=0,fps=0;
     const position=world.player.group.position;
-    const restored=stored.x>world.bounds.minX+.5&&stored.x<world.bounds.maxX-.5&&stored.z>world.bounds.minZ+.5&&stored.z<world.bounds.maxZ-.5&&
-      !world.colliders.some(c=>Math.abs(stored.x-c.x)<c.w/2+.4&&Math.abs(stored.z-c.z)<c.d/2+.4)&&!world.npcs.some(n=>Math.hypot(stored.x-n.x,stored.z-n.z)<.8)?stored:world.spawn;
+    const navigation = createPlayerNavigation(world.colliders, world.bounds, movementSpeeds.radius, world.npcs);
+    const restored = navigation.canStand(stored) ? stored : world.spawn;
     position.set(restored.x,restored===stored&&stored.airborne?stored.y??world.groundHeight(restored.x,restored.z):world.groundHeight(restored.x,restored.z),restored.z);
     const target=new THREE.Vector3(),projected=new THREE.Vector3();
     const jumpState:JumpState={y:position.y,velocity:restored===stored?stored.velocity??0:0,airborne:restored===stored?stored.airborne??false:false};
@@ -289,11 +290,6 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
     window.addEventListener('resize',resetInput);document.addEventListener('visibilitychange',hidden);
     canvas.addEventListener('pointerdown',pointerdown);canvas.addEventListener('pointermove',pointermove);canvas.addEventListener('pointerup',pointerup);canvas.addEventListener('pointercancel',pointerup);canvas.addEventListener('lostpointercapture',pointerup);canvas.addEventListener('wheel',wheel,{passive:false});
     const contextLost=(e:Event)=>{e.preventDefault();rendererFailed=true;setError(true);onRenderReady(false);resetInput();if(live.current.emperorEncounter)live.current.onUnavailable();};canvas.addEventListener('webglcontextlost',contextLost);
-    const valid=(x:number,z:number)=>x>world.bounds.minX+.45&&x<world.bounds.maxX-.45&&z>world.bounds.minZ+.45&&z<world.bounds.maxZ-.45&&!world.colliders.some(c=>Math.abs(x-c.x)<c.w/2+movementSpeeds.radius&&Math.abs(z-c.z)<c.d/2+movementSpeeds.radius);
-    const canMove=(x:number,z:number)=>valid(x,z)&&!world.npcs.some(n=>{
-      const next=Math.hypot(x-n.x,z-n.z),current=Math.hypot(position.x-n.x,position.z-n.z);
-      return next<.76&&next<=current;
-    });
     const clearLine=(from:THREE.Vector3,to:THREE.Vector3)=>clearInteractionPath(from,to,world.colliders,world.bounds,movementSpeeds.radius);
     const clearImperialPath=(from:THREE.Vector3,to:THREE.Vector3)=>{
       const steps=Math.max(1,Math.ceil(from.distanceTo(to)/.2));
@@ -340,8 +336,8 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
         if(moving){const speed=((keys.has('shift')||touchRun.current)?movementSpeeds.run:movementSpeeds.walk)*dt;const dx=(right*Math.cos(yaw)-forward*Math.sin(yaw))*speed,dz=(-forward*Math.cos(yaw)-right*Math.sin(yaw))*speed;
           // Fixed-size collision steps preserve wall blocking even in a slow software frame.
           const steps=Math.max(1,Math.ceil(dt/.025));for(let step=0;step<steps;step++){
-            if(canMove(position.x+dx/steps,position.z))position.x+=dx/steps;
-            if(canMove(position.x,position.z+dz/steps))position.z+=dz/steps;
+            if (navigation.canMove(position, { x: position.x + dx / steps, z: position.z })) position.x += dx / steps;
+            if (navigation.canMove(position, { x: position.x, z: position.z + dz / steps })) position.z += dz / steps;
           }
           const wanted=Math.atan2(dx,dz),difference=THREE.MathUtils.euclideanModulo(wanted-world.player.group.rotation.y+Math.PI,Math.PI*2)-Math.PI;world.player.group.rotation.y+=difference*(1-Math.exp(-dt*12));
         }
