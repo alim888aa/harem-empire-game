@@ -9,36 +9,36 @@
       "id": "pending-palace-nov06-pose-diagnosis",
       "role": "cloud GPT-6.1 Sol bounded legal saved-pose diagnosis and concrete repair with public-interface regressions",
       "estimateUsd": 10,
-      "status": "reserved",
-      "note": "Investigate repeated changed-pose reload observation without assuming its cause. Repair only a demonstrable existing defect; no new schema, hooks, timing or gameplay rule."
+      "status": "recorded",
+      "note": "Completed concrete public PalaceScene/save-roundtrip diagnosis and shared clearance repair, with all five scene regressions failing on original source. Staged remote head 98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b tree c0c13d3e72e5eaa9c45f9533d65279b2c73ad15b; 100 focused and full 25 factory/567 product/typecheck/131 assets/build passed. Historical native reset cause remains unattributed."
     },
     {
       "id": "pending-palace-nov06-independent-review",
       "role": "sequential independent cloud GPT-6.1 Sol exact-head source and evidence review",
       "estimateUsd": 5,
-      "status": "reserved",
-      "note": "Review concrete delta or diagnosis, run independent interface checks, retain separate native release gate."
+      "status": "recorded",
+      "note": "Completed independent exact-head clear source review,118 focused/full25 factory/567 product/typecheck/131 assets/build and all five expected original-source failures. Final native evidence addendum clear after actual pixels,13 still hashes/18 evidence entries, actual shelf geometry and ledger review; wider gates remain open."
     },
     {
       "id": "pending-palace-nov06-native-replay",
       "role": "sequential independent cloud GPT-6.1 Sol relevant native endcap exit/reload verification",
       "estimateUsd": 8,
-      "status": "reserved",
-      "note": "Supported native Sky/managed preview only. Preserve exact Return before reload where supported; no denied-route retry or state injection."
+      "status": "recorded",
+      "note": "Completed independent native narrow pass at affected legal Prince Library shelf-side pose(-6.09,0,15): natural readable Emperor approaches/surveys, same-pose Return, visible autosave status, actual Ctrl+R same rounded position/camera and ordinary movement after reload. Exact clean98af5b1/c0c13d3 retained, owned resources cleaned. Historical H2 attribution/repetitions/wider gates remain pending."
     },
     {
       "id": "pending-palace-nov06-coordination",
       "role": "all root/parent/cloud Sol preflight, scope, admission and coordination",
       "estimateUsd": 4,
-      "status": "reserved",
-      "note": "Includes every coordinator/root action. One substantive worker at a time; no additional admissions at cap."
+      "status": "recorded",
+      "note": "Completed all root/parent/coordinator preflight, admission, bounded source/review/native coordination, exact staged preservation and honest release-gate assessment. No extra job or admission at cap."
     },
     {
       "id": "pending-palace-nov06-preservation",
       "role": "daily ledger, durable diagnosis/review/native evidence and cleanup preservation",
       "estimateUsd": 3,
-      "status": "reserved",
-      "note": "Preserve exact pending/release state and archive integrity; no release without required proof."
+      "status": "recorded",
+      "note": "Completed durable source/trace/review/native/addendum records, archive and JSON arithmetic/diff checks, cleanup verification and final pending-state preservation. No runtime main integration, production publication, public comment or PR."
     }
   ],
   "unallocatedHeadroomUsd": 0,
@@ -47,6 +47,7 @@
     "Pre-admission authenticated main 3e2a5327e7695276d64723c096ddf2c45c84347d; no open PRs; open P0 #41/#42 and unfinished pending0f565c4d33e05ea2d169a19394c1d51ea30e25ea tree1515248272c43b3735f007a236876c5d41cd6f0f. Existing Site active/public V57 source abbf403ef771569533b802a88691696db4f0ce94 unchanged.",
     "Bounded continuation: recent native exact rounded pose was readable but reload moved to spawn. Diagnose actual public-interface persistence/restoration path before attributing cause; make a narrow repair only for demonstrated existing behavior, with exact-head review, aggregate checks and relevant native proof. Preserve H2 and wider release gates.",
     "Cloud only; USD 30 total admitted across source10/review5/native8/all coordinator4/preservation3. Stop all new admissions at cap, including P0. No purchases, paid services, accounts, credentials/security grants, telemetry, quota service, new hooks, public issue comments, denied-route retries or alternate publication.",
-    "No saved Harem coding environment or connected computer is available; unrelated configurations are not substituted. Current clean cloud checkouts match authenticated source trees. Prior Git transport staleness remains documented; expected-head connector leases own writes."
+    "No saved Harem coding environment or connected computer is available; unrelated configurations are not substituted. Current clean cloud checkouts match authenticated source trees. Prior Git transport staleness remains documented; expected-head connector leases own writes.",
+    "Final November6 conservative estimate: USD 30 recorded, zero reserved, zero unallocated. No new admissions at cap. Concrete legal-pose restoration repair remains staged at98af5b1/c0c13d3 with clear independent source/evidence review and one relevant native same-rounded-pose reload/Return/movement pass. Historical H2 identity, repetition and wider release gates remain open; main runtime and public V57 unchanged."
   ]
 }

@@ -1,0 +1,7 @@
+4f9bb50b311de6a83e447746b91053b46ab19ee4ebd4f3e841e2c9d77c93276d  .scratch/harem-nov6/worker-report.md
+969fae8bf739c9f3b8bdbce5ad10bcd95f9bfbf6faf0d9b9aa0ad0a2a430ab03  .scratch/harem-nov6/source-trace.md
+24850d4b20dab4991596ddcd1f77cf95951d499dc03552e509378d7430e25c6c  .scratch/harem-nov6/factory-check.log
+e80b290771ce91cfe77c0c32cb744a8f045746d0597d8304356b5a598cc26398  .scratch/harem-nov6/independent-source-review.md
+7b5595064cfffa76a7dc621c5394295fe02b2c8086cc235ceaafac55cf265dbe  .scratch/harem-nov6/independent-review-checks.log
+21cb808ee47a8987059bd7bdc5882682f5609a4a6758c1633fa23f2ee25023e1  .scratch/harem-nov6/native/native-receipt.md
+bd29d56ef4783df85faf50a408c5b86ba6eb978b5aa019e133934e0f027eed04  .scratch/harem-nov6/independent-native-evidence-review.md
