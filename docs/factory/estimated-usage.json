@@ -1,46 +1,52 @@
 {
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "timezone": "Asia/Ulaanbaatar",
   "limitUsd": 30,
   "currency": "USD",
   "method": "Conservative flat planning estimates, not actual billing or token measurements",
   "entries": [
     {
-      "id": "pending-palace-nov05-native-endcap",
-      "role": "independent cloud GPT-6.1 Sol supported native H2 endcap verification continuation",
-      "estimateUsd": 12,
-      "status": "recorded",
-      "note": "Completed supported native exact rounded fresh Prince pose (-6.88,0,9.18) with readable natural approach and separated surveys; scene identity and exact Return remain unproved, reload changed pose to (0,0,15), cause undiagnosed. Same staged head, no runtime edit/publication."
+      "id": "pending-palace-nov06-pose-diagnosis",
+      "role": "cloud GPT-6.1 Sol bounded legal saved-pose diagnosis and concrete repair with public-interface regressions",
+      "estimateUsd": 10,
+      "status": "reserved",
+      "note": "Investigate repeated changed-pose reload observation without assuming its cause. Repair only a demonstrable existing defect; no new schema, hooks, timing or gameplay rule."
     },
     {
-      "id": "pending-palace-nov05-evidence-review",
-      "role": "sequential independent cloud GPT-6.1 Sol exact-source and new native evidence review",
+      "id": "pending-palace-nov06-independent-review",
+      "role": "sequential independent cloud GPT-6.1 Sol exact-head source and evidence review",
       "estimateUsd": 5,
-      "status": "recorded",
-      "note": "Completed independent clear review of actual image evidence, source provenance, all21 still hashes, native receipt/archive integrity and ledger arithmetic. Fresh factory:check passed hygiene/25factory/typecheck/131asset hashes/558product/build. Does not clear H2 or publication."
+      "status": "reserved",
+      "note": "Review concrete delta or diagnosis, run independent interface checks, retain separate native release gate."
     },
     {
-      "id": "pending-palace-nov05-coordination",
-      "role": "root/parent/cloud GPT-6.1 Sol preflight, supported-route diagnosis and bounded acceptance coordination",
-      "estimateUsd": 6,
-      "status": "recorded",
-      "note": "Completed root/parent/coordinator preflight, admission, new native console route coordination and honest release-gate assessment. No new source repair, extra worker or scope."
+      "id": "pending-palace-nov06-native-replay",
+      "role": "sequential independent cloud GPT-6.1 Sol relevant native endcap exit/reload verification",
+      "estimateUsd": 8,
+      "status": "reserved",
+      "note": "Supported native Sky/managed preview only. Preserve exact Return before reload where supported; no denied-route retry or state injection."
     },
     {
-      "id": "pending-palace-nov05-preservation",
-      "role": "daily ledger and durable evidence preservation, aggregate checks and cleanup",
+      "id": "pending-palace-nov06-coordination",
+      "role": "all root/parent/cloud Sol preflight, scope, admission and coordination",
+      "estimateUsd": 4,
+      "status": "reserved",
+      "note": "Includes every coordinator/root action. One substantive worker at a time; no additional admissions at cap."
+    },
+    {
+      "id": "pending-palace-nov06-preservation",
+      "role": "daily ledger, durable diagnosis/review/native evidence and cleanup preservation",
       "estimateUsd": 3,
-      "status": "recorded",
-      "note": "Completed durable bounded native/evidence-review receipts, current-day ledger reconciliation, archive/JSON/diff checks and cleanup preservation. No runtime integration, public comment, PR or publication."
+      "status": "reserved",
+      "note": "Preserve exact pending/release state and archive integrity; no release without required proof."
     }
   ],
-  "unallocatedHeadroomUsd": 4,
+  "unallocatedHeadroomUsd": 0,
   "notes": [
-    "November4 ledger archived byte-for-byte SHA256 64ccaf4574a7120136d5256d3457ec875debeb9ccda801bc9ecd91e2496607ae; USD28 recorded, zero reserved, USD2 unused. No carry-forward. No existing November5 usage or ledger found.",
-    "Pre-admission connector main 183628aaf109b54932768d1e402b7d735f70b7f4; no open PRs; open P0 #41/#42. Pending 0f565c4d33e05ea2d169a19394c1d51ea30e25ea tree1515248272c43b3735f007a236876c5d41cd6f0f already source-reviewed; native exact baseline (-6.88,0,9.18) remains unproved.",
-    "Existing Site active/public V57 source abbf403ef771569533b802a88691696db4f0ce94 unchanged. Resume unfinished H2 verification, not duplicate implementation.",
-    "Cloud only; one substantive worker at a time. USD26 combined reservation across native12/review5/coordinator6/preservation3. USD4 unallocated. No purchases, paid services, accounts, security grants, telemetry, quota service, new hooks, external comments, alternate publication or retry of denied CDP/DevTools/headless/geometry/PR routes.",
-    "Git transport fetch returned stale main56290d6/pending5fd4c64; authenticated connector confirmed actual main183628a/pending0f565c4. Keep current clean checkouts and use connector expected-head leases; do not downgrade source or treat stale transport refs as latest.",
-    "Final November5 estimate: USD26 recorded, zero reserved, USD4 unallocated, including all workers/root/coordinator/preservation. Exact rounded fresh native target now observed readable, but complete historical H2 identity, exact Return, same-pose persistence and wider release gates remain open. No further admission or runtime publication; public V57 unchanged."
+    "November 5 ledger archived byte-for-byte SHA256 09c0feb133aa6661c6cc29280aa3e03f6cc745a4cc3cfc896c9da647339a2e5d; USD 26 recorded, zero reserved, USD 4 unused. No carry-forward. No existing November 6 usage or dated ledger found.",
+    "Pre-admission authenticated main 3e2a5327e7695276d64723c096ddf2c45c84347d; no open PRs; open P0 #41/#42 and unfinished pending0f565c4d33e05ea2d169a19394c1d51ea30e25ea tree1515248272c43b3735f007a236876c5d41cd6f0f. Existing Site active/public V57 source abbf403ef771569533b802a88691696db4f0ce94 unchanged.",
+    "Bounded continuation: recent native exact rounded pose was readable but reload moved to spawn. Diagnose actual public-interface persistence/restoration path before attributing cause; make a narrow repair only for demonstrated existing behavior, with exact-head review, aggregate checks and relevant native proof. Preserve H2 and wider release gates.",
+    "Cloud only; USD 30 total admitted across source10/review5/native8/all coordinator4/preservation3. Stop all new admissions at cap, including P0. No purchases, paid services, accounts, credentials/security grants, telemetry, quota service, new hooks, public issue comments, denied-route retries or alternate publication.",
+    "No saved Harem coding environment or connected computer is available; unrelated configurations are not substituted. Current clean cloud checkouts match authenticated source trees. Prior Git transport staleness remains documented; expected-head connector leases own writes."
   ]
 }
