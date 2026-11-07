@@ -1,0 +1,9 @@
+2ea3985e68aa34ec8a7558aa95d6b4fc814cce972846804ec2767853e8883477  .scratch/harem-nov7/native/native-receipt.md
+adf68630b382ecbd22ff142beeb566baba11a45e3c690ecf07d2a9c028d3ded9  .scratch/harem-nov7/native/still-sha256.txt
+b1bc3dbdf2a32ababf78c60f93ab0588c615fd5381ea6ec8f5ffe3a304065fd8  .scratch/harem-nov7/native/evidence-sha256.txt
+7f550526f4fe9f46f7f3305c8b026ce4b6f03fadf3dc0bfa3b6c923b0f1f0485  .scratch/harem-nov7/native/manifest-digest.txt
+cde2e506f2f8888f10582bc0f258b768a9d31be5330619aecf7c07d440c19032  .scratch/harem-nov7/native/assets-verify.log
+82a134c325fd50c6fbb9db1bebd45e60be8fd02439e7711db579731ddfe38875  .scratch/harem-nov7/native/cleanup.log
+45fce2face59c97f95454e6f74029696846e8e839404f9c69c8a954a3fc89764  .scratch/harem-nov7/native/preview-stop.log
+0ff17129f445b3578ca0bd3c00156b44af3699533046d652f52f4a14ed705c98  .scratch/harem-nov7/independent-review.md
+49082832f4ee8a9cc145dcdfa694d854fa7ff2b7bc3340f3ed7bd7e3cf65d2ee  .scratch/harem-nov7/independent-checks.log
