@@ -1,47 +1,46 @@
 {
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "timezone": "Asia/Ulaanbaatar",
   "limitUsd": 30,
   "currency": "USD",
   "method": "Conservative flat planning estimates, not actual billing or token measurements",
   "entries": [
     {
-      "id": "pending-palace-nov07-native-repetition",
-      "role": "sequential independent cloud GPT-6.1 Sol repeated legal-pose and non-entry-room native save/reload verification",
+      "id": "pending-palace-nov08-native-concubine",
+      "role": "sequential independent cloud GPT-6.1 Sol fresh Concubine persistence and repeated ordinary-control recovery verification",
       "estimateUsd": 16,
-      "status": "recorded",
-      "note": "Completed six actual manual reloads in one fresh Scholar campaign: three at affected legal Library shelf pose (-6.07,0,15), then three at legitimately gate-reached Emperor room pose (6.84,0,23.50). Natural Return and visible autosave preceded them; ordinary movement worked after both series. Exact clean source unchanged. The Emperor rounded boundary is not old-rejection-band proof."
+      "status": "reserved",
+      "note": "Admitted before substantive work; no new role, changed estimate or extra admission implied."
     },
     {
-      "id": "pending-palace-nov07-independent-review",
-      "role": "sequential independent cloud GPT-6.1 Sol exact-head source, fresh checks and native evidence review",
+      "id": "pending-palace-nov08-independent-review",
+      "role": "sequential independent cloud GPT-6.1 Sol unchanged-source, fresh aggregate and native evidence review",
       "estimateUsd": 5,
-      "status": "recorded",
-      "note": "Completed independent unchanged-source and narrow native-evidence review, directly viewing 29 images and verifying 42 still/48 artifact hashes and digest. Fresh full 25 factory/567 product tests, typecheck, 131 local assets, build and pruning passed. No reported exact-head CI statuses/workflow runs is not CI green. Wider release gates and unattributed doorway camera observation remain open."
+      "status": "reserved",
+      "note": "Admitted before substantive work; no new role, changed estimate or extra admission implied."
     },
     {
-      "id": "pending-palace-nov07-coordination",
+      "id": "pending-palace-nov08-coordination",
       "role": "all root/parent/cloud Sol preflight, admission and coordination",
       "estimateUsd": 4,
-      "status": "recorded",
-      "note": "Completed all root/parent/coordinator preflight, admission, sequential native/review coordination, exact identity and live public V57 checks, and release-gate assessment. No extra job/admission, product edit, runtime main integration or publication."
+      "status": "reserved",
+      "note": "Admitted before substantive work; no new role, changed estimate or extra admission implied."
     },
     {
-      "id": "pending-palace-nov07-preservation",
+      "id": "pending-palace-nov08-preservation",
       "role": "daily ledger, durable native/review evidence and cleanup preservation",
       "estimateUsd": 3,
-      "status": "recorded",
-      "note": "Completed durable native/review/hash evidence records, archive and JSON arithmetic/budget/diff checks, and cleanup verification. Product source remains 98af5b1/c0c13d3; public V57 identity/audience unchanged."
+      "status": "reserved",
+      "note": "Admitted before substantive work; no new role, changed estimate or extra admission implied."
     }
   ],
   "unallocatedHeadroomUsd": 2,
   "notes": [
-    "November 6 ledger archived byte-for-byte SHA256 2820d3bcead58a566ce61d4d377a4ca7759d14505da513ccbb7e9b3debc468fd; USD 30 recorded, zero reserved, zero unused. No carry-forward. No existing November 7 usage or dated ledger found.",
-    "Pre-admission authenticated main e92d5e85d1962c147817f6440bc131ab20a97715 and pending 98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b tree c0c13d3e72e5eaa9c45f9533d65279b2c73ad15b remain unchanged. No open PRs; existing P0 #41/#42 and release gates remain open. Existing Site active/public V57 source abbf403ef771569533b802a88691696db4f0ce94 is unchanged.",
-    "Bounded continuation of unfinished work: independently repeat the reviewed legal saved-pose repair through native ordinary movement, visible autosave and reload; extend to another career and a non-entry room where legitimate controls permit. Do not duplicate a code patch or imply one rounded Prince case completes repetition. Record exact completed and unrun cases. No product edits in this admission.",
-    "Cloud only, maxParallel 1 substantive, GPT-6.1 Sol adopted v3 roles. USD 28 total admitted across native16/review5/all root-coordinator4/preservation3, USD 2 unallocated. Stop new admissions at USD 30, including P0. No billing/token metering claim.",
-    "No purchases, paid services, accounts, credentials/security grants, telemetry, quota service, new hooks, denied-route retries, public issue comments, PR or alternate publication. Use only supported managed preview/native CUA; no CDP/headless/browser state injection. Preserve exact source and owned-resource cleanup.",
-    "No runtime integration into main or production publication without all mandatory exact-head review, tests and relevant browser/replay gates followed by parent release approval. Narrow stills are not temporal video, native outer bounds are not CSS viewport, local asset hashes are not hosted delivery, rounded poses are not exact saved bytes.",
-    "Final November 7 conservative estimate: USD 28 recorded, zero reserved, USD 2 unallocated. No new admission from the unused remainder. Exact reviewed pending source 98af5b1/c0c13d3 retained; bounded repeated native proof now covers two dated campaigns/seven actual manual reloads total. Historical H2 identity, wider camera/gait, careers/reduced motion, actual CSS/touch/video/full-control and hosted-delivery gates remain open. Main runtime and active/public V57 unchanged."
+    "November 7 ledger archived byte-for-byte SHA256 f10df0e9a2df025e2623790d756f27fcff345cde8b644112053b131a2b0ea8da; USD 28 recorded, zero reserved, USD 2 unused. No carry-forward. No existing November 8 usage or dated ledger found.",
+    "Pre-admission authenticated main ed00a5db668e38e5ea591c211c9b9b7ada7c42ce and pending 98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b tree c0c13d3e72e5eaa9c45f9533d65279b2c73ad15b are unchanged. No open PRs; P0 #41/#42 and unfinished wider release gates remain open. Existing Site remains active/public V57 source abbf403ef771569533b802a88691696db4f0ce94.",
+    "Bounded continuation: current dated native proof has two independent campaigns (Prince and Scholar) and seven manual reloads. Attempt a third fresh career campaign, Concubine, with three ordinary collision-reached non-spawn pose save/reloads, natural Return and repeated ordinary control/Speak recovery where reachable. Record exact completed and unrun cases, without bypassing career access or injecting state. No product edits admitted.",
+    "Use the supported cloud managed-preview/native route. Read current native tool documentation for supported temporal/viewport evidence capabilities; use them only if explicitly supported and within this task. No denied CDP/DevTools/headless/DOM/state/storage route retry, unsafe flags, improvised capture/servers/tunnels or new setup/security grants. Do not call still sequences video or outer bounds CSS measurements.",
+    "Cloud only, maxParallel 1 substantive, GPT-6.1 Sol under adopted v3 contracts. USD 28 admitted across native 16, review 5, all root/coordinator 4 and preservation 3, leaving USD 2 unallocated. Stop new admissions at USD 30, including P0. Estimates are not actual fees or token measurements.",
+    "No purchases, paid services, accounts, credentials/security grants, telemetry, quota services, new hooks, public comments/PR or alternate publication. Existing doorway camera observation has no base comparison or regression attribution and remains a wider gate, not an inferred source repair. Main runtime integration/publication requires all mandatory exact-head review, tests, relevant browser/replay gates and parent release approval."
   ]
 }
