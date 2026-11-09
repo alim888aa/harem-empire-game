@@ -1,0 +1,46 @@
+# November 9 native readout and control recovery
+
+Author: independent bounded native hunt. Verdict: bounded recovery observed, broader release gates remain open. No runtime patch was made or recommended from this evidence. All work cloud-only on exact unchanged candidate HEAD 98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b, tree c0c13d3e72e5eaa9c45f9533d65279b2c73ad15b. Accounting admission HEAD 39b114e5be05515ee85ae073c4adaf17dc4b8ba4 stayed clean. Manual cloud v3 pin 7d756086b9938635e0cd11064a4d337eae747326. No public/remote write or user contact.
+
+## Useful result
+
+A fresh ordinary Scholar campaign in Academy Library completed exactly one observed natural quarter-season reconstruction and three observed help-dismissal-to-movement sequences, with actual numeric-displacement endpoints. Zero manual reloads, zero timing/state/pose injections, zero untargeted E attempts and zero targeted Speak completions. Nearby remained none. The natural Emperor introduction completed and returned ordinarily, but is not targeted Speak.
+
+1. Before reconstruction: initial live player(0,0,15). Actual help opened in06, dismissed, native D 8000ms.07 actual player(1.21,0,15), camera(1.14,2.82,19.53), pausedfalse;08 later settles player/camera x 2.23. This is live same-scene numeric recovery, not merely facing/frame change.
+2. Across reconstruction: last old-scene player(4.46,0,6), camera(4.46,3.19,11.70) at07:31/07:28. Natural quarter boundary caused loading19 and visibly changed NPC roster20 while old text stayed. After actual full help2 opening23 and Got it/W 8000ms,25 fresh new-scene frame 52 reads seven courtiers/player(4.46,0,4.58)/camera(4.46,3.19,10.28), pausedfalse. Important measurement limit: the numeric pre-help baseline is retained old-scene text, not an independently refreshed pre-help sample in the replacement scene. The observed sequence has a1.42 z numeric endpoint difference and visible movement; it is not a separate same-new-scene numeric trajectory proof or an exact time-of-first-publication measurement.
+3. After reconstruction:25/26 current new-scene player(4.46,0,4.58), camera(4.46,3.19,10.28). Actual help3 opening27/Got it/A 8000ms.29 live new-scene player(3.04,0,4.58), camera(3.04,3.19,10.28), frame 93/pausedfalse. This is live same-scene x displacement1.42 after third help dismissal.
+
+Thus three honest observed dismissal/input sequences completed with displacement endpoints; two provide live same-scene numeric before/after, and the middle bridges a known stale old-scene baseline to a live new-scene endpoint. Do not flatten this distinction into three independently instrumented same-new-scene trials. The first help was partially occluded by expanded Console; second and third full panels were unobscured after collapsing Console.
+
+## Natural reconstruction and retained text
+
+Old Library readout has three spatial courtiers, first row Minister Zhang. At07:31/frame 216 the last old pose is(4.46,0,6). Actual Loading your character/clock paused curtain19 then20 at07:28 visibly has more actors, while readout remains old frame 217/three courtiers/old pose.21 at07:21 and22 at07:11 retain exactly that text despite clock/NPC animation changes. This reproduces a retained-readout interval in a different fresh career/room on unchanged code. It does not establish continuous frame timing, exact duration in wall-clock time, lack of movement, a context-loss event or a pose-repair regression.
+
+The first fresh replacement readout sampled is25 at06:39: frame 52/seven spatial courtiers/General Luo first row/new pose.26 frame 67 and29 frame 93 show continuing current telemetry. Exactly one natural reconstruction is observed; frame counters reset per scene and no manual reload occurred. Intermediate new-scene frames/publications were not continuously recorded, particularly while Console was collapsed. Therefore first sampled frame 52 is not proof the new readout first published only at52. The source's >.1 simulation-seconds publication threshold is not a wall-clock freshness guarantee; this native observation neither proves nor disproves the broader proposed mechanism or root cause of November8's prolonged stale interval.
+
+This result narrows the open issue: numeric controls and refreshed telemetry recover in this native Scholar reconstruction. It does not repair or fully explain the November8 Concubine observation. No before/after source repair comparison exists. Native reported throughput is mostly0–1 fps (initial sample3 fps) in cloud SwiftShader, not a measured physical-device or production performance claim.
+
+## Honest counts and evidence
+
+- Fresh ordinary campaigns 1: Scholar, Season 01/support 0/gifts 20 throughout sampled run.
+- Natural quarter-season reconstructions observed1; initial scene creation is not counted. One natural imperial introduction/return, not another roster reconstruction or targeted Speak.
+- Manual reloads0. Prior reload evidence was not repeated or borrowed as today's new proof.
+- Actual help openings3, dismissals3, followed-input sequences3, numeric displacement endpoints3 with baseline distinction above. Unobserved pre-boundary question click is not an extra opening/trial.
+- Targeted Speak0; nearby none, no forced actor placement/access or broad conversation claim.
+-33 literal screenshots:01–29 game campaign,30 owned terminal,31–32 intermediate terminal-cleanup states,33 actual final native desktop. Filenames describe sampling intent, not guaranteed immediate action completion. Full submitted/observed chronology is action-chronology.md. SHA256 manifests cover original bytes.
+
+## Scope, capabilities and cleanup
+
+Read required AGENTS/CODING_STANDARDS/ERRORS/DESIGN/CONTEXT Realism, pinned hunt/browser contracts, current software-engineering, Sites managed-preview and Browser skills, complete CUA docs; directly inspected original November8 screenshots 42–44. Initial CUA call exactly await cua.getState(), then documented Sky inventory/native App controls. Game31457283 outer1180x812 is not CSS dimensions. No supported native CSS measurement/setter or temporal recording API/video-capture skill is present. All screenshots persist literal native bytes without manipulation. fs was only used to write screenshot bytes, never inspect browser state/storage.
+
+Verified all 131 local runtime assets, zero downloads. Initially absent ignored .env.local created only with documented exact VITE_RUNTIME_ASSET_BASE_URL=local newline. Managed preview returned exact http://127.0.0.1:4173/. Owned native terminal launched fresh /tmp/harem-nov09-scholar-0947 using angle/swiftshader with no unsafe flag. Fresh profile avoids existing user campaigns; exact save bytes were never inspected and same-rounded-pose observations are not exact-byte proof.
+
+Closed only owned game and terminal. Intermediate Alt+F4 did not immediately remove terminal, so fresh desktop close X was followed by actual final inventory/screenshot33. Final desktop matches initial app/window set. CUA completion_summary exactly once immediately afterward, before shell/report work; no later CUA call. Managed preview stopped, start session exited0, exact matching owned env removed, TCP4173 connect_ex111/refused. Final product clean with exact HEAD/tree unchanged and complete candidate.diff empty. Accounting remains clean. Fresh profile is retained uninspected; it is not an active game/server. No purchases, paid services, new accounts/security grants, source edits, commits, jobs/workers, changed estimates, credential/session-log reads, new hooks, public comments, alternate publication or production action. No action denied, pending or uncertain external outcome remains.
+
+Visible owned terminal diagnostics at30 include missing DBus socket, Chromium software-WebGL deprecation/fallback warning, unavailable Vulkan driver, socket handshake error and on-device-model backend message. No unsafe flag was added in response, and these diagnostics do not independently attribute readout lag. They are retained literal pixels, not game JS console observations or a proof of a game context-loss event.
+
+Native work and evidence/cleanup use the already admitted USD 8 within the parent's USD 30 fully reserved November9 Asia/Ulaanbaatar ledger10+5+8+4+3. No new admission/worker/job or model:opus work. Fresh assets verification is this role's own check. Source and independent25 factory/567 product tests/typecheck/build are earlier-role results, not falsely rerun here. No aggregate rerun was required for unchanged product.
+
+## Unrun gates and release boundary
+
+No current release approval or publication. P0 #41/#42, historical H2 identity/reset attribution, comprehensive careers/reduced motion, actual CSS1440x900/390x844, physical touch, temporal/intermediate-frame gait, complete controls/focus/targeted Speak/chained encounters and hosted delivery remain open. This is local offline-asset native QA, not hosted runtime delivery, exact saved-byte recovery or temporal proof. Source diagnosis and this one bounded campaign cannot waive those gates. Existing public V57/source abbf403ef771569533b802a88691696db4f0ce94 at https://harem-empire-3d-development.alimar55555.chatgpt.site is parent-supplied current context, not independently changed/reverified by this role.

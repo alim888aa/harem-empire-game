@@ -9,36 +9,36 @@
       "id": "pending-palace-nov09-readout-diagnosis",
       "role": "cloud GPT-6.1 Sol Medium bounded stale playtest-readout lifecycle diagnosis and demonstrated repair",
       "estimateUsd": 10,
-      "status": "reserved",
-      "note": "Admitted before substantive work; no extra launch or changed estimate is implied."
+      "status": "recorded",
+      "note": "Completed bounded public-component diagnosis and exact replayable scratch experiment. Only transient old readout until >.1 simulation seconds reproduced; no persistent native root cause or justified repair. No product diff. Diagnostic 1/1, focused 16/16 and full 25 factory/567 product tests, typecheck, 131 assets and build passed. Historical native attribution remains open."
     },
     {
       "id": "pending-palace-nov09-independent-review",
       "role": "sequential independent cloud GPT-6.1 Sol Medium exact-head source and evidence review",
       "estimateUsd": 5,
-      "status": "reserved",
-      "note": "Admitted before substantive work; no extra launch or changed estimate is implied."
+      "status": "recorded",
+      "note": "Completed independent diagnosis/source review and exact scratch replay 1/1, then fresh full 25 factory/567 product tests, typecheck, 131 assets and build on unchanged clean source. Final continuation viewed 14 native originals, verified all 33 still/42 evidence hashes and cleared bounded evidence/documents/ledger with explicit middle-trial limitation. No new job or aggregate/native rerun."
     },
     {
       "id": "pending-palace-nov09-native-replay",
       "role": "sequential independent cloud GPT-6.1 Sol Medium relevant native readout/control-recovery replay",
       "estimateUsd": 8,
-      "status": "reserved",
-      "note": "Admitted before substantive work; no extra launch or changed estimate is implied."
+      "status": "recorded",
+      "note": "Completed one fresh Scholar native campaign, one natural reconstruction, zero reloads. Retained old readout later refreshed and continued. Three help/input sequences had displacement endpoints; only two have live same-scene numeric baselines, while middle bridges old-scene text to fresh endpoint. No targeted Speak or root-cause/regression attribution. Owned-resource cleanup complete."
     },
     {
       "id": "pending-palace-nov09-coordination",
       "role": "all root/parent/cloud preflight, scope, admission and coordination",
       "estimateUsd": 4,
-      "status": "reserved",
-      "note": "Admitted before substantive work; no extra launch or changed estimate is implied."
+      "status": "recorded",
+      "note": "Completed root/parent/coordinator preflight, scope/admission, explicit Sol Medium dispatch for three new jobs, sequential source/review/native coordination, exact source/live identity checks and honest release gating. No extra admission, runtime integration or publication."
     },
     {
       "id": "pending-palace-nov09-preservation",
       "role": "daily ledger, durable diagnosis/review/native evidence and cleanup preservation",
       "estimateUsd": 3,
-      "status": "reserved",
-      "note": "Admitted before substantive work; no extra launch or changed estimate is implied."
+      "status": "recorded",
+      "note": "Completed durable diagnosis/experiment/review/native/hash records, byte archive and final budget/arithmetic/diff/cleanup verification. Product remains unchanged at 98af5b1/c0c13d3; main runtime and active/public V57 identity/audience unchanged."
     }
   ],
   "unallocatedHeadroomUsd": 0,
@@ -49,6 +49,7 @@
     "Newly dispatched source, review and native jobs explicitly use gpt-6.1-sol with reasoning_effort medium per current requested automation configuration. Skip model:opus work. No stock dispatcher or platform change is bundled into this product diagnosis.",
     "Cloud only, maxParallel 1 substantive under adopted v3 contracts. USD 30 admitted across diagnosis 10, independent review 5, native replay 8, all root/coordinator 4 and preservation 3. Stop all new admissions at cap including P0. These are planning estimates, not actual billing or metered tokens.",
     "No purchases, paid services, installs, accounts, credentials/security grants, telemetry export or quota service, new hooks, denied-route retries, public issue comments/PR or alternate publication. Use only supported cloud managed preview/native CUA for browser work; no CDP/DevTools/headless/DOM/state/storage/pose injection, improvised capture/server/tunnel, unsafe flags or global preference changes.",
-    "All mandatory exact-head review, tests, relevant browser/replay gates and parent release approval remain required before runtime main integration or existing-Site publication. Narrow stills are not temporal video, outer native bounds not CSS measurements, local asset hashes not hosted delivery and rounded poses not exact saved bytes. Current supported native docs expose no temporal video/CSS measurement API."
+    "All mandatory exact-head review, tests, relevant browser/replay gates and parent release approval remain required before runtime main integration or existing-Site publication. Narrow stills are not temporal video, outer native bounds not CSS measurements, local asset hashes not hosted delivery and rounded poses not exact saved bytes. Current supported native docs expose no temporal video/CSS measurement API.",
+    "Final November 9 conservative estimate: USD 30 recorded, zero reserved, zero unallocated. No new admission at cap. No persistent source defect established or runtime patch made. Bounded native reconstruction/readout recovery observed with explicit middle-trial baseline limitation; November 8 native root cause, targeted Speak and wider release gates remain unresolved. Main runtime and public V57 unchanged."
   ]
 }
