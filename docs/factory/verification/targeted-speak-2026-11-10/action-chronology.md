@@ -1,0 +1,52 @@
+# Literal capture chronology
+
+Use native-receipt.md for submitted actions versus completed results. File numbering is capture order;45 then50–52 follows native cleanup. Each name labels intent, not guaranteed completed action.
+
+- 01-initial.jpg
+- 02-scholar-selected.jpg
+- 03-career-buttons.jpg
+- 04-route-right-submitted.jpg
+- 05-route-submit-settled.jpg
+- 06-forward-submitted.jpg
+- 07-forward-settled.jpg
+- 08-forward2-submitted.jpg
+- 09-forward3.jpg
+- 10-forward4.jpg
+- 11-north-roster.jpg
+- 12-targeted-speak1-submitted.jpg
+- 13-imperial-intro-dismiss.jpg
+- 14-imperial-dismiss-settled.jpg
+- 15-imperial-return.jpg
+- 16-return-settled.jpg
+- 17-speak1-action.jpg
+- 18-roster-lower.jpg
+- 19-approach-left.jpg
+- 20-left-settled.jpg
+- 21-yu-speak-action.jpg
+- 22-yu-dialog1.jpg
+- 23-close1-action.jpg
+- 24-closed1-baseline-action.jpg
+- 25-cycle1-baseline.jpg
+- 26-cycle1-move-action.jpg
+- 27-cycle1-movement-result.jpg
+- 28-cycle1-native-move.jpg
+- 29-quarter-reconstruction.jpg
+- 30-cycle1-recovery-after-rebuild.jpg
+- 31-cycle1-recovery-numeric.jpg
+- 32-shen-speak2-action.jpg
+- 33-shen-dialog2.jpg
+- 34-close2-action.jpg
+- 35-cycle2-baseline.jpg
+- 36-cycle2-move-action.jpg
+- 37-cycle2-move-result.jpg
+- 38-speak3-action.jpg
+- 39-shen-dialog3.jpg
+- 40-close3-action.jpg
+- 41-cycle3-baseline.jpg
+- 42-cycle3-move-action.jpg
+- 43-cycle3-movement-result.jpg
+- 44-stop-action.jpg
+- 45-final-campaign.jpg
+- 50-owned-terminal.jpg
+- 51-final-desktop-0.jpg
+- 52-clean-desktop-0.jpg

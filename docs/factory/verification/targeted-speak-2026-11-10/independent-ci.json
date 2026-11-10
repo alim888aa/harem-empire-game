@@ -1,0 +1,26 @@
+{
+  "status": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "statuses": []
+    },
+    "isError": false
+  },
+  "runs": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "workflow_runs": []
+    },
+    "isError": false
+  }
+}

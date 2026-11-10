@@ -1,0 +1,8 @@
+097c9bf0f47c443ae95c4160df3f0f0ba67cf309419c4ca79ecbeceaf335852b  .scratch/harem-nov10/native/native-receipt.md
+e8519073fd82f70a02d1170ccf034eb0b1e3f9b9b54808473e90c63db7a1bbbb  .scratch/harem-nov10/native/action-chronology.md
+ab60fc032ec5d958318c1357320a55163f4569bb09e2e2d134e8d42186c499e3  .scratch/harem-nov10/native/native-still-sha256.txt
+ede2aabc8e26281ad82f155946a6bb699d0cb914e202eecd11ecd368d4f58db2  .scratch/harem-nov10/native/local-artifact-sha256.txt
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  .scratch/harem-nov10/native/candidate.diff
+0cd3d6e8c6f50a87573f52cbe366cc65963f8f381180f8fbac2712a5f080adfc  .scratch/harem-nov10/independent-review.md
+64a0fbcdf2684824836f14a492e438ec92838bc180f9ffe123566b85cf523cc3  .scratch/harem-nov10/independent-checks.log
+7339d327a91f22fe8e3f092ad40a21cf9581c03a1aef738943f0a06f88da866e  .scratch/harem-nov10/independent-ci.json
