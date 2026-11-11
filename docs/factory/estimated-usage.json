@@ -1,48 +1,47 @@
 {
-  "date": "2026-11-10",
+  "date": "2026-11-11",
   "timezone": "Asia/Ulaanbaatar",
   "limitUsd": 30,
   "currency": "USD",
   "method": "Conservative flat planning estimates, not actual billing or token measurements",
   "entries": [
     {
-      "id": "pending-palace-nov10-targeted-speak",
-      "role": "sequential independent cloud GPT-6.1 Sol Medium targeted ordinary Speak/exit/movement native verification",
+      "id": "pending-palace-nov11-hosted-native",
+      "role": "sequential independent cloud GPT-6.1 Sol Medium hosted-origin native asset and ordinary-interaction verification",
       "estimateUsd": 12,
-      "status": "recorded",
-      "note": "Completed three actual named ordinary Speak/close/recovery sequences in one fresh Scholar campaign: Scholar Yu once and General Shen twice. Only two are uninterrupted same-scene recovery; Yu crosses natural reconstruction. General Shen cycle 2 proves only 0.10 x displacement. No gifts/messages/romance choices, manual reloads or source changes. Owned-resource cleanup complete."
+      "status": "reserved",
+      "note": "Admitted before substantive work; no additional role, changed estimate or extra admission implied."
     },
     {
-      "id": "pending-palace-nov10-independent-review",
-      "role": "sequential independent cloud GPT-6.1 Sol Medium unchanged-source, fresh checks and native evidence review",
+      "id": "pending-palace-nov11-independent-review",
+      "role": "sequential independent cloud GPT-6.1 Sol Medium source/configuration, fresh checks and native evidence review",
       "estimateUsd": 5,
-      "status": "recorded",
-      "note": "Completed independent unchanged-source/native evidence review: 34 originals viewed, all 48 still hashes/four native artifact entries verified. Fresh 25 factory/567 product tests, typecheck, 131 assets and build/pruning passed. Empty GitHub statuses/workflows are none reported, not CI green. Final documentation-only review cleared copied hashes, archive, recorded ledger and file limits within this same reservation."
+      "status": "reserved",
+      "note": "Admitted before substantive work; no additional role, changed estimate or extra admission implied."
     },
     {
-      "id": "pending-palace-nov10-coordination",
+      "id": "pending-palace-nov11-coordination",
       "role": "all root/parent/cloud preflight, scope, admission and coordination",
       "estimateUsd": 4,
-      "status": "recorded",
-      "note": "Completed root/parent/coordinator preflight, bounded scope/admission, two explicit Sol Medium roles, sequential native/review coordination, exact source/live identity and release-gate assessment. No extra admission, runtime main integration or publication."
+      "status": "reserved",
+      "note": "Admitted before substantive work; no additional role, changed estimate or extra admission implied."
     },
     {
-      "id": "pending-palace-nov10-preservation",
-      "role": "daily ledger, durable native/review evidence and cleanup preservation",
+      "id": "pending-palace-nov11-preservation",
+      "role": "daily ledger, durable hosted/native/review evidence and cleanup preservation",
       "estimateUsd": 3,
-      "status": "recorded",
-      "note": "Completed durable native/chronology/review/CI/hash records, byte archive and final arithmetic/budget/diff/cleanup verification. Product remains 98af5b1/c0c13d3; main runtime and active/public V57 identity/audience unchanged."
+      "status": "reserved",
+      "note": "Admitted before substantive work; no additional role, changed estimate or extra admission implied."
     }
   ],
   "unallocatedHeadroomUsd": 6,
   "notes": [
-    "November 9 ledger archived byte-for-byte SHA256 2c3f431b69f5dcd2e736ea990f1953e631b1648da10b80b7888240c8c8e08d6a; USD 30 recorded, zero reserved, zero unused. No carry-forward. No existing November 10 usage or dated ledger found.",
-    "Pre-admission authenticated main e53e21d15a734984e260a6f21a3a97f9577984ab and pending 98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b tree c0c13d3e72e5eaa9c45f9533d65279b2c73ad15b unchanged. No open PRs. Existing active/public Site V57 source abbf403ef771569533b802a88691696db4f0ce94 unchanged; P0 #41/#42 and wider release gates remain open.",
-    "Bounded continuation: previous native hunts have not reached an actual ordinary nearby Speak target. Use one fresh ordinary Prince or Scholar campaign and legitimate collision-based travel to a named accessible courtier; attempt three honest targeted Speak/close/return-to-movement cycles with actual named dialog and numeric movement evidence. Untargeted E, the natural Emperor introduction and changed facing/frame alone are not proof. No product edits or source repair admitted.",
-    "Both new native/review jobs explicitly use gpt-6.1-sol with reasoning_effort medium; skip model:opus. Adopted manual cloud v3 pin remains 7d756086b9938635e0cd11064a4d337eae747326 with maxParallel 1 substantive. No stock dispatcher or platform change.",
-    "Conservative total USD 24 admitted across native 12, independent review 5, all root/coordinator 4 and preservation 3, leaving USD 6 unallocated. No additional work is implied by remainder. Stop new admissions at USD 30 including P0. Estimates are not actual fees or token metering.",
-    "Cloud only; no purchases, paid services, installs, accounts, credentials/security grants, telemetry export/quota service, new hooks, public comments/PR or alternate publication. Supported managed preview/native CUA only, with no denied CDP/DevTools/headless/DOM/state/storage/pose or clock injection route retry, unsafe flags, improvised capture/server/tunnel or global preference changes.",
-    "No publication/runtime main integration without all mandatory independent exact-head review, tests, relevant browser/replay proof and parent release approval. Current native docs expose no temporal recording/CSS measurement API. Stills are not video, outer native bounds not actual CSS, local asset hashes not hosted delivery and rounded readouts not exact saved bytes. November 8 native stale-readout root cause remains unattributed.",
-    "Final November 10 conservative estimate: USD 24 recorded, zero reserved, USD 6 unallocated. No additional admission from unused headroom. Three qualified named ordinary conversation/close/recovery sequences observed, only two uninterrupted same-scene and one with 0.10 x displacement. Targeted Speak proof narrowed, not comprehensive acceptance. Wider mandatory release gates remain pending; source/main runtime/public V57 unchanged."
+    "November 10 ledger archived byte-for-byte SHA256 cd1d5f4c719c9b201d1d93189bb5fa41379008d83412e6b23e13e8cef29c4670; USD 24 recorded, zero reserved, USD 6 unused. No carry-forward. No prior November 11 usage or dated ledger found.",
+    "Pre-admission authenticated main 42026643df1af1ef8d1cc06db3962b21d8d31234 and pending 98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b tree c0c13d3e72e5eaa9c45f9533d65279b2c73ad15b unchanged. No open PRs. Existing Site remains active/public V57 source abbf403ef771569533b802a88691696db4f0ce94; P0 #41/#42 and wider release gates remain binding.",
+    "Bounded continuation: prior native runs used documented local offline art. Investigate the existing default public hosted-art origin through the now-supported normal native Chromium route on the exact candidate and same managed-preview port4173 origin already covered by documented CORS. No scripted download retry after historical Cloudflare1010, network/permission change, proxy or new destination. Inspect configuration provenance, literal rendered character/material pixels and visible pool decoded/warm-byte readout; do not claim all131 remote hashes or comprehensive hosted delivery from a few decoded models.",
+    "If hosted mode renders ordinary models, attempt three uninterrupted named Speak/close/movement cycles with fresh same-scene numeric baselines. If hosted access is explicitly denied, stop that asset action and do not bypass it; independent documented local-offline interaction verification may continue only as separate scoped evidence, not hosted success. No product edits or source repair admitted.",
+    "Current catalog shows only this connected OpenAI-managed cloud computer and an offline desktop. Desktop is excluded by cloud-only scope; no other cloud route is fabricated. Current tool catalog exposes native CUA, not a supported temporal/CSS API; worker checks current docs without retrying denied CDP/DevTools/headless/DOM/state/storage routes.",
+    "Both new native/review roles explicitly use gpt-6.1-sol with reasoning_effort medium; skip model:opus. Sequential manual cloud v3 pin 7d756086b9938635e0cd11064a4d337eae747326, maxParallel 1 substantive. USD 24 admitted across native 12/review 5/all coordination 4/preservation 3, USD 6 unallocated. No additional admission from remainder; stop new admissions at USD 30 including P0. Estimates are not actual fees or metered tokens.",
+    "No purchases, paid services, installs, accounts, credentials/security grants, telemetry export/quota service, new hooks, public comments/PR, alternate publication, unsafe flags, improvised server/tunnel/capture or global preference changes. Publication solely to existing Site requires all mandatory independent review, checks, relevant browser/replay gates and parent approval. Stills are not video, outer bounds not actual CSS, local hashes not hosted verification and rounded readouts not exact save bytes."
   ]
 }
