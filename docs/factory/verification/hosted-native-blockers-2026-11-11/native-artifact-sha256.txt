@@ -1,0 +1,5 @@
+e0f1e41ede19a1c83d16243344b0526fde5895ce1a18793d6d5e380a0f5d0d60  .scratch/harem-nov11/native/native-receipt.md
+04f4dc5d96a1e781a7b66ecb7587b26ecf110308a2d5de5874e845f2a8ae8195  .scratch/harem-nov11/native/configuration.json
+23a1fda1c0c0bdc0107620be29b22f251baabf0ef149d826a56d14585a2efa16  .scratch/harem-nov11/native/source-hashes.txt
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  .scratch/harem-nov11/native/candidate.diff
+74ce94ce1a6c6a8208714c121e863869447e95e22fe7a5d4a744bb3bc5817030  .scratch/harem-nov11/native/native-still-sha256.txt

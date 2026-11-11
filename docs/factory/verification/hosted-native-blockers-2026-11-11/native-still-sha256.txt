@@ -1,0 +1,6 @@
+03a7cb4b7a5e0fc5eb69966137916d4b26c8bcdc1aac76fed527f6282d0873a4  .scratch/harem-nov11/native/01-hosted-landing.jpg
+1f8c2ebc453e6a3834546854a8518ea194481cef0deb55fa20327709429f09c1  .scratch/harem-nov11/native/02-hosted-character-failed.jpg
+74254f666ac6a4626ec2cfe627cbcce25c83bbf63991b0353d5899c367b0a97b  .scratch/harem-nov11/native/03-offline-loading.jpg
+064dee761929e489642d7b8eef06ae1fb8ce253e79a4be9397f3987b1e590672  .scratch/harem-nov11/native/05-after-control-timeout.jpg
+961585d05685267f55d4f64ae4a496764ff6e920e8af3a9e74f0e26433a1504c  .scratch/harem-nov11/native/06-owned-terminal-diagnostics.jpg
+31af6ab191bf921c00f00684f0f013cb89a3cabeb4fff5e45a22c7b6200c26f8  .scratch/harem-nov11/native/07-clean-desktop-0.jpg

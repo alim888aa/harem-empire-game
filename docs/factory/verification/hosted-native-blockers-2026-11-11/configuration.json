@@ -1,0 +1,16 @@
+{
+  "env_local_sha256": "e54be3d363ee23bdabcbaf7c3d867588b30e4a186eacfcaf543f6817488ac22b",
+  "env_local_bytes": "VITE_RUNTIME_ASSET_BASE_URL=https://pub-79c7cda7fb524f4fab929b74d14c5f1f.r2.dev\n",
+  "process_setting": null,
+  "mode": "explicit existing hosted base",
+  "local_assets": "131 verified, 0 downloads",
+  "offline_env_bytes": "VITE_RUNTIME_ASSET_BASE_URL=local\n",
+  "offline_env_sha256": "93a7bacde3fa301fa2e7064c99b705b10c7daa72b835a366a87048ccbc5eb69b",
+  "env_removed_exact_match": true,
+  "managed_origin": "http://127.0.0.1:4173/",
+  "profiles": [
+    "/tmp/harem-nov11-hosted-owned",
+    "/tmp/harem-nov11-offline-owned"
+  ],
+  "port4173_connect_ex": 111
+}
