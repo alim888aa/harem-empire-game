@@ -25,9 +25,37 @@
       "estimateUsd": 2,
       "status": "recorded",
       "note": "Completed connector-only current ledger, exact Git blob archive, remote report and in-memory arithmetic/text verification preservation. Final independent documentation review precedes main ref update. No filesystem or repository check command claimed."
+    },
+    {
+      "id": "pending-palace-nov12-restored-native",
+      "role": "cloud GPT-6.1 Sol Medium restored-cloud capability and bounded hosted/offline native verification",
+      "estimateUsd": 8,
+      "status": "reserved",
+      "note": "Resume unfinished hosted/native gates after actual cloud reattachment; no source edits or production write."
+    },
+    {
+      "id": "pending-palace-nov12-restored-review",
+      "role": "independent cloud GPT-6.1 Sol Medium restored-source checks and native/documentation evidence review",
+      "estimateUsd": 5,
+      "status": "reserved",
+      "note": "Includes final documentation closeout within same role; no extra job or aggregate rerun implied."
+    },
+    {
+      "id": "pending-palace-nov12-restored-coordination",
+      "role": "all additional root/parent/cloud restoration preflight, admission and coordination",
+      "estimateUsd": 3,
+      "status": "reserved",
+      "note": "Separate continuation after earlier USD 10 remote-only pass; preserves all earlier recorded estimates."
+    },
+    {
+      "id": "pending-palace-nov12-restored-preservation",
+      "role": "additional restored-run receipts, same-day ledger and durable evidence preservation",
+      "estimateUsd": 2,
+      "status": "reserved",
+      "note": "Continuation records only; do not archive or reset today's existing ledger."
     }
   ],
-  "unallocatedHeadroomUsd": 20,
+  "unallocatedHeadroomUsd": 2,
   "notes": [
     "November 11 ledger archived byte-for-byte by unchanged UTF-8 content; original Git blob SHA-1 c174dcb5b48779fc72d04dcb4e5ddd3fc0664793. Archive identity will be re-read and compared through the authenticated connector. USD 24 recorded, zero reserved and USD 6 unused, no carry-forward. No existing November 12 usage/ledger found in unchanged current main.",
     "Pre-admission authenticated main 341e5955604f8b7b72be26b918f5bd50fdcde242 and pending source 98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b unchanged. No open PRs. Site remains active/public V57 source abbf403ef771569533b802a88691696db4f0ce94 with unchanged destination and identity. P0 #41/#42 and existing work remain unfinished.",
@@ -36,6 +64,11 @@
     "Conservative USD 10 total reserved across remote review 4/all root-coordinator 4/preservation 2, leaving USD 20 unallocated. New admissions still stop at USD 30 across all runs including P0; remainder is not another admission. These are planning estimates, not actual fees or token metering.",
     "Admission helper source from exact current main Git blob 103eb628db72bf555c436657404b70369b35cea8 was evaluated as pure JavaScript in the orchestration runtime, not a repository command. Current local-day, reservation arithmetic, cap and contract cases are checked in memory. No npm/factory/typecheck/asset/build/browser test is claimed today.",
     "November 11 hosted character-load cause remains unobserved; independent offline GPU failure is separate. No hosted retry, scripted Cloudflare request, unsafe flag, new account/credential/security grant, purchase, paid service, telemetry export/quota service, source edit, public comment/PR or alternate publication. Mandatory independent review, repo checks, browser/replay proof and parent approval remain before any authorized existing-Site publication.",
-    "Final November 12 conservative estimate: USD 10 recorded, zero reserved, USD 20 unallocated. No additional admission from remainder. Cloud execution and native browser unavailable; all listed saved configurations were compared with target repository ID github-1036730230 and none matches. Historical November 11 checks remain historical. Main runtime, pending source and active/public V57 unchanged; release remains blocked."
+    "Final November 12 conservative estimate: USD 10 recorded, zero reserved, USD 20 unallocated. No additional admission from remainder. Cloud execution and native browser unavailable; all listed saved configurations were compared with target repository ID github-1036730230 and none matches. Historical November 11 checks remain historical. Main runtime, pending source and active/public V57 unchanged; release remains blocked.",
+    "Continuation at 2026-11-12T03:22:40Z after the completed USD 10 remote-only pass: current catalog now reports the same cloud connected. Supported attach refreshed this thread; native CUA tools returned and actual read-only commands succeeded. Product source remains exact 98af5b1/c0c13d3 with dependencies/inventory present, clean worktree and no ignored env. Earlier remote-only availability statements describe the earlier snapshot, not this restored state.",
+    "Current selected sandbox is read-only. Necessary scoped QA writes must use the supported permission mechanism under existing authorized cloud maintenance; never circumvent a denied write through another tool. If denied, report exact action/target/reason and stop it unless materially new evidence authorizes retry. No persistent security-setting change or new credential/grant is authorized.",
+    "Additional USD 18 reserved across native 8/review 5/all added coordination 3/preservation 2; earlier USD 10 recorded is unchanged. Combined daily recorded/reserved USD 28, zero extra source-implementation job and USD 2 unallocated. All new jobs explicitly gpt-6.1-sol medium, skip model:opus. Stop admissions above USD 30 including P0; remainder is not another admission.",
+    "Bounded resumed goal: current capability and one normal native hosted-art attempt on exact existing source after environment restoration, with separately labeled documented offline alternative if useful and permitted; try only relevant ordinary interaction recovery within bounded scope. Prior November 11 HTTP cause and GPU failure remain unattributed. No denied CDP/DevTools/headless/DOM/state/storage route, scripted Cloudflare retry, unsafe flag, installation, alternate destination or publication.",
+    "All required independent review, applicable repo checks and browser/replay gates remain before runtime integration or existing-Site publication. Initial remote-only document remains a dated snapshot; no earlier historical check is relabeled fresh."
   ]
 }
