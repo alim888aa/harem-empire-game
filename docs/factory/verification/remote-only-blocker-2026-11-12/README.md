@@ -1,5 +1,7 @@
 # Remote-only maintenance and execution blocker, November 12, 2026
 
+Status note: This is the initial remote-only snapshot preserved at commit 1d7febf52a4058b0fec50de9251d2816f37e6a07. Cloud capability returned later on November 12; see the [restored-cloud continuation](../restored-cloud-blocker-2026-11-12/README.md) for fresh local checks and the distinct process-launch blocker. The initial USD 10 remains recorded and was not reused.
+
 ## Outcome
 
 Cloud execution and browser verification remain blocked. Runtime marks the cloud unavailable; current inventory reports its only cloud computer offline and the desktop offline. The desktop is excluded by cloud-only scope. No environment is starting. Current native browser capability is absent, and none of all 10 saved configurations targets repository ID github-1036730230. No unrelated project was substituted or new sidebar/executor provisioned.
