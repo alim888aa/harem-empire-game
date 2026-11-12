@@ -9,22 +9,22 @@
       "id": "pending-palace-nov12-remote-review",
       "role": "independent cloud GPT-6.1 Sol Medium remote provenance, blocker and documentation review",
       "estimateUsd": 4,
-      "status": "reserved",
-      "note": "Read-only connector evidence only; no unavailable execution or browser job admitted."
+      "status": "recorded",
+      "note": "Completed independent remote provenance/blocker audit, current issues/PRs/Site metadata, direct status/Actions reads, exact-project saved-configuration identity comparison, archive equality and pure admission checks. No repository command, local image review, build, test or browser executed; documentation-only closeout is part of this same role."
     },
     {
       "id": "pending-palace-nov12-coordination",
       "role": "all root/parent/cloud remote preflight, scope, admission and coordination",
       "estimateUsd": 4,
-      "status": "reserved",
-      "note": "Includes remote state reconciliation and supported-cloud availability check; no implementation job admitted."
+      "status": "recorded",
+      "note": "Completed all root/parent remote preflight, supported-cloud/configuration inventory, conservative admission, sequential Sol Medium audit coordination and precise release-blocker assessment. No unavailable execution, unrelated configuration, desktop attachment, new grant, source/runtime change or publication."
     },
     {
       "id": "pending-palace-nov12-preservation",
       "role": "current ledger, byte archive and durable remote-only pending-state preservation",
       "estimateUsd": 2,
-      "status": "reserved",
-      "note": "Connector-only documentation preservation; no source/runtime or production change."
+      "status": "recorded",
+      "note": "Completed connector-only current ledger, exact Git blob archive, remote report and in-memory arithmetic/text verification preservation. Final independent documentation review precedes main ref update. No filesystem or repository check command claimed."
     }
   ],
   "unallocatedHeadroomUsd": 20,
@@ -35,6 +35,7 @@
     "Only independent remote provenance/blocker review is admitted, explicitly gpt-6.1-sol with reasoning_effort medium; skip model:opus. Adopted manual cloud v3 pin 7d756086b9938635e0cd11064a4d337eae747326 and maxParallel 1 substantive remain. No source implementation, build, test, native browser or publication job admitted.",
     "Conservative USD 10 total reserved across remote review 4/all root-coordinator 4/preservation 2, leaving USD 20 unallocated. New admissions still stop at USD 30 across all runs including P0; remainder is not another admission. These are planning estimates, not actual fees or token metering.",
     "Admission helper source from exact current main Git blob 103eb628db72bf555c436657404b70369b35cea8 was evaluated as pure JavaScript in the orchestration runtime, not a repository command. Current local-day, reservation arithmetic, cap and contract cases are checked in memory. No npm/factory/typecheck/asset/build/browser test is claimed today.",
-    "November 11 hosted character-load cause remains unobserved; independent offline GPU failure is separate. No hosted retry, scripted Cloudflare request, unsafe flag, new account/credential/security grant, purchase, paid service, telemetry export/quota service, source edit, public comment/PR or alternate publication. Mandatory independent review, repo checks, browser/replay proof and parent approval remain before any authorized existing-Site publication."
+    "November 11 hosted character-load cause remains unobserved; independent offline GPU failure is separate. No hosted retry, scripted Cloudflare request, unsafe flag, new account/credential/security grant, purchase, paid service, telemetry export/quota service, source edit, public comment/PR or alternate publication. Mandatory independent review, repo checks, browser/replay proof and parent approval remain before any authorized existing-Site publication.",
+    "Final November 12 conservative estimate: USD 10 recorded, zero reserved, USD 20 unallocated. No additional admission from remainder. Cloud execution and native browser unavailable; all listed saved configurations were compared with target repository ID github-1036730230 and none matches. Historical November 11 checks remain historical. Main runtime, pending source and active/public V57 unchanged; release remains blocked."
   ]
 }

@@ -1,0 +1,60 @@
+{
+  "helperGitBlobSha1": "103eb628db72bf555c436657404b70369b35cea8",
+  "instant": "2026-11-12T01:52:52.000Z",
+  "reservations": [
+    {
+      "id": "pending-palace-nov12-remote-review",
+      "allowed": true,
+      "day": "2026-11-12",
+      "limitUsd": 30,
+      "plannedUsd": 10,
+      "headroomUsd": 20,
+      "estimateOnly": true
+    },
+    {
+      "id": "pending-palace-nov12-coordination",
+      "allowed": true,
+      "day": "2026-11-12",
+      "limitUsd": 30,
+      "plannedUsd": 10,
+      "headroomUsd": 20,
+      "estimateOnly": true
+    },
+    {
+      "id": "pending-palace-nov12-preservation",
+      "allowed": true,
+      "day": "2026-11-12",
+      "limitUsd": 30,
+      "plannedUsd": 10,
+      "headroomUsd": 20,
+      "estimateOnly": true
+    }
+  ],
+  "cases": [
+    [
+      "matching reserved job",
+      true
+    ],
+    [
+      "new above-cap job held",
+      true
+    ],
+    [
+      "duplicate IDs held",
+      true
+    ],
+    [
+      "completed reservation not reused",
+      true
+    ],
+    [
+      "wrong local day held",
+      true
+    ],
+    [
+      "nonpositive estimate held",
+      true
+    ]
+  ],
+  "qualification": "Pure helper evaluated in orchestration JavaScript only; no repository commands/tests or browser executed."
+}
