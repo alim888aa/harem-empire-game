@@ -3,7 +3,8 @@ import {endorsementRenewal} from '../src/lib/campaignStanding';
 import {processGiftWithMessage} from '../src/lib/checkMessage';
 import {giftPositiveScale,tributeCost} from '../src/lib/campaignBalance';
 import { createActor, fromPromise } from 'xstate';
-import { writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import { dirname } from 'node:path';
 import { gameMachine } from '../src/state-machines/game-machine';
 import { emperorAudienceMachine } from '../src/state-machines/emperor-audience-machine';
 import { FALLBACK_QUESTIONS } from '../src/data/fallbackQuestions';
@@ -136,4 +137,7 @@ const summaries=roles.flatMap(role=>policies.map(policy=>{const list=runs.filter
  threatsByRank:Object.fromEntries([...new Set(list.flatMap(r=>r.plotEvents).filter(e=>e.kind==='warning').map(e=>String(e.rank)))].map(rank=>[rank,list.flatMap(r=>r.plotEvents).filter(e=>e.kind==='warning'&&String(e.rank)===rank).length])),
  resolutionAllies:list.flatMap(r=>r.plotEvents).filter(e=>['casualty','player_death'].includes(e.kind)).map(e=>e.alliesBeforeEvent)};}));
 const report={version:6,seeds:count,seedStart,maxSeasons,roles,policies,assumptions:{plots:'Observer-only production event telemetry; rank is from first emitted snapshot; pre-attempt allies reconstructed from preceding stable snapshot and sequential casualties',movement:'25 seconds per area visit plus15 seconds when approaching a different recipient; repeat gifts/dialogue use0 active seconds because production pauses the clock;150-second quarter-phase budgets;600 seconds total;no navigation collision modeled',strategic:'Visible direct-effect preview, best backing or pledge efficiency including immediate pledge rebate, repeat gifts until real approach-time or money budget is exhausted, rank-based10/20/40 tribute reserve except season1 or guaranteed loyalty bypass, all allowed zones, avoids witnessed ambitious Rebel gifts;80% audience question accuracy',casual:'Random visits/recipients, mostly safe or neutral messages, tribute reserve80% of decisions;55% answer accuracy',focused:'Random area and first recipient, three gifts per visit to that same person when possible, reads safe message previews or30% neutral;same55% audience accuracy and80% tribute reserve as scattered casual',bad:'Random available messages, no tribute reserve;20% answer accuracy',audience:'Real production fallback questions/judgment with no paid API; no fabricated direct victory event'},summaries,runs};
-writeFileSync(process.env.SIM_REPORT_PATH??`validation/campaign-simulation${seedStart===1?'':`-from-${seedStart}`}.json`,JSON.stringify(report,null,2));log(JSON.stringify(summaries,null,2));
+log(JSON.stringify(summaries, null, 2));
+const reportPath = process.env.SIM_REPORT_PATH ?? `validation/campaign-simulation${seedStart === 1 ? '' : `-from-${seedStart}`}.json`;
+mkdirSync(dirname(reportPath), { recursive: true });
+writeFileSync(reportPath, JSON.stringify(report, null, 2));

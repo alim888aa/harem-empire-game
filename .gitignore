@@ -30,3 +30,6 @@ public/materials/*.jpg
 public/materials/*.png
 
 .scratch/
+
+# Reproducible campaign simulator reports.
+/validation/campaign-simulation*.json
