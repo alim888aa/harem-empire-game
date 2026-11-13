@@ -1,75 +1,47 @@
 {
-  "date": "2026-11-12",
+  "date": "2026-11-13",
   "timezone": "Asia/Ulaanbaatar",
   "limitUsd": 30,
   "currency": "USD",
   "method": "Conservative flat planning estimates, not actual billing or token measurements",
   "entries": [
     {
-      "id": "pending-palace-nov12-remote-review",
-      "role": "independent cloud GPT-6.1 Sol Medium remote provenance, blocker and documentation review",
-      "estimateUsd": 4,
-      "status": "recorded",
-      "note": "Completed independent remote provenance/blocker audit, current issues/PRs/Site metadata, direct status/Actions reads, exact-project saved-configuration identity comparison, archive equality and pure admission checks. No repository command, local image review, build, test or browser executed; documentation-only closeout is part of this same role."
+      "id": "maintenance-nov13-simulator-output",
+      "role": "cloud GPT-6.1 Sol Medium bounded issue29 simulator report-output and documentation repair",
+      "estimateUsd": 10,
+      "status": "reserved",
+      "note": "Diagnose actual clean-checkout failure and make only CLI/report/docs corrections, preserving all game rules."
     },
     {
-      "id": "pending-palace-nov12-coordination",
-      "role": "all root/parent/cloud remote preflight, scope, admission and coordination",
-      "estimateUsd": 4,
-      "status": "recorded",
-      "note": "Completed all root/parent remote preflight, supported-cloud/configuration inventory, conservative admission, sequential Sol Medium audit coordination and precise release-blocker assessment. No unavailable execution, unrelated configuration, desktop attachment, new grant, source/runtime change or publication."
-    },
-    {
-      "id": "pending-palace-nov12-preservation",
-      "role": "current ledger, byte archive and durable remote-only pending-state preservation",
-      "estimateUsd": 2,
-      "status": "recorded",
-      "note": "Completed connector-only current ledger, exact Git blob archive, remote report and in-memory arithmetic/text verification preservation. Final independent documentation review precedes main ref update. No filesystem or repository check command claimed."
-    },
-    {
-      "id": "pending-palace-nov12-restored-native",
-      "role": "cloud GPT-6.1 Sol Medium restored-cloud capability and bounded hosted/offline native verification",
-      "estimateUsd": 8,
-      "status": "recorded",
-      "note": "Completed bounded restored-cloud capability attempt: local 131 hashes passed, scoped hosted setting/artifacts and managed preview allowed; permission-reviewed Chromium executed then exited 133 with process-singleton socket/ptrace Operation not permitted before any game window. No retry or alternate launcher, no hosted/offline rendering proof, 0/3 cycles. Cleanup verified."
-    },
-    {
-      "id": "pending-palace-nov12-restored-review",
-      "role": "independent cloud GPT-6.1 Sol Medium restored-source checks and native/documentation evidence review",
+      "id": "maintenance-nov13-independent-review",
+      "role": "independent cloud GPT-6.1 Sol Medium exact-candidate CLI/source/regression and documentation review",
       "estimateUsd": 5,
-      "status": "recorded",
-      "note": "Completed independent native/source/configuration integrity review and one fresh full factory check: 25 factory/567 repository tests, typecheck, 131 local hashes, build/prune. Environment/native gates remain blocked. Existing Cloudflare connector requires reauthentication; no API execution/reconnect or live CORS claim. Final same-role documentation review precedes main ref update."
+      "status": "reserved",
+      "note": "Includes independent public CLI replay, required checks and final documentation closeout; no browser launch."
     },
     {
-      "id": "pending-palace-nov12-restored-coordination",
-      "role": "all additional root/parent/cloud restoration preflight, admission and coordination",
+      "id": "maintenance-nov13-coordination",
+      "role": "all root/parent/cloud preflight, scope, admission and coordination",
+      "estimateUsd": 4,
+      "status": "reserved",
+      "note": "Cloud-only scope, existing work and exact source identities; no fresh denied-browser retry."
+    },
+    {
+      "id": "maintenance-nov13-preservation",
+      "role": "daily ledger, byte archive, source/review/evidence and cleanup preservation",
       "estimateUsd": 3,
-      "status": "recorded",
-      "note": "Completed additional cloud availability/attach/capability checks, append-only same-day admission, explicit Sol Medium dispatch and sequential native/review coordination. Preserved earlier USD 10 recorded. No denied launcher bypass, new security access, extra admission or publication."
-    },
-    {
-      "id": "pending-palace-nov12-restored-preservation",
-      "role": "additional restored-run receipts, same-day ledger and durable evidence preservation",
-      "estimateUsd": 2,
-      "status": "recorded",
-      "note": "Completed restored-run evidence/configuration/checks records, same-day ledger and historical-snapshot crosslink preservation. Source unchanged. Final independent exact-documentation review is required before the main ref moves; no runtime integration or Site publication."
+      "status": "reserved",
+      "note": "No Site deployment; preserve existing pending runtime separately from CLI maintenance."
     }
   ],
-  "unallocatedHeadroomUsd": 2,
+  "unallocatedHeadroomUsd": 8,
   "notes": [
-    "November 11 ledger archived byte-for-byte by unchanged UTF-8 content; original Git blob SHA-1 c174dcb5b48779fc72d04dcb4e5ddd3fc0664793. Archive identity will be re-read and compared through the authenticated connector. USD 24 recorded, zero reserved and USD 6 unused, no carry-forward. No existing November 12 usage/ledger found in unchanged current main.",
-    "Pre-admission authenticated main 341e5955604f8b7b72be26b918f5bd50fdcde242 and pending source 98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b unchanged. No open PRs. Site remains active/public V57 source abbf403ef771569533b802a88691696db4f0ce94 with unchanged destination and identity. P0 #41/#42 and existing work remain unfinished.",
-    "Execution environment is unavailable in current runtime; current catalog reports its only cloud computer offline. Desktop is also offline and excluded by cloud-only scope. Native CUA namespace is removed. No starting environment exists to wait for; no usable cloud alternative was listed. Do not fabricate shell/browser availability, attach a desktop, launch a new sidebar task, bypass prior denied routes or claim old tests as fresh.",
-    "Only independent remote provenance/blocker review is admitted, explicitly gpt-6.1-sol with reasoning_effort medium; skip model:opus. Adopted manual cloud v3 pin 7d756086b9938635e0cd11064a4d337eae747326 and maxParallel 1 substantive remain. No source implementation, build, test, native browser or publication job admitted.",
-    "Conservative USD 10 total reserved across remote review 4/all root-coordinator 4/preservation 2, leaving USD 20 unallocated. New admissions still stop at USD 30 across all runs including P0; remainder is not another admission. These are planning estimates, not actual fees or token metering.",
-    "Admission helper source from exact current main Git blob 103eb628db72bf555c436657404b70369b35cea8 was evaluated as pure JavaScript in the orchestration runtime, not a repository command. Current local-day, reservation arithmetic, cap and contract cases are checked in memory. No npm/factory/typecheck/asset/build/browser test is claimed today.",
-    "November 11 hosted character-load cause remains unobserved; independent offline GPU failure is separate. No hosted retry, scripted Cloudflare request, unsafe flag, new account/credential/security grant, purchase, paid service, telemetry export/quota service, source edit, public comment/PR or alternate publication. Mandatory independent review, repo checks, browser/replay proof and parent approval remain before any authorized existing-Site publication.",
-    "Final November 12 conservative estimate: USD 10 recorded, zero reserved, USD 20 unallocated. No additional admission from remainder. Cloud execution and native browser unavailable; all listed saved configurations were compared with target repository ID github-1036730230 and none matches. Historical November 11 checks remain historical. Main runtime, pending source and active/public V57 unchanged; release remains blocked.",
-    "Continuation at 2026-11-12T03:22:40Z after the completed USD 10 remote-only pass: current catalog now reports the same cloud connected. Supported attach refreshed this thread; native CUA tools returned and actual read-only commands succeeded. Product source remains exact 98af5b1/c0c13d3 with dependencies/inventory present, clean worktree and no ignored env. Earlier remote-only availability statements describe the earlier snapshot, not this restored state.",
-    "Current selected sandbox is read-only. Necessary scoped QA writes must use the supported permission mechanism under existing authorized cloud maintenance; never circumvent a denied write through another tool. If denied, report exact action/target/reason and stop it unless materially new evidence authorizes retry. No persistent security-setting change or new credential/grant is authorized.",
-    "Additional USD 18 reserved across native 8/review 5/all added coordination 3/preservation 2; earlier USD 10 recorded is unchanged. Combined daily recorded/reserved USD 28, zero extra source-implementation job and USD 2 unallocated. All new jobs explicitly gpt-6.1-sol medium, skip model:opus. Stop admissions above USD 30 including P0; remainder is not another admission.",
-    "Bounded resumed goal: current capability and one normal native hosted-art attempt on exact existing source after environment restoration, with separately labeled documented offline alternative if useful and permitted; try only relevant ordinary interaction recovery within bounded scope. Prior November 11 HTTP cause and GPU failure remain unattributed. No denied CDP/DevTools/headless/DOM/state/storage route, scripted Cloudflare retry, unsafe flag, installation, alternate destination or publication.",
-    "All required independent review, applicable repo checks and browser/replay gates remain before runtime integration or existing-Site publication. Initial remote-only document remains a dated snapshot; no earlier historical check is relabeled fresh.",
-    "Restored continuation closeout: all original USD 10 and additional USD 18 entries recorded; combined November 12 USD 28 recorded, zero reserved, USD 2 unallocated. No day reset, duplicate admission or carry-forward. Fresh restored-source factory check passed, while Chromium process-socket operations were denied before game loading and no alternative launch was attempted. Cloudflare configuration observation requires reauthentication and was stopped. Main runtime/pending source/public V57 unchanged; all unmet release gates remain open."
+    "November 12 ledger archived byte-for-byte from authenticated UTF-8 content, original Git blob SHA-1 e2ee7cacc1e7da93736662e107f054ee6aeb3439 and SHA256 Warning: truncated output (original token count: 2663). USD 28 recorded, zero reserved, USD 2 unused, no carry-forward. No earlier November 13 usage or dated ledger found in unchanged main.",
+    "Pre-admission authenticated main 1a6efe61fb9c54b4cc59a0b2cc506c1dab67064b, pending 98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b/tree c0c13d3e72e5eaa9c45f9533d65279b2c73ad15b and active/public Site V57 source abbf403ef771569533b802a88691696db4f0ce94 remain unchanged. No open PRs; existing #29 is an unaffected maintenance defect, P0 #41/#42 and product/browser gates remain open.",
+    "Bounded existing issue #29 slice on current main: reproduce default report ENOENT from absent validation directory, preserve SIM_REPORT_PATH including nested parents, print actual summaries before report-write failure, and make documented command/source-of-truth balance references accurate without game tuning. Use public CLI interface regressions, no Markdown/source regex tests, no new wrapper platform, dependencies, hooks, campaign/save/schema or game UI changes.",
+    "Both implementation/review jobs explicitly gpt-6.1-sol with reasoning_effort medium; skip model:opus. Sequential cloud manual v3 pin 7d756086b9938635e0cd11064a4d337eae747326, maxParallel 1 substantive. Conservative USD 22 reserved across source 10/review 5/all coordination 4/preservation 3, USD 8 unallocated. No further admission from remainder; cap USD 30 across all runs including P0. Estimates are not actual fees or token measurements.",
+    "Do not retry the Chromium process/socket denial merely because filesystem write mode changed. No materially new browser-launch authorization/capability evidence is established; no browser job admitted. Cloudflare reauthentication remains outside current credentials/security scope. Progress independent CLI work without bypass, credential/permission changes, paid service, purchase, install, telemetry export/quota service, public issue/PR communication or alternate publication.",
+    "Implementation works from exact current-main/admission source, not by integrating the old pending runtime wholesale. Stage and independently review the exact candidate before main ref advancement. Preserve CLI maintenance in any future pending-runtime integration. Do not auto-close issue29 or claim all game/browser acceptance from CLI checks.",
+    "Independent review, applicable repository and public CLI checks remain required for this non-UI repair. Existing pending runtime still needs all relevant browser/replay/hosted/temporal/CSS/touch and parent release gates before existing-Site publication. No Site publication is part of this bounded CLI maintenance."
   ]
 }
