@@ -9,39 +9,42 @@
       "id": "maintenance-nov13-simulator-output",
       "role": "cloud GPT-6.1 Sol Medium bounded issue29 simulator report-output and documentation repair",
       "estimateUsd": 10,
-      "status": "reserved",
+      "status": "recorded",
       "note": "Diagnose actual clean-checkout failure and make only CLI/report/docs corrections, preserving all game rules."
     },
     {
       "id": "maintenance-nov13-independent-review",
       "role": "independent cloud GPT-6.1 Sol Medium exact-candidate CLI/source/regression and documentation review",
       "estimateUsd": 5,
-      "status": "reserved",
+      "status": "recorded",
       "note": "Includes independent public CLI replay, required checks and final documentation closeout; no browser launch."
     },
     {
       "id": "maintenance-nov13-coordination",
       "role": "all root/parent/cloud preflight, scope, admission and coordination",
       "estimateUsd": 4,
-      "status": "reserved",
+      "status": "recorded",
       "note": "Cloud-only scope, existing work and exact source identities; no fresh denied-browser retry."
     },
     {
       "id": "maintenance-nov13-preservation",
       "role": "daily ledger, byte archive, source/review/evidence and cleanup preservation",
       "estimateUsd": 3,
-      "status": "reserved",
+      "status": "recorded",
       "note": "No Site deployment; preserve existing pending runtime separately from CLI maintenance."
     }
   ],
   "unallocatedHeadroomUsd": 8,
   "notes": [
-    "November 12 ledger archived byte-for-byte from authenticated UTF-8 content, original Git blob SHA-1 e2ee7cacc1e7da93736662e107f054ee6aeb3439 and SHA256 Warning: truncated output (original token count: 2663). USD 28 recorded, zero reserved, USD 2 unused, no carry-forward. No earlier November 13 usage or dated ledger found in unchanged main.",
+    "November 12 ledger archived byte-for-byte from authenticated UTF-8 content, original Git blob SHA-1 e2ee7cacc1e7da93736662e107f054ee6aeb3439 and SHA256 7a51f328ad614c200551302af3388199faabee201ee32d2667a5f87de3421209. USD 28 recorded, zero reserved, USD 2 unused, no carry-forward. No earlier November 13 usage or dated ledger found in pre-admission main.",
     "Pre-admission authenticated main 1a6efe61fb9c54b4cc59a0b2cc506c1dab67064b, pending 98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b/tree c0c13d3e72e5eaa9c45f9533d65279b2c73ad15b and active/public Site V57 source abbf403ef771569533b802a88691696db4f0ce94 remain unchanged. No open PRs; existing #29 is an unaffected maintenance defect, P0 #41/#42 and product/browser gates remain open.",
     "Bounded existing issue #29 slice on current main: reproduce default report ENOENT from absent validation directory, preserve SIM_REPORT_PATH including nested parents, print actual summaries before report-write failure, and make documented command/source-of-truth balance references accurate without game tuning. Use public CLI interface regressions, no Markdown/source regex tests, no new wrapper platform, dependencies, hooks, campaign/save/schema or game UI changes.",
     "Both implementation/review jobs explicitly gpt-6.1-sol with reasoning_effort medium; skip model:opus. Sequential cloud manual v3 pin 7d756086b9938635e0cd11064a4d337eae747326, maxParallel 1 substantive. Conservative USD 22 reserved across source 10/review 5/all coordination 4/preservation 3, USD 8 unallocated. No further admission from remainder; cap USD 30 across all runs including P0. Estimates are not actual fees or token measurements.",
     "Do not retry the Chromium process/socket denial merely because filesystem write mode changed. No materially new browser-launch authorization/capability evidence is established; no browser job admitted. Cloudflare reauthentication remains outside current credentials/security scope. Progress independent CLI work without bypass, credential/permission changes, paid service, purchase, install, telemetry export/quota service, public issue/PR communication or alternate publication.",
     "Implementation works from exact current-main/admission source, not by integrating the old pending runtime wholesale. Stage and independently review the exact candidate before main ref advancement. Preserve CLI maintenance in any future pending-runtime integration. Do not auto-close issue29 or claim all game/browser acceptance from CLI checks.",
-    "Independent review, applicable repository and public CLI checks remain required for this non-UI repair. Existing pending runtime still needs all relevant browser/replay/hosted/temporal/CSS/touch and parent release gates before existing-Site publication. No Site publication is part of this bounded CLI maintenance."
+    "Independent review, applicable repository and public CLI checks remain required for this non-UI repair. Existing pending runtime still needs all relevant browser/replay/hosted/temporal/CSS/touch and parent release gates before existing-Site publication. No Site publication is part of this bounded CLI maintenance.",
+    "Closeout: all four admitted estimates recorded unchanged, USD 22 total / zero reserved / USD 8 unallocated. No further admission from remainder. Implementation and independent review finished within the existing source 10/review 5/coordination 4/preservation 3 scopes. The earlier reserved-state notes are admission history, not the current status.",
+    "Bounded issue29 candidate b6481dd0812b9c3205e339e6ae5edf182275f88c, tree fd390faf3c75f27db7d102fc17eb5496309b1e8a: independent review clear; six public CLI regressions green and all six expected-red on exact original source; fresh factory check passed 25 factory and 497 application/CLI tests, src typecheck/build and 131 pinned asset hashes with zero downloads. No game rules/UI change or fresh 100-seed study.",
+    "No Site deployment, browser retry, issue closure or public communication. Existing public V57 and separate pending runtime98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b remain unchanged; all product/browser gates remain open. Final accounting/evidence snapshot requires independent closeout review before main ref advancement."
   ]
 }

@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-13",
+  "timezone": "Asia/Ulaanbaatar",
+  "scope": "Bounded issue29 CLI/report output and source-of-truth documentation; no Site deployment",
+  "remoteSourceCandidate": "b6481dd0812b9c3205e339e6ae5edf182275f88c",
+  "tree": "fd390faf3c75f27db7d102fc17eb5496309b1e8a",
+  "localTestedCommit": "4b0113ce7294bcd73ba0b3342f71fef668fbc09e",
+  "admission": "18b91a25cc6c2b125dd621558dc015471c9e085a",
+  "sourceProvenance": {
+    "transport": "Authenticated GitHub read-only connector plus SHA-identical existing local Git objects; no origin network contact",
+    "baseCommit": "18b91a25cc6c2b125dd621558dc015471c9e085a",
+    "baseTree": "d7d9e87f9320b4bdc037101552388dbebcbd71ab",
+    "trackedBlobEntries": 606,
+    "connectorImportedMissingBlobs": 77,
+    "commitReconstruction": "Git-data metadata, original +0800 timezone and no trailing message newline; raw hash matches admission SHA",
+    "historyLimit": "The admission parent 1a6efe61 is not materialized; exact base commit and full source tree are materialized. History traversal beyond admission is unavailable.",
+    "dependencies": "Every main locked dependency record matches the corresponding pending checkout lock record; existing node_modules reused via symlink. Pending-only jsdom does not alter main source or lock.",
+    "assets": "Identical runtime-assets.json; all 131 source bytes matched pinned SHA-256 before copying. Aggregate verifier reports 131 verified, 0 downloaded."
+  },
+  "sourceArtifactsSha256": {
+    "admission.commit": "9e2400f56824ee171e656d223a867429710a90e3e6f4cbbe681f4ecc6afec85a",
+    "admission-tree.txt": "a80f72c74f8a1e2f61955de11a01aa6f55b58d011dc0e64b3450b590fca7d284",
+    "materialization.json": "33cbcac3191500f8e2bdaf9df9ebcfe30d851fa0758d9a619604d2777a73dda6",
+    "baseline.stderr": "390e18280b5a04a5fab6a98b065ab5eb7b6f4f442b884fbb63adf5f0d6b458ab",
+    "baseline.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "candidate.diff": "abadbab2186af3662d277fb808281ee82a2597fdbe3527d0af255710df506c2b",
+    "focused.log": "2a650a577080cd9ef19958dc24e1b321ab95ce31461086e7d89135c9d404341f",
+    "factory-check.log": "0150ab53f5a61bfcd5bb657d68e9325e937ab47041a44a6d149a0a6a5f89eb08",
+    "report.md": "ca136c7c250a85fd6a240c846beda8421c43ca834b3ac7c5e9724fd1d1998d02"
+  },
+  "reviewArtifactsSha256": {
+    "remote-commit.json": "c40cfd0f9ee1f59370975d884af6e86dd1ed47909e65bce0a9dbb9a65bd55056",
+    "remote-commit.raw": "7cf93abf4d626971e5cdd50b6bf011af0dc152c62c9da6da37f8b2a848fe3424",
+    "original-repro.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original-repro.stderr": "5736100a572d69337390c207ca079f5e1d4d24252fd5169dd2156845ee2f806f",
+    "cli-green.log": "0fdbc2294c1a41437c0caa80550a40ea54024a46beea598dbccd1b8df2b63ce7",
+    "cli-original-expected-red.log": "7818c3d3a74ea096d2a07866537cd905403e5860166a2f2cbf8107b370e36035",
+    "factory-check.log": "8c4d1c4311d1a6c57e8aad014c1f50b32301e5ac5f0b3edd80489707a44a8298",
+    "report.md": "bc2be86fd294805ed8c1c50bb7887b75252dd473d4244eb0a939b558f9bb83c2"
+  },
+  "checks": {
+    "implementation": {
+      "cliPassed": 6,
+      "factoryPassed": 25,
+      "applicationAndCliPassed": 497,
+      "assetsVerified": 131,
+      "assetsDownloaded": 0,
+      "typecheck": "src passed",
+      "build": "passed; known chunk warning"
+    },
+    "independent": {
+      "cliPassed": 6,
+      "originalCliExpectedFailures": 6,
+      "originalTinyCliExit": 1,
+      "originalStdoutBytes": 0,
+      "factoryPassed": 25,
+      "applicationAndCliPassed": 497,
+      "assetsVerified": 131,
+      "assetsDownloaded": 0,
+      "verdict": "clear"
+    }
+  },
+  "nov12Archive": {
+    "path": "docs/factory/estimated-usage-2026-11-12.json",
+    "gitBlob": "e2ee7cacc1e7da93736662e107f054ee6aeb3439",
+    "sha256": "7a51f328ad614c200551302af3388199faabee201ee32d2667a5f87de3421209",
+    "recordedUsd": 28,
+    "reservedUsd": 0,
+    "unusedUsd": 2
+  },
+  "nov13Estimate": {
+    "limitUsd": 30,
+    "recordedUsd": 22,
+    "reservedUsd": 0,
+    "unallocatedUsd": 8,
+    "furtherAdmission": false,
+    "method": "Conservative flat planning estimates, not actual billing"
+  },
+  "pendingRuntime": {
+    "commit": "98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b",
+    "tree": "c0c13d3e72e5eaa9c45f9533d65279b2c73ad15b",
+    "integration": "not performed"
+  },
+  "site": {
+    "version": 57,
+    "source": "abbf403ef771569533b802a88691696db4f0ce94",
+    "status": "active",
+    "access": "public",
+    "deploymentPerformed": false,
+    "runtimeHealthVerified": false
+  },
+  "limits": [
+    "No browser retry or fresh runtime health proof",
+    "No new 100-seed study",
+    "Scripts/tests outside src-only TypeScript check",
+    "No configured full lint; hygiene is selected coverage",
+    "Raw local logs are identified by hashes, not embedded in this curated record",
+    "Independent final documentation review remains a branch-update gate"
+  ]
+}
