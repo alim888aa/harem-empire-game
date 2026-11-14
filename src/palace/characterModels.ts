@@ -95,6 +95,7 @@ type AnimatedPerson = {
   gift?: THREE.AnimationAction;
   active?: THREE.AnimationAction;
   reactionRemaining: number;
+  gaitRunning: boolean;
   spec: ModelSpec;
   speed: () => number;
   airborne: () => boolean;
@@ -148,7 +149,13 @@ export function loadCourtCharacterModels(world: PalaceWorld, playerType: string,
           if(start>0)copy.tracks.forEach(track=>track.shift(-start));
           copy.resetDuration();return mixer.clipAction(copy);
         };
-        const model: AnimatedPerson = { instance, mixer, spec, speed: target.speed, airborne:()=>target.key===PLAYER_KEY&&world.player.airborne, idle: clip(/idle/i), walk: clip(/walk/i), run: clip(/run/i), gift: clip(/gift|react|present/i), reactionRemaining: 0, jumpPhase:'grounded',jumpRemaining:0,wasAirborne:false,pendingReaction:false };
+        const model: AnimatedPerson = {
+          instance, mixer, spec, speed: target.speed,
+          airborne: () => target.key === PLAYER_KEY && world.player.airborne,
+          idle: clip(/idle/i), walk: clip(/walk/i), run: clip(/run/i), gift: clip(/gift|react|present/i),
+          reactionRemaining: 0, gaitRunning: false, jumpPhase: 'grounded', jumpRemaining: 0,
+          wasAirborne: false, pendingReaction: false,
+        };
         if(target.key===PLAYER_KEY){
           model.jumpStart=clip(/^Jump_Start$/i);model.jumpAir=clip(/^Jump_Air$/i);model.land=clip(/^Land$/i);
           if(!model.jumpAir)model.jumpAir=clip(/^jump$|^air$/i);
@@ -166,6 +173,7 @@ export function loadCourtCharacterModels(world: PalaceWorld, playerType: string,
         if(previous){
           model.jumpPhase=previous.jumpPhase;model.jumpRemaining=previous.jumpRemaining;model.wasAirborne=previous.wasAirborne;
           model.reactionRemaining=Math.min(previous.reactionRemaining,model.gift?.getClip().duration??0);model.pendingReaction=previous.pendingReaction;
+          model.gaitRunning=previous.gaitRunning;
           const activeName=previous.active?.getClip().name;
           model.active=[model.idle,model.walk,model.run,model.jumpStart,model.jumpAir,model.land,model.gift].find(action=>action?.getClip().name===activeName);
         }
@@ -196,6 +204,17 @@ export function loadCourtCharacterModels(world: PalaceWorld, playerType: string,
     if (!action || model.active === action) return;
     model.active?.fadeOut(fade);action.reset().setEffectiveWeight(1).fadeIn(fade).play();model.active=action;
   };
+  const movingGait = (model: AnimatedPerson, speed: number) => {
+    if (!model.run || !model.spec.runSpeed) {
+      model.gaitRunning = false;
+      return model.walk ?? model.idle;
+    }
+    const midpoint = (model.spec.walkSpeed + model.spec.runSpeed) / 2;
+    // Collision or analog speed noise must cross distinct thresholds before changing the gait clip.
+    const margin = (model.spec.runSpeed - model.spec.walkSpeed) * .08;
+    if (model.gaitRunning ? speed < midpoint - margin : speed > midpoint + margin) model.gaitRunning = !model.gaitRunning;
+    return model.gaitRunning ? model.run : model.walk ?? model.idle;
+  };
   const playGift=(model:AnimatedPerson)=>{
     if(!model.gift)return;
     model.active?.fadeOut(.1);model.gift.reset().setEffectiveWeight(1).fadeIn(.1).play();
@@ -219,6 +238,7 @@ export function loadCourtCharacterModels(world: PalaceWorld, playerType: string,
       const dt=Number.isFinite(delta)?Math.max(0,delta):0;
       for(const model of models.values()){
         const speed=model.speed(),airborne=model.airborne();
+        if (!paused && !airborne && speed <= .03) model.gaitRunning = false;
         model.walk?.setEffectiveTimeScale(THREE.MathUtils.clamp(speed/model.spec.walkSpeed,.1,1.6));
         if(model.spec.runSpeed)model.run?.setEffectiveTimeScale(THREE.MathUtils.clamp(speed/model.spec.runSpeed,.1,1.6));
         if(airborne&&!model.wasAirborne&&!paused){
@@ -235,8 +255,7 @@ export function loadCourtCharacterModels(world: PalaceWorld, playerType: string,
         // movement immediately responsive and blend into its measured gait.
         if(model.jumpPhase==='land'&&!paused&&speed>.03){
           model.jumpPhase='grounded';model.jumpRemaining=0;
-          const running=model.run&&model.spec.runSpeed&&speed>(model.spec.walkSpeed+model.spec.runSpeed)/2;
-          change(model,running?model.run:model.walk??model.idle,.06);
+          change(model,movingGait(model,speed),.06);
         }
         if(!paused||!airborne)model.wasAirborne=airborne;
         // Menus freeze locomotion/jump phase clocks. An accepted gift remains
@@ -258,8 +277,7 @@ export function loadCourtCharacterModels(world: PalaceWorld, playerType: string,
               const step=Math.min(remaining,model.reactionRemaining);model.mixer.update(step);remaining-=step;model.reactionRemaining-=step;
               if(model.reactionRemaining<=1e-7){model.reactionRemaining=0;if(paused){change(model,model.idle,0);model.mixer.update(0);}}
             }else{
-              const running=model.run&&model.spec.runSpeed&&speed>(model.spec.walkSpeed+model.spec.runSpeed)/2;
-              change(model,!paused&&speed>.03?(running?model.run:model.walk):model.idle);
+              change(model,!paused&&speed>.03?movingGait(model,speed):model.idle);
               model.mixer.update(remaining);remaining=0;
             }
           }

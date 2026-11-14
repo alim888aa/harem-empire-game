@@ -1,7 +1,22 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { CameraGesture, JoystickGesture, combineMovement, joystickVector } from '../src/palace/touchGestures';
+import { CameraGesture, JoystickGesture, combineMovement, isPalaceControlTarget, joystickVector } from '../src/palace/touchGestures';
+import { JSDOM } from 'jsdom';
 const near=(a:number,b:number)=>assert.ok(Math.abs(a-b)<1e-9,`${a} != ${b}`);
+test('focused palace controls own Space and E while the game canvas owns movement shortcuts', () => {
+  const dom = new JSDOM(`<button aria-label="Show controls"><svg><path /></svg></button>
+    <a href="#court">Court</a><summary>Details</summary><div contenteditable="true"><span>Edit</span></div>
+    <canvas role="application" tabindex="0"></canvas><div class="floor"></div>`);
+  const { document } = dom.window;
+  for (const selector of ['button', 'button path', 'a', 'summary', '[contenteditable] span']) {
+    assert.equal(isPalaceControlTarget(document.querySelector(selector)), true, selector);
+  }
+  for (const selector of ['canvas', '.floor']) {
+    assert.equal(isPalaceControlTarget(document.querySelector(selector)), false, selector);
+  }
+  assert.equal(isPalaceControlTarget(dom.window), false);
+  dom.window.close();
+});
 test('joystick deadzone prevents thumb noise and invalid radii never move',()=>{
   assert.deepEqual(joystickVector(5,0,50),{right:0,forward:0});
   assert.deepEqual(joystickVector(7,0,50),{right:0,forward:0});

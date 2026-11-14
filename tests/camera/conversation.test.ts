@@ -7,7 +7,7 @@ import {
   ConversationCameraTransition,
   type ConversationCameraInput,
   type ConversationCameraFrame,
-} from '../src/palace/conversationCamera';
+} from '../../src/palace/camera';
 
 const input = (overrides: Partial<ConversationCameraInput> = {}): ConversationCameraInput => ({
   player: { position: { x: -1.1, y: 0, z: 0 }, height: 2.05 },
@@ -141,11 +141,13 @@ test('entry moves continuously and reduced motion goes straight to the safe plan
   assert.deepEqual(settled, { position: expected.position, target: expected.target });
 });
 
-test('an obstructed transition holds its current pose instead of cutting across a wall', () => {
+test('obstructed easing cuts directly to a readable endpoint instead of holding an unreadable view', () => {
   const options = input();
   const current = options.fallback;
   const blocked = input({ blockers: [{ x: current.position.x, z: current.position.z,
     w: .1, d: .1, minY: 0, height: 6 }] });
   const result = new ConversationCameraTransition().step('Hua:1440:900', () => blocked, current, 1, false);
-  assert.deepEqual(result, current);
+  const planned = frameConversationCamera(blocked);
+  assert.equal(planned.framed, true);
+  assert.deepEqual(result, { position: planned.position, target: planned.target });
 });

@@ -1,9 +1,11 @@
-import {ConversationCameraTransition, type CameraPose} from './conversationCamera';
+// Owns the three.js scene lifecycle, input and campaign presentation wiring.
+import { PalaceCamera, type ConversationShot } from './camera';
 import {PalaceRenderBudget} from './renderBudget';
 import {placeSpeech} from './speechPlacement';
 import {isTouchViewportPlaytest} from '../persistence/playtestMode';
 import {emperorEntrancePlan,type EmperorAppearanceStatus} from './emperorEntrance';
 import {clearInteractionPath} from './interactionPath';
+import { createPlayerNavigation } from './navigation';
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { SVGRenderer } from 'three/addons/renderers/SVGRenderer.js';
@@ -17,7 +19,7 @@ import { careerZoneAccess, type PalaceZone } from '../lib/career';
 import { createPalaceVisitState, zoneRoster, zoneSpawn, zoneGates, ZONES, PLAYABLE_ZONES, type PalaceVisitState, type PlayableZone } from './zones';
 import {requestJump,stepJump,type JumpState} from './jumpPhysics';
 import PalaceTouchControls, { useTouchControls } from './PalaceTouchControls';
-import { CameraGesture, combineMovement, STOPPED_TOUCH, type TouchVector } from './touchGestures';
+import { CameraGesture, combineMovement, isPalaceControlTarget, STOPPED_TOUCH, type TouchVector } from './touchGestures';
 
 const EMPEROR_SCALE=1.1;
 const EMPEROR_CLEARANCE=.60*EMPEROR_SCALE;
@@ -147,15 +149,17 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
     const giftMaterial=new THREE.MeshStandardMaterial({color:'#e6c78b',metalness:.15,roughness:.5});
     const giftBox=new THREE.Mesh(giftGeometry,giftMaterial);giftBox.castShadow=true;giftBox.visible=false;world.scene.add(giftBox);
     const camera=new THREE.PerspectiveCamera(55,1,.1,130);
-    let yaw=stored.yaw,pitch=stored.pitch,distance=stored.distance,last=performance.now(),elapsed=0,frame=0,firstFrame=true,telemetry=0,nearest:string|null=null,nearestGate:PlayableZone|null=null;
+    let yaw = stored.yaw, pitch = stored.pitch, distance = stored.distance;
+    let last = performance.now(), elapsed = 0, frame = 0, telemetry = 0;
+    let nearest: string | null = null, nearestGate: PlayableZone | null = null;
     let jumpQueued=false,poseSaveElapsed=0;
     const prefetchedPortals=new Set<string>();
     let scriptedUntil=0,renderedFrames=0,frameTime=0,frameCount=0,fps=0;
     const position=world.player.group.position;
-    const restored=stored.x>world.bounds.minX+.5&&stored.x<world.bounds.maxX-.5&&stored.z>world.bounds.minZ+.5&&stored.z<world.bounds.maxZ-.5&&
-      !world.colliders.some(c=>Math.abs(stored.x-c.x)<c.w/2+.4&&Math.abs(stored.z-c.z)<c.d/2+.4)&&!world.npcs.some(n=>Math.hypot(stored.x-n.x,stored.z-n.z)<.8)?stored:world.spawn;
+    const navigation = createPlayerNavigation(world.colliders, world.bounds, movementSpeeds.radius, world.npcs);
+    const restored = navigation.canStand(stored) ? stored : world.spawn;
     position.set(restored.x,restored===stored&&stored.airborne?stored.y??world.groundHeight(restored.x,restored.z):world.groundHeight(restored.x,restored.z),restored.z);
-    const offset=new THREE.Vector3(),target=new THREE.Vector3(),projected=new THREE.Vector3();
+    const target=new THREE.Vector3(),projected=new THREE.Vector3();
     const jumpState:JumpState={y:position.y,velocity:restored===stored?stored.velocity??0:0,airborne:restored===stored?stored.airborne??false:false};
     world.player.airborne=jumpState.airborne;world.player.jumpVelocity=jumpState.velocity;
     let emperor:THREE.Object3D|null=null,mixer:THREE.AnimationMixer|null=null,approach:THREE.AnimationAction|null=null,idle:THREE.AnimationAction|null=null,wasEncounter=false,wasIntro=false,approachTime=0,reportedArrival=false,emperorFailed=false;
@@ -185,9 +189,9 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
     const speech=document.createElement('div');speech.className='palace-head-speech';speech.setAttribute('aria-hidden','true');speech.style.display='none';element.appendChild(speech);let speechProjected=false;
     const gateLabels=world.gates.map(gate=>{const label=document.createElement('div');label.className='palace-person-label palace-gate-label';label.textContent=gate.label;element.appendChild(label);return label;});
     let viewportWidth = 1, viewportHeight = 1;
-    let ordinaryCamera: CameraPose | null = null;
-    let dialogueCamera: CameraPose | null = null;
-    const conversationTransition = new ConversationCameraTransition();
+    const palaceCamera = new PalaceCamera({
+      player: position, yaw, pitch, distance, blockers: visualBlocks, ceilingHeight: world.ceilingHeight,
+    });
 
     const resize = () => {
       viewportWidth = element.clientWidth; viewportHeight = element.clientHeight;
@@ -246,7 +250,7 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
     };
     const keydown=(e:KeyboardEvent)=>{
       if(live.current.paused||document.querySelector('dialog[open]')||e.ctrlKey||e.metaKey||e.altKey)return;
-      if((e.target as HTMLElement)?.closest('input,select,textarea'))return;
+      if(isPalaceControlTarget(e.target))return;
       const key=e.key.toLowerCase();
       if(scriptedUntil){resetInput();scriptedUntil=0;}
       if(['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright','shift','e',' '].includes(key))e.preventDefault();
@@ -286,11 +290,6 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
     window.addEventListener('resize',resetInput);document.addEventListener('visibilitychange',hidden);
     canvas.addEventListener('pointerdown',pointerdown);canvas.addEventListener('pointermove',pointermove);canvas.addEventListener('pointerup',pointerup);canvas.addEventListener('pointercancel',pointerup);canvas.addEventListener('lostpointercapture',pointerup);canvas.addEventListener('wheel',wheel,{passive:false});
     const contextLost=(e:Event)=>{e.preventDefault();rendererFailed=true;setError(true);onRenderReady(false);resetInput();if(live.current.emperorEncounter)live.current.onUnavailable();};canvas.addEventListener('webglcontextlost',contextLost);
-    const valid=(x:number,z:number)=>x>world.bounds.minX+.45&&x<world.bounds.maxX-.45&&z>world.bounds.minZ+.45&&z<world.bounds.maxZ-.45&&!world.colliders.some(c=>Math.abs(x-c.x)<c.w/2+movementSpeeds.radius&&Math.abs(z-c.z)<c.d/2+movementSpeeds.radius);
-    const canMove=(x:number,z:number)=>valid(x,z)&&!world.npcs.some(n=>{
-      const next=Math.hypot(x-n.x,z-n.z),current=Math.hypot(position.x-n.x,position.z-n.z);
-      return next<.76&&next<=current;
-    });
     const clearLine=(from:THREE.Vector3,to:THREE.Vector3)=>clearInteractionPath(from,to,world.colliders,world.bounds,movementSpeeds.radius);
     const clearImperialPath=(from:THREE.Vector3,to:THREE.Vector3)=>{
       const steps=Math.max(1,Math.ceil(from.distanceTo(to)/.2));
@@ -337,8 +336,8 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
         if(moving){const speed=((keys.has('shift')||touchRun.current)?movementSpeeds.run:movementSpeeds.walk)*dt;const dx=(right*Math.cos(yaw)-forward*Math.sin(yaw))*speed,dz=(-forward*Math.cos(yaw)-right*Math.sin(yaw))*speed;
           // Fixed-size collision steps preserve wall blocking even in a slow software frame.
           const steps=Math.max(1,Math.ceil(dt/.025));for(let step=0;step<steps;step++){
-            if(canMove(position.x+dx/steps,position.z))position.x+=dx/steps;
-            if(canMove(position.x,position.z+dz/steps))position.z+=dz/steps;
+            if (navigation.canMove(position, { x: position.x + dx / steps, z: position.z })) position.x += dx / steps;
+            if (navigation.canMove(position, { x: position.x, z: position.z + dz / steps })) position.z += dz / steps;
           }
           const wanted=Math.atan2(dx,dz),difference=THREE.MathUtils.euclideanModulo(wanted-world.player.group.rotation.y+Math.PI,Math.PI*2)-Math.PI;world.player.group.rotation.y+=difference*(1-Math.exp(-dt*12));
         }
@@ -387,13 +386,13 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
       }wasEncounter=live.current.emperorEncounter;wasIntro=live.current.emperorIntro;
       const speakingTo = world.npcs.find(n => n.name === live.current.conversationName);
       const cinematicSubject = live.current.emperorEncounter ? emperorEnd : speakingTo?.group.position;
-      if (cinematicSubject) {
-        const key = `${live.current.emperorEncounter ? '@emperor' : live.current.conversationName}:${viewportWidth}:${viewportHeight}`;
-        const current = {position: {x: camera.position.x, y: camera.position.y, z: camera.position.z},
-          target: {x: target.x, y: target.y, z: target.z}};
-        dialogueCamera = conversationTransition.step(key, () => {
+      const shot: ConversationShot | null = cinematicSubject ? {
+        key: `${live.current.emperorEncounter ? '@emperor' : live.current.conversationName}:${viewportWidth}:${viewportHeight}`,
+        input: () => {
           const hostTop = element.getBoundingClientRect().top;
-          const dialog = document.querySelector<HTMLDialogElement>('dialog[open]:has(.palace-conversation), dialog[open]:has(.imperial-encounter)');
+          const dialog = document.querySelector<HTMLDialogElement>(
+            'dialog[open]:has(.palace-conversation), dialog[open]:has(.imperial-encounter)',
+          );
           const header = document.querySelector<HTMLElement>('.court-header');
           const top = Math.max(16, (header?.getBoundingClientRect().bottom ?? hostTop + 80) - hostTop + 12);
           const bottom = Math.min(viewportHeight - 20,
@@ -406,39 +405,17 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
             viewport: {width: viewportWidth, height: viewportHeight, top, bottom},
             blockers: visualBlocks, bounds: world.bounds, ceilingHeight: world.ceilingHeight,
             preferredYaw: Math.atan2(position.x - cinematicSubject.x, position.z - cinematicSubject.z) + 1.05,
-            preferredDistance: 4.8, fallback: ordinaryCamera ?? current,
+            preferredDistance: 4.8,
           };
-        }, current, dt, window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-        if (dialogueCamera) {
-          camera.position.set(dialogueCamera.position.x, dialogueCamera.position.y, dialogueCamera.position.z);
-          target.set(dialogueCamera.target.x, dialogueCamera.target.y, dialogueCamera.target.z);
-          camera.lookAt(target);
-          world.player.group.visible = true;
-        }
-      } else {
-        if (dialogueCamera && ordinaryCamera) camera.position.set(ordinaryCamera.position.x, ordinaryCamera.position.y, ordinaryCamera.position.z);
-        dialogueCamera = null; conversationTransition.clear();
-      target.set(position.x,position.y+1.35,position.z);
-      offset.set(Math.sin(yaw)*distance,Math.sin(pitch)*distance+.6,Math.cos(yaw)*distance);
-      // Keep the follow camera inside the courtyard walls and in front of the hall back wall.
-      offset.add(target);offset.y=Math.min(offset.y,world.ceilingHeight-.25);
-      // Shorten the camera ray against architectural blockers instead of clipping through rooms.
-      const delta=offset.clone().sub(target);let safe=1;
-      for(const c of visualBlocks){
-        let lo=0,hi=1;
-        for(const axis of ['x','y','z'] as const){const min=(axis==='y'?c.minY:axis==='x'?c.x-c.w/2:c.z-c.d/2)-.15,max=(axis==='y'?c.height:axis==='x'?c.x+c.w/2:c.z+c.d/2)+.15,d=delta[axis],o=target[axis];
-          if(Math.abs(d)<.0001){if(o<min||o>max){lo=2;break;}}else{let a=(min-o)/d,b=(max-o)/d;if(a>b)[a,b]=[b,a];lo=Math.max(lo,a);hi=Math.min(hi,b);}
-        }if(lo>0&&lo<hi&&lo<safe)safe=Math.max(.015,lo-.025);
-      }
-      offset.copy(target).addScaledVector(delta,safe);
-      camera.position.lerp(offset,1-Math.exp(-dt*9));camera.lookAt(target);
-      world.player.group.visible=camera.position.distanceTo(target)>2.25;
-      if(firstFrame){camera.position.copy(offset);firstFrame=false;}
-        if (camera.position.distanceTo(target) >= 2.25) {
-          ordinaryCamera = {position: {x: camera.position.x, y: camera.position.y, z: camera.position.z},
-            target: {x: target.x, y: target.y, z: target.z}};
-        }
-      }
+        },
+      } : null;
+      const cameraFrame = palaceCamera.step({
+        player: position, yaw, pitch, distance, blockers: visualBlocks, ceilingHeight: world.ceilingHeight,
+      }, shot, dt, window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+      camera.position.set(cameraFrame.position.x, cameraFrame.position.y, cameraFrame.position.z);
+      target.set(cameraFrame.target.x, cameraFrame.target.y, cameraFrame.target.z);
+      camera.lookAt(target);
+      world.player.group.visible = cameraFrame.playerVisible;
       if (budget.overlay) {
       let closest=2.7;nearest=null;
       let nextSpeechProjected=false;
@@ -510,7 +487,9 @@ export default function PalaceScene({people,rank=null,season=1,seasonProgress=0,
         }
       }frame=requestAnimationFrame(animate);
     };
-    camera.position.set(0,4.3,23);frame=requestAnimationFrame(animate);if(software){setReady(true);onRenderReady(true);}canvas.focus({preventScroll:true});
+    frame = requestAnimationFrame(animate);
+    if (software) { setReady(true); onRenderReady(true); }
+    canvas.focus({preventScroll:true});
     return()=>{disposed=true;retryModels.current=()=>{};onEmperorStatus({loading:false,retry:null});visits.playerByZone[zone]={x:position.x,z:position.z,yaw,pitch,distance,y:position.y,velocity:jumpState.velocity,airborne:jumpState.airborne};for(const n of world.npcs)visits.npcByName[n.name]={zone,x:n.x,z:n.z,rotationY:n.group.rotation.y};cancelAnimationFrame(frame);observer.disconnect();resetInput();window.removeEventListener('keydown',keydown);window.removeEventListener('keyup',keyup);window.removeEventListener('blur',resetInput);window.removeEventListener('resize',resetInput);document.removeEventListener('visibilitychange',hidden);resetSceneInput.current=()=>{};canvas.removeEventListener('pointerdown',pointerdown);canvas.removeEventListener('pointermove',pointermove);canvas.removeEventListener('pointerup',pointerup);canvas.removeEventListener('pointercancel',pointerup);canvas.removeEventListener('lostpointercapture',pointerup);canvas.removeEventListener('wheel',wheel);canvas.removeEventListener('webglcontextlost',contextLost);emperorAbort?.abort();emperorInstance?.dispose(mixer??undefined);mixer?.stopAllAction();if(software&&emperor){emperor.traverse(o=>{if(o instanceof THREE.Mesh){o.geometry.dispose();(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>{for(const value of Object.values(m))if(value instanceof THREE.Texture)value.dispose();m.dispose();});}});}characterModels.dispose();giftGeometry.dispose();giftMaterial.dispose();disposePalaceAssets();disposeSoftwareMaterials();emperorKey.shadow.dispose();emperorRim.shadow.dispose();world.dispose();updateSeason.current=()=>{};updatePlayerOutfit.current=()=>{};if(renderer instanceof THREE.WebGLRenderer){renderer.dispose();renderer.forceContextLoss();}execute.current=()=>'Renderer unavailable';canvas.remove();speech.remove();live.current.onSpeechProjectionChange?.(false);labels.forEach(l=>l.remove());gateLabels.forEach(l=>l.remove());travel.current=()=>"A zone is loading.";};
     // Roster changes are seasonal; gifts and dialog state do not recreate the world.
   },[rosterKey,playerType,zone,visits]);
