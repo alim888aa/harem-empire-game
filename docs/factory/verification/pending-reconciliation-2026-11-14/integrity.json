@@ -1,0 +1,160 @@
+{
+  "date": "2026-11-14",
+  "timezone": "Asia/Ulaanbaatar",
+  "scope": "Pending source reconciliation only; main closeout accounting/evidence only",
+  "refs": {
+    "base": {
+      "commit": "f509c699af09d1a8ee00b9dc32dade8bd65ae6e4",
+      "tree": "3f69aec0f09d2bd42d88383fab753e1530e9553b"
+    },
+    "admission": {
+      "commit": "d58563c748d1b703f8766bb1626d130d0a82daa8",
+      "tree": "df336eec55c8f83da6f0e7fe598658ca7bf9e749"
+    },
+    "originalPending": {
+      "commit": "98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b",
+      "tree": "c0c13d3e72e5eaa9c45f9533d65279b2c73ad15b"
+    },
+    "remoteCandidate": {
+      "commit": "725a0fa51f58af28dadf216ea696216f286cda41",
+      "tree": "6821c99cc7cdd1ed7a56574a9972ccf50f185c34",
+      "branch": "fix/palace-pending-reconciled-2026-11-14",
+      "orderedParents": [
+        "d58563c748d1b703f8766bb1626d130d0a82daa8",
+        "98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b"
+      ]
+    },
+    "localTestedCommit": "bcd78bc799135afab963cc329008360c100400df"
+  },
+  "preservation": {
+    "unionPaths": 619,
+    "candidatePaths": 617,
+    "rawDeltaPaths": 24,
+    "renameAwarePaths": 22,
+    "overlapPaths": 0,
+    "protectedMainPaths": 127,
+    "pendingBytes": "exact",
+    "otherCandidatePaths": "exact admission/main",
+    "rawIdentityDeltaSha256": "11ebf3d6a1e45b77d5a840647903d43cec12b845537fa099aeeba7a4bbb3b85e",
+    "rawDeltaEncoding": "Values are blob mode and SHA-1, or null for deletion",
+    "pendingRawDelta": {
+      "docs/GLOSSARY.md": "100644 c3f6be06c66b42ac2dce722a6491fa096c8c146b",
+      "docs/architecture/README.md": "100644 746b3cb92af1203a4a2d406a5b47a2eed8a0b421",
+      "package-lock.json": "100644 2646ae283372559f9a662083b2e215d16d537ca9",
+      "package.json": "100644 bba4ed87d843a224f393a4036fd27138dc68cb99",
+      "src/components/CourtDialog.tsx": "100644 b21aa1e69680b980e83d89593e7b83add6ebd611",
+      "src/components/EmperorIntro.tsx": "100644 380b75e585c8fcf8291ca858a11d5c77ccf4dfb8",
+      "src/components/GameLayout.tsx": "100644 de39ed4fcaad647e29c7c3803978e81b7bbbcc8e",
+      "src/palace/PalaceScene.tsx": "100644 ea1ce8c4990195b2d538f87aa5fb854ef3c60ae0",
+      "src/palace/camera/conversation.ts": "100644 71494ad4112a25d002c2d5470b717fa20e28a062",
+      "src/palace/camera/index.ts": "100644 529c499b0cb6e0b8d54d8190ba6341ff6dd5d0b0",
+      "src/palace/characterModels.ts": "100644 fd817274dc3f5102eac2e50e01a186117f8190ff",
+      "src/palace/conversationCamera.ts": null,
+      "src/palace/navigation.ts": "100644 cf72512806d768e413427e36ee9ff7e1f13b23e9",
+      "src/palace/touchGestures.ts": "100644 faee5ccbc469f9477a9eae3688063610f3939200",
+      "src/ui/theme/skin.css": "100644 2521eab5c48900a10a5eec4bef2a35007e55cd72",
+      "tests/camera/clearance.test.ts": "100644 934adabe1ca8c41e63e9bc41c2868651334955e5",
+      "tests/camera/conversation.test.ts": "100644 00dd9a86e467c7a2f7a1ad991b0b7f003f982f10",
+      "tests/camera/entry.test.ts": "100644 6c1f1f7d04255fffbcd11aa4f8d37b532a0c94d0",
+      "tests/conversationCamera.test.ts": null,
+      "tests/courtDialog.test.ts": "100644 02394e98ca27ad9cde3479b5094fcb666da3ca29",
+      "tests/palace/navigation.test.ts": "100644 18606fff3591c061ee580d13e5afc2c15c532224",
+      "tests/palace/poseRestore.test.ts": "100644 571d2e240de89dbc257e0e4dc3d1d1e116e692f8",
+      "tests/princePlayerModel.test.ts": "100644 8b121b87fce91a7dc9be84dff9bafc0c5d73ab1e",
+      "tests/touch-gestures.test.ts": "100644 db84f54f9a715d10984e3d3e63e3828fdb20a6c7"
+    }
+  },
+  "checks": {
+    "implementation": {
+      "factory": 25,
+      "applicationAndCli": 573,
+      "targetedSubset": 119,
+      "assetsVerified": 131,
+      "downloads": 0,
+      "srcTypecheck": "passed",
+      "build": "passed",
+      "hostedBinariesPruned": 129
+    },
+    "independent": {
+      "factory": 25,
+      "applicationAndCli": 573,
+      "targetedSubset": 119,
+      "assetsVerified": 131,
+      "downloads": 0,
+      "srcTypecheck": "passed",
+      "build": "passed",
+      "verdict": "clear for source reconciliation only"
+    }
+  },
+  "sourceArtifactSha256": {
+    "admission-provenance.json": "26b934979a36d932885e14996faa24fc61519d996e7fd479eadf9275adbb4f3d",
+    "admission.commit": "9ebf78dc04691605914a46fb4243f0c8146032fa24ca9a18be4b38da22ad6426",
+    "base-tree.txt": "a96687977b6bbe8fd9cda63867c1cfaf13380ed33539c6af0bec60adc225b238",
+    "build-sha256.txt": "95196a8f27c2e3691c199a6de667cb852d5771dbfc2a962ea131ad944e73ab22",
+    "candidate-head.txt": "018c53b8773c9da6429711506d314a4f14a1d1e82f4efaa7706ebfe42fa003e2",
+    "candidate-source.tar": "c8f09d913053d27ce3d2c8ecaa8576b9a7c3f36a5396fae322a4f8424dddf1ec",
+    "candidate-tree.txt": "952f4b0375275b50866948ebc20b0fbdfa5841c1d9b914a4c4abbfde2482e3a0",
+    "candidate.commit": "b3019d81390a3b25fccc0a300291ee54432c411902c5b2dbddef61d54115ac88",
+    "cleanup-state.txt": "b1419c4724cd8e148b46be0887ed8583da8ae4047674be5142b747238d624d45",
+    "complete-input-candidate-identity.json": "ee735a67f44126b54ffbe869aeb01a38598ef302dd4370410f1cd95976e27231",
+    "factory-check.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "factory-check.log": "631915cd96d64390d5b97003a344d4f66dd294d9891ef9f44499833e7f453c16",
+    "main-tree.txt": "ae6f314ed30d859d57041122e24057d823cdd86950f8d0ab1f1196c1090f5841",
+    "merge-tree.txt": "cb62c6816d0f111a0d9b2ad79bb558a426fc4f751d24a14b293ecc2c43c99b7b",
+    "pending-tree.txt": "db6e1ad03ff883c8eba5efa0ebd222ca4d0947e8f7eb1f8af6b3950301df7c23",
+    "preservation-summary.json": "69345be4f1a68673d4dc855f4204f750c3feada193caa186857b3fffd11b607e",
+    "source-report.md": "0f56bd69385008fd7b331fc24e676424f2752afbf856e0f5b78ec84e77664da3",
+    "targeted-interfaces.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "targeted-interfaces.log": "421d7f4a2e35e3ef6eac88acdd80c5e75496873adb985b66b94fe97e904e99bd",
+    "versus-main-identity.txt": "f1f836d67b022201611465d0feff7e7f05eb2c89b08e665b21126f2afa164e02",
+    "versus-main.patch": "0cb944e183465b6bbdd452a77d1b7a37ff05b11a7e517f3b3e5552489f69001f",
+    "versus-pending-identity.txt": "54fd0cd4eaf8fa2a932d85f0dd62f50e0c675c8e56e23ab21d92788a20538481",
+    "versus-pending.patch": "006300268b1b4144ae956e41ec135a89691b9587841d953832e5bf0f3aba1f49"
+  },
+  "independentArtifactSha256": {
+    "build-sha256.txt": "95196a8f27c2e3691c199a6de667cb852d5771dbfc2a962ea131ad944e73ab22",
+    "factory-check.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "factory-check.log": "220049d3fe0d72a357fd1338339df1de3d94fa5db06720ef2bd43d183697c048",
+    "independent-base-pending-raw.txt": "11ebf3d6a1e45b77d5a840647903d43cec12b845537fa099aeeba7a4bbb3b85e",
+    "independent-main-candidate-raw.txt": "11ebf3d6a1e45b77d5a840647903d43cec12b845537fa099aeeba7a4bbb3b85e",
+    "independent-preservation.json": "fb1283b78f209c14dede5e54a50ed7fbb5d2f6a01e31b3657cdd8a319e31fe42",
+    "post-review-status.txt": "734eedf827f49375e7ff71a777bf9b0b64d6783dcfc34fe527071835331a30c3",
+    "protected-127.json": "15da63a7d97a523df551d607948c00658bbcfe890defa2c85e6bd1f5de13a6ff",
+    "remote-metadata.json": "afedec2d80df16667324f54b3ce0e138ce4b3bc6bfcf88ac103967776b0d3450",
+    "remote.commit": "b4d61bf6947eca945ab06adb8a0ea3c05090156f6a6198fa3c194da00f4591ca",
+    "review.md": "1d10afc5858527c0d7e4005bf5b6fde48e84a3dd7647d2062f97e20e19273ad1",
+    "targeted-interfaces.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "targeted-interfaces.log": "2528220d055e50ac0934d7584aae0cb869940a1800a2118b2b396140ec8fed99"
+  },
+  "nov13Archive": {
+    "path": "docs/factory/estimated-usage-2026-11-13.json",
+    "gitBlob": "f93cb95c131647206bdf661b7328cae0bea34164",
+    "sha256": "d3b870ea97e0043486c74ac982b3d20e56b5b246f6ef8446fe1991fe8a8a2d64",
+    "recordedUsd": 22,
+    "unusedUsd": 8
+  },
+  "nov14Estimate": {
+    "limitUsd": 30,
+    "recordedUsd": 20,
+    "reservedUsd": 0,
+    "unallocatedUsd": 10,
+    "furtherAdmission": false,
+    "method": "Conservative flat planning estimates, not billing/tokens"
+  },
+  "site": {
+    "version": 57,
+    "source": "abbf403ef771569533b802a88691696db4f0ce94",
+    "status": "active",
+    "access": "public",
+    "publicationPerformed": false,
+    "runtimeHealthVerified": false
+  },
+  "limits": [
+    "Raw local logs and all 619 per-input records are hash-identified, not embedded",
+    "Missing older local Git ancestry disclosed",
+    "No fresh main aggregate claimed for accounting/evidence-only closeout",
+    "No browser attempt or release approval; actual release gates open",
+    "No full lint/dead-code certification; scripts/tests outside src-only typecheck",
+    "Pending candidate ledger is historical; current main ledger authoritative"
+  ]
+}

@@ -9,28 +9,28 @@
       "id": "maintenance-nov14-pending-reconciliation",
       "role": "cloud GPT-6.1 Sol Medium reconcile existing pending runtime with current-main maintenance",
       "estimateUsd": 8,
-      "status": "reserved",
+      "status": "recorded",
       "note": "No new gameplay feature; preserve both source trees and create a tested pending candidate only, never runtime main integration or publication without browser gates."
     },
     {
       "id": "maintenance-nov14-independent-review",
       "role": "independent cloud GPT-6.1 Sol Medium exact-candidate integration/source/check and closeout review",
       "estimateUsd": 5,
-      "status": "reserved",
+      "status": "recorded",
       "note": "Verify only intended old pending runtime delta plus current-main maintenance survives; independent interface tests and aggregate where permitted; no browser launch."
     },
     {
       "id": "maintenance-nov14-coordination",
       "role": "all root/parent/cloud preflight, environment capability, admission and coordination",
       "estimateUsd": 4,
-      "status": "reserved",
+      "status": "recorded",
       "note": "Cloud catalog, supported attach, immutable identities and all coordination; no denial bypass or new permissions."
     },
     {
       "id": "maintenance-nov14-preservation",
       "role": "daily ledger, prior byte archive, pending source/review/evidence preservation",
       "estimateUsd": 3,
-      "status": "reserved",
+      "status": "recorded",
       "note": "Preserve original pending98 and current main CLI maintenance; final ledger/evidence only may advance main after review."
     }
   ],
@@ -42,6 +42,11 @@
     "Cloud initially unavailable in turn context. Fresh catalog reports connected, supported attach succeeded, read-only shell confirms exact clean source and dependencies. Current shell is read-only; request only scoped ordinary candidate/artifact/test writes through supported permission review if needed. This does not authorize a security change or retry of previous Chromium socket/ptrace denial. No browser job admitted or launch attempted.",
     "Twelve returned saved cloud rows include default twice and ten unrelated configurations, none bound to repository github-1036730230. No unrelated configuration substitution or desktop work. Existing active/public Site V57 sourceabbf403ef771569533b802a88691696db4f0ce94 and 32 open issues/no open PRs confirmed. Resume existing pending work rather than duplicate yesterday's completed issue29 CLI slice.",
     "Sequential manual cloud agent-org v3 pin7d756086b9938635e0cd11064a4d337eae747326, maxParallel1 substantive. Every new implementation/review agent explicitly gpt-6.1-sol/medium, no Opus or stock dispatcher. Conservative USD20 reserved including all workers and coordination; USD10 unallocated, no further admission from remainder. Daily limit USD30 covers all runs, with no priority bypass.",
-    "No purchase, paid service, install, new account/credential/security permission, telemetry export, external quota service, public issue/PR communication, audience/identity change or alternate publication. Prior browser launch denial and Cloudflare reauthentication remain unresolved; do not bypass or retry without materially new relevant evidence. If a permitted write/check is denied, preserve exact denied target/action and finish independent useful work, never misrepresent never-run checks."
+    "No purchase, paid service, install, new account/credential/security permission, telemetry export, external quota service, public issue/PR communication, audience/identity change or alternate publication. Prior browser launch denial and Cloudflare reauthentication remain unresolved; do not bypass or retry without materially new relevant evidence. If a permitted write/check is denied, preserve exact denied target/action and finish independent useful work, never misrepresent never-run checks.",
+    "Closeout: all four admitted estimates recorded unchanged, USD20 total / zero reserved / USD10 unallocated. No further admission from remainder. Earlier reserved-state notes describe admission history, not current accounting. Scope includes independent final documentation review; all original IDs and amounts are preserved.",
+    "Independently clear source candidate725a0fa51f58af28dadf216ea696216f286cda41/tree6821c99cc7cdd1ed7a56574a9972ccf50f185c34, real ordered parents admissiond58563c748d1b703f8766bb1626d130d0a82daa8 and original98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b. Verified separate pending branch fix/palace-pending-reconciled-2026-11-14 preserves it; original98 branch unchanged. No runtime-main or release approval.",
+    "Both source and independent review freshly passed25factory +573 application/CLI tests, src typecheck/build,131local pinned asset hashes/zero downloads and119 relevant interface tests (subset, not119 additional unique tests). Independent all619 union-path assertions, zero overlap, exact pending bytes and127 protected main paths passed. No synthesized runtime/resolution edits.",
+    "Main closeout changes accounting/evidence only, not candidate runtime, and claims no fresh main aggregate. Immutable pending candidate contains its admission-reserved ledger snapshot, not a second current ledger or additional reservation. Current main final ledger is authoritative. November13 archive remains byte-identical.",
+    "No browser attempt, denied-route retry, Site publication, issue closure or external communication. Existing active/public SiteV57/sourceabbf403ef771569533b802a88691696db4f0ce94 remains unchanged. All actual browser/hosted/replay/controls/temporal/CSS/touch/role/H2/P0/parent release gates remain open. Exact final documentation review gates main accounting/evidence ref advancement."
   ]
 }
