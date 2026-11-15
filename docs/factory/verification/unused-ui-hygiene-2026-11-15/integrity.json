@@ -1,0 +1,159 @@
+{
+  "date": "2026-11-15",
+  "timezone": "Asia/Ulaanbaatar",
+  "scope": "Four-file pure unused-UI hygiene; partial issue28 only; no Site publication",
+  "refs": {
+    "admission": {
+      "commit": "8dc2a6f2e6e2f54cd32abb47f73e104c422a3121",
+      "tree": "00cbece11945f1e809471b6cfde6d9563788489a"
+    },
+    "remoteSource": {
+      "commit": "592b7f752eb54f68c83d1d21e0cd52b46adab188",
+      "tree": "6754c4ca5906a053eb7dddd32b6db12b84583689",
+      "parent": "8dc2a6f2e6e2f54cd32abb47f73e104c422a3121"
+    },
+    "localTestedCommit": "5b66f2a02b46e9c2d31e633cadd07982d1222676",
+    "unchangedPending": "725a0fa51f58af28dadf216ea696216f286cda41",
+    "unchangedOriginalPending": "98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b"
+  },
+  "sourceIdentity": {
+    "recursiveEntries": 689,
+    "baselineBlobPaths": 617,
+    "candidateBlobPaths": 616,
+    "missingBlobsImported": 23,
+    "exactBlobModeTreeAndCommitHashesVerified": true,
+    "olderHistory": "shallow; no complete ancestry claim"
+  },
+  "sourceDelta": {
+    "files": 4,
+    "insertions": 4,
+    "deletions": 60,
+    "authoredQuestRulesRemoved": 10,
+    "liveWarningRulesVerbatim": 4,
+    "remainingAuthoredCssAst": "identical selector/declaration/order/media context",
+    "issue28Completed": false
+  },
+  "checks": {
+    "implementation": {
+      "factory": 25,
+      "applicationAndCli": 497,
+      "focusedSubset": 27,
+      "srcTypecheck": "passed",
+      "assetsVerified": 131,
+      "downloads": 0,
+      "build": "passed",
+      "hostedBinariesPruned": 129
+    },
+    "independent": {
+      "factory": 25,
+      "applicationAndCli": 497,
+      "focusedSubset": 27,
+      "srcTypecheck": "passed",
+      "assetsVerified": 131,
+      "downloads": 0,
+      "build": "passed",
+      "verdict": "clear for source-only partial issue28"
+    }
+  },
+  "production": {
+    "javascript": {
+      "bytes": 1265737,
+      "sha256": "27c03106e2abd497e262b4fa250052aaac01911924277db0800fff3ddbb506cd",
+      "byteIdentical": true,
+      "filenameChanged": true,
+      "noJsCodeOrAssetReferenceByteChanges": true
+    },
+    "css": {
+      "baselineBytes": 137480,
+      "finalBytes": 135621,
+      "baselineSha256": "239a76caa9272cf109dca242c39b61f316d05d8c25c3bbb7b45360477f090d06",
+      "finalSha256": "977c49cbb590f2537fb9c522e3b925d440c70137f7853f4dfa548d6b53884701",
+      "questRulesRemoved": 10,
+      "deadToastUtilityRulesRemoved": 14,
+      "propertyRegistrationsRemoved": 4,
+      "variableDeclarationsRemoved": 9,
+      "remainingAstIdenticalAfterExplicitDeadOnlyPruning": true,
+      "twLeadingFallbackConsumers": 6,
+      "twLeadingSetters": 0,
+      "twLeadingReasoning": "Former registration syntax:* / inherits:false / no initial-value and initial initializer; no source assignment/CSS setter, same existing explicit fallback for initial/absent states. Static reasoning, not browser proof."
+    },
+    "distributionFiles": 285,
+    "html": "only JS/CSS hashed filename references changed",
+    "otherDistributionBytes": "identical"
+  },
+  "sourceTopLevelArtifactSha256": {
+    "REPORT.md": "727636710b3772cbc4e4af2ae7d54570856eb8cb00c6f0abf2b4f19f5798df33",
+    "SHA256SUMS": "6bdfd1cbbbf717607684a616b7f22d01b7496ca254e65a8845ec9a8f7f0ebaf4",
+    "baseline-build.log": "7855670ab154c317dc59820b18c519446c44b72b9165bead59119800bcfa44c7",
+    "build-comparison.json": "b089eadd13467cb209ffcab75d058928347d3f393586301639048fa8bad15b18",
+    "build-comparison.log": "2ec48b0b6a313bc7e34bd016d99a1a9127eb266d7f35df4a539c589060f35b84",
+    "candidate-commit.raw": "2a171244e8e81ef466998f6377fd3ac8b98e3748e4e5fc04dae767ce5437fe38",
+    "candidate.patch": "f126877e7562502cab814ed902ef8e9f79c3e982cc77ede9c6acb705eac017e3",
+    "commit.raw": "e429def7a6082dc9ee6bfefa3aa2c442c7432a1ce8ec36bc23c1b43ae9670cf3",
+    "compare-build.mjs": "0233ad747bf515fd658b7fe3e364cd15e66ad310f1ee23de97d00a544060833d",
+    "dead-utility-usage.json": "0196dd7372642f00b87164996b4060bd224a8229104be2989a3dead0ec6643ba",
+    "dead-utility-usage.log": "9e8543456107fc935bea7532c00fb00b5005b215443902df242d84d5d08dad5b",
+    "dead-utility-usage.mjs": "76cac2b7030dbf0a2617ed68fb8afa626cdf562fddd4d6628018ce7366443d5c",
+    "dist-inventory.json": "2a72f0ac9b9219519f1a8b4185ec60199ec1cdf81079b5a28c16ead38f3b4dec",
+    "factory-check.log": "726b271765360d678e55fec2942cf04ee7404777f2dcc45276e745068bf89809",
+    "focused-interface.log": "76c248b691c231438ac60b209e674e0376787997ac7f047d6c561af6a1c40909",
+    "integrity.log": "b449b0cb42e2f210fea1554ecb2a45320f5dd5ece64c9e5a62be13c2f15243d9",
+    "integrity.py": "76fb97bc2fe8b82d8fe9ef5c7de819d899ab2d317f969820a5a6e6c628295262",
+    "issue28-snapshot.json": "a88db5ebe72180ea89e946ac093a6e1fc2de2ae1d7b6a6b15014fc621ded34bb",
+    "missing.json": "095592d32fb58d9a3870134f7438a5c1a9dd3028f52e860a166fd21ac6fb689d",
+    "remote-commit.json": "06758f02c5bbae7fab20b704cc7af1e1b09824458304d83da77b5f3113a818f2",
+    "remote-tree.json": "8453cdddac6d9fe34dc316b0015ec72ce8468dc4ed79f55608c1f17563e9c0a3",
+    "remove-dead-ui.mjs": "016a8ec50399930b6b4e04c98d528e781a843edc6d987ae75e39a80af257fc43",
+    "source-provenance.json": "8875fc4dbb34ab6dfbb3bee76f2453bdaeb5716043e8e2e2c7ac7b006a9221f2",
+    "static-proof.json": "9f54d106dc90d87f0db673fc00018c014aa5a553313279c8224fe68b8ee9bf5a",
+    "static-proof.log": "25eef4c9605b305ad0159a3d46075736c43aa4a1724df1cca48f61acb2617457"
+  },
+  "independentTopLevelArtifactSha256": {
+    "REPORT.md": "d42659fbcd2f14d507c48718656fce41ee61daa3c28471325b1fe9034f7fba73",
+    "SHA256SUMS": "609f3fd6a38217d58077a60ba97353a3a73fd3962ce3a570b5819cea36575a3b",
+    "factory-check.log": "47e7c6c4dad5306ad053c1512f3c051c1936bb123894adcb93d86af1d16816f4",
+    "focused-interface.log": "c00aac94a7daf820a54ed583f09e0952465736f860818abab94ab9301d7d7325",
+    "identity.log": "85ba5ebb46e626aac71c2c5551630c85cb7324d51ee8aaa1416182b036ff143f",
+    "independent-proof.json": "bd3c3862cb339fb91d5a3abdfe9b68be1f3f24296c5109e79cb811ef17275b29",
+    "independent-proof.log": "747e22332251d71d6df2fd05261367e6a64fe43f0a3a3766d05383721f0d23c3",
+    "initial-maxbuffer-failure.log": "dbd8506078e8023863d3639b12e3ad247eac00921df82372b9e0a040561ed939",
+    "remote-candidate.raw": "6095504d1e197737136c0238bae4b318408b934178d87509382626602c5b168b",
+    "review.mjs": "0ad5436164ef646db735b80340d25a21bf30204db2aaed0c138df5b75625279a"
+  },
+  "artifactCoverage": {
+    "sourceManifestEntries": 309,
+    "independentManifestEntries": 9,
+    "note": "These maps cover top-level evidence files. Source manifest also inventories baseline distribution. Full raw files, complete provenance and distribution inventory are not embedded."
+  },
+  "nov14Archive": {
+    "path": "docs/factory/estimated-usage-2026-11-14.json",
+    "gitBlob": "3decb411810176b1770ffd1e31582f301e30a972",
+    "sha256": "b1d82bf3580c5477de9505a1b491f663408b89f40578e72ce6c836aa0c406a97",
+    "recordedUsd": 20,
+    "unusedUsd": 10
+  },
+  "nov15Estimate": {
+    "limitUsd": 30,
+    "recordedUsd": 20,
+    "reservedUsd": 0,
+    "unallocatedUsd": 10,
+    "furtherAdmission": false,
+    "method": "Conservative flat planning estimates, not billing/tokens"
+  },
+  "site": {
+    "version": 57,
+    "source": "abbf403ef771569533b802a88691696db4f0ce94",
+    "status": "active",
+    "access": "public",
+    "publicationPerformed": false,
+    "runtimeHealthVerified": false
+  },
+  "limits": [
+    "Partial issue28 only; no issue closure",
+    "Source/build CSS reasoning is not browser/computed-style proof",
+    "Old Nov13/14 raw scratch logs absent; not freshly rehashed",
+    "No new aggregate/browser run claimed for accounting/evidence-only closeout",
+    "Selected hygiene, no full lint/dead-code certification; scripts/tests outside src-only typecheck",
+    "All actual browser/release gates remain open; pending runtime not integrated"
+  ]
+}
