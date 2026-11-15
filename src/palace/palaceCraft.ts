@@ -261,13 +261,3 @@ export function addPalaceCraft(scene: THREE.Scene, zone: CraftedZone, options: P
   root.userData={...root.userData,stats,design:'Original stylized Chinese imperial architecture, measured to existing Harem Empire rooms',units:'metres',zone};
   scene.add(root);return{root,stats,dispose};
 }
-
-/** Suggested art direction. Apply explicitly in world.ts; this kit never changes lighting. */
-export const PALACE_CRAFT_LIGHTING = {
-  hemisphere: {sky:'#fff0d7',ground:'#697879',intensity:1.5},
-  sun: {color:'#fff0da',intensity:2.3,position:[-16,24,12]},
-  fill: {color:'#d6e4df',intensity:1.0,position:[12,10,-12]},
-  lantern: {color:'#ffc888',intensity:10,distance:9,decay:2},
-  renderer: {toneMapping:'ACESFilmicToneMapping',exposure:1.0,shadowMap:'PCFSoftShadowMap'},
-  note:'Retain generous ambient illumination so anime faces stay readable. Paper-window emissive is subtle, never a substitute for key and fill light.'
-} as const;
