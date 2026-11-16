@@ -1,0 +1,200 @@
+{
+  "date": "2026-11-16",
+  "timezone": "Asia/Ulaanbaatar",
+  "scope": "Three unused legacy rule exports, partial issue28 only; no Site publication",
+  "refs": {
+    "admission": {
+      "commit": "9d17a41cc47af78b93210dfb0899d53c0e015ea8",
+      "tree": "c6d3c1107abd4cf81baffa2590ba4a57c26fd5e3"
+    },
+    "remoteSource": {
+      "commit": "3a3bf17d6fdb56bc97d43e6cf5bea67a626bdecd",
+      "tree": "06dc6e0323671c8bac3624e2ba6b37e4225846ae",
+      "parent": "9d17a41cc47af78b93210dfb0899d53c0e015ea8"
+    },
+    "localTestedCommit": "c322779a03db0fa62b16095aa45bb178fdad0263",
+    "unchangedPending": "725a0fa51f58af28dadf216ea696216f286cda41",
+    "unchangedOriginalPending": "98af5b1c5d0a07ecda6e9c9d08d00fccfab6bb8b"
+  },
+  "sourceIdentity": {
+    "recursiveEntries": 694,
+    "blobPaths": 621,
+    "missingBlobsImported": 6,
+    "installedLockVersionsMatched": 107,
+    "exactBlobModeTreeAndCommitHashesVerified": true,
+    "olderHistory": "shallow/incomplete, not fabricated"
+  },
+  "sourceDelta": {
+    "files": 4,
+    "insertions": 2,
+    "deletions": 168,
+    "removedFunctions": [
+      "handlePromotion",
+      "calculateAmbitiousMessageEffects",
+      "calculateFactionEffects"
+    ],
+    "deadTypeImportsRemoved": 2,
+    "liveStatementBytes": "exact deletion transform; no normalization",
+    "remainingExports": [
+      "consortHostility",
+      "careerWindow",
+      "graphBackers",
+      "getRank",
+      "hasPromotedOffice",
+      "getDisabledActions"
+    ],
+    "issue28Completed": false
+  },
+  "unreachability": {
+    "codeFiles": 187,
+    "targetDeclarationOnlyIdentifiers": 3,
+    "namedModuleConsumers": 27,
+    "dynamicInventoryEntries": 15,
+    "productionDynamicLoadersOrTargetRegistration": 0,
+    "caveat": "One-time AST/interface evidence, not source-grep product tests or browser proof"
+  },
+  "checks": {
+    "implementation": {
+      "factory": 25,
+      "applicationAndCli": 497,
+      "focusedSubset": 83,
+      "srcTypecheck": "passed",
+      "assetsVerified": 131,
+      "downloads": 0,
+      "build": "passed",
+      "hostedBinariesPruned": 129
+    },
+    "independent": {
+      "factory": 25,
+      "applicationAndCli": 497,
+      "focusedSubset": 83,
+      "srcTypecheck": "passed",
+      "assetsVerified": 131,
+      "downloads": 0,
+      "build": "passed",
+      "ownFreshBaselineBuild": true,
+      "verdict": "clear for source-only partial issue28"
+    }
+  },
+  "production": {
+    "files": 285,
+    "totalBytes": 23847739,
+    "allPathsAndBytesIdentical": true,
+    "jsCssHtmlPayloadsIdentical": true,
+    "filenamesAndHtmlReferencesIdentical": true,
+    "js": [
+      "assets/index-Cpi_IKoM.js"
+    ],
+    "css": [
+      "assets/index-ogLC6n1w.css"
+    ],
+    "differences": {}
+  },
+  "sourceTopLevelArtifactSha256": {
+    "REPORT.md": "7c5f08f7c06fad01d626aa60b90a7fab540d93eb16c1935f02bbec221823344e",
+    "SHA256SUMS": "9c00c18e990426a80bbdb95f903f87bf607f0bf5bc14866b981a1b0f3f64b56c",
+    "assets.log": "cde2e506f2f8888f10582bc0f258b768a9d31be5330619aecf7c07d440c19032",
+    "audit-remove.mjs": "4f52cda2df4e83ec9f8a85b784cd9be7a454256a60bcf619d1f377871cc69f2c",
+    "base-commit.raw": "c5bebbc3bd1697b7b8926f22fa5a2338266c80fbd44f4c52d19eb228aaea4a6c",
+    "baseline-build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "baseline-build.log": "810fb5d0ed783c55b7b521acca9a873021977172c439dccce8e0fc8181574c80",
+    "baseline-payload-inventory.json": "fe682735e60df1e9944c9addd9fb8b4ff4549a0c0d45739a53c2c446c6182875",
+    "candidate-commit.raw": "d54969a2a30b1b0883b409dc3f38d4c0acc77322073bac89df66dbdb75c12713",
+    "candidate.patch": "ca335dfbee96f4a1036ef70590b9c7a47a33eb00e285086814cb2958229ca682",
+    "comments.json": "f9384334ff07d60ac1672d829ff0517b04eba13827999e20649cee9c1afd5de0",
+    "commit.json": "3c37ad2842be9e9c2718ce40c192ab7d0c290cb88621f0c4668cd92e5a0fd144",
+    "compare-payload.py": "966176334a5c9d2aeeff0f32c2d98a6f93606a8f3d6a84105134791ef1ad80f8",
+    "factory-check.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "factory-check.log": "40b45ebc914c6c999ff2eab853620ff666d1819ae8627e2549ab1cb47dceb32e",
+    "final-payload-inventory.json": "fe682735e60df1e9944c9addd9fb8b4ff4549a0c0d45739a53c2c446c6182875",
+    "focused-interface.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "focused-interface.log": "f60185d86d628996f5d40b3f60d6b5efa95482f00f683edf7e1dc28a50184030",
+    "freeze-proof.py": "e03f260c4435bd13c5b88981034b76699887698c5480c2f1971eda472ca364b5",
+    "frozen-source.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "frozen-source.json": "f8b0eae85f7ad60c2b5d477caaec9ce753e65c1b62087c4a0356f40e973b0f04",
+    "frozen-source.log": "d822db8bc18c0b16d3c0b2f0a29c41b998dbf44a4692d98a72a5404825d82578",
+    "issue.json": "1640178518eb2675be3d6ec538c9d18cce1e670dd0115d2850104bf0be503080",
+    "materialization.json": "a8df5fc05ae17826d0683c564659832bf83b72291d386246a1aae900cbab509f",
+    "payload-comparison.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "payload-comparison.json": "bb302cb8fe8589f2291e1c7295e92dab0df795ec43e7008d7bc9f8fc49b8cd08",
+    "payload-comparison.log": "30d91761e29ecea9c85bc68948b85cc8f49da3d94b824b500a2c86168b8c1cc3",
+    "retained-live-statements-initial.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "retained-live-statements-initial.log": "9ef2b453fd43351c9b5e87057199640de9b80e5a30580b9a81b41851c2f8d987",
+    "retained-live-statements.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "retained-live-statements.json": "03a0a50335a4c539355027d59266477267afcd47df6183b5004f7a5017894ba9",
+    "retained-live-statements.log": "968c1c5b6c922edd4afcdebc7beca41350d7ba3d0fbb85fd47f87c0c3e03eb87",
+    "tree.json": "da81f4c497b33363c935a8bbfe680d25d0f177ca610cb738526f3b8cdda6faf7",
+    "unreachability.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "unreachability.json": "313ab729b753d1dea66af43b05f90c2e191c6d38cd2474761c534e274841b9f0",
+    "unreachability.log": "dcf24e18a94a2c99c2573adee1e1396930080c113287666f0227c6790f9cf9f8",
+    "verify-live.mjs": "67abb9980270e10ba409e287e635ec5d1d6122840972022fa543843236f5219e"
+  },
+  "independentTopLevelArtifactSha256": {
+    "REPORT.md": "6f21e2c1782cce1734a35f9afa534fc0e1620fe245eeaa7f7be311653e4b11e4",
+    "SHA256SUMS": "aea154a65f556439445b87c15df951f33531fe82605d5b2cf58e2e125c294e49",
+    "audit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "audit.json": "c6d8f64ee657d43da46237105afcc34b8c03460c89a74323bd99804b64bcb886",
+    "audit.log": "03ed42e042a78e47431046facb13d6e39f37ed87f36614649afded829e69b547",
+    "audit.mjs": "1964049597ab0d4fb007ae3ab112c975c0c984f5c36b22065f2e0a24f3604262",
+    "base-identity.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "base-identity.log": "ba223854c23142ae74166aacb2708ace9a8ed33ec90d0e6d1b6e47eb544f3104",
+    "base.json": "38606ba78a6cb696418024526ce87b1de9d2f3a08ae26ec2752ceefdd77a971a",
+    "baseline-build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "baseline-build.log": "f0776915445c7e6dd33ddb0ef18411bf8eca8f6f74292321f1a732aa069600e7",
+    "comments.json": "9d7415b9556c3725c2f9fad268b5dce1f9dce2596120e3c4966c807c35b858df",
+    "commit.json": "3ee51431e86385b419a118323547dfc18ee7843eb777bb360978cdb264ef95c4",
+    "factory-check.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "factory-check.log": "1f244876415d69877ca5705f11180ab7f238ce2e86118f901e197a734ea286af",
+    "focused.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "focused.log": "4f8ff442dd4128672f73ebfcc2ec1e7b254b2cca6ac8eb4ff9cea45eb8d8a3be",
+    "issue.json": "c1d018d528245918bb5fa2ea2dcb4b791d0255bcabce36312c2b1572dd351a2e",
+    "main.json": "69ecfea0b00ccf40b53c8b93629c3d3db741bd07dd864f19b0c109e297cd07a9",
+    "own-baseline-inventory.json": "fe682735e60df1e9944c9addd9fb8b4ff4549a0c0d45739a53c2c446c6182875",
+    "own-candidate-inventory.json": "fe682735e60df1e9944c9addd9fb8b4ff4549a0c0d45739a53c2c446c6182875",
+    "payload.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "payload.json": "9bc53798f21c36ce05ab36ca6b3039fabb4d2413002114aac70533a932440e5a",
+    "payload.log": "008954001754bacbc98380a1b6e4955bde434624ed52ebc25cf605d6610e9977",
+    "payload.py": "a906efe938f147d03271c5b63688e63d53795e84c9fc094d7662d4ba9483facd",
+    "preservation.log": "bae6f6878dee0c2b0569fa58d541e1d9b7f2b8ffe30bea69bd0611e8395bf425",
+    "remote-commit.raw": "37a89a5e153ecdae3c320095f0cf483419767ee605972f30a0d68fbf0e0c120f",
+    "source-manifest-check.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "source-manifest-check.log": "d38f36193f1f7555b9a4b0611414971a233c280047509cee3050e01a7f883594",
+    "tree.json": "6c7d44f1750cc6671bd3ebb93acdfce8b5bfa4ee1074b6e8291f8a02b69eaf3b"
+  },
+  "artifactCoverage": {
+    "sourceManifestEntries": 321,
+    "independentManifestEntries": 1060,
+    "note": "Maps identify top-level evidence files including manifests; complete raw files/provenance/source/payload inventories and all manifest entries are not embedded."
+  },
+  "nov15Archive": {
+    "path": "docs/factory/estimated-usage-2026-11-15.json",
+    "gitBlob": "4cbda44ce17f6b4af834d7199af3cece33f67612",
+    "sha256": "6c197a17f579d9eb5df1e97400961492524afd9e0be2fea0004551631eff0628",
+    "recordedUsd": 20,
+    "unusedUsd": 10
+  },
+  "nov16Estimate": {
+    "limitUsd": 30,
+    "recordedUsd": 20,
+    "reservedUsd": 0,
+    "unallocatedUsd": 10,
+    "furtherAdmission": false,
+    "method": "Conservative flat planning estimates, not billing/tokens"
+  },
+  "site": {
+    "version": 57,
+    "source": "abbf403ef771569533b802a88691696db4f0ce94",
+    "status": "active",
+    "access": "public",
+    "publicationPerformed": false,
+    "runtimeHealthVerified": false
+  },
+  "limits": [
+    "Partial issue28 only, six exports/other acceptance remain open",
+    "No actual browser/replay/release proof or Site publication",
+    "No older missing Nov13/14 raw log rehash claim",
+    "No extra aggregate/browser run for accounting/evidence-only closeout",
+    "Selected hygiene, no full lint/dead-export certification; src-only typecheck",
+    "Latest pending runtime unchanged; future integration must preserve current main"
+  ]
+}
