@@ -1,5 +1,3 @@
-import type { PlayerStats } from '../types/game';
-
 /**
  * Applies initial fear to all characters based on player's starting influence
  */
@@ -44,40 +42,6 @@ export function applyInfluenceFear(
       });
     }
   });
-}
-
-/**
- * Handles promotion effects: influence increase, side character penalties, fear increases
- */
-export function handlePromotion(
-  characters: Record<string, any>,
-  playerStats: PlayerStats
-): { updatedPlayerStats: PlayerStats; shouldShowInfluenceNotification: boolean } {
-  // Increase player influence by 0.4 (capped at 1.0)
-  const updatedPlayerStats = {
-    ...playerStats,
-    influence: Math.min(1.0, playerStats.influence + 0.4)
-  };
-
-  // Apply effects to all characters
-  Object.values(characters).forEach((characterRef) => {
-    const snapshot = characterRef.getSnapshot();
-    if (snapshot?.context?.name && snapshot.context.name !== 'Emperor') {
-      // Fear increase (+0.3) for all living non-emperor characters
-      characterRef.send({
-        type: 'APPLY_FEAR',
-        fearAmount: 0.3
-      });
-    }
-  });
-
-  // Check if we should show high influence notification
-  const shouldShowInfluenceNotification = updatedPlayerStats.influence > 0.8;
-
-  return {
-    updatedPlayerStats,
-    shouldShowInfluenceNotification
-  };
 }
 
 /**

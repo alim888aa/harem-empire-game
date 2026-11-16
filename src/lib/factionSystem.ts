@@ -88,69 +88,6 @@ export function getFactionInfo(faction: FactionType): FactionInfo {
 }
 
 /**
- * Calculates faction effects when player gains support with a character
- */
-export function calculateFactionEffects(
-  targetCharacter: Character,
-  targetFaction: FactionType,
-  allCharacters: Record<string, any>, // Character actors
-  playerFaction: FactionType | null,
-  _supportGain: number
-): {
-  bonuses: Array<{ characterName: string; supportBonus: number }>;
-  penalties: Array<{ characterName: string; supportPenalty: number; suspicionPenalty: number }>;
-} {
-  const bonuses: Array<{ characterName: string; supportBonus: number }> = [];
-  const penalties: Array<{ characterName: string; supportPenalty: number; suspicionPenalty: number }> = [];
-
-  // Only apply faction effects if player is in a faction
-  if (!playerFaction || playerFaction === 'Independent') {
-    return { bonuses, penalties };
-  }
-
-  // Get opposing factions
-  const opposingFactions: Record<FactionType, FactionType[]> = {
-    Rebel: ['Imperial', 'Loyalist'],
-    Imperial: ['Rebel'],
-    Loyalist: ['Rebel'],
-    Independent: []
-  };
-
-  for (const [characterName, characterActor] of Object.entries(allCharacters)) {
-    if (characterName === targetCharacter.name) continue;
-
-    try {
-      const characterSnapshot = characterActor.getSnapshot();
-      if (!characterSnapshot?.context) continue;
-
-      const character = characterSnapshot.context;
-      const characterFaction = assignCharacterFaction(character);
-
-      // Faction member bonus - when you support someone from your faction, other faction members gain support
-      if (playerFaction && characterFaction === playerFaction && targetFaction === playerFaction) {
-        bonuses.push({
-          characterName,
-          supportBonus: 10
-        });
-      }
-
-      // Opposition penalty - when you support anyone, opposing faction members lose support and gain suspicion
-      if (playerFaction && opposingFactions[playerFaction]?.includes(characterFaction)) {
-        penalties.push({
-          characterName,
-          supportPenalty: 10,
-          suspicionPenalty: 0.2 // 20% increase
-        });
-      }
-    } catch (error) {
-      console.warn(`Failed to process faction effects for ${characterName}:`, error);
-    }
-  }
-
-  return { bonuses, penalties };
-}
-
-/**
  * Checks if player should receive faction membership offers
  */
 export function checkFactionMembershipOffers(

@@ -70,7 +70,7 @@ The Career candidate is implemented on this refactor branch (see docs/factory/ca
 ### Hygiene backlog
 
 - Delete `old_code/`, `src/typescript.svg`, and the obsolete manual test guides in the root: `*_TEST.md`, `test-*.md`, `plan.md`. Also delete `.kiro/steering/rules.md`, which forbids automated tests and contradicts the 415 that exist.
-- Dead exports to remove: `handlePromotion`, `calculateAmbitiousMessageEffects`, `calculateFactionEffects`, `consortHostility`, `careerWindow`, `graphBackers`, `getRank`, `hasPromotedOffice`, `getDisabledActions`.
+- Dead exports to remove: `consortHostility`, `careerWindow`, `graphBackers`, `getRank`, `hasPromotedOffice`, `getDisabledActions`.
 - Typecheck `tests/` and `scripts/`. This needs `@types/node` and a `tsconfig` that includes them; about 380 errors are waiting.
 - Fix `.gitignore` so it stops listing tracked files.
 - Move `Math.random` defaults in `data/characters.ts` and `lib/getResponse.ts` onto the seeded RNG.

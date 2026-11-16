@@ -1,77 +1,10 @@
 import type { Character } from '../types/character';
-import { assignCharacterFaction, type FactionType } from './factionSystem';
+import { assignCharacterFaction } from './factionSystem';
 
 export interface CrossCharacterEffect {
   characterName: string;
   suspicionChange: number;
   effectType: 'ambitious_faction' | 'spit_faction' | 'loyal_benefit';
-}
-
-/**
- * Calculates cross-character suspicion effects for ambitious messages
- * When player gives ambitious message to character with ambition >= 0.7,
- * all characters in opposing factions gain 0.1 suspicion
- */
-export function calculateAmbitiousMessageEffects(
-  targetCharacter: Character,
-  allCharacters: Record<string, any>,
-  _playerFaction: FactionType | null
-): CrossCharacterEffect[] {
-  const effects: CrossCharacterEffect[] = [];
-
-  // Only apply if target has high ambition
-  if (targetCharacter.personalityVectors.ambition < 0.7) {
-    return effects;
-  }
-
-  const targetFaction = assignCharacterFaction(targetCharacter);
-  
-  // Get opposing factions based on target's faction
-  const opposingFactions: Record<FactionType, FactionType[]> = {
-    Rebel: ['Imperial', 'Loyalist'],
-    Imperial: ['Rebel'],
-    Loyalist: ['Rebel'],
-    Independent: []
-  };
-
-  const targetOpposingFactions = opposingFactions[targetFaction] || [];
-
-  for (const [characterName, characterActor] of Object.entries(allCharacters)) {
-    if (characterName === targetCharacter.name) continue;
-
-    try {
-      const characterSnapshot = characterActor.getSnapshot();
-      if (!characterSnapshot?.context) continue;
-
-      const character = characterSnapshot.context;
-      const characterFaction = assignCharacterFaction({
-        name: character.name,
-        type: character.type,
-        supportLevel: character.supportLevel,
-        suspicion: character.suspicion,
-        personalityVectors: character.personalityVectors,
-        relationshipVectors: character.relationshipVectors,
-        lastResponse: character.lastResponse,
-        imgPath: character.imgPath,
-        suspicionThreshold: character.suspicionThreshold,
-        hasGivenGifts: character.hasGivenGifts || false,
-        giftCooldownUntil: character.giftCooldownUntil || 0
-      });
-
-      // Characters in opposing factions to the target gain suspicion
-      if (targetOpposingFactions.includes(characterFaction)) {
-        effects.push({
-          characterName,
-          suspicionChange: 0.1,
-          effectType: 'ambitious_faction'
-        });
-      }
-    } catch (error) {
-      console.warn(`Failed to calculate ambitious message effects for ${characterName}:`, error);
-    }
-  }
-
-  return effects;
 }
 
 /**
