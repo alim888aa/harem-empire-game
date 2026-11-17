@@ -75,7 +75,6 @@ export function setPlayerGraphFaction(graph:CourtGraph,faction:FactionType|null)
  return result;
 }
 export function graphTies(graph:CourtGraph,id:string){return Object.entries(graph.edges[id]??{}).map(([to,relation])=>({from:id,to,...relation}));}
-export function graphBackers(graph:CourtGraph,to:string,threshold:number){return Object.keys(graph.nodes).filter(from=>from!==to&&graph.nodes[from].status==='living'&&courtRelation(graph,from,to).support>=threshold);}
 export function graphPledgedTo(graph:CourtGraph,to:string){return Object.keys(graph.nodes).filter(from=>from!==to&&graph.nodes[from].status==='living'&&!!courtRelation(graph,from,to).pledge);}
 export function scheduledOverlap(a:string,b:string,season:number){return [0,.25,.5,.75].filter(p=>scheduledNpcZone(a,season,p)===scheduledNpcZone(b,season,p)).length/4;}
 /** A separate seeded stream creates bounded beta exceptions, never live AI calls.

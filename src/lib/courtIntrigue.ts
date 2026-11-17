@@ -1,5 +1,5 @@
 import type { FactionType } from './factionSystem';
-import { promotionHate, type PalaceZone } from './career';
+import type { PalaceZone } from './career';
 export { careerSeniorRival } from './career';
 import { CAMPAIGN_BALANCE as B } from './campaignBalance';
 export type CourtWitness={name:string;faction:FactionType;pledged:boolean;hate:number;zone:PalaceZone};
@@ -8,9 +8,6 @@ export type CourtWitness={name:string;faction:FactionType;pledged:boolean;hate:n
 export function witnessedRebelGift(message:string,recipientFaction:FactionType,recipientName:string,zone:PalaceZone,witnesses:readonly CourtWitness[]){
  if(message!=='ambitious'||recipientFaction!=='Rebel')return[];
  return witnesses.filter(w=>w.name!==recipientName&&w.zone===zone&&!w.pledged&&['Imperial','Loyalist'].includes(w.faction)).map(w=>({characterName:w.name,suspicionChange:B.witnessSuspicion*(w.hate>=B.hostileThreshold?B.hostileWitnessMultiplier:1),effectType:'ambitious_faction' as const}));
-}
-export function consortHostility(support:number,threshold:number,pledged:boolean){
- return pledged?{support,hate:0}:{support:support>=threshold?Math.min(support,threshold-1):support,hate:promotionHate('concubine')};
 }
 
 /** Rivalry follows an actual office, never every member of its faction. */

@@ -1,5 +1,5 @@
 import {courtArchetype,type CourtIdentity} from './courtHierarchy';
-import { CAREER_RULES, type Career } from './career';
+import { CAREER_RULES } from './career';
 // Stable public imports remain available while runtime consumers use Career directly.
 export {
   tributeCost, promotionHate, rankIndex, seasonalGiftGrant, promotionRequirement,
@@ -47,7 +47,6 @@ export const relativeInfluenceScale=(player:number,npc:number)=>1+CAMPAIGN_BALAN
 export const giftPositiveScale=(character:Pick<Character,'hasGivenAllegiance'> & {hate?:number;personalityVectors?:Pick<Character['personalityVectors'],'influence'>},influence:number)=>
   relativeInfluenceScale(influence,character.personalityVectors?.influence??0)*(isEnemy(character)?CAMPAIGN_BALANCE.enemyPositiveScale:1);
 export const emperorEncounterChance=(influence:number)=>CAMPAIGN_BALANCE.emperorEncounterBase+Math.max(0,Math.min(1,influence))*CAMPAIGN_BALANCE.emperorEncounterInfluence;
-export const careerWindow=(role:Career)=>CAMPAIGN_BALANCE.roles[role].window;
 
 /** Apply full gains up to70%, then20% of further positive gains. Existing influence is never reduced. */
 export function earnedInfluence(current:number,amount:number){const low=Math.min(Math.max(0,.70-current),Math.max(0,amount));return Math.min(1,current+low+Math.max(0,amount-low)*.20);}
