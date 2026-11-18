@@ -1,53 +1,48 @@
 {
-  "date": "2026-11-17",
+  "date": "2026-11-18",
   "timezone": "Asia/Ulaanbaatar",
   "limitUsd": 30,
   "currency": "USD",
   "method": "Conservative flat planning estimates, not actual billing or token measurements",
   "entries": [
     {
-      "id": "maintenance-nov17-unused-selectors",
-      "role": "cloud GPT-6.1 Sol Medium issue28 unused selector/export continuation",
+      "id": "maintenance-nov18-final-dead-exports",
+      "role": "cloud GPT-6.1 Sol Medium final dead-export portion of issue28",
       "estimateUsd": 8,
-      "status": "recorded",
-      "note": "Prove unused consortHostility/careerWindow/graphBackers on exact main, delete only these declarations and solely dead imports if any; precise backlog edit, no live rule change."
+      "status": "reserved",
+      "note": "Prove and remove only getRank/hasPromotedOffice/getDisabledActions plus now-complete dead-export backlog bullet. Preserve all live helpers/gating and other issue28 scope."
     },
     {
-      "id": "maintenance-nov17-independent-review",
-      "role": "independent cloud GPT-6.1 Sol Medium exact-candidate source/interface/payload and closeout review",
+      "id": "maintenance-nov18-independent-review",
+      "role": "independent cloud GPT-6.1 Sol Medium exact-source/interface/payload and closeout review",
       "estimateUsd": 5,
-      "status": "recorded",
-      "note": "Fresh independent AST/caller/deletion proof, repository/public-interface checks, baseline/final payload equivalence, and exact final accounting/evidence review; no browser release clearance."
+      "status": "reserved",
+      "note": "Fresh reachability/deletion proof, aggregate/public-interface checks, own baseline/final payload comparison, and exact report/accounting closeout; no browser release waiver."
     },
     {
-      "id": "maintenance-nov17-coordination",
-      "role": "all root/parent cloud reconciliation, supported-route assessment, admission and coordination",
+      "id": "maintenance-nov18-coordination",
+      "role": "all root/parent cloud reconciliation, admission and coordination",
       "estimateUsd": 4,
-      "status": "recorded",
-      "note": "Reconcile main/latest pending/issues/live/ledger, read-only official capability assessment and all coordination; no denied browser route retry."
+      "status": "reserved",
+      "note": "Reconcile current main/latest pending/issues/live/ledger/cloud; respect previous blocked optional summary and browser routes."
     },
     {
-      "id": "maintenance-nov17-preservation",
-      "role": "daily ledger, byte archive, exact source/review/evidence preservation",
+      "id": "maintenance-nov18-preservation",
+      "role": "daily ledger, byte archive and existing source/review report preservation",
       "estimateUsd": 3,
-      "status": "recorded",
-      "note": "Preserve old inputs/pending725/original98 and prior cleanup; source-only main decision after exact review, no Site publication."
+      "status": "reserved",
+      "note": "Preserve prior inputs/pending725/original98; closeout copies reports/manifests without replacing prior denied summary. No Site publication."
     }
   ],
   "unallocatedHeadroomUsd": 10,
   "notes": [
-    "November16 ledger archived byte-for-byte from authenticated UTF-8 content, blob e7a42a73267f08efb332282acc6d908bac4e849a, SHA256 5214ee77fad4189790fa94674d0a308ef026256774eeca681d5a4395d2886a8a. USD20 recorded, zero reserved, USD10 unused; no carry-forward. No earlier November17 paths or usage found in current main.",
-    "Pre-admission main a32625e7632e724e8482c799e2be21fb4cd713f5/tree d1ec684bb53e26dc2b3c414248afd3415927cbea; latest reviewed pending 725a0fa51f58af28dadf216ea696216f286cda41/tree6821c99cc7cdd1ed7a56574a9972ccf50f185c34 unchanged on fix/palace-pending-reconciled-2026-11-14; original98 historical baseline. Preserve all prior CLI/unused-UI/unused-rule maintenance and pending refs.",
-    "Resume remaining explicit pure-hygiene scope of issue28, partial only: verify no current callers/import/dynamic/global lookup, remove exactly consortHostility(courtIntrigue.ts), careerWindow(campaignBalance.ts), graphBackers(courtGraph.ts), and only those three names from architecture README. Solely dead imports/types may be removed within same files only. No live helper/type/body/game/save/schema/RNG/event rule change, wrapper/dependency/hook, source-text/Markdown regex test, raised baseline or broad cleanup. Stop if targets live or product decision needed. Three other backlog exports and all other issue28 acceptance remain open; no closure.",
-    "Required exact-head evidence: independent AST/import/caller analysis and precise retained-byte proof, fresh factory:check and relevant existing public interfaces, own baseline/final complete production payload comparison. Expect no production byte change; account generated names/references precisely if any rather than claim equality. No CSS/JSX edit or new feature. Node/static/build proof does not replace browser/replay acceptance.",
-    "Cloud connected/attached with Node24.22.1 and old clean98/deps/assets available; newer Nov13-16 scratch workspaces/raw logs are absent after current restore. Materialize exact main from authenticated connector and verified Git objects, never stale-tree replacement; disclose shallow history and do not claim absent old logs freshly rehashed. Current shell read-only; use only scoped ordinary source/artifact/test writes through supported review, no persistent permission/security change.",
-    "Fresh official cloud-desktop/runtime guidance was inspected read-only after capability rediscovery. It describes managed shared Chrome through CDP and optional environment-status/preview tools, but those status/forwarding tools are not available here. Prior organization CDP/DevTools/headless denials and November12 native socket/ptrace denial remain unresolved; tool/skill rediscovery alone is not new authorization or process evidence. No browser operation, launch/retry, ad-hoc proxy/tunnel or permission/network change. Static-app previews are explicitly inapplicable to this multi-file Sites project.",
-    "All12 saved cloud rows contain no matching Harem repository; no unrelated configuration/desktop substitution. Existing Site active/publicV57/sourceabbf403ef771569533b802a88691696db4f0ce94,32open issues/noPRs unchanged. Cloudflare reauthentication outside scope. Actual browser/hosted/replay/controls/gait/CSS/touch/roles/H2/P0#41/#42/parentrelease gates stay open; no Site publication or live playable improvement implied.",
-    "Sequential manual cloud agent-orgv3 pin7d756086b9938635e0cd11064a4d337eae747326/maxParallel1 substantive. Every new implementation/review agent gpt-6.1-sol/medium, skipOpus/stockdispatcher. USD20 conservative estimates reserved across source8/review5/allcoordination4/preservation3, USD10 unallocated and no further admission. USD30 daily cap covers all runs without priority bypass. No purchase/paid service/install/account/credential/security grant/telemetry/quota export/public issue-PR communication/audience-identity change/alternate publication.",
-    "Closeout: four original estimates recorded unchanged, USD20 total / zero reserved / USD10 unallocated. No further admission. Earlier reserved-state notes are admission history; exact final documentation review remains within the existing USD5 review role.",
-    "Reviewed source 360386bb4e7cf9b51a4ddf772000197f4fb4efb0/tree f71d404346b0569b2752c53c883996b419f4597a is clear for source-only partial issue28. Only three declarations, two solely dead import specifiers and three backlog names changed across four files. Required independently executed verification is preserved in existing verbatim reports, not a new combined results object. Three other exports and all other issue28 acceptance remain open.",
-    "An optional independent-review default-sandbox write to manifest-and-counters.json failed with read-only OSError30 after required checks/evidence had completed. No file was created, no automated approval-review denial occurred, and no retry or alternate-path reconstruction of that combined payload is permitted/performed. Leave this optional artifact incomplete. Preserve existing reports and existing manifest only; do not recreate a combined verification summary.",
-    "Final accounting/evidence-only snapshot preserves approved source and archive bytes and must clear exact independent documentation review before main advancement. No extra aggregate/browser run is claimed. Pending725/original98 remain unchanged; future runtime integration must preserve current main and all prior maintenance.",
-    "No browser/server/CDP/denied-route retry, Site publication, external communication or release-gate waiver. Existing publicV57/sourceabbf403ef771569533b802a88691696db4f0ce94 remains unchanged. Actual browser/hosted/replay/controls/gait/CSS/touch/roles/H2/P0#41/#42/parentrelease gates stay open. Source-only hygiene is not a playable live improvement."
+    "November17 ledger archived byte-for-byte from authenticated UTF-8 content, blob7e192e9472a8180b2e0874253b618ccda4b8d895, SHA256 fe834424b9ca83e2c40e1ab8bc091081f898e498aa451d1757542ec13d58abcf. USD20 recorded, zero reserved, USD10 unused; no carry-forward. No earlier November18 paths or usage found in current main.",
+    "Pre-admission main505d22a2eb91d56166b6ab6e8ba8227c68fae318/tree86072ad1828e2598cff05d6503536316b24a5d97; latest reviewed pending725a0fa51f58af28dadf216ea696216f286cda41/tree6821c99cc7cdd1ed7a56574a9972ccf50f185c34 remains onfix/palace-pending-reconciled-2026-11-14. Original98 historical baseline. Preserve all prior CLI/UI/rule/selector cleanup; no pending integration or stale-tree replacement.",
+    "Resume issue28's final dead-export sub-scope only: verify no current callers/import/dynamic/global lookup, remove getRank(helpers.ts), hasPromotedOffice/getDisabledActions(influenceGating.ts), and remove the now-complete dead-export backlog bullet from architectureREADME. Preserve helpers.ts live personality/hint/threshold operations, all live gating types/functions/bodies, canInteract and its current branches, pending labels and every other issue28 acceptance. This completes only the ten-export backlog, not issue28; no closure.",
+    "Exact-head AST/import/caller and precise retained-byte deletion proof, fresh factory:check/relevant existing public interfaces and independent baseline/final complete payload comparison are required. Expect no production byte change; report actual generated changes honestly. No CSS/JSX/test/config/baseline/dependency/hook/any/wrapper or broad cleanup, no source-grep/Markdown regex product tests. Stop if intended targets are live or require a product decision.",
+    "Cloud attached/connected, Node24.22.1, old98/deps/assets and Nov17 frozen source workspace survive. Nov17 localec75226/tree f71d404 is not currentmain; preserve it and materialize exact admitted source from authenticated connector/verified Git objects. Respect shallow-history limits; no old missing raw-log freshness claims. Current shell read-only afterattach: all necessary ordinary source/artifact/test writes require supported scoped permission review first, no default write probes or persistent security/permission change.",
+    "Nov17 optional manifest-and-counters.json failed default read-only write with OSError30; no file created and no automated approval-review denial. It remains absent/incomplete and must not be retried, relocated or reconstructed under another path. Do not create a replacement combined summary. Fresh task-specific AST/deletion/payload proof and existing raw logs/reports may proceed only through independently authorized scoped workflow. Closeout preserves existing reports/manifests plus authorized ledger, not a new combined results object.",
+    "No materially new browser permission/process evidence. Existing organization CDP/DevTools/headless denials and Nov12 native socket/ptrace failure remain unresolved; no browser/CDP/CUA/headless/alternate launcher/flags/DOM/storage/tunnel retry. No matching saved Harem configuration or desktop substitution. Cloudflare reauth outside scope. Existing Siteactive/publicV57/sourceabbf403ef771569533b802a88691696db4f0ce94,32issues/noPRs unchanged; all actual browser/hosted/replay/controls/gait/CSS/touch/roles/H2/P0#41/#42/parentrelease gates stay open.",
+    "Sequential manual cloud agent-orgv3 pin7d756086b9938635e0cd11064a4d337eae747326/maxParallel1 substantive. Every new implementation/review agent gpt-6.1-sol/medium, skipOpus/stockdispatcher. USD20 conservative estimates reserved across source8/review5/allcoordination4/preservation3, USD10 unallocated/no further admission. USD30/day covers all runs without priority bypass. No purchase/paid service/install/account/credential/security grant/telemetry/quota export/public issue-PR communication/audience-identity change/alternate publication; no playable live improvement implied."
   ]
 }
