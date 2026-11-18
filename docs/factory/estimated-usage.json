@@ -9,29 +9,29 @@
       "id": "maintenance-nov18-final-dead-exports",
       "role": "cloud GPT-6.1 Sol Medium final dead-export portion of issue28",
       "estimateUsd": 8,
-      "status": "reserved",
-      "note": "Prove and remove only getRank/hasPromotedOffice/getDisabledActions plus now-complete dead-export backlog bullet. Preserve all live helpers/gating and other issue28 scope."
+      "status": "recorded",
+      "note": "Source candidate completed and preserved unmerged on fix/final-dead-exports-2026-11-18 at3d355e742304251a5240af0cbf1681121ef2440e/tree33e645a97655e4d2025ecd0429f8adf083520e03. Exact3file/34line deletion only. Source factory25/497 passed and all285production files/23,847,739bytes match own baseline. Main product source remains unchanged."
     },
     {
       "id": "maintenance-nov18-independent-review",
       "role": "independent cloud GPT-6.1 Sol Medium exact-source/interface/payload and closeout review",
       "estimateUsd": 5,
-      "status": "reserved",
-      "note": "Fresh reachability/deletion proof, aggregate/public-interface checks, own baseline/final payload comparison, and exact report/accounting closeout; no browser release waiver."
+      "status": "recorded",
+      "note": "Independent raw commit/full tree/AST/deletion/preservation proof and own baseline build PASS; no source finding. Overall BLOCKED: polling session55318 denied for alleged unauthorized registry.npmjs.org access; final factory aggregate and own final payload comparison incomplete. No retry/workaround. Includes exact read-only evidence/accounting closeout review, not implementation/release clearance."
     },
     {
       "id": "maintenance-nov18-coordination",
       "role": "all root/parent cloud reconciliation, admission and coordination",
       "estimateUsd": 4,
-      "status": "reserved",
-      "note": "Reconcile current main/latest pending/issues/live/ledger/cloud; respect previous blocked optional summary and browser routes."
+      "status": "recorded",
+      "note": "Reconciled main/issues/live/cloud/ledger, preserved unmerged source ref, obeyed denial and parent instruction not to retry. No code integration, browser retry or Site publication; all actual release gates remain open."
     },
     {
       "id": "maintenance-nov18-preservation",
       "role": "daily ledger, byte archive and existing source/review report preservation",
       "estimateUsd": 3,
-      "status": "reserved",
-      "note": "Preserve prior inputs/pending725/original98; closeout copies reports/manifests without replacing prior denied summary. No Site publication."
+      "status": "recorded",
+      "note": "Preserved existing source/review reports, existing hash manifests and exact denial as evidence/accounting-only closeout based on admission15113e1. Nov17 archive unchanged. Prior failed Nov17 optional combined summary remains absent and incomplete; no replacement created."
     }
   ],
   "unallocatedHeadroomUsd": 10,
@@ -43,6 +43,9 @@
     "Cloud attached/connected, Node24.22.1, old98/deps/assets and Nov17 frozen source workspace survive. Nov17 localec75226/tree f71d404 is not currentmain; preserve it and materialize exact admitted source from authenticated connector/verified Git objects. Respect shallow-history limits; no old missing raw-log freshness claims. Current shell read-only afterattach: all necessary ordinary source/artifact/test writes require supported scoped permission review first, no default write probes or persistent security/permission change.",
     "Nov17 optional manifest-and-counters.json failed default read-only write with OSError30; no file created and no automated approval-review denial. It remains absent/incomplete and must not be retried, relocated or reconstructed under another path. Do not create a replacement combined summary. Fresh task-specific AST/deletion/payload proof and existing raw logs/reports may proceed only through independently authorized scoped workflow. Closeout preserves existing reports/manifests plus authorized ledger, not a new combined results object.",
     "No materially new browser permission/process evidence. Existing organization CDP/DevTools/headless denials and Nov12 native socket/ptrace failure remain unresolved; no browser/CDP/CUA/headless/alternate launcher/flags/DOM/storage/tunnel retry. No matching saved Harem configuration or desktop substitution. Cloudflare reauth outside scope. Existing Siteactive/publicV57/sourceabbf403ef771569533b802a88691696db4f0ce94,32issues/noPRs unchanged; all actual browser/hosted/replay/controls/gait/CSS/touch/roles/H2/P0#41/#42/parentrelease gates stay open.",
-    "Sequential manual cloud agent-orgv3 pin7d756086b9938635e0cd11064a4d337eae747326/maxParallel1 substantive. Every new implementation/review agent gpt-6.1-sol/medium, skipOpus/stockdispatcher. USD20 conservative estimates reserved across source8/review5/allcoordination4/preservation3, USD10 unallocated/no further admission. USD30/day covers all runs without priority bypass. No purchase/paid service/install/account/credential/security grant/telemetry/quota export/public issue-PR communication/audience-identity change/alternate publication; no playable live improvement implied."
+    "Sequential manual cloud agent-orgv3 pin7d756086b9938635e0cd11064a4d337eae747326/maxParallel1 substantive. Every new implementation/review agent gpt-6.1-sol/medium, skipOpus/stockdispatcher. USD20 conservative estimates reserved across source8/review5/allcoordination4/preservation3, USD10 unallocated/no further admission. USD30/day covers all runs without priority bypass. No purchase/paid service/install/account/credential/security grant/telemetry/quota export/public issue-PR communication/audience-identity change/alternate publication; no playable live improvement implied.",
+    "November18 closeout: all four admitted conservative estimates are recorded atUSD20 total, zero reserved, USD10 unused/unallocated; this is not actual billing. No further admissions. Independent review/execution was partially blocked, not a PASS. Estimates cover effort regardless of outcome.",
+    "Do not integrate candidate3d355e742304251a5240af0cbf1681121ef2440e/tree33e645a97655e4d2025ecd0429f8adf083520e03 until its required independent final aggregate and own complete payload comparison are satisfied under materially relevant authorization. Product source and architecture backlog onmain remain atadmission15113e1; source report completion is candidate-only. Exact blocked action and denial preserved indocs/factory/verification/final-dead-exports-2026-11-18/denial.txt. Matching saved automation supplies no new authority to override no-download restriction; parent explicitly ordered no retry.",
+    "Evidence/accounting-only main closeout does not waive browser/hosted/replay or other release gates. Pending725 and old98 refs unchanged. Siteactive/publicV57/sourceabbf403ef771569533b802a88691696db4f0ce94 unchanged by verified metadata; runtime health not browser-verified. No playable published improvement and no user notification."
   ]
 }

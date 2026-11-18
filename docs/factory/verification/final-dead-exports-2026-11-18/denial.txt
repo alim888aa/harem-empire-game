@@ -1,0 +1,30 @@
+Denied action: functions tools.write_stdin(session_id=55318, chars="", yield_time_ms=1000, max_output_tokens=1000), polling own exact-base-build/final-factory:check execution.
+Automated reviewer: This action was rejected due to unacceptable risk. Reason: The build command triggered unauthorized network access to registry.npmjs.org, conflicting with the explicit no-installs/downloads and cloud-only restrictions.
+No retry, alternate flags, substituted path or indirect execution performed. Read-only inspection: base build.exit=0; aggregate raw log stops after24 visible factory test PASS lines, with no aggregate exit file and no final dist. No matching execution process remains. Existing npm debug logs show npm run commands, not a registry request; that does not override the denial. Required final aggregate and own final payload comparison remain incomplete.
+
+Full rejected tool result:
+Script error:
+write_stdin failed: Unified exec process failed: This action was rejected due to unacceptable risk.
+Reason: The build command triggered unauthorized network access to registry.npmjs.org, conflicting with the explicit no-installs/downloads and cloud-only restrictions.
+Do not bypass this rejection through a workaround or indirect execution. Continue with a safer alternative, or carry out checks to prove that the action is authorized or low risk before trying again. Complete unaffected work without asking for confirmation. Report anything that remains blocked, clarify why it was blocked by auto-review, inform the user of the risk and ask for approval.
+
+Exact rejected invocation first call in functions.exec:
+await tools.write_stdin({session_id:55318,chars:"",yield_time_ms:1000,max_output_tokens:1000})
+No later calls in that sequential functions.exec were executed.
+
+Original admitted tools.exec_command parameters:
+sandbox_permissions: require_escalated
+yield_time_ms: 1000
+max_output_tokens: 1000
+justification: May I run the required independent exact-base build and frozen-final factory aggregate, writing only isolated Nov18 review build outputs, temp/cache files and raw logs/exits?
+cmd:
+R=/workspace/scratch/5e0e15dcbbf8/.scratch/harem-nov18-dead-exports/review
+export TMPDIR="$R/tmp" npm_config_cache="$R/npm-cache"
+cd "$R/base"
+npm run build > "$R/proof/base-build.log" 2>&1
+s=$?; printf '%s\n' "$s" > "$R/proof/base-build.exit"; [ "$s" -eq 0 ] || exit "$s"
+cd "$R/final"
+npm run factory:check > "$R/proof/factory-check.log" 2>&1
+s=$?; printf '%s\n' "$s" > "$R/proof/factory-check.exit"; exit "$s"
+
+Original call yielded functions cell g6:10, then session_id55318. Rejected polling was the first write_stdin call for that session. No final factory-check.exit was fabricated. Root subsequently explicitly reaffirmed that no polling, rerun, flags/path/environment change or different runner is authorized absent materially new relevant root authorization.
