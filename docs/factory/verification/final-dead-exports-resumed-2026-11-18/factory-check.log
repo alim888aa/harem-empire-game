@@ -1,0 +1,684 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> harem-empire-game@0.0.0 factory:check
+> npm run factory:hygiene && npm run factory:test && npm run check && npm run build
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> harem-empire-game@0.0.0 factory:hygiene
+> node scripts/factory/hygiene.mjs
+
+{"explicitAny":28,"alerts":5,"consoleLogs":49,"unseededRandom":6,"longLines":705,"oversizedFiles":7}
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> harem-empire-game@0.0.0 factory:test
+> node --test scripts/factory/*.test.mjs
+
+✔ manual configuration is valid while stock T3 CLI remains held (0.907083ms)
+✔ automatic T3 configuration is rejected without blocking manual dispatch (0.336649ms)
+✔ priority bypass, changed budgets and non-Sol jobs are rejected (0.306614ms)
+✔ absent configuration holds dispatch (0.115665ms)
+✔ missing role maps, role masking and unsupported accounting are invalid (0.354627ms)
+✔ v3 review is required and metrics activation or a stale maintenance default is rejected (0.254315ms)
+✔ the installed skill inventory is pinned and contains no obsolete contracts (15.893304ms)
+✔ the v3 review mapping stays Sol and replaces legacy review/verifier jobs (0.563452ms)
+✔ the pure planner can suggest a Sol worker without applying external actions (2.961342ms)
+✔ pure usage and metrics transforms remain available while live collection is held (1.893636ms)
+✔ upstream dispatch apply and acknowledgement are held before external actions (137.290099ms)
+✔ upstream local usage CLI stops without inspecting a session directory (64.952956ms)
+✔ imported usage admission rejects before local-log accounting (4.339509ms)
+✔ imported stock mutation paths stop before filesystem or GitHub callbacks (3.243419ms)
+✔ live metrics entrypoints stop before session, credential or D1 access (74.398404ms)
+✔ imported local-log collectors and readers reject before opening supplied paths (1.931654ms)
+✔ stock CLIs remain held through installed skill-folder symlinks (187.64134ms)
+✔ today is the Ulaanbaatar calendar day, not a UTC day or cumulative pot (21.739753ms)
+✔ existing reservations are not double charged and leave stated headroom (0.547939ms)
+✔ estimated ceiling stops new work regardless of priority; active reservations can finish (0.546126ms)
+✔ maintenance uses a fresh $30 local-day ledger only when needed (0.535261ms)
+✔ missing estimates and duplicate ledger jobs stop only their new admission (0.519487ms)
+✔ the active maintenance ledger admits only reserved or affordable new jobs (11.915414ms)
+✔ hygiene passes an unchanged baseline and rejects increased source debt (516.217719ms)
+✔ hygiene rejects absent and nonnumeric baseline rules (877.324822ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1498.886795
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> harem-empire-game@0.0.0 check
+> npm run typecheck && npm test
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> harem-empire-game@0.0.0 typecheck
+> tsc --noEmit -p .
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> harem-empire-game@0.0.0 pretest
+> node scripts/runtime-assets.mjs verify
+
+Verified 131 runtime files (0 downloaded).
+
+> harem-empire-game@0.0.0 test
+> node --import tsx --test tests/*.test.ts tests/career/*.test.ts
+
+✔ one actor shares a private rig across every outfit primitive, preserving bind matrices and art (21.941338ms)
+✔ separate actors retain independent animation bones and release their rigs separately (6.963569ms)
+✔ different source rigs remain distinct even when they reference the same bones (6.693471ms)
+✔ a real season boundary warns for one full season, then an off-zone pledged ally shields and is permanently stopped (159.348694ms)
+✔ three due attacks consume exactly three distinct living pledges, with no roll that spares an attack (82.916684ms)
+✔ the third due attack kills the player after two shields, and terminal death reloads exactly (105.738195ms)
+✔ an unshielded attack kills only after its warning season, including across a reload (86.649844ms)
+✔ warning and casualty saves resume the exact RNG, graph, selected victims, and consecutive-season continuation (106.458225ms)
+✔ the live resolver consumes one seeded draw weighted by the attacker’s outgoing ties and prior-season contact (62.915463ms)
+✔ an unresolved plot strikes once every season, including across reload, until there are no allies (66.638337ms)
+✔ base rank and equal influence never create a warning through the live season path (92.25641ms)
+✔ strictly exceeding attacker influence cancels the old warning; losing that advantage needs a fresh warning (67.474052ms)
+✔ an attacker who pledges during the warning is immediately defused and cannot attack next season (29.328478ms)
+✔ joining the warned attacker’s formal faction cancels the plot while preserving its hate history (41.1039ms)
+✔ v4 migration adds empty intrigue without rerolling graph/RNG or attacking; first new boundary only warns (45.425912ms)
+✔ review: top-rank due unshielded attack resolves before freshly eligible audience (23.652438ms)
+✔ review: late hate threshold only warns on next boundary, then grants full season (33.911475ms)
+✔ review: all stale dead actor messages leave canonical game unchanged (35.403614ms)
+✔ review: due plot pauses at tribute, reload preserves exact continuation and one kill (62.989595ms)
+✔ equal influence after warning and after a casualty never defuses an ongoing plot (105.764159ms)
+✔ v5 cooldown migration resumes next-season threat without replaying casualties, hate or RNG (69.364233ms)
+✔ instances own skeletons but share template art until the final actor releases (13.508455ms)
+✔ character URLs include only present NPCs and player, with shared art deduplicated (0.566087ms)
+✔ characters share active templates across worlds and release every repeated scene lease (45.163195ms)
+✔ disposing characters during download prevents late scene attachment and decoding (5.012407ms)
+✔ throne is emperor-zone-only, cloned, and idempotently released with its fallback restored (1.367679ms)
+✔ throne cancellation discards late decode and emperor helper is lazy until called (2.606795ms)
+✔ pooled characters keep independent walk, run, jump and gift animation state (7.100737ms)
+✔ canopy bed loads only in Ladies, restores its fallback and reuses bounded warm source bytes (8.489834ms)
+✔ shared model leases deduplicate download/decode and dispose only after final release (4.081798ms)
+✔ source prefetch is bounded and holds no decoded scene (0.811668ms)
+✔ failed shared downloads release reference bookkeeping and allow a later normal retry (1.901628ms)
+✔ cancelled pending leases retain only warm bytes and skip abandoned decoding (6.838971ms)
+✔ cancellation during decode disposes its late template exactly once (8.203306ms)
+✔ a new zone can acquire a pending decode after the previous zone cancels (1.734195ms)
+✔ failed decodes release all bookkeeping and retry warm bytes (0.638766ms)
+✔ final template release disposes shared GPU resources and image bitmaps once (3.481119ms)
+✔ shared archetype palette variants own only their color materials and cannot recolor another actor (3.290751ms)
+✔ zone loads decode at most two distinct assets concurrently and skip cancelled queued art (0.971971ms)
+✔ three ladders use global targets, influence and probation independently (3.62721ms)
+✔ enemy positive multiplier is small, pledged allies exempt; roster is reproducible (3.999904ms)
+✔ serialized PRNG continuation has the exact next draws and stays within uint32 bounds (1.428773ms)
+✔ restored real campaign keeps the same future casts, encounter and tribute rolls despite unrelated randomness (214.735998ms)
+✔ prince: selected role and narrative survive reload; choosing another path preserves backup (118.984884ms)
+✔ minister: selected role and narrative survive reload; choosing another path preserves backup (57.034501ms)
+✔ concubine: selected role and narrative survive reload; choosing another path preserves backup (53.094839ms)
+✔ new-game screen always offers three distinct paths and role-specific origins (9.524495ms)
+✔ all 48 registered actors, seeded personalities, season clock, 2D mode and per-zone poses survive fresh actor construction (135.307844ms)
+✔ completed message-gift restores cost, relationships, receipt and deduplication without paying or applying again (38.27235ms)
+✔ reload during an uncommitted gift uses the previous complete save with no reserved charge (55.898282ms)
+✔ failed gift evaluation refunds once and preserves request deduplication on restore (34.380821ms)
+✔ pledges, faction membership, both promotion rewards and permanent expulsion remain committed after restore (60.619428ms)
+✔ tribute checkpoint preserves the same next favor roll, one charge and exactly one season transition (77.533026ms)
+✔ zero timer and stale React presentation cannot advance the just-committed season again on refresh (26.922027ms)
+✔ zero timer during an unresolved tribute retains the encounter until tribute resolves (46.979868ms)
+✔ rank deadline loss is restored as terminal without replaying seasonal allowance (148.417099ms)
+✔ audience question and answered progress restore without invoking question generation again (65.763002ms)
+✔ documented version-one migration preserves progress/RNG and upgrades presentation and derived factions (53.329294ms)
+✔ malformed, future, incomplete and dangling-actor saves are rejected before machine construction (60.355829ms)
+✔ valid legacy zone without current career access relocates home and retains relationships and saved poses (25.528728ms)
+✔ invalid primary remains untouched until safely quarantined; valid previous campaign remains recoverable (34.029664ms)
+✔ confirmed New Game archives the completed campaign; recovery swaps it with the new saved campaign (57.328121ms)
+✔ backup failure aborts New Game without erasing the current saved campaign (19.461024ms)
+✔ blocked reads and quota failures explain session-only progress and keep the running actor usable (33.75922ms)
+✔ recovery backup failure never replaces the primary save or the running campaign (52.088536ms)
+✔ recovery primary failure rolls back its backup and preserves both saved campaigns (56.347492ms)
+✔ refusing tribute persists the resulting defeat even when its abandoned season flag remains set (40.219822ms)
+✔ one reusable restore options object remains safe across Strict Mode double construction (37.042965ms)
+✔ two open stores cannot silently overwrite a newer campaign; stale New Game and recovery are blocked (81.099003ms)
+✔ a second empty tab detects the first campaign save and keeps it intact (36.338749ms)
+✔ v1 normalizes all 48 NPCs to four office caps without changing player influence, earned state or RNG (112.374905ms)
+✔ v2 normalizes all 48 NPCs to four office caps without changing player influence, earned state or RNG (69.288849ms)
+✔ below-cap influence remains exact; schema3 round trips without a second migration (51.567241ms)
+✔ pledged inactive low-tier allies keep binding Imperial overrides and continue to qualify for an offer (36.61068ms)
+✔ formerly Imperial unpledged tier2 backers lose obsolete offers after their actual influence falls below .5 (31.326562ms)
+✔ joined faction membership and displaced-courtier history stay intact while expelled actors never rejoin derived lists (35.413568ms)
+✔ negative, greater-than-one, missing, string, null and nonfinite legacy influence is rejected before clamping (34.904868ms)
+✔ schema3 above-cap NPC values are rejected instead of being silently normalized (47.455904ms)
+✔ stored v2 current and backup campaigns migrate without tripping exact-value stale-writer protection (54.063189ms)
+✔ v1 defaults apply only to absent fields; malformed presentation and faction data are rejected before migration (41.311956ms)
+✔ user-approved mechanics migration removes retired personal meters in v1, v2 and current schema3 while retaining meaningful values (62.895181ms)
+✔ current schema may omit retired compatibility fields, but still rejects malformed meaningful meters (32.747959ms)
+✔ simulator creates absent default report directory for seed 1 (794.645384ms)
+✔ simulator creates absent default report directory for seed 7 (363.33015ms)
+✔ simulator creates nested relative override parents (383.85153ms)
+✔ simulator creates nested absolute override parents (377.372084ms)
+✔ simulator prints actual summaries when report file cannot be written (1004.882482ms)
+✔ simulator prints actual summaries when report parent cannot be written (646.277669ms)
+✔ demotion resets only global standing to destination baseline (1.376324ms)
+✔ paid positive endorsements renew once per supporter/season and never exceed the final goal (0.972081ms)
+✔ withdrawn backing cannot renew; hostile backers stay difficult and pledges remain binding (0.148085ms)
+✔ 28 distinct new identities use faction inclinations rather than fixed assignments (37.960713ms)
+✔ all role/rank/access/deadline/finance/office decisions match pre-refactor public outputs (11.167652ms)
+✔ stable import contracts re-export identical operations instead of another implementation (0.500818ms)
+✔ middle-office deadlines and audience demotion preserve their intentionally distinct contracts (0.164749ms)
+✔ legacy undefined-rank callers keep their original runtime fallback without changing typed saves (0.182376ms)
+✔ prince: each rank has a fresh advancement or faction-victory window (2.41094ms)
+✔ scholar: each rank has a fresh advancement or faction-victory window (0.16492ms)
+✔ concubine: each rank has a fresh advancement or faction-victory window (0.111599ms)
+✔ legacy Scholar identity and old final Empress title retain their meaning (0.157128ms)
+✔ all48 courtiers resolve to unique reviewed exact-name models (355.010378ms)
+✔ eight scoped Maids use reviewed authored-bob hair and exact per-name cache hashes (0.439536ms)
+✔ eight reviewed Eunuchs preserve exact identity,59-joint four-clip files and unshifted source clocks (0.315197ms)
+✔ six reviewed Scholars use own59 identities and canonical simple cloth-palette assets (0.25795ms)
+✔ reviewed Concubine Mei retains own63 calibration and exact three-clip identity asset (12.361039ms)
+✔ all9 player rank outfits have all7 articulated clips and consistent controller speeds (94.574771ms)
+✔ Emperor keeps its dedicated encounter contract and is not an ordinary courtier registry entry (57.185502ms)
+✔ Mei portable metadata preserves all published v38 binary chunks (25.801471ms)
+✔ five SIMPLE Concubines retain exact own63 identities, fitted sashes and unchanged motion calibration (64.071604ms)
+✔ exact named Feng,Chen and three custom princes retain own59 four-clip identities and baseline fields (65.057116ms)
+✔ exact Rong,Zhao and three custom Consorts preserve public route, complete spec, runtime hash, own rig and clips (96.38361ms)
+✔ six custom Minister and General models retain exact reviewed per-name routes (61.026395ms)
+✔ four royal costumes retain exact reviewed names and own59 motion libraries (39.64939ms)
+✔ landscape conversation keeps both heads and upper bodies between the HUD and bottom dialog (10.271716ms)
+✔ narrow portrait chooses a different safe angle or distance instead of cropping a face (8.712977ms)
+✔ a wall behind the preferred camera selects an actual clear view without shortening the ray (8.013809ms)
+✔ fully blocked compositions preserve the supplied safe ordinary view exactly (1.564087ms)
+✔ an open doorway cannot move the cinematic camera outside the palace bounds (1.008957ms)
+✔ raised ground and a taller Emperor are framed using each actor’s actual height (0.995296ms)
+✔ camera respects the ceiling even when the default raised composition would exceed it (1.131532ms)
+✔ collapsed or nonfinite layout retains free-roam framing (0.345774ms)
+✔ planning is deterministic and does not mutate the retained ordinary view (2.999219ms)
+✔ one subject and viewport plan once despite changed dialog content and scrolling (3.549873ms)
+✔ entry moves continuously and reduced motion goes straight to the safe planned pose (3.87149ms)
+✔ an obstructed transition holds its current pose instead of cutting across a wall (2.91339ms)
+Maid Ling assigned to Independent faction (ambition: 0.2, loyalty: 0.5, fear: 0.1, influence: 0.1)
+Maid Ling assigned to Independent faction (ambition: 0.2, loyalty: 0.5, fear: 0.1, influence: 0.1)
+Maid Ling assigned to Independent faction (ambition: 0.2, loyalty: 0.5, fear: 0.1, influence: 0.1)
+Maid Ling assigned to Independent faction (ambition: 0.2, loyalty: 0.5, fear: 0.1, influence: 0.1)
+Maid Ling assigned to Independent faction (ambition: 0.2, loyalty: 0.5, fear: 0.1, influence: 0.1)
+Maid Ling assigned to Independent faction (ambition: 0.2, loyalty: 0.5, fear: 0.1, influence: 0.1)
+Maid Ling assigned to Independent faction (ambition: 0.2, loyalty: 0.5, fear: 0.1, influence: 0.1)
+Maid Ling assigned to Independent faction (ambition: 0.2, loyalty: 0.5, fear: 0.1, influence: 0.1)
+✔ palace conversation keeps a fully visible dossier beside illustrated gift choices (22.109693ms)
+✔ classic court retains its portrait and visible dossier before message actions (5.595559ms)
+✔ projected and fallback conversations retain every control inside the shared dialog body (13.333681ms)
+✔ 48 identities resolve to eight shared archetype keys and four unique senior offices (5.797654ms)
+✔ native dialog is named by its visible title and has a labelled close control (9.171851ms)
+✔ heading and close remain outside the keyboard-accessible content region (0.960083ms)
+✔ all shared dialog purposes preserve their content and accessible body name (8.834802ms)
+✔ multiple dialogs have distinct title references (0.849055ms)
+✔ 50 stable nodes include player and special Emperor; seeded NPC ties are sparse, directional, reproducible and never player feelings (73.853449ms)
+✔ typed reducer separates support from hate and keeps a durable one-beneficiary pledge without self edges or cycles (16.99978ms)
+✔ same formal faction and pledged immunity block all hate commands, not existing hate history (16.563149ms)
+✔ all actor relationship commands project canonical graph immediately and do not alter NPC-pair ties or replay rewards (108.238042ms)
+✔ schema3 migration preserves exact incoming values/RNG/ledgers, while schema4 is canonical and rejects drift (100.01502ms)
+✔ legacy inactive100 support remains unpledged during migration, then activation commits pledge before suspicion/report/rewards (33.338919ms)
+✔ inactive faction support defers pledge until activation as before, without dual actor writers (19.678594ms)
+✔ v4 rejects actor/graph faction drift and invalid special nodes (29.793103ms)
+✔ exact48-courtier hierarchy has unique persistent names and the requested per-interaction costs (6.602943ms)
+✔ office cost cannot be spoofed by supplying a cheaper legacy story type (0.237459ms)
+✔ new palace staff circulate through all five areas; specialists keep coherent homes (0.475901ms)
+✔ intrigue panel names exact deadline, thresholds, defenses and permanent casualty (6.901696ms)
+✔ warnings do not advertise impossible faction switching and round safe target upward (2.550821ms)
+✔ dark intrigue panel explicitly supplies readable foreground colors inside light dialog (0.236048ms)
+✔ assassination defeat formats rank title without raw identifiers (0.865651ms)
+✔ active plots signal urgency inside Notifications even after their unread badge is cleared (1.911533ms)
+✔ new warning is one urgent unread note, stable on rerender and read acknowledgement (2.805706ms)
+✔ new casualty and next-season attempt become unread without duplicating older warnings (0.451673ms)
+✔ defused and romantic-rival outcomes retain target, reason, victim, and method (13.478441ms)
+✔ pending plot survives a full history rollover and remains a single actionable warning (1.12344ms)
+✔ read and unread court receipts survive campaign save/reload without changing plot state (109.283179ms)
+✔ old saves without court read receipts remain readable and malformed ledgers are rejected (81.936944ms)
+✔ middle+ strict influence/hate/faction/pledge eligibility; Emperor is never an ordinary plotter (11.231659ms)
+✔ new warnings grant a full season, attempts consume distinct allies, and unresolved plots strike again next season (2.788531ms)
+✔ three due attacks with two allies kills player only on third and never double-selects a victim (1.159184ms)
+✔ out-influencing cancels a warning permanently without consuming RNG; a later threat needs a fresh full warning (2.119769ms)
+✔ victim weights use only attacker outgoing relationship, remain positive, and seeded save continuation is exact (2.368825ms)
+✔ equality sustains an active plot but never starts one; safe displayed target strictly beats exact influence (0.623644ms)
+✔ death-method variety is stable, persisted, and consumes no extra gameplay draw (1.247788ms)
+✔ every authored courtier is an adult and explicitly non-family in all three careers; senior routes remain deferred (36.364494ms)
+✔ eligibility rejects unknown profiles, self, family, minors, unavailable routes and nonliving endpoints (2.41135ms)
+✔ romantic gifts add exactly15 directed affection, cap at100 and preserve all politics without inferring player feelings (1.501413ms)
+✔ romance is an explicit proposal at60 for Prince and Scholar and85 for Concubine, including exact boundaries (3.986624ms)
+✔ recipient hostility independently refuses consent even at100 affection and political support (0.776906ms)
+✔ same generic gift, consent and breakup functions support authored NPC pairs without player inference (0.751397ms)
+✔ second accepted lover adds20 mutual jealousy despite same faction and player pledge, then10 per season (1.515603ms)
+✔ NPC shared-lover triangles use the same mutual20 acceptance and10 seasonal jealousy (0.983018ms)
+✔ high affection, one-sided metadata and unrelated lovers cannot manufacture jealousy (1.756668ms)
+✔ seasonal jealousy deduplicates rivals with multiple shared lovers and ignores nonliving lovers (0.868475ms)
+✔ Concubine witness risk is local, unpledged and faction-independent with exact threshold reporting (1.045822ms)
+✔ graph1 migration preserves political values and revision, maps directed legacy love to affection and creates no romance (0.992623ms)
+✔ graph2 validation rejects malformed affection and asymmetric or future accepted romances (2.088411ms)
+✔ conversation identity wins over a reordered or stale classic selection index (0.957989ms)
+✔ a vanished conversation never silently redirects gifts or romance to another courtier (0.194274ms)
+✔ classic court selection remains clamped and empty rosters remain safe (0.211851ms)
+✔ gift costs match the state-machine guard and deductions (1.138914ms)
+✔ support rewards match each support and allegiance milestone (0.137639ms)
+✔ rank labels expand and capitalize all three promotion ranks (0.266754ms)
+✔ signed labels distinguish gains, losses, and zero (0.142906ms)
+✔ prince/ambitious: preview matches direct game effects across reaction and trust boundaries (2.941241ms)
+✔ prince/loyal: preview matches direct game effects across reaction and trust boundaries (0.961034ms)
+✔ prince/cautious: preview matches direct game effects across reaction and trust boundaries (4.019894ms)
+✔ prince/neutral: preview matches direct game effects across reaction and trust boundaries (1.197723ms)
+✔ minister/ambitious: preview matches direct game effects across reaction and trust boundaries (1.412558ms)
+✔ minister/loyal: preview matches direct game effects across reaction and trust boundaries (1.460741ms)
+✔ minister/cautious: preview matches direct game effects across reaction and trust boundaries (1.221359ms)
+✔ minister/neutral: preview matches direct game effects across reaction and trust boundaries (1.16907ms)
+✔ concubine/ambitious: preview matches direct game effects across reaction and trust boundaries (0.921855ms)
+✔ concubine/loyal: preview matches direct game effects across reaction and trust boundaries (0.9451ms)
+✔ concubine/cautious: preview matches direct game effects across reaction and trust boundaries (2.053448ms)
+✔ concubine/neutral: preview matches direct game effects across reaction and trust boundaries (0.778248ms)
+✔ preview reports a concrete neutral gift outcome in percentage points (0.243528ms)
+✔ message previews preserve historical support without overwriting the ledger (0.120783ms)
+✔ support and relationship caps limit displayed gains (0.212742ms)
+✔ negative trust stops at zero and suspicion is capped at one (0.188916ms)
+✔ zero personality suspicion falls back to current suspicion (0.134664ms)
+✔ stale personality suspicion cannot erase witnessed suspicion (0.120382ms)
+✔ preview uses the character-specific suspicion threshold (0.18489ms)
+✔ message deltas preserve direct support while retaining negative effects and bounds (0.309248ms)
+✔ crown_prince: formal office opens ordinary high-influence audiences, not hostile actions (0.268707ms)
+✔ prime_minister: formal office opens ordinary high-influence audiences, not hostile actions (0.122355ms)
+✔ empress_consort: formal office opens ordinary high-influence audiences, not hostile actions (0.126462ms)
+✔ career access foundation preserves the Scholar alias and explicit start/top zone rules (1.51936ms)
+✔ grand_prince demotion persists readable prince notice, survives reload and acknowledges once (319.055254ms)
+✔ crown_prince demotion persists readable grand_prince notice, survives reload and acknowledges once (78.054212ms)
+✔ minister demotion persists readable scholar notice, survives reload and acknowledges once (63.281107ms)
+✔ prime_minister demotion persists readable minister notice, survives reload and acknowledges once (60.172393ms)
+✔ consort demotion persists readable concubine notice, survives reload and acknowledges once (85.989948ms)
+✔ empress demotion persists readable consort notice, survives reload and acknowledges once (57.128155ms)
+✔ audience demotion titles and reason are distinct, and old saves have no fabricated notice (1.164392ms)
+✔ demotion recaps do not auto-dismiss and saved unread notices drive a reload recap (0.347917ms)
+✔ an audience demotion cannot be acknowledged by a hidden normal season recap timer (0.543142ms)
+✔ introductory entrance is shorter without changing regular encounter pacing (5.268013ms)
+✔ warming the Emperor shares the later download but retains no hidden model (2.33227ms)
+✔ cold Emperor loading is truthful and neither tribute nor refusal can commit before arrival (11.058798ms)
+✔ initial visit is a clear acknowledgment with no tribute, refusal, reward or fake audience choices (0.808143ms)
+✔ first visit and season clocks count only visible active free-roam, never menus, loading, expired seasons or tab suspension (0.286854ms)
+✔ fresh campaign introduces the Emperor once at exactly 75 accumulated active seconds, with no mechanical side effects (73.958067ms)
+✔ intro progress survives save and reload without counting time while the app was absent (57.981967ms)
+✔ seen state survives reload and cannot replay the introductory visit (83.491467ms)
+✔ reload during the intro restores a finishable non-transactional checkpoint and persists done=true (189.545753ms)
+✔ legacy saves without introductory fields are already introduced, preserving their existing campaign (54.993123ms)
+✔ tick and finish events are state-scoped; the intro rejects tribute/refusal and season advancement (32.550516ms)
+✔ a real tribute encounter before the intro suppresses it; NEXT_SEASON keeps its existing tribute/advance contract (47.890763ms)
+✔ a real tribute encounter before the intro suppresses it; SEASON_EXPIRED keeps its existing tribute/advance contract (38.392108ms)
+✔ invalid tick deltas cannot poison progress, trigger the scene or consume campaign RNG (28.180462ms)
+✔ crossing the threshold clamps elapsed to 75 and malformed introductory snapshots cannot replay entry side effects (37.214986ms)
+✔ save validation rejects malformed introductory counters while permitting fractional elapsed seconds (55.721445ms)
+✔ New Game resets a previously completed introductory visit without inheriting the previous campaign timer (74.002836ms)
+✔ an existing parent promotion transition may interrupt the intro without replaying it or making a stale finish consequential (39.516258ms)
+✔ prince: initializes48 persistent actors, unique seasonal cast and configured backing (69.699252ms)
+✔ prince: progression has two promotions, expels the displaced office holder and has no generic points victory (49.135888ms)
+✔ prince: bottom deadline gives the career-specific loss only after full window (396.650126ms)
+✔ prince: top deadline demotes exactly one rank with fresh window and nonfarmable probation (314.155964ms)
+✔ minister: initializes48 persistent actors, unique seasonal cast and configured backing (10.523147ms)
+✔ minister: progression has two promotions, expels the displaced office holder and has no generic points victory (25.427485ms)
+✔ minister: bottom deadline gives the career-specific loss only after full window (107.769553ms)
+✔ minister: top deadline demotes exactly one rank with fresh window and nonfarmable probation (159.361107ms)
+✔ concubine: initializes48 persistent actors, unique seasonal cast and configured backing (8.116895ms)
+✔ concubine: progression has two promotions, expels the displaced office holder and has no generic points victory (18.818192ms)
+✔ concubine: bottom deadline gives the career-specific loss only after full window (79.052068ms)
+✔ concubine: top deadline demotes exactly one rank with fresh window and nonfarmable probation (194.695893ms)
+✔ standing reports are backed by real milestones, uncapped and idempotent (8.294143ms)
+✔ current backing withdraws on hostility even for inactive actors; pledges are exempt (13.160098ms)
+✔ Consort ceremony targets actual Empress faction once and preserves NPC identities (10.638412ms)
+✔ pledged inactive allies follow a legitimate faction join and stay immune through seasons (36.087309ms)
+✔ stale or fabricated faction invitation cannot be joined (21.289332ms)
+✔ witness snapshot restricts rebel suspicion by zone, faction, pledge and hatred (0.439304ms)
+✔ NEXT_SEASON: tribute commits exactly one season, one charge and one favor roll (19.1608ms)
+✔ SEASON_EXPIRED: tribute commits exactly one season, one charge and one favor roll (20.294747ms)
+✔ Imperial: only top office unlocks existing faction ending (0.220163ms)
+✔ Loyalist: only top office unlocks existing faction ending (0.078118ms)
+✔ Rebel: only top office unlocks existing faction ending (0.094903ms)
+✔ actual successful faction audience reaches victory, restart stops old actors and resets career (49.056408ms)
+✔ hostile action validation rejects unknown, absent and protected targets without crashing (9.489252ms)
+✔ top office expels its NPC permanently from active cast and faction contributors, including after demotion (236.009587ms)
+✔ first Consort promotion excludes Dowager; later earned influence milestones do affect her (17.917859ms)
+✔ a retained maxed ally can rebuild reset global standing through a paid evaluated gift, once per season (178.538613ms)
+✔ gift credit and unread receipt commit once; reading and reload cannot reroll, repay or lose read state (227.324957ms)
+✔ receipt buffer is bounded, stable, deduplicated and presents sender/amount/season (32.084351ms)
+✔ reading notifications cannot start a season, spend gifts, resolve plots, or advance RNG (70.000057ms)
+✔ catalog exposes exactly four nonblank authored messages; blank/unknown choices cannot resolve (2.813939ms)
+✔ malformed and removed gift events do not spend, evaluate, animate or change either actor (59.326622ms)
+✔ one pending transaction rejects duplicate/new submissions and stale acknowledgments; repeat later is intentional (62.502189ms)
+✔ parent derives cost from the actor, validates access, and rejects inactive targets (30.017478ms)
+✔ preview equals accepted receipt mutation; duplicate child commit is ignored (11.31146ms)
+✔ rounded gift preview, receipt and graph agree from 0 support for neutral (37.073291ms)
+✔ rounded gift preview, receipt and graph agree from 10.31 support for neutral (43.788535ms)
+✔ rounded gift preview, receipt and graph agree from 99 support for neutral (46.323492ms)
+✔ rounded gift preview, receipt and graph agree from 99.62 support for neutral (56.555899ms)
+✔ rounded gift preview, receipt and graph agree from 3 support for ambitious (47.445721ms)
+✔ rounded gift preview, receipt and graph agree from 0.38 support for ambitious (28.891018ms)
+✔ rounded gift preview, receipt and graph agree from 0 support for ambitious (34.282948ms)
+✔ a hostile positive gift rounded to zero grants no hidden support, hate, renewal or diplomacy influence (20.469461ms)
+✔ promotion waits until a pending gift transaction settles (16.359741ms)
+✔ evaluation failure and a target leaving before commit refund once without animation or reputation changes (31.72699ms)
+✔ stale completion after restart cannot spend or animate in a new session (33.282704ms)
+✔ shared2D/3D gift form starts blank and disabled, exposes only authored messages, and disables pending controls (32.007444ms)
+✔ malformed evaluation result is refunded rather than leaving a stuck pending transaction (14.58132ms)
+✔ office rivalry scope is precise at middle rank; top rank includes all four offices (6.023127ms)
+✔ empress: role-specific rival hate exactly once, same formal faction and pledged exempt, predecessor expelled (178.935424ms)
+✔ prime_minister: role-specific rival hate exactly once, same formal faction and pledged exempt, predecessor expelled (50.425495ms)
+✔ crown_prince: role-specific rival hate exactly once, same formal faction and pledged exempt, predecessor expelled (43.311814ms)
+✔ negative gift adds intended loss to hate even at support0; spit reaches100; allies block all gains without erasing old hate (30.773576ms)
+✔ post-promotion influence hate uses lifetime high water, excludes promotion bonus, and survives save reload (59.670423ms)
+✔ a completed top-rank season adds5 outside-faction hate once, while reload and pending tribute do not (100.530426ms)
+✔ influence earnings split exactly at70%, retain existing power, and remain bounded (1.176641ms)
+✔ all top offices require three completed seasons; renewed entry resets consolidation (0.44921ms)
+✔ rival hate uses ten points of actual attenuated influence, not raw awards (67.053838ms)
+✔ v3 already offered audience is grandfathered without shortening its deadline or changing influence (64.984386ms)
+✔ Ladies Library gate cannot be used through the new chamber partition despite close distance (306.592988ms)
+✔ intro cannot settle a pending assassination, refill gifts, change rank, award relationships, or consume RNG across reload (170.137022ms)
+✔ jump rises, cannot double-jump, and lands without residual vertical speed (1.483645ms)
+✔ overhead clearance blocks or shortens jumps without passing through it (0.153022ms)
+✔ raised-floor landing and a paused frame preserve correct physical state (0.131359ms)
+✔ Ladies north wing adds exactly two chambers and 320 square metres without changing other zone bounds (233.622228ms)
+✔ both chambers and the Library gate connect inside the north wing without returning through the court (968.912972ms)
+✔ all gate destinations remain reachable, with the north portal anchored to its new outer wall (201.372036ms)
+✔ enclosing ceilings and doorway lintels have matching camera blockers while the central court stays open (125.538947ms)
+✔ bed proxy is independently replaceable and all nearby lantern stems avoid its footprint (141.195373ms)
+✔ existing flower/music landmarks and old-court saved NPC visits survive the expansion (645.596336ms)
+✔ a full Ladies roster retains reachable initial stations and all roaming destinations (119.036962ms)
+✔ prince: authored scores have no retired personal-meter or charisma multipliers (3.000271ms)
+✔ prince: positive scaling never softens bad-message penalties or turns capped support into a loss (0.2047ms)
+✔ minister: authored scores have no retired personal-meter or charisma multipliers (0.225171ms)
+✔ minister: positive scaling never softens bad-message penalties or turns capped support into a loss (0.097548ms)
+✔ concubine: authored scores have no retired personal-meter or charisma multipliers (0.204109ms)
+✔ concubine: positive scaling never softens bad-message penalties or turns capped support into a loss (0.095174ms)
+✔ relative influence is strictly monotonic on BOTH sides of player power, bounded and hostility is explicit (0.290029ms)
+✔ unknown message and nonfinite multipliers fail validation (0.400727ms)
+✔ gift effects round once to whole points, symmetrically, without negative zero (0.215166ms)
+✔ rounding follows combined positive scaling and leaves personality and influence precision alone (0.309468ms)
+✔ whole gift effects preserve legacy fractions and clamp only actual support, not negative hate intent (0.208226ms)
+✔ prince/WebGL real world has no primitive character meshes before, during or after failed cold loading (786.217227ms)
+✔ scholar/WebGL real world has no primitive character meshes before, during or after failed cold loading (639.805178ms)
+✔ minister/WebGL real world has no primitive character meshes before, during or after failed cold loading (376.889234ms)
+✔ concubine/WebGL real world has no primitive character meshes before, during or after failed cold loading (389.541782ms)
+✔ prince/software real world has no primitive character meshes before, during or after failed cold loading (227.993553ms)
+✔ scholar/software real world has no primitive character meshes before, during or after failed cold loading (117.661191ms)
+✔ minister/software real world has no primitive character meshes before, during or after failed cold loading (170.000917ms)
+✔ concubine/software real world has no primitive character meshes before, during or after failed cold loading (380.341377ms)
+✔ player readiness can open the scene while delayed NPCs remain body-free and not interactable (21.604999ms)
+✔ failed initial player and NPC requests stay body-free and retry only failures successfully (8.403429ms)
+✔ an NPC-only failure never removes ready player art and retries without another player lease (2.985308ms)
+✔ immediate zone backtracking during fetch revives shared work without old callbacks or late NPC resurrection (1.759653ms)
+✔ zone disposal at decode settlement prevents every late callback and scene attachment (3.496372ms)
+✔ aborting between pool resolution and instance clone never returns a disposed template (2.050213ms)
+✔ a new zone may acquire the same in-flight decode after departing zone cancellation (1.473721ms)
+✔ failed rank outfit retains authored body and retry uses the desired rank without moving the actor (5.989586ms)
+✔ returning to the displayed rank clears obsolete outfit failure and reports readiness immediately (12.795114ms)
+✔ returning to displayed rank cancels pending outfit and notifies UI rather than leaving a stale spinner (6.689014ms)
+✔ superseded outfit failure cannot replace newer rank status or become a retry target (10.258426ms)
+✔ one player template pin preserves cross-zone decoding while off-zone NPC templates release (2.522588ms)
+✔ verified opaque Crown face/hair write depth without changing texture, geometry or color (2.751855ms)
+✔ genuine transparent materials and an updated/unverified model are left untouched (0.74701ms)
+✔ empress integrated focal geometry preserves gates, NPC paths, physical floors and cleanup (1019.622818ms)
+✔ dowager integrated focal geometry preserves gates, NPC paths, physical floors and cleanup (547.435325ms)
+✔ ladies integrated focal geometry preserves gates, NPC paths, physical floors and cleanup (489.736837ms)
+✔ focal kit is a no-op for untouched rooms and software fallback (0.415659ms)
+✔ every maid has equal Ladies, Empress and Dowager weight, including the original four (8.097276ms)
+✔ every eunuch keeps equal inner-palace weight and still visits Library and Emperor (0.480988ms)
+✔ all ordinary, legacy Grand and Crown Princes can visit both royal women’s palaces (1.140486ms)
+✔ ordinary princes retain their usual Empress audience while sharing both other destinations (4.639893ms)
+✔ seeded placement sampling is balanced without enforcing room headcounts or using global RNG (91.754984ms)
+✔ real seeded seasonal rosters partition without losing actors, with empty and uneven rooms still possible (4194.769643ms)
+✔ world creation instantiates every scheduled royal-palace visitor at a reachable position (567.479931ms)
+✔ all five worlds have different architecture and reachable valid spawns, gates and NPC paths (1127.809371ms)
+✔ world cleanup actually disposes resources and is safe to repeat (1954.418758ms)
+✔ saved NPC position and facing survive a zone rebuild without an initial walking jump (179.634853ms)
+✔ invalid or other-zone saved positions do not spawn inside a wall or outside the current zone (97.723184ms)
+✔ career starts are allowed, with no clock/campaign data or actors recreated by visit-state creation (1.881488ms)
+✔ deterministic visits retain identities without a guaranteed Ladies headcount (0.929687ms)
+✔ seasonal mood changes lighting and particles in-place without replacing actors or geometry (90.850663ms)
+✔ Emperor authored joinery has supporting walls/columns and front/rear roof blockers (284.577159ms)
+✔ office presentation does not replace persistent courtier identity or navigation keys (106.710817ms)
+✔ Prince and Grand Prince never visit Ladies; Crown Prince and Emperor are authorized visitors (0.993443ms)
+✔ all maids visit both royal women’s palaces and Ladies, while eunuchs span all five zones (0.535149ms)
+✔ all four external door sets have opaque depth-writing leaves, camera blockers and reachable interaction thresholds (1511.955556ms)
+✔ prince: all rank files render as articulated models and preserve physical controls (409.888788ms)
+✔ prince: loading failure retries and hot promotions keep one model and the active jump phase (392.207517ms)
+✔ minister: all rank files render as articulated models and preserve physical controls (292.231093ms)
+✔ minister: loading failure retries and hot promotions keep one model and the active jump phase (250.290004ms)
+✔ concubine: all rank files render as articulated models and preserve physical controls (249.047524ms)
+✔ concubine: loading failure retries and hot promotions keep one model and the active jump phase (149.671548ms)
+✔ fixture mode requires exact opt-in and storage cannot read/write/remove ordinary campaign slots (6.971422ms)
+✔ fictional published fixture passes production save validation and real warnings, shield loss, consecutive threat and death (79.778446ms)
+✔ distinct player asset and reviewed Feng keep private models and animation clips separate (13.597391ms)
+✔ Start .20 -> looping Air .60 -> Land .30 uses controller time, freezes in menus and never moves the spatial root (7.744801ms)
+✔ landing can finish into queued gift dialogue while paused; takeoff interrupts an older gesture (4.914919ms)
+✔ copied actual GLB matches checkpoint hash and loads exact normalized jump phases without network (176.248947ms)
+✔ a moving landing blends immediately to run instead of holding the planted recovery (4.864693ms)
+✔ unregistered rank outfits preserve base art, spatial parent and NPC identities without extra leases (3.427277ms)
+✔ promotion and demotion hot-swap only player art and preserve jump phase, spatial parent, NPC and warm cache (4.702878ms)
+✔ superseded late outfit cannot replace the current rank; load failure leaves old art visible (11.024271ms)
+✔ grand_prince: inspected checkpoint hash and seven clips parse and initialize at the correct outfit (88.26037ms)
+✔ crown_prince: inspected checkpoint hash and seven clips parse and initialize at the correct outfit (80.934076ms)
+✔ concubine/base exact rank grant, retained leftovers, reload and no double payment (166.637395ms)
+✔ concubine/consort exact rank grant, retained leftovers, reload and no double payment (96.876595ms)
+✔ concubine/empress exact rank grant, retained leftovers, reload and no double payment (78.163953ms)
+✔ minister/base exact rank grant, retained leftovers, reload and no double payment (69.051301ms)
+✔ minister/minister exact rank grant, retained leftovers, reload and no double payment (39.379071ms)
+✔ minister/prime_minister exact rank grant, retained leftovers, reload and no double payment (52.267818ms)
+✔ prince/base exact rank grant, retained leftovers, reload and no double payment (44.666042ms)
+✔ prince/grand_prince exact rank grant, retained leftovers, reload and no double payment (52.372406ms)
+✔ prince/crown_prince exact rank grant, retained leftovers, reload and no double payment (58.689157ms)
+✔ consort deadline grants destination allowance and never takes earned stock (33.64703ms)
+✔ empress deadline grants destination allowance and never takes earned stock (26.392325ms)
+✔ minister deadline grants destination allowance and never takes earned stock (30.860778ms)
+✔ prime_minister deadline grants destination allowance and never takes earned stock (26.530444ms)
+✔ grand_prince deadline grants destination allowance and never takes earned stock (36.948952ms)
+✔ crown_prince deadline grants destination allowance and never takes earned stock (18.051732ms)
+✔ legacy final rank mapping and invalid careers are explicit (0.22443ms)
+✔ profile is a semantic button with its own action, including mobile control (10.078994ms)
+✔ 120 Hz devices do not render or update shadows/DOM at 120 Hz (1.039553ms)
+✔ settled menu backdrops render 10 Hz, but gifts and camera transitions remain smooth (0.31027ms)
+✔ hidden tabs do no scene work and resume without accumulated quality samples (0.173102ms)
+✔ framebuffer respects touch and large viewport budgets without increasing low-DPI displays (0.095825ms)
+✔ sustained slow frames reduce pixels with a bounded floor and recovery is gradual (0.857297ms)
+✔ 90 and 144 Hz screens retain a 60 Hz average rather than falling to half refresh (0.341597ms)
+✔ 4K viewports never exceed their framebuffer budget (0.208295ms)
+✔ romantic gift to Maid Ling costs existing tier1, rejects unaffordable actions and never grants political rewards (65.636446ms)
+✔ romantic gift to Scholar Qin costs existing tier5, rejects unaffordable actions and never grants political rewards (28.064976ms)
+✔ romantic gift to General Zhao costs existing tier10, rejects unaffordable actions and never grants political rewards (15.009497ms)
+✔ romantic gift to Empress Consort costs existing tier20, rejects unaffordable actions and never grants political rewards (38.885012ms)
+✔ prince: four romantic gifts reach60 but acceptance still needs a separate free proposal; end preserves political state (18.246596ms)
+✔ minister: four romantic gifts reach60 but acceptance still needs a separate free proposal; end preserves political state (23.904509ms)
+✔ repeated romantic gifts have no extra cooldown or max-affection income and requests are idempotent (188.301419ms)
+✔ explicit low-affection and high-hate refusals cost0, remain unaccepted and survive reload (109.855402ms)
+✔ accepted romance creates no immunity against ordinary political hate or later hostility (37.096105ms)
+✔ romance cannot race an in-flight political gift transaction or create a second pending payment (37.023621ms)
+✔ unknown, deferred, absent, inactive, invalid-id and unsupported-action romance events leave no receipt or mutation (22.396367ms)
+✔ Concubine recipient witnesses six gifts to90; the free seventh-action proposal reaches side threshold and preserves one-report defeat (19.070874ms)
+✔ the exact ninth romantic action reports an unpledged minor at0.9 as previewed despite repeated decimal increments (35.47071ms)
+✔ a pledged minor remains immune through the ninth romantic action and the same preview excludes them (15.404665ms)
+✔ pledged-target private Concubine route is viable at85; romantic gifts and end add no new income or suspicion (14.783355ms)
+✔ Concubine witnesses include different factions but exclude pledged, off-area and off-season courtiers (13.382675ms)
+✔ end romance does not generate Concubine witness suspicion even with an unpledged spectator present (11.366994ms)
+✔ accepted multi-lover jealousy settles once per real season and survives save/reload without political allegiance or lover income (50.411173ms)
+✔ schema7 graph2 saves mutual accepted romance, directed affection, response and request ledger without replay (26.194676ms)
+✔ true schema6 graph1 migration preserves politics/RNG/inventory, maps old love to affection and retains old love1 gift eligibility separately (60.471759ms)
+✔ schema7 rejects asymmetric lovers, graph/projection drift, duplicate requests and malformed romance receipts (78.811611ms)
+✔ restart clears all romance ledgers, accepted pairs and affection from the previous campaign (28.545444ms)
+✔ NPC plots need a mutual shared-lover triangle, 80 hate and strict influence, without a player rank gate (16.46524ms)
+✔ NPC romantic rivalry bypasses same-faction and player-pledge exemptions but player plots keep them (1.418346ms)
+✔ either gender-free NPC rival can plot around the player as a shared lover (0.572937ms)
+✔ authored adulthood, non-family and living routes gate both rivals and the shared lover (1.234799ms)
+✔ player and multiple NPC plots retain separate keys and player output keeps the legacy shape (1.655035ms)
+✔ an NPC warning grants a full season, burns living direct protectors continuously, then kills the target permanently (1.253787ms)
+✔ direct shields exclude attacker, player and Emperor; transitive pledges do not protect the target (3.44935ms)
+✔ protector sacrifice retains existing deterministic outgoing relationship weighting (1.306708ms)
+✔ same-target attempts revalidate sequentially and can never kill a target or protector twice (1.269522ms)
+✔ a killed attacker or shared lover immediately defuses pending NPC threats (1.24188ms)
+✔ breakup or strictly out-influencing defuses by pending key without RNG; equality remains unsafe (0.643133ms)
+✔ legacy target-less player plots and explicit @player remain compatible and idempotent (0.642632ms)
+✔ the real season pipeline permanently stops NPC protectors and rivals, preserves player survival, and reloads exactly (429.133178ms)
+✔ accepted romance validation rejects nonmatching mutual source and deferred identities (20.869747ms)
+✔ historical accepted romance survives death/expulsion while authored minors and family are rejected (1.282271ms)
+✔ reply bubble identifies speaker, preserves full response and exposes a polite persistent accessible copy (58.301871ms)
+✔ Concubine romance names every witness and warns of the specific fatal report before either action (3.143788ms)
+✔ NPC plot UI names romantic target and direct protective casualty instead of claiming player shielding (1.469694ms)
+✔ 3D bubbles continue during paused conversations and include bounded viewport projection plus fixed fallback (1.218725ms)
+✔ romance actions stay expanded and retain proposal controls and witness risk (0.952422ms)
+✔ local recovery verifies downloads and reuses only checksum-matching files (35.917421ms)
+✔ missing and mismatched local art fails verification instead of silently passing (18.913807ms)
+✔ download HTTP failures are actionable and do not install a partial file (13.033151ms)
+✔ manifest validation rejects traversal and duplicate entries before touching files (0.58181ms)
+✔ production cleanup removes only hosted binaries and retains provenance and local test art (26.063266ms)
+✔ model and material URLs retain their path and cache-busting query at the hosted origin (1.486059ms)
+✔ portraits, QA fixtures, metadata and already absolute URLs are unchanged (0.155024ms)
+✔ explicit local mode and alternative delivery roots preserve asset identity (0.369159ms)
+✔ default pool fetch uses hosted delivery while leases, cache and decoder keep the logical model ID (4.598961ms)
+✔ all living pledged tiers receive 1/5/10 every season despite zero support, offzone, inactive actors and old cooldown (110.331557ms)
+✔ new courtship pledge pays once immediately and cannot double-pay with seasonal renewal or repeated reports (65.724695ms)
+✔ a casualty at the new-season boundary cannot pay income for the season they die (41.32178ms)
+✔ v5 migration pays no income on load, preserves balances, and pays every existing pledge at next boundary (38.320638ms)
+✔ legacy nonpledged love gifts due during settlement are queued and credited after survival (41.208799ms)
+✔ terminal deadline clears queued courtship gifts and remains saveable without a final payout (23.321918ms)
+✔ landscape reply uses space beside the full character (1.835558ms)
+✔ narrow portrait falls back instead of clamping onto the face (0.295617ms)
+✔ warning overlays exclude otherwise valid placement (0.252803ms)
+✔ oversized messages retain dialog fallback (0.168625ms)
+✔ the player is protected as well as the speaking NPC (0.231821ms)
+✔ joystick deadzone prevents thumb noise and invalid radii never move (1.57207ms)
+✔ joystick preserves analog strength, axes and bounded diagonals (0.283088ms)
+✔ floating joystick has exclusive ownership and ignores unrelated releases (0.225882ms)
+✔ camera ignores unrelated pointer motion/cancel and limits pinch ownership (0.249207ms)
+✔ pinch only zooms, never pans; returning to one-finger drag has no jump (0.239492ms)
+✔ movement, right-camera drag and independent action pointer coexist (0.250029ms)
+✔ reset covers lost capture, blur, pause and orientation without inherited input (0.147584ms)
+✔ keyboard full-speed and analog walking remain bounded together (0.197589ms)
+✔ action pointer fires independently while joystick/camera fingers are held; compatibility click is deduplicated (0.634751ms)
+✔ interrupted action capture clears and does not block the next press (0.76647ms)
+✔ responsive harness frame suppression only applies to explicit isolated software touch QA (1.325867ms)
+✔ prince/prince: rank tribute 10 survives pending reload, charges once and matches UI (97.638095ms)
+✔ prince/grand_prince: rank tribute 20 survives pending reload, charges once and matches UI (38.100585ms)
+✔ prince/crown_prince: rank tribute 40 survives pending reload, charges once and matches UI (48.363017ms)
+✔ minister/scholar: rank tribute 10 survives pending reload, charges once and matches UI (37.078729ms)
+✔ minister/minister: rank tribute 20 survives pending reload, charges once and matches UI (33.215832ms)
+✔ minister/prime_minister: rank tribute 40 survives pending reload, charges once and matches UI (31.513927ms)
+✔ concubine/concubine: rank tribute 10 survives pending reload, charges once and matches UI (32.795205ms)
+✔ concubine/consort: rank tribute 20 survives pending reload, charges once and matches UI (30.458178ms)
+✔ concubine/empress: rank tribute 40 survives pending reload, charges once and matches UI (31.862754ms)
+✔ base aliases, legacy empress and demotions resolve the appropriate rate (1.150571ms)
+✔ pardon uses current tribute affordability; forged amounts never pay a high-rank tribute (19.872568ms)
+✔ tribute favor receipt survives reload without another payment (43.388709ms)
+✔ tribute neutral receipt survives reload without another payment (29.996409ms)
+✔ tribute receipt is readable in the normal game header without another dialog or action (2.824004ms)
+✔ a valid subsequent gift clears tribute feedback while rejected actions preserve it (27.753715ms)
+✔ emblems are decorative SVG by default and labelled images when titled (10.227279ms)
+✔ PopNumber renders the formatted value without a delta on first render (19.140259ms)
+✔ promotion is announced as an imperial decree with the readable rank name (1.336472ms)
+✔ seal stamp shows its body content (0.684676ms)
+✔ sound is safe without a browser and the toggle describes its action (0.976758ms)
+✔ faction panel uses emblems instead of emoji and tags each banner with its faction (1.915118ms)
+ℹ tests 497
+ℹ suites 0
+ℹ pass 497
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10538.515575
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> harem-empire-game@0.0.0 build
+> tsc && vite build && node scripts/runtime-assets.mjs prune-build
+
+vite v7.1.4 building for production...
+transforming...
+✓ 158 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                            0.45 kB │ gzip:   0.30 kB
+dist/assets/cormorant-garamond-vietnamese-700-normal--OtHbi1I.woff2        6.23 kB
+dist/assets/cormorant-garamond-vietnamese-500-normal-BZGLGj12.woff2        6.76 kB
+dist/assets/cormorant-garamond-vietnamese-600-normal-BoXdMtcr.woff2        6.80 kB
+dist/assets/alegreya-sans-greek-400-normal-8U5NAP_q.woff                   6.82 kB
+dist/assets/alegreya-sans-greek-700-normal-BZuMtSJ5.woff                   6.87 kB
+dist/assets/alegreya-sans-greek-500-normal-BwxJMQU_.woff                   6.87 kB
+dist/assets/cormorant-garamond-vietnamese-500-italic-D3igDnAQ.woff2        6.90 kB
+dist/assets/alegreya-sans-greek-ext-400-normal-D6j-TQLM.woff               7.22 kB
+dist/assets/alegreya-sans-greek-ext-500-normal-Cp0bGOKK.woff               7.28 kB
+dist/assets/alegreya-sans-greek-ext-700-normal-BVJ8GoGc.woff               7.35 kB
+dist/assets/alegreya-sans-vietnamese-400-normal-BFvpiE3j.woff              7.64 kB
+dist/assets/alegreya-sans-vietnamese-500-normal-B1LHNMw0.woff              7.65 kB
+dist/assets/alegreya-sans-vietnamese-700-normal-D0056cUE.woff              7.68 kB
+dist/assets/alegreya-sans-greek-ext-500-normal-8OvC5Vmr.woff2              8.44 kB
+dist/assets/alegreya-sans-greek-ext-400-normal-CaUEPd_u.woff2              8.44 kB
+dist/assets/alegreya-sans-greek-ext-700-normal-ChNZoGr1.woff2              8.64 kB
+dist/assets/alegreya-sans-greek-500-normal-CjlmbScm.woff2                  8.78 kB
+dist/assets/alegreya-sans-greek-400-normal-B87Md6o9.woff2                  8.82 kB
+dist/assets/cormorant-garamond-vietnamese-700-normal-GOTdnRS1.woff         8.87 kB
+dist/assets/alegreya-sans-greek-700-normal-CTof9pYC.woff2                  8.93 kB
+dist/assets/alegreya-sans-cyrillic-ext-400-normal-ClLgPhqT.woff            8.98 kB
+dist/assets/alegreya-sans-cyrillic-ext-500-normal-CBZLRaMr.woff            9.06 kB
+dist/assets/alegreya-sans-cyrillic-ext-700-normal-YOec_wOb.woff            9.06 kB
+dist/assets/alegreya-sans-vietnamese-500-normal-CFLbXWhL.woff2             9.10 kB
+dist/assets/alegreya-sans-vietnamese-400-normal-D7fwYHgb.woff2             9.11 kB
+dist/assets/cormorant-garamond-vietnamese-500-normal-DqXqCC0q.woff         9.33 kB
+dist/assets/alegreya-sans-vietnamese-700-normal-CHYTK2w7.woff2             9.37 kB
+dist/assets/cormorant-garamond-vietnamese-600-normal-C4HEjEaf.woff         9.42 kB
+dist/assets/cormorant-garamond-vietnamese-500-italic-C-296ow0.woff         9.62 kB
+dist/assets/alegreya-sans-cyrillic-500-normal-gEBUHwKD.woff               10.32 kB
+dist/assets/alegreya-sans-cyrillic-700-normal-qSextXl4.woff               10.36 kB
+dist/assets/alegreya-sans-cyrillic-400-normal-C2XSGevv.woff               10.37 kB
+dist/assets/alegreya-sans-cyrillic-ext-400-normal-CBouUAPx.woff2          11.04 kB
+dist/assets/alegreya-sans-cyrillic-ext-700-normal-Cpzx2u2L.woff2          11.14 kB
+dist/assets/alegreya-sans-cyrillic-ext-500-normal-BjdEjhHc.woff2          11.17 kB
+dist/assets/alegreya-sans-cyrillic-500-normal-kQHBM3cE.woff2              12.20 kB
+dist/assets/alegreya-sans-cyrillic-400-normal-CFUoBDld.woff2              12.28 kB
+dist/assets/alegreya-sans-cyrillic-700-normal-BMO00Gdb.woff2              12.34 kB
+dist/assets/cormorant-garamond-cyrillic-700-normal-SLG_-a_c.woff2         12.54 kB
+dist/assets/cormorant-garamond-cyrillic-500-italic-DVnfXoMy.woff2         12.70 kB
+dist/assets/cormorant-garamond-cyrillic-500-normal-CyAY5ZLS.woff2         12.92 kB
+dist/assets/cormorant-garamond-cyrillic-600-normal-C2atO-64.woff2         13.02 kB
+dist/assets/cormorant-garamond-cyrillic-ext-700-normal-Do0rx6yy.woff2     13.83 kB
+dist/assets/cormorant-garamond-cyrillic-ext-500-normal-Yta7XZ9C.woff2     14.10 kB
+dist/assets/cormorant-garamond-cyrillic-ext-600-normal-BMhMHfrj.woff2     14.18 kB
+dist/assets/cormorant-garamond-cyrillic-ext-500-italic-ClXnudBg.woff2     14.83 kB
+dist/assets/cormorant-garamond-cyrillic-700-normal-D3uyJ5DH.woff          15.29 kB
+dist/assets/cormorant-garamond-cyrillic-500-normal-DkJXBcIH.woff          15.76 kB
+dist/assets/cormorant-garamond-cyrillic-600-normal-FNmA3REe.woff          15.82 kB
+dist/assets/cormorant-garamond-cyrillic-500-italic-C9gO-8KC.woff          16.01 kB
+dist/assets/cormorant-garamond-cyrillic-ext-700-normal-BaW-xaxb.woff      17.08 kB
+dist/assets/cormorant-garamond-cyrillic-ext-500-normal-lsPpqi9g.woff      17.55 kB
+dist/assets/cormorant-garamond-cyrillic-ext-600-normal-CsIYWmWK.woff      17.62 kB
+dist/assets/cormorant-garamond-cyrillic-ext-500-italic-DakTmaFY.woff      19.06 kB
+dist/assets/cormorant-garamond-latin-ext-700-normal-CNjt5vTB.woff2        19.33 kB
+dist/assets/alegreya-sans-latin-ext-400-normal-DpBVrRWA.woff              19.99 kB
+dist/assets/alegreya-sans-latin-ext-700-normal-CkNjzB9Y.woff              20.07 kB
+dist/assets/alegreya-sans-latin-ext-500-normal-CxFoZ42m.woff              20.17 kB
+dist/assets/cormorant-garamond-latin-ext-500-normal-CH1kM7og.woff2        20.20 kB
+dist/assets/cormorant-garamond-latin-ext-600-normal-DaBc-lu7.woff2        20.30 kB
+dist/assets/cormorant-garamond-latin-ext-500-italic-CE7zdTnu.woff2        20.39 kB
+dist/assets/alegreya-sans-latin-ext-400-normal-D7N6b6bd.woff2             21.28 kB
+dist/assets/alegreya-sans-latin-ext-500-normal-TH5u60nj.woff2             21.50 kB
+dist/assets/alegreya-sans-latin-400-normal-DmA8jeke.woff                  21.55 kB
+dist/assets/alegreya-sans-latin-700-normal-BnzUNlma.woff                  21.60 kB
+dist/assets/alegreya-sans-latin-500-normal-vXxrTKJT.woff                  21.72 kB
+dist/assets/alegreya-sans-latin-ext-700-normal-HuHd3-Mg.woff2             21.87 kB
+dist/assets/cormorant-garamond-latin-700-normal-DajfzrDU.woff2            22.34 kB
+dist/assets/cormorant-garamond-latin-500-normal-BsRWmXhO.woff2            23.31 kB
+dist/assets/cormorant-garamond-latin-600-normal-Co1r35X9.woff2            23.40 kB
+dist/assets/alegreya-sans-latin-400-normal-DtLlO8BS.woff2                 23.71 kB
+dist/assets/cormorant-garamond-latin-500-italic-Y14P-dkT.woff2            23.92 kB
+dist/assets/alegreya-sans-latin-500-normal-DS713u5J.woff2                 23.93 kB
+dist/assets/alegreya-sans-latin-700-normal-DEbcy2sF.woff2                 23.98 kB
+dist/assets/cormorant-garamond-latin-ext-700-normal-qRbaVVD7.woff         27.04 kB
+dist/assets/cormorant-garamond-latin-ext-600-normal-Dk3-quAP.woff         28.26 kB
+dist/assets/cormorant-garamond-latin-ext-500-normal-DYeaGGzO.woff         28.28 kB
+dist/assets/cormorant-garamond-latin-ext-500-italic-CalKM9tT.woff         28.86 kB
+dist/assets/cormorant-garamond-latin-700-normal-O25Qpphb.woff             30.25 kB
+dist/assets/cormorant-garamond-latin-600-normal-2CBVLo0M.woff             31.30 kB
+dist/assets/cormorant-garamond-latin-500-normal-zIXX3Q-H.woff             31.37 kB
+dist/assets/cormorant-garamond-latin-500-italic-DhNIfkTX.woff             33.18 kB
+dist/assets/index-ogLC6n1w.css                                           135.62 kB │ gzip:  25.98 kB
+dist/assets/index-Cpi_IKoM.js                                          1,265.74 kB │ gzip: 363.80 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 4.05s
+Excluded 129 hosted runtime binaries from dist; attribution and metadata retained.

@@ -1,0 +1,2 @@
+PASS complete own exact-base22a2714b/finalc788f9c3 production payload: 285 regular files/23,847,739 bytes plus10 directories. Every path/filename/type/mode/length/SHA256/direct byte identical; no renamed bundles or exceptions. All HTML src/href references identical.
+[('index.html', [('script', 'src', '/assets/index-Cpi_IKoM.js'), ('link', 'href', '/assets/index-ogLC6n1w.css')]), ('qa/touch-layout.html', [('iframe', 'src', '/?playtest=intrigue&renderer=software&controls=touch&frame=touch-viewport')])]
