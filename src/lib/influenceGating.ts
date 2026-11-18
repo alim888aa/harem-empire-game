@@ -1,8 +1,6 @@
 import type { Character } from '../types/character';
 import type { PlayerStats } from '../types/game';
 
-export const hasPromotedOffice = (rank?:string|null) => ['grand_prince','crown_prince','minister','prime_minister','consort','empress','empress_consort'].includes(rank ?? '');
-
 export interface ActionAvailability {
   allowed: boolean;
   reason?: string;
@@ -90,20 +88,4 @@ export function getInfluenceGating(character: Character, playerStats: PlayerStat
     canUseNeutralMessage: checkActionAvailability('neutral_message', character, playerStats),
     canInteract
   };
-}
-
-/**
- * Gets disabled actions for UI display
- */
-export function getDisabledActions(character: Character, playerStats: PlayerStats, rank?:string|null): string[] {
-  const gating = getInfluenceGating(character, playerStats, rank);
-  const disabled: string[] = [];
-
-  if (!gating.canSpitInFace.allowed) disabled.push('spit');
-  if (!gating.canUseAmbitiousMessage.allowed) disabled.push('ambitious');
-  if (!gating.canUseLoyalMessage.allowed) disabled.push('loyal');
-  if (!gating.canUseCautiousMessage.allowed) disabled.push('cautious');
-  if (!gating.canUseNeutralMessage.allowed) disabled.push('neutral');
-
-  return disabled;
 }

@@ -1,20 +1,5 @@
 import type { CharacterPersonalityVectors } from "../types/character";
 
-export function getRank(characterType: 'prince' | 'minister' | 'concubine' | null ) {
-
-    switch (characterType) {
-      case 'prince':
-        return 'crown_prince';
-      case 'minister':
-        return 'prime_minister';
-      case 'concubine':
-        return 'empress_consort';
-      default:
-        return null;
-    }
-
-}
-
 export function getPersonality(characterType: 'prince' | 'minister' | 'concubine' | null) {
   
   const playerVectors = {
