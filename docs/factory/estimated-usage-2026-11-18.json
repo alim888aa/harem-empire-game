@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-18",
+  "timezone": "Asia/Ulaanbaatar",
+  "limitUsd": 30,
+  "currency": "USD",
+  "method": "Conservative flat planning estimates, not actual billing or token measurements",
+  "entries": [
+    {
+      "id": "maintenance-nov18-final-dead-exports",
+      "role": "cloud GPT-6.1 Sol Medium final dead-export portion of issue28",
+      "estimateUsd": 8,
+      "status": "recorded",
+      "note": "Source candidate completed and preserved unmerged on fix/final-dead-exports-2026-11-18 at3d355e742304251a5240af0cbf1681121ef2440e/tree33e645a97655e4d2025ecd0429f8adf083520e03. Exact3file/34line deletion only. Source factory25/497 passed and all285production files/23,847,739bytes match own baseline. Main product source remains unchanged."
+    },
+    {
+      "id": "maintenance-nov18-independent-review",
+      "role": "independent cloud GPT-6.1 Sol Medium exact-source/interface/payload and closeout review",
+      "estimateUsd": 5,
+      "status": "recorded",
+      "note": "Independent raw commit/full tree/AST/deletion/preservation proof and own baseline build PASS; no source finding. Overall BLOCKED: polling session55318 denied for alleged unauthorized registry.npmjs.org access; final factory aggregate and own final payload comparison incomplete. No retry/workaround. Includes exact read-only evidence/accounting closeout review, not implementation/release clearance."
+    },
+    {
+      "id": "maintenance-nov18-coordination",
+      "role": "all root/parent cloud reconciliation, admission and coordination",
+      "estimateUsd": 4,
+      "status": "recorded",
+      "note": "Reconciled main/issues/live/cloud/ledger, preserved unmerged source ref, obeyed denial and parent instruction not to retry. No code integration, browser retry or Site publication; all actual release gates remain open."
+    },
+    {
+      "id": "maintenance-nov18-preservation",
+      "role": "daily ledger, byte archive and existing source/review report preservation",
+      "estimateUsd": 3,
+      "status": "recorded",
+      "note": "Preserved existing source/review reports, existing hash manifests and exact denial as evidence/accounting-only closeout based on admission15113e1. Nov17 archive unchanged. Prior failed Nov17 optional combined summary remains absent and incomplete; no replacement created."
+    },
+    {
+      "id": "maintenance-nov18-resumed-independent-verification",
+      "role": "resumed independent cloud GPT-6.1 Sol Medium verification after specific registry approval",
+      "estimateUsd": 7,
+      "status": "recorded",
+      "note": "CLEAR for exact reconciled candidate c788f9c3934e340eff68ac7bfee400ddefde44d8/tree fe16af109654b2a66dc9cf73a092db9e8c01d7ef against admission22a2714b. Fresh own base build and one final factory aggregate PASS:25factory+497main,src typecheck,131pins/0runtime downloads,build/prune129. Complete285file/23,847,739byte+10directory payload/direct-byte/HTML comparison identical; all637tracked source bytes/modes preserved. No findings. Includes exact final evidence/accounting review. Browser/release/full issue28 gates not cleared."
+    },
+    {
+      "id": "maintenance-nov18-resumed-coordination",
+      "role": "all additional parent/root reconciliation, admission and integration coordination",
+      "estimateUsd": 2,
+      "status": "recorded",
+      "note": "Reconciled preserved3d candidate onto current22a admission without dropping prior main receipts; verified the specific later registry approval and daily cap before resumed work. One unexecuted prerequisite approval-review timeout had a single explicitly permitted identical retry which succeeded; verification itself ran once with no new denial/retry. No dead55318 polling, browser retry, paid service or security change."
+    },
+    {
+      "id": "maintenance-nov18-resumed-preservation",
+      "role": "resumed verification evidence and final accounting preservation with exact review",
+      "estimateUsd": 1,
+      "status": "recorded",
+      "note": "Preserved existing fresh resumed report,85-artifact manifest,raw baseline/final aggregate logs and dedicated payload-comparison text as exact byte copies; finalized all7 daily entries recorded=$30,zero reserved/headroom. Historical BLOCKED receipts unchanged, original vanished Nov18 raw files not recreated or freshly rehashed. Nov17 archive and optional-file prohibition unchanged. No Site publication."
+    }
+  ],
+  "unallocatedHeadroomUsd": 0,
+  "notes": [
+    "November17 ledger archived byte-for-byte from authenticated UTF-8 content, blob7e192e9472a8180b2e0874253b618ccda4b8d895, SHA256 fe834424b9ca83e2c40e1ab8bc091081f898e498aa451d1757542ec13d58abcf. USD20 recorded, zero reserved, USD10 unused; no carry-forward. No earlier November18 paths or usage found in current main.",
+    "Pre-admission main505d22a2eb91d56166b6ab6e8ba8227c68fae318/tree86072ad1828e2598cff05d6503536316b24a5d97; latest reviewed pending725a0fa51f58af28dadf216ea696216f286cda41/tree6821c99cc7cdd1ed7a56574a9972ccf50f185c34 remains onfix/palace-pending-reconciled-2026-11-14. Original98 historical baseline. Preserve all prior CLI/UI/rule/selector cleanup; no pending integration or stale-tree replacement.",
+    "Resume issue28's final dead-export sub-scope only: verify no current callers/import/dynamic/global lookup, remove getRank(helpers.ts), hasPromotedOffice/getDisabledActions(influenceGating.ts), and remove the now-complete dead-export backlog bullet from architectureREADME. Preserve helpers.ts live personality/hint/threshold operations, all live gating types/functions/bodies, canInteract and its current branches, pending labels and every other issue28 acceptance. This completes only the ten-export backlog, not issue28; no closure.",
+    "Exact-head AST/import/caller and precise retained-byte deletion proof, fresh factory:check/relevant existing public interfaces and independent baseline/final complete payload comparison are required. Expect no production byte change; report actual generated changes honestly. No CSS/JSX/test/config/baseline/dependency/hook/any/wrapper or broad cleanup, no source-grep/Markdown regex product tests. Stop if intended targets are live or require a product decision.",
+    "Cloud attached/connected, Node24.22.1, old98/deps/assets and Nov17 frozen source workspace survive. Nov17 localec75226/tree f71d404 is not currentmain; preserve it and materialize exact admitted source from authenticated connector/verified Git objects. Respect shallow-history limits; no old missing raw-log freshness claims. Current shell read-only afterattach: all necessary ordinary source/artifact/test writes require supported scoped permission review first, no default write probes or persistent security/permission change.",
+    "Nov17 optional manifest-and-counters.json failed default read-only write with OSError30; no file created and no automated approval-review denial. It remains absent/incomplete and must not be retried, relocated or reconstructed under another path. Do not create a replacement combined summary. Fresh task-specific AST/deletion/payload proof and existing raw logs/reports may proceed only through independently authorized scoped workflow. Closeout preserves existing reports/manifests plus authorized ledger, not a new combined results object.",
+    "No materially new browser permission/process evidence. Existing organization CDP/DevTools/headless denials and Nov12 native socket/ptrace failure remain unresolved; no browser/CDP/CUA/headless/alternate launcher/flags/DOM/storage/tunnel retry. No matching saved Harem configuration or desktop substitution. Cloudflare reauth outside scope. Existing Siteactive/publicV57/sourceabbf403ef771569533b802a88691696db4f0ce94,32issues/noPRs unchanged; all actual browser/hosted/replay/controls/gait/CSS/touch/roles/H2/P0#41/#42/parentrelease gates stay open.",
+    "Sequential manual cloud agent-orgv3 pin7d756086b9938635e0cd11064a4d337eae747326/maxParallel1 substantive. Every new implementation/review agent gpt-6.1-sol/medium, skipOpus/stockdispatcher. USD20 conservative estimates reserved across source8/review5/allcoordination4/preservation3, USD10 unallocated/no further admission. USD30/day covers all runs without priority bypass. No purchase/paid service/install/account/credential/security grant/telemetry/quota export/public issue-PR communication/audience-identity change/alternate publication; no playable live improvement implied.",
+    "November18 closeout: all four admitted conservative estimates are recorded atUSD20 total, zero reserved, USD10 unused/unallocated; this is not actual billing. No further admissions. Independent review/execution was partially blocked, not a PASS. Estimates cover effort regardless of outcome.",
+    "Do not integrate candidate3d355e742304251a5240af0cbf1681121ef2440e/tree33e645a97655e4d2025ecd0429f8adf083520e03 until its required independent final aggregate and own complete payload comparison are satisfied under materially relevant authorization. Product source and architecture backlog onmain remain atadmission15113e1; source report completion is candidate-only. Exact blocked action and denial preserved indocs/factory/verification/final-dead-exports-2026-11-18/denial.txt. Matching saved automation supplies no new authority to override no-download restriction; parent explicitly ordered no retry.",
+    "Evidence/accounting-only main closeout does not waive browser/hosted/replay or other release gates. Pending725 and old98 refs unchanged. Siteactive/publicV57/sourceabbf403ef771569533b802a88691696db4f0ce94 unchanged by verified metadata; runtime health not browser-verified. No playable published improvement and no user notification.",
+    "November18 resumed verification admission follows later specific owner approval of npm registry access for this verification, relayed by parent after clarification. This materially new scope supersedes the earlier no-registry/no-download restriction only for the requested verification, not unrelated software, paid services, accounts or security grants. Prior denial remains historical and must not be hidden. Session55318 has no remaining matching process and prior Nov18 local source/review artifacts are absent; do not poll that dead session or invent its missing final outcome.",
+    "Current remote main6b11a517657b3c58927f469f76fd22f41d7d8d39/treeb268723b5dbcfbfece8045ebea11f8c6b41cade7 is evidence/accounting only. Candidate3d355e742304251a5240af0cbf1681121ef2440e/tree33e645a97655e4d2025ecd0429f8adf083520e03 remains preserved. Resume its exact three-file delta while retaining every current main file; do not replace main with stale candidate tree. Product source unchanged by admission.",
+    "USD20 earlier recorded plus USD10 additional reserved (independent7/allcoordination2/preservation1) = USD30 committed for November18 Asia/Ulaanbaatar. Headroom0: stop all additional admissions. No reclassification or cancellation of earlier actual effort estimates. Model remains GPT-6.1 Sol Medium for implementation/review workers, maxParallel1 substantive.",
+    "Specific npm registry approval does not clear old browser/CDP/headless/native/DevTools/socket/ptrace/tunnel/Cloudflare or optional-file restrictions. No browser retry or release waiver. Existing public SiteV57/sourceabbf403 remains unchanged until all required actual release gates pass. Older Nov18 reports retain their accurate historical BLOCKED verdict; fresh evidence must distinguish a resolved independent gate from still-open release gates.",
+    "November18 resumed verification completed: independent exact-source CLEAR for c788f9c3934e340eff68ac7bfee400ddefde44d8/treefe16af109654b2a66dc9cf73a092db9e8c01d7ef. Its exact three-file/34-line deletion can now be integrated while retaining every current main receipt. Fresh own baseline build/final aggregate25factory+497main/typecheck/131pins/build passed, all285production files/23,847,739bytes+10directories identical, all637tracked source bytes/modes preserved. No new product decision or full issue28 completion.",
+    "Earlier November18 notes and source/review receipts describe their historical stage, including unmerged/BLOCKED state at6b11a517 and missing independent execution then. They are not erased or recast as successful originals. New resumed evidence is separately preserved indocs/factory/verification/final-dead-exports-resumed-2026-11-18/. The original local Nov18 raw source/review proofs/archive vanished; their published human receipts/manifests survive but were not freshly rehashed as original artifact sets.",
+    "All7 November18 conservative job estimates are now recorded: original20 + resumed10 = USD30,zero reserved,zero unallocated. STOP additional maintenance admissions for this Asia/Ulaanbaatar day. These estimates cover effort and are not measured billing/token usage. No estimate reduced/reopened, no duplicate job, no priority bypass or extra worker.",
+    "Independent verification is resolved under the later narrow registry approval; browser/publication/parent release gates remain unresolved. No browser-route retry or waiver, no Site version save/deploy, no audience/identity change. Existing active/publicV57/sourceabbf403 remains unchanged by metadata, not runtime health verification. Pending725/original98/preserved3d refs remain unchanged. No verified published playable improvement and no routine user notification."
+  ]
+}
