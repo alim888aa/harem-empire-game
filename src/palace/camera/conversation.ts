@@ -118,58 +118,63 @@ export function frameConversationCamera(input: ConversationCameraInput): Convers
   const requestedDistance = input.preferredDistance ?? 4.8;
   const preferredDistance = Number.isFinite(requestedDistance) ? Math.max(3.6, Math.min(8, requestedDistance)) : 4.8;
   const distances = [...new Set([preferredDistance, preferredDistance + 1.2, preferredDistance + 2.4, 3.6, 9])];
-  let best: { score: number; frame: ConversationCameraFrame } | undefined;
+  // High shots remain preferred; a lantern can leave only a shoulder-height sightline clear.
+  for (const lower of [false, true]) {
+    let best: { score: number; frame: ConversationCameraFrame } | undefined;
 
-  for (let step = 0; step < 24; step++) {
-    const turn = step === 0 ? 0 : Math.ceil(step / 2) * Math.PI / 12 * (step % 2 ? 1 : -1);
-    const yaw = input.preferredYaw + turn;
-    for (const distance of distances) {
-      const candidate = new THREE.Vector3(
-        focus.x + Math.sin(yaw) * distance,
-        Math.min(focus.y + distance * 0.2 + 0.4, input.ceilingHeight - CAMERA_CLEARANCE),
-        focus.z + Math.cos(yaw) * distance,
-      );
-      if (candidate.y <= Math.max(player.position.y, subject.position.y) + 1.2) continue;
-      if (input.bounds && (
-        candidate.x < input.bounds.minX + CAMERA_CLEARANCE || candidate.x > input.bounds.maxX - CAMERA_CLEARANCE ||
-        candidate.z < input.bounds.minZ + CAMERA_CLEARANCE || candidate.z > input.bounds.maxZ - CAMERA_CLEARANCE
-      )) continue;
-      if (actors.some(actor => Math.hypot(candidate.x - actor.position.x, candidate.z - actor.position.z) < MIN_ACTOR_DISTANCE)) {
-        continue;
+    for (let step = 0; step < 24; step++) {
+      const turn = step === 0 ? 0 : Math.ceil(step / 2) * Math.PI / 12 * (step % 2 ? 1 : -1);
+      const yaw = input.preferredYaw + turn;
+      for (const distance of distances) {
+        const candidate = new THREE.Vector3(
+          focus.x + Math.sin(yaw) * distance,
+          Math.min(focus.y + (lower ? 0.2 : distance * 0.2 + 0.4), input.ceilingHeight - CAMERA_CLEARANCE),
+          focus.z + Math.cos(yaw) * distance,
+        );
+        if (candidate.y <= Math.max(player.position.y, subject.position.y) + 1.2) continue;
+        if (input.bounds && (
+          candidate.x < input.bounds.minX + CAMERA_CLEARANCE || candidate.x > input.bounds.maxX - CAMERA_CLEARANCE ||
+          candidate.z < input.bounds.minZ + CAMERA_CLEARANCE || candidate.z > input.bounds.maxZ - CAMERA_CLEARANCE
+        )) continue;
+        if (actors.some(actor => Math.hypot(candidate.x - actor.position.x, candidate.z - actor.position.z) < MIN_ACTOR_DISTANCE)) {
+          continue;
+        }
+        if (input.blockers.some(blocker => intersects(candidate, candidate, blocker, CAMERA_CLEARANCE))) continue;
+        // Actor bounds already include their radius; padding sightlines rejects valid wall-adjacent bodies.
+        if (bodyPoints.some(body => input.blockers.some(blocker => intersects(candidate, body, blocker, 0)))) continue;
+
+        camera.position.copy(candidate);
+        camera.lookAt(focus);
+        // Aim the upper-body midpoint at the usable band's center rather than the canvas center.
+        camera.rotateX(-frameTilt);
+        camera.updateMatrixWorld(true);
+        const fits = bodyPoints.every(body => {
+          const projected = body.clone().project(camera);
+          const x = (projected.x + 1) * viewport.width / 2;
+          const y = (1 - projected.y) * viewport.height / 2;
+          return projected.z > -1 && projected.z < 1 && x >= left && x <= right && y >= top && y <= bottom;
+        });
+        if (!fits) continue;
+
+        const score = Math.abs(turn) * 0.6 + Math.abs(distance - preferredDistance);
+        if (best && best.score <= score) continue;
+        const direction = camera.getWorldDirection(new THREE.Vector3());
+        best = {
+          score,
+          frame: {
+            position: point(candidate),
+            target: point(candidate.clone().addScaledVector(direction, candidate.distanceTo(focus))),
+            framed: true,
+          },
+        };
       }
-      if (input.blockers.some(blocker => intersects(candidate, candidate, blocker, CAMERA_CLEARANCE))) continue;
-      if (bodyPoints.some(body => input.blockers.some(blocker => intersects(candidate, body, blocker, 0.04)))) continue;
-
-      camera.position.copy(candidate);
-      camera.lookAt(focus);
-      // Aim the upper-body midpoint at the usable band's center rather than the canvas center.
-      camera.rotateX(-frameTilt);
-      camera.updateMatrixWorld(true);
-      const fits = bodyPoints.every(body => {
-        const projected = body.clone().project(camera);
-        const x = (projected.x + 1) * viewport.width / 2;
-        const y = (1 - projected.y) * viewport.height / 2;
-        return projected.z > -1 && projected.z < 1 && x >= left && x <= right && y >= top && y <= bottom;
-      });
-      if (!fits) continue;
-
-      const score = Math.abs(turn) * 0.6 + Math.abs(distance - preferredDistance);
-      if (best && best.score <= score) continue;
-      const direction = camera.getWorldDirection(new THREE.Vector3());
-      best = {
-        score,
-        frame: {
-          position: point(candidate),
-          target: point(candidate.clone().addScaledVector(direction, candidate.distanceTo(focus))),
-          framed: true,
-        },
-      };
     }
+    if (best) return best.frame;
   }
-  return best?.frame ?? fallback();
+  return fallback();
 }
 
-/** Caches one shot per subject/viewport and eases entry without content-driven recuts. */
+/** Caches one shot per subject/viewport, easing clear entry and cutting past obstructed travel. */
 export class ConversationCameraTransition {
   private key = '';
   private destination: ConversationCameraFrame | null = null;
@@ -183,10 +188,10 @@ export class ConversationCameraTransition {
       const planned = frameConversationCamera(request);
       const from = new THREE.Vector3(current.position.x, current.position.y, current.position.z);
       const to = new THREE.Vector3(planned.position.x, planned.position.y, planned.position.z);
-      // A clear endpoint is insufficient: the camera must not ease through a wall on its way there.
+      // Holding the ordinary pose can hide the Emperor indefinitely; cut to the already-clear framed endpoint.
       const blocked = request.blockers.some(blocker => intersects(from, to, blocker, CAMERA_CLEARANCE));
-      this.destination = blocked ? { ...current, framed: false } : planned;
-      this.origin = current;
+      this.destination = blocked && !planned.framed ? { ...current, framed: false } : planned;
+      this.origin = blocked && planned.framed ? planned : current;
       this.elapsed = 0;
       this.key = key;
     }

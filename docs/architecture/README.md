@@ -51,6 +51,7 @@ Follow `improve-codebase-architecture`:
 | `lib/*` | Pure-ish functions | Many fail the deletion test. They are 4–40-line fragments that take `role: string \| null, rank: string \| null` and re-resolve the career themselves. |
 | `components/GameLayout.tsx` | `machineState: any; send: any` | A god component. It owns the season clock, presence, rule derivations and every dialog. |
 | `palace/PalaceScene.tsx` | React props plus ref callbacks | One very large `useEffect` closure. `palace/world.ts` is already deep and node-testable. |
+| `palace/camera/index.ts` | `PalaceCamera.step`, camera framing operations and their inputs/results | Owns ordinary follow, bootstrap, retained fallback, conversation entry/exit and cached collision-safe transitions. Scene wiring supplies actor/orbit data and lazy dialog layout. |
 | `persistence/campaignSave.ts` | save, parse, migrate | Validates **raw XState snapshot internals**, so renaming a machine state can break saves. |
 | `ui/` | `Emblem`, `PopNumber`, `SealStamp`, `SoundToggle`, `playCue`, `installUiSounds`, plus the theme CSS | **Deep.** One delegated listener gives every button sound. The theme restyles the whole app without editing components. See `ui.md`. |
 

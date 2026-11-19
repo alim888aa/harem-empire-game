@@ -1,8 +1,16 @@
-/** Device-independent gesture math; pointer IDs never migrate between controls. */
+/** Owns device-independent input gestures and keyboard ownership policy. */
 export interface TouchVector { right: number; forward: number }
 export interface TouchPoint { x: number; y: number }
 export const TOUCH_DEADZONE = .14;
 export const STOPPED_TOUCH: TouchVector = { right: 0, forward: 0 };
+
+/** Focused controls keep their native keyboard actions instead of moving the player. */
+export function isPalaceControlTarget(target: EventTarget | null): boolean {
+  if (!target || !('closest' in target) || typeof target.closest !== 'function') return false;
+  return Boolean(target.closest(
+    'input, select, textarea, button, a[href], summary, [contenteditable], [role="button"], [role="link"], [role="tab"], [role="menuitem"]',
+  ));
+}
 
 export function joystickVector(dx: number, dy: number, radius: number, deadzone = TOUCH_DEADZONE): TouchVector {
   if (!Number.isFinite(dx + dy + radius) || radius <= 0) return { ...STOPPED_TOUCH };
