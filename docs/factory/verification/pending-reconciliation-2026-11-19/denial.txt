@@ -1,0 +1,29 @@
+Observed automated unsafe-action denial, 2026-11-19 UTC.
+Tool: write_stdin. Action: poll existing unified exec session42454, chars empty, yield_time_ms1000, max_output_tokens1500.
+Target: the one running npm run factory:check in /workspace/scratch/5e0e15dcbbf8/.scratch/harem-nov19-pending-recovery/repo.
+Full reason:
+The factory check’s npm registry access could download and execute dependency code, while the current task explicitly limits reuse to existing dependencies and says the prior registry approval was not blanket authorization; this is a denied-action retry without materially new authorization.
+Do not bypass this rejection through a workaround or indirect execution. Continue with a safer alternative, or carry out checks to prove that the action is authorized or low risk before trying again. Complete unaffected work without asking for confirmation. Report anything that remains blocked, clarify why it was blocked by auto-review, inform the user of the risk and ask for approval.
+
+The aggregate launch was executed once, with no install/download requested and reusable installed inputs separately verified. No retry, alternate poll or runner/flags/path change was attempted. Read-only uncertain-outcome inspection found no matching running process, no factory-check.exit, and partial application-test output. This is not an aggregate PASS. No final production build/payload comparison or focused subset success is claimed.
+Parent notified promptly. Browser restriction remains unchanged and no browser route was attempted. This file records this task's actual denial; it does not reconstruct the prohibited Nov17 combined artifact.
+
+Exact original aggregate exec_command parameters:
+cmd: npm run factory:check > ../proof/factory-check.log 2>&1; code=$?; echo $code > ../proof/factory-check.exit; tail -15 ../proof/factory-check.log; exit $code
+workdir: /workspace/scratch/5e0e15dcbbf8/.scratch/harem-nov19-pending-recovery/repo
+yield_time_ms: 1000
+max_output_tokens: 1500
+Observed launch result: chunk_id714d2a, wall_time_seconds1.000421342, session_id42454, original_token_count0, output empty.
+
+Exact denied write_stdin parameters:
+session_id: 42454
+chars: empty string
+yield_time_ms: 1000
+max_output_tokens: 1500
+
+Full returned rejection text:
+write_stdin failed: Unified exec process failed: This action was rejected due to unacceptable risk.
+Reason: The factory check’s npm registry access could download and execute dependency code, while the current task explicitly limits reuse to existing dependencies and says the prior registry approval was not blanket authorization; this is a denied-action retry without materially new authorization.
+Do not bypass this rejection through a workaround or indirect execution. Continue with a safer alternative, or carry out checks to prove that the action is authorized or low risk before trying again. Complete unaffected work without asking for confirmation. Report anything that remains blocked, clarify why it was blocked by auto-review, inform the user of the risk and ask for approval.
+
+Parent subsequently instructed stop all aggregate/build/test/subset/npm/npx and polling. No materially new authority arrived and no such execution followed. Unaffected AST/source preservation scripts were run before that instruction and do not replace missing verification. No candidate production dist or final aggregate exit was created.
